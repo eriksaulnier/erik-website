@@ -16,3 +16,5 @@ fields:
     schema:
       format: markdown
   label: SEO Description
+pages:
+- content/pages/about.md
