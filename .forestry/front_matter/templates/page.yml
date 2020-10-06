@@ -16,5 +16,12 @@ fields:
     schema:
       format: markdown
   label: SEO Description
+- name: blocks
+  type: blocks
+  label: Blocks
+  template_types: []
+  config:
+    min: 
+    max: 
 pages:
 - content/pages/about.md
