@@ -1,0 +1,37 @@
+@import './variables';
+
+.layout {
+  min-height: 100vh;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    flex-grow: 1;
+    padding: 2.5rem 2rem;
+    background-color: $dark-1;
+    border-radius: 0.5em;
+
+    .container {
+      max-width: 1300px;
+      // padding: 0 30px;
+      margin: 0 auto;
+    }
+
+    p {
+      line-height: 1.6em;
+    }
+
+    h1 {
+      margin: 0 0 30px 0;
+    }
+
+    section {
+      margin-bottom: 80px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

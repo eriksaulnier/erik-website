@@ -1,0 +1,50 @@
+@import './fonts';
+@import './variables';
+
+body { 
+  margin: 0;
+  padding: 0;
+  color: $white;
+  font-family: $font-body;
+  background-color: $dark-2;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+  font-family: $font-heading;
+}
+
+a {
+  color: $primary;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s ease-out;
+
+  &:hover {
+    color: $primary-light;
+    text-decoration: underline;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}

@@ -1,0 +1,57 @@
+@import './variables';
+
+$height: 18rem;
+$header-height: 4rem;
+$header-height-hover: 10rem;
+
+.project {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  height: $height;
+  background-color: $dark-3;
+  border-radius: 0.5em;
+
+  .header {
+    display: flex;
+    flex: 1;
+    height: $header-height;
+    align-self: flex-end;
+    z-index: 1;
+    background-color: $dark-3;
+    transition: height 0.3s ease-out;
+    
+    .title {
+      height: 100%;
+      margin: 0;
+      line-height: 1;
+      // vertical-align: ;
+    }
+
+    .year {
+      background-color: $primary;
+      padding: 5px;
+      border-radius: 4px 6px;
+    }
+  }
+
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: $header-height;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &:hover {
+    .header {
+      height: 10rem;
+    }
+  }
+}

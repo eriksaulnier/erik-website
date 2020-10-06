@@ -1,0 +1,28 @@
+@import './variables';
+
+.skillsBlock {
+  margin-bottom: 1.6em;
+
+  h4 {
+    margin: 0 0 0.6em;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .skill {
+      display: inline-block;
+      padding: 4px 8px;
+      margin: 0 10px 10px 0;
+      font-size: 0.9rem;
+      background-color: $dark-3;
+      border-radius: 3px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

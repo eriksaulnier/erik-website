@@ -1,0 +1,14 @@
+@import './variables';
+
+.projectList {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+
+  li {
+    display: inline-block;
+  }
+}

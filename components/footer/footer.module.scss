@@ -1,0 +1,26 @@
+@import './variables';
+@import './helpers';
+
+.footer {
+  padding: 0.5rem 1rem;
+  color: $light-2;
+  font-size: 0.9em;
+  font-weight: 600;
+  font-family: $font-heading;
+
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .powered {
+    svg {
+      color: $yellow;
+      vertical-align: middle;
+    }
+  }
+}

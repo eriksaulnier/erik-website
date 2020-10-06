@@ -1,0 +1,91 @@
+@import './variables';
+
+.header {
+  padding: 0.8rem 1rem;
+  font-weight: 600;
+  color: $light-2;
+
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .left { 
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .brand {
+    color: $light-1;
+    font-size: 1.6em;
+    font-weight: 600;
+    font-family: $font-heading;
+    line-height: 40px;
+    margin-right: 80px;
+  
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+    }
+  }
+  
+  .navigation {
+    line-height: 40px;
+  
+    a {
+      position: relative;
+      margin-right: 40px;
+      color: $light-2;
+      font-size: 1.1em;
+      font-family: $font-heading;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+  
+      &:hover {
+        color: $primary;
+        text-decoration: none;
+      }
+  
+      &.active {
+        // color: $primary;
+  
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -3px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          border-radius: 1px;
+          background-color: $primary;
+        }
+      }
+    }
+  }
+  
+  .social {
+    a {
+      color: $light-2;
+      font-size: 1.4em;
+      margin-right: 30px;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+  
+      svg {
+        vertical-align: middle;
+      }
+  
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
