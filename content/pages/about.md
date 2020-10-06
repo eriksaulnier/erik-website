@@ -11,6 +11,44 @@ blocks:
     Aenean dignissim pellentesque felis.</p><p>I currently work full-time as a developer
     at Troy Web Consulting in Troy, NY.</p>"
   block_title: ''
+- template: technology-block
+  block_title: Technologies I Use
+  category:
+  - category_title: Everyday Tools
+    technologies:
+    - label: VS Code
+    - label: Docker
+    - label: Cyberduck
+    - label: GitKraken
+  - category_title: Programming Languages
+    technologies:
+    - label: Javascript
+    - label: Typescript
+    - label: PHP
+    - label: Python
+    - label: C++
+    - label: C#
+    - label: Java
+  - category_title: Frameworks
+    technologies:
+    - label: React
+    - label: Angular
+    - label: Laravel
+    - label: Vue.js
+    - label: React Native
+    - label: Next.js
+    - label: Django
+  - category_title: Databases
+    technologies:
+    - label: MySQL
+    - label: MongoDB
+    - label: PostgreSQL
+  - category_title: Other
+    technologies:
+    - label: Wordpress
+    - label: AWS
+    - label: Netlify
+    - label: UiPath
 - template: content-block
   content: <p>If you'd like to work together on a project, have a technical question,
     or just want to have a chat; feel free to get in touch with me <a href="/contact"
