@@ -1,4 +1,35 @@
 ---
 label: Technology Block
 hide_body: true
-fields: []
+fields:
+- name: block_title
+  type: text
+  config:
+    required: false
+  label: Block Title
+- name: category
+  type: field_group_list
+  fields:
+  - name: category_title
+    type: text
+    config:
+      required: false
+    label: Category Title
+  - name: technologies
+    type: field_group_list
+    fields:
+    - name: label
+      type: text
+      config:
+        required: false
+      label: Label
+    config:
+      min: 
+      max: 
+      labelField: 
+    label: Technologies
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Category
