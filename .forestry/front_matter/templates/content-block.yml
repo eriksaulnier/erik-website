@@ -1,4 +1,9 @@
 ---
 label: Content Block
 hide_body: false
-fields: []
+fields:
+- name: block_title
+  type: text
+  config:
+    required: false
+  label: Block Title
