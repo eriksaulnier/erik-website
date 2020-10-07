@@ -35,5 +35,6 @@ fields:
   label: Thumbnail
   default: "/uploads/600x400.png"
 pages:
+- content/projects/sneaky-spanish.md
 - content/projects/storywings-library.md
 - content/projects/tech-valley-digital-gaming-hub.md
