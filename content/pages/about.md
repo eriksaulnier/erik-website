@@ -1,5 +1,5 @@
 ---
-page_title: About
+page_title: About Me
 seo_description: ''
 blocks:
 - template: content-block
