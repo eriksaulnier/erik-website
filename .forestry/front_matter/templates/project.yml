@@ -28,3 +28,5 @@ fields:
     maxSize: 64
   label: Thumbnail
   default: "/uploads/600x400.png"
+pages:
+- content/projects/storywings-library.md
