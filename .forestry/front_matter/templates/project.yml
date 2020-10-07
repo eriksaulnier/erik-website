@@ -30,3 +30,4 @@ fields:
   default: "/uploads/600x400.png"
 pages:
 - content/projects/storywings-library.md
+- content/projects/tech-valley-digital-gaming-hub.md
