@@ -13,7 +13,7 @@ blocks:
   block_title: ''
 - template: technology-block
   block_title: Technologies I Use
-  category:
+  categories:
   - category_title: Everyday Tools
     technologies:
     - label: VS Code
