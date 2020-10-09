@@ -1,4 +1,19 @@
 ---
 label: Projects Block
 hide_body: true
-fields: []
+fields:
+- name: block_title
+  type: text
+  config:
+    required: false
+  label: Block Title
+- name: count
+  type: number
+  label: Count
+  description: "-1 to show all projects"
+  default: -1
+  required: true
+  config:
+    min: 
+    max: 
+    step: 
