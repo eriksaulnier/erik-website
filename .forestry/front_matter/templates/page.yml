@@ -28,3 +28,4 @@ fields:
     max: 
 pages:
 - content/pages/about.md
+- content/pages/projects.md
