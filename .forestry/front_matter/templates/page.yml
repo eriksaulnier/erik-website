@@ -28,6 +28,7 @@ fields:
   template_types:
   - content-block
   - technology-block
+  - projects-block
   config:
     min: 
     max: 
