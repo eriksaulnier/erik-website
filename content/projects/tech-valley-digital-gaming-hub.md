@@ -8,5 +8,6 @@ description: Worked with Rensselaer Polytechnic Institute's GSAS department to d
   on the Tech Valley and Capital District regions in New York State.
 year: "2017"
 client: Rensselear Polytechnic Institute
+created_date: 2017-11-01T04:00:00Z
 
 ---

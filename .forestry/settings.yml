@@ -1,16 +1,9 @@
 ---
 new_page_extension: md
 auto_deploy: false
-admin_path: 
+admin_path: ''
 webhook_url: 
 sections:
-- type: directory
-  path: content/projects
-  label: Projects
-  create: documents
-  match: "**/*"
-  templates:
-  - project
 - type: directory
   path: content/pages
   label: Pages
@@ -18,6 +11,13 @@ sections:
   match: "**/*"
   templates:
   - page
+- type: directory
+  path: content/projects
+  label: Projects
+  create: documents
+  match: "**/*"
+  templates:
+  - project
 upload_dir: public/uploads
 public_path: ''
 front_matter_path: ''
