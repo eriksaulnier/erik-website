@@ -34,6 +34,16 @@ fields:
     maxSize: 64
   label: Thumbnail
   default: "/uploads/600x400.png"
+- name: created_date
+  type: datetime
+  description: Used for sorting
+  config:
+    required: false
+    date_format: 
+    time_format: 
+    display_utc: false
+  default: now
+  label: Created Date
 pages:
 - content/projects/lunatik-esports.md
 - content/projects/pass-the-aux.md
