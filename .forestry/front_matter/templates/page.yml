@@ -8,6 +8,11 @@ fields:
   config:
     required: false
   label: Page Title
+- name: tab_title
+  type: text
+  config:
+    required: false
+  label: Tab Title
 - name: seo_description
   type: textarea
   default: ''
