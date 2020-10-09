@@ -6,5 +6,6 @@ description: Designed and developed the beta version of StoryWings, an online st
   through generations.
 year: "2017"
 client: Course Project
+created_date: 2017-11-01T04:00:00Z
 
 ---
