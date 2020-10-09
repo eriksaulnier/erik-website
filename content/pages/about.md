@@ -54,5 +54,6 @@ blocks:
     or just want to have a chat; feel free to get in touch with me <a href="/contact"
     title="" editing="" creating=""><strong>using this form</strong></a>.</p>
   block_title: Get in Contact
+tab_title: About
 
 ---
