@@ -12,8 +12,8 @@ sections:
   templates:
   - site-info
 - type: document
-  path: content/site-information.md
-  label: Site Information
+  path: content/site-settings.md
+  label: Site Settings
 - type: heading
   label: Content
 - type: directory
