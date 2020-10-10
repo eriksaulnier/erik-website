@@ -63,6 +63,20 @@ blocks:
     textarea_placeholder: ''
     select_options: []
     checkbox_options: []
+  - template: form-field
+    field_type: Checkbox
+    label: Test Checkbox
+    name: test-checkbox
+    checkbox_options:
+    - label: Option 1
+      value: option-1
+    - label: Option 2
+      value: option-2
+    description: ''
+    text_placeholder: ''
+    textarea_placeholder: ''
+    select_options: []
+    radio_options: []
   block_title: ''
 
 ---
