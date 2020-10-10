@@ -25,5 +25,15 @@ blocks:
     select_options: []
     radio_options: []
     checkbox_options: []
+  - template: field-text
+    name: message
+    label: Message
+    field_type: Textfield
+    description: ''
+    text_placeholder: ''
+    textarea_placeholder: ''
+    select_options: []
+    radio_options: []
+    checkbox_options: []
 
 ---
