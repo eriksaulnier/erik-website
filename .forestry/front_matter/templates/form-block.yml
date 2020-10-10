@@ -1,0 +1,12 @@
+---
+label: Form Block
+hide_body: true
+fields:
+- name: form_fields
+  type: blocks
+  label: Form Fields
+  template_types:
+  - field-text
+  config:
+    min: 
+    max: 

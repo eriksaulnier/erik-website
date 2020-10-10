@@ -28,10 +28,11 @@ fields:
   template_types:
   - content-block
   - technology-block
-  - projects-block
+  - form-block
   config:
     min: 
     max: 
 pages:
 - content/pages/about.md
+- content/pages/contact.md
 - content/pages/projects.md

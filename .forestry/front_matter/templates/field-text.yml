@@ -1,0 +1,124 @@
+---
+label: Form Field
+hide_body: true
+display_field: label
+fields:
+- name: name
+  type: text
+  config:
+    required: true
+  label: Name
+  description: HTML "name" attribute. Keep this to letters and underscores only (no
+    spaces)
+- name: label
+  type: text
+  config:
+    required: false
+  label: Label
+  description: Label that appears above this field
+- name: description
+  type: text
+  config:
+    required: false
+  label: Description
+  description: Help text to display beneath field
+- name: field_type
+  type: select
+  default: []
+  config:
+    required: false
+    options:
+    - Text
+    - Textfield
+    - Select
+    - Radio
+    - Checkbox
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Field Type
+- name: text_placeholder
+  type: text
+  config:
+    required: false
+  label: Text Placeholder
+  showOnly:
+    field: field_type
+    value: Text
+- name: textarea_placeholder
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Textarea Placeholder
+  showOnly:
+    field: field_type
+    value: Textfield
+- name: select_options
+  type: field_group_list
+  fields:
+  - name: label
+    type: text
+    config:
+      required: true
+    label: Label
+  - name: value
+    type: text
+    config:
+      required: true
+    label: Value
+  config:
+    min: 
+    max: 
+    labelField: label
+  label: Select Options
+  showOnly:
+    field: field_type
+    value: Select
+- name: radio_options
+  type: field_group_list
+  fields:
+  - name: label
+    type: text
+    config:
+      required: true
+    label: Label
+  - name: value
+    type: text
+    config:
+      required: true
+    label: Value
+  config:
+    min: 
+    max: 
+    labelField: label
+  label: Radio Options
+  showOnly:
+    field: field_type
+    value: Radio
+- name: checkbox_options
+  type: field_group_list
+  fields:
+  - name: label
+    type: text
+    config:
+      required: true
+    label: Label
+  - name: value
+    type: text
+    config:
+      required: true
+    label: Value
+  config:
+    min: 
+    max: 
+    labelField: label
+  label: Checkbox Options
+  showOnly:
+    field: field_type
+    value: Checkbox
