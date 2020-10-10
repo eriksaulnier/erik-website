@@ -48,3 +48,5 @@ fields:
       labelField: name
     label: Social Media
   label: Header
+pages:
+- content/site-settings.md
