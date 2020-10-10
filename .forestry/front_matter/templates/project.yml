@@ -3,6 +3,9 @@ label: Project
 hide_body: true
 display_field: title
 fields:
+- name: published
+  type: boolean
+  label: Published
 - name: title
   type: text
   config:
