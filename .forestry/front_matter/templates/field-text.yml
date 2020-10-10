@@ -1,5 +1,5 @@
 ---
-label: Field - Text
+label: Form Field
 hide_body: true
 fields:
 - name: name
@@ -21,3 +21,20 @@ fields:
     required: false
   label: Description
   description: Help text to display beneath field
+- name: field_type
+  type: select
+  default: []
+  config:
+    required: false
+    options:
+    - Text
+    - Textfield
+    - Select
+    - Radio
+    - Checkbox
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Field Type
