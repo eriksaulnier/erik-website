@@ -5,9 +5,8 @@ admin_path: ''
 webhook_url: 
 sections:
 - type: document
-  path: content/articles/lorem-ipsum.md
-  label: Site Info
-  read_only: false
+  path: content/site-information.md
+  label: Site Information
 - type: heading
   label: Content
 - type: directory
