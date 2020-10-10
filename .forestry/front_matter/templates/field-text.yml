@@ -1,6 +1,7 @@
 ---
 label: Form Field
 hide_body: true
+display_field: label
 fields:
 - name: name
   type: text
