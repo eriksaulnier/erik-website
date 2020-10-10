@@ -5,6 +5,9 @@ header:
   - content/pages/about.md
   - content/pages/projects.md
   social_links:
+  - name: Twitter
+    link: https://twitter.com/eriksaulnier
+    icon: FaTwitter
   - name: GitHub
     link: https://github.com/eriksaulnier
     icon: FaGithub
