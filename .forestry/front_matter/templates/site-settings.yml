@@ -46,7 +46,7 @@ fields:
       min: 
       max: 
       labelField: name
-    label: Social Media
+    label: Social Links
   label: Header
 pages:
 - content/site-settings.md
