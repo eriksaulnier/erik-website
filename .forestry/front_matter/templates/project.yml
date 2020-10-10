@@ -49,12 +49,7 @@ fields:
   default: "/uploads/600x400.png"
 pages:
 - content/projects/lunatik-esports.md
-- content/projects/lunatik-esports.md
-- content/projects/pass-the-aux.md
 - content/projects/pass-the-aux.md
 - content/projects/sneaky-spanish.md
-- content/projects/sneaky-spanish.md
 - content/projects/storywings-library.md
-- content/projects/storywings-library.md
-- content/projects/tech-valley-digital-gaming-hub.md
 - content/projects/tech-valley-digital-gaming-hub.md
