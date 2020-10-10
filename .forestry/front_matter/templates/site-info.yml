@@ -2,13 +2,23 @@
 label: Site Info
 hide_body: true
 fields:
-- name: navigation
-  type: list
+- name: site_title
+  type: text
   config:
-    use_select: true
-    min: 
-    max: 
-    source:
-      type: pages
-      section: pages
-  label: Navigation
+    required: true
+  label: Site Title
+- name: header
+  type: field_group
+  config: {}
+  fields:
+  - name: navigation
+    type: list
+    config:
+      use_select: true
+      min: 
+      max: 
+      source:
+        type: pages
+        section: pages
+    label: Navigation
+  label: Header
