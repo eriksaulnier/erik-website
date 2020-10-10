@@ -28,6 +28,8 @@ sections:
   label: Articles
   create: all
   match: "**/*"
+  templates:
+  - article
 upload_dir: public/uploads
 public_path: ''
 front_matter_path: ''
