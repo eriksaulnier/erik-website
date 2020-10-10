@@ -1,4 +1,22 @@
 ---
 label: Article
 hide_body: false
-fields: []
+fields:
+- name: article_title
+  type: text
+  config:
+    required: true
+  label: Article Title
+- name: created_date
+  type: datetime
+  label: Created Date
+  description: ''
+  config:
+    required: true
+    date_format: 
+    time_format: 
+    display_utc: false
+  default: now
+- name: published
+  type: boolean
+  label: Published
