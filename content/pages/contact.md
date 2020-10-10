@@ -6,8 +6,8 @@ blocks:
 - template: form-block
   form_fields:
   - template: field-text
-    name: Name
-    label: name
+    name: name
+    label: Name
     field_type: Text
     description: ''
     text_placeholder: ''
