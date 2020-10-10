@@ -1,6 +1,7 @@
 ---
 label: Article
 hide_body: false
+display_field: article_title
 fields:
 - name: article_title
   type: text
