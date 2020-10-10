@@ -29,7 +29,7 @@ fields:
     required: false
     options:
     - Text
-    - Textfield
+    - Textarea
     - Select
     - Radio
     - Checkbox
