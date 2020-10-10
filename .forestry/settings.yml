@@ -4,16 +4,6 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
-- type: directory
-  path: content
-  label: Everything
-  create: all
-  match: "**/*"
-  templates:
-  - page
-  - article
-  - project
-  - site-info
 - type: document
   path: content/site-settings.md
   label: Site Settings
@@ -40,6 +30,18 @@ sections:
   match: "**/*"
   templates:
   - article
+- type: heading
+  label: Miscellaneous
+- type: directory
+  path: content
+  label: Everything
+  create: all
+  match: "**/*"
+  templates:
+  - page
+  - article
+  - project
+  - site-info
 upload_dir: public/uploads
 public_path: ''
 front_matter_path: ''
