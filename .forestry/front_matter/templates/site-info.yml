@@ -21,4 +21,30 @@ fields:
         type: pages
         section: pages
     label: Navigation
+  - name: social_links
+    type: field_group_list
+    fields:
+    - name: name
+      type: text
+      config:
+        required: true
+      label: Name
+    - name: link
+      type: text
+      config:
+        required: true
+      label: Link
+    - name: icon
+      type: text
+      config:
+        required: true
+      label: Icon
+      description: FontAwesome icon name from <a href="https://react-icons.github.io/react-icons/icons?name=fa"
+        title="" target="_blank">here</a>
+      default: FaGlobe
+    config:
+      min: 
+      max: 
+      labelField: 
+    label: Social Media
   label: Header
