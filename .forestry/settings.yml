@@ -4,13 +4,11 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
+- type: heading
+  label: Content
 - type: document
   path: site-info
   label: Site Info
-  match: "**/*"
-  read_only: false
-- type: heading
-  label: Content
 - type: directory
   path: content/pages
   label: Pages
