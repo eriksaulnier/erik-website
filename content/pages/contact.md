@@ -28,12 +28,13 @@ blocks:
   - template: form-field
     name: message
     label: Message
-    field_type: Textfield
+    field_type: Textarea
     description: ''
     text_placeholder: ''
     textarea_placeholder: ''
     select_options: []
     radio_options: []
     checkbox_options: []
+  block_title: ''
 
 ---
