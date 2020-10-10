@@ -15,5 +15,15 @@ blocks:
     select_options: []
     radio_options: []
     checkbox_options: []
+  - template: field-text
+    name: email
+    label: Email
+    field_type: Text
+    description: ''
+    text_placeholder: ''
+    textarea_placeholder: ''
+    select_options: []
+    radio_options: []
+    checkbox_options: []
 
 ---
