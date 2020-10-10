@@ -7,7 +7,6 @@ sections:
 - type: document
   path: content/site-info
   label: Site Info
-  read_only: false
 - type: heading
   label: Content
 - type: directory
