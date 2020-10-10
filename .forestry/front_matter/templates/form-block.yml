@@ -7,7 +7,7 @@ fields:
   config:
     required: false
   label: Block Title
-- name: form_fields
+- name: fields
   type: blocks
   label: Form Fields
   template_types:

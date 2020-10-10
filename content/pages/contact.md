@@ -4,8 +4,8 @@ tab_title: Contact
 seo_description: ''
 blocks:
 - template: form-block
-  form_fields:
-  - template: field-text
+  fields:
+  - template: form-field
     name: name
     label: Name
     field_type: Text
@@ -15,7 +15,7 @@ blocks:
     select_options: []
     radio_options: []
     checkbox_options: []
-  - template: field-text
+  - template: form-field
     name: email
     label: Email
     field_type: Text
@@ -25,7 +25,7 @@ blocks:
     select_options: []
     radio_options: []
     checkbox_options: []
-  - template: field-text
+  - template: form-field
     name: message
     label: Message
     field_type: Textfield
