@@ -11,7 +11,7 @@ fields:
   type: blocks
   label: Form Fields
   template_types:
-  - field-text
+  - form-field
   config:
     min: 
     max: 
