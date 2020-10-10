@@ -45,6 +45,6 @@ fields:
     config:
       min: 
       max: 
-      labelField: 
+      labelField: name
     label: Social Media
   label: Header
