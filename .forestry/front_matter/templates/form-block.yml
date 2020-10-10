@@ -2,6 +2,11 @@
 label: Form Block
 hide_body: true
 fields:
+- name: block_title
+  type: text
+  config:
+    required: false
+  label: Block Title
 - name: form_fields
   type: blocks
   label: Form Fields
