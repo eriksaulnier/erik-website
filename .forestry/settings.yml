@@ -5,10 +5,12 @@ admin_path: ''
 webhook_url: 
 sections:
 - type: directory
-  path: ''
+  path: content
   label: General
   create: all
   match: "**/*"
+  templates:
+  - site-info
 - type: document
   path: content/site-information.md
   label: Site Information
