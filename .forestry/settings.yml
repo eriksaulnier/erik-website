@@ -5,7 +5,7 @@ admin_path: "/pages/admin"
 webhook_url: 
 sections:
 - type: document
-  path: site-info
+  path: content/site-info
   label: Site Info
 - type: heading
   label: Content
