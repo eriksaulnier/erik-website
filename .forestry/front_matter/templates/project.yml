@@ -3,14 +3,24 @@ label: Project
 hide_body: true
 display_field: title
 fields:
-- name: published
-  type: boolean
-  label: Published
 - name: title
   type: text
   config:
     required: true
   label: Title
+- name: created_date
+  type: datetime
+  config:
+    required: false
+    date_format: 
+    time_format: 
+    display_utc: false
+    export_format: YYYY-MM-DDThh:mm:ssZ
+  default: now
+  label: Created Date
+- name: published
+  type: boolean
+  label: Published
 - name: client
   type: text
   config:
@@ -37,17 +47,6 @@ fields:
     maxSize: 64
   label: Thumbnail
   default: "/uploads/600x400.png"
-- name: created_date
-  type: datetime
-  description: Used for sorting
-  config:
-    required: false
-    date_format: 
-    time_format: 
-    display_utc: false
-    export_format: YYYY-MM-DDThh:mm:ssZ
-  default: now
-  label: Created Date
 pages:
 - content/projects/lunatik-esports.md
 - content/projects/pass-the-aux.md
