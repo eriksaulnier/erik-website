@@ -24,9 +24,9 @@ fields:
   description: Help text to display beneath field
 - name: field_type
   type: select
-  default: []
+  default: Text
   config:
-    required: false
+    required: true
     options:
     - Text
     - Textarea
