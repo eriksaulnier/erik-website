@@ -12,14 +12,29 @@ fields:
   config: {}
   fields:
   - name: navigation
-    type: list
+    type: field_group_list
+    fields:
+    - name: label
+      type: text
+      config:
+        required: true
+      label: Label
+    - name: page
+      type: select
+      default: []
+      config:
+        required: true
+        options: []
+        source:
+          type: pages
+          section: pages
+          file: 
+          path: 
+      label: Page
     config:
-      use_select: true
       min: 
       max: 
-      source:
-        type: pages
-        section: pages
+      labelField: 
     label: Navigation
   - name: social_links
     type: field_group_list
