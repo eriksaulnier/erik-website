@@ -1,8 +1,10 @@
+import styles from './../form-block.module.scss'
+
 export default function CheckboxField({ data }) {
   return (
-    <div className="form-field">
+    <div className={styles.Field} width={data.width||100}>
       {data.label ? <label htmlFor={data.name}>{data.label}</label> : null}
-      <div className="control">
+      <div className={styles.CheckboxField}>
         {data.checkbox_options.map((option, index) => (
           <div key={index}>
             <input type="checkbox" name={data.name+index} value={option.value} />
@@ -10,6 +12,7 @@ export default function CheckboxField({ data }) {
           </div>
         ))}
       </div>
+      {data.description ? <p className={styles.Description}>{data.description}</p> : null}
     </div>
   )
 }

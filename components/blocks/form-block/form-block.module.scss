@@ -1,0 +1,106 @@
+@import './variables';
+
+.FormBlock {
+  .FieldGroup {
+    display: grid;
+    grid-template-columns: repeat(4, [col] 1fr);
+    grid-gap: 2em;
+
+    .Field {
+      width: 100%;
+      margin-bottom: 1rem;
+      display: inline-block;
+      vertical-align: top;
+
+      &[width="100"] {
+        grid-column: auto / span 4;
+      }
+
+      &[width="75"] {
+        grid-column: auto / span 3;
+      }
+
+      &[width="50"] {
+        grid-column: auto / span 2;
+      }
+
+      &[width="25"] {
+        grid-column: auto / span 1;
+      }
+
+      > label {
+        display: block;
+        margin-bottom: .5em;
+        font-weight: bold;
+      }
+
+      .Description {
+        margin: 0.5em 0 0;
+        font-size: 0.9em;
+        color: $light-2;
+        font-style: italic;
+      }
+
+      .TextField {
+        input {
+          width: 100%;
+          padding: 0.5em 0.75em;
+          background-color: $dark-3;
+          border-radius: 3px;
+          border: none;
+          box-sizing: border-box;
+          color: $white;
+          line-height: 1.5em;
+          font-size: 1em;
+        }
+      }
+
+      .TextareaField {
+        textarea {
+          width: 100%;
+          min-height: 6rem;
+          padding: 0.5em 0.75em;
+          background-color: $dark-3;
+          border-radius: 3px;
+          border: none;
+          box-sizing: border-box;
+          color: $white;
+          line-height: 1.5em;
+          font-size: 1em;
+          resize: vertical;
+        }
+      }
+
+      .SelectField {
+        select {
+          padding: 0.75em 0.75em;
+          background-color: $dark-3;
+          border-radius: 3px;
+          border: none;
+          box-sizing: border-box;
+          color: $white;
+
+          option {
+          padding: 0.75em 0.75em;
+
+          }
+        } 
+      }
+
+      .RadioField {
+        input[type="radio"] {
+          margin-right: 5px;
+        }
+
+        label {
+        }
+      }
+
+      .CheckboxField {
+        input[type="checkbox"] {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
