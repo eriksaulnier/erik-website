@@ -15,3 +15,9 @@ fields:
   config:
     min: 
     max: 
+- name: submit_text
+  type: text
+  config:
+    required: true
+  label: Submit Text
+  default: Submit
