@@ -6,7 +6,7 @@ export default function FormBlock({ data }) {
     <section className={styles.FormBlock}>
       {data.block_title ? <h2>{data.block_title}</h2> : null}
 
-      <form name={data.form_name} method="POST" netlify netlify-honeypot="verification">
+      <form name={data.form_name} method="POST" data-netlify="true" netlify-honeypot="verification">
         <input type="hidden" name="form-name" value={data.form_name} />
         <input type="hidden" name="verification" />
 
