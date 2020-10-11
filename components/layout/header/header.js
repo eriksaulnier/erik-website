@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import Link from 'next/link'
-import { useRouter } from "next/router"
+import { useRouter } from 'next/router'
 import * as Fa from 'react-icons/fa' 
 import styles from './header.module.scss'
 
