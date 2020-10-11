@@ -1,6 +1,6 @@
 ---
-created_date: 2020-10-10T17:39:34-04:00
-article_title: Lorem ipsum
+created_date: 2020-10-10T17:39:34.000-04:00
+article_title: Hello World
 published: true
 
 ---
