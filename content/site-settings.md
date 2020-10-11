@@ -8,5 +8,8 @@ header:
   - name: LinkedIn
     link: https://www.linkedin.com/in/eriksaulnier
     icon: FaLinkedin
+  navigation:
+  - label: Projects
+    page: content/pages/projects.md
 
 ---
