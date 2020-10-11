@@ -84,6 +84,6 @@ blocks:
     radio_options: []
     width: 100
   block_title: ''
-  submit_text: Submit
+  submit_text: Send
 
 ---
