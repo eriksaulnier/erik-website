@@ -22,6 +22,17 @@ fields:
     required: false
   label: Description
   description: Help text to display beneath field
+- name: width
+  type: number
+  label: Width
+  description: ''
+  default: 100
+  required: true
+  config:
+    min: 25
+    max: 100
+    step: 25
+    required: true
 - name: field_type
   type: select
   default: Text
