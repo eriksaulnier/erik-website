@@ -12,6 +12,8 @@ fields:
   config:
     required: true
   label: Form Name
+  description: HTML "name" attribute. Keep this to letters and underscores only (no
+    spaces)
 - name: fields
   type: blocks
   label: Form Fields
