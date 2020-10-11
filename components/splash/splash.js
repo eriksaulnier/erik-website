@@ -1,6 +1,6 @@
 // import styles from './splash.module.scss'
 
-export default function SkillsBlock() {
+export default function TechnologyBlock() {
   return (
     <>
       Splash!!1

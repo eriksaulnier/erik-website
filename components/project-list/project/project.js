@@ -9,7 +9,7 @@ export default function Project({ project }) {
       </div>
       
       <div className={styles.image}>
-        <img src="/placeholder.jpg" />
+        <img src={project.thumbnail} />
       </div>
     </div>
   )
