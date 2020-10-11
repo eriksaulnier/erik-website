@@ -4,6 +4,7 @@ header:
   navigation:
   - content/pages/about.md
   - content/pages/projects.md
+  - content/pages/contact.md
   social_links:
   - name: GitHub
     link: https://github.com/eriksaulnier
