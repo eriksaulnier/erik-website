@@ -3,11 +3,11 @@ import { getSiteSettings, getAllPagePaths, getPageBySlug } from '../lib/api'
 import { Layout } from '../components/layout'
 import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock } from '../components/blocks'
 
-export default function Page({ site, content, frontmatter }) {
+export default function Page({ site, content, page_title, tab_title, blocks }) {
   return (
-    <Layout site={site} pageTitle={frontmatter.tab_title}>
+    <Layout site={site} pageTitle={tab_title}>
       <div>
-        <h1>{frontmatter.page_title}</h1>
+        <h1>{page_title}</h1>
 
         {content ? (
           <section>
@@ -15,7 +15,7 @@ export default function Page({ site, content, frontmatter }) {
           </section>
         ) : null}
 
-        {frontmatter.blocks.map((block, index) => {
+        {blocks?.map((block, index) => {
           switch (block.template) {
             case 'content-block':
               return <ContentBlock key={index} data={block} />
@@ -36,11 +36,11 @@ export function getStaticProps({ params: { slug } }) {
   const site = getSiteSettings()
   const data = getPageBySlug(slug.join('/'))
 
-  return { props: { site: site.frontmatter, ...data } }
+  return { props: { site, ...data } }
 }
 
-export async function getStaticPaths() {
-  const paths = await getAllPagePaths()
+export function getStaticPaths() {
+  const paths = getAllPagePaths()
   const formattedPaths = paths.map(path => {
     return { params: { slug: path } }
   })

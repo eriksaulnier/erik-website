@@ -2,14 +2,14 @@ import ReactMarkdown from 'react-markdown/with-html'
 import { getSiteSettings, getAllArticlePaths, getArticleBySlug } from '../../lib/api'
 import { Layout } from '../../components/layout'
 
-export default function Article({ site, content, frontmatter }) {
-  const date = new Date(frontmatter.created_date)
+export default function Article({ site, article_title, created_date, content }) {
+  const date = new Date(created_date)
   const formattedDate = date.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 
   return (
-    <Layout site={site} pageTitle={frontmatter.article_title}>
+    <Layout site={site} pageTitle={article_title}>
       <div className="container mx-auto">
-        <h1>{frontmatter.article_title}</h1>
+        <h1>{article_title}</h1>
         <p><b>Posted {formattedDate}</b></p>
 
         {content ? (
@@ -26,13 +26,13 @@ export function getStaticProps({ params: { slug } }) {
   const site = getSiteSettings()
   const data = getArticleBySlug(slug.join('/'))
   
-  data.frontmatter.created_date = Date.parse(data.frontmatter.created_date)
+  data.created_date = Date.parse(data.created_date)
 
-  return { props: { site: site.frontmatter, ...data } }
+  return { props: { site, ...data } }
 }
 
-export async function getStaticPaths() {
-  const paths = await getAllArticlePaths()
+export function getStaticPaths() {
+  const paths = getAllArticlePaths()
   const formattedPaths = paths.map(path => {
     return { params: { slug: path } }
   })

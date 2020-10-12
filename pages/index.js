@@ -10,8 +10,8 @@ export default function Home({ site }) {
   )
 }
 
-export async function getStaticProps() {
+export function getStaticProps() {
   const site = getSiteSettings()
 
-  return { props: { site: site.frontmatter } }
+  return { props: { site } }
 }

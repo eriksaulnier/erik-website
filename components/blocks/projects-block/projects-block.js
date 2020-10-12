@@ -1,4 +1,4 @@
-import ProjectsList from '../../project-list'
+import ProjectsList from './project-list'
 
 export default function ProjectsBlock({ data }) {
   return (
