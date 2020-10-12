@@ -86,6 +86,7 @@ blocks:
   block_title: ''
   submit_text: Send
   form_name: contact
+published: true
 
 ---
 If you'd like to work together on a project, have a technical question, or just want to have a chat; feel free to get in touch with using the form below or emailing me directly at [hello@eriksaulnier.com](mailto:hello@eriksaulnier.com "Email me").
