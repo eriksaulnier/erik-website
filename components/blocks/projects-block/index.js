@@ -1,3 +1,3 @@
-import ProjectsBlock from './projects-block.js'
+import ProjectsBlock from './projects-block'
 
 export default ProjectsBlock

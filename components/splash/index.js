@@ -1,3 +1,3 @@
-import Splash from './splash.js'
+import Splash from './splash'
 
 export default Splash

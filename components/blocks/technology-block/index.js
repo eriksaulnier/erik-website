@@ -1,3 +1,3 @@
-import TechnologyBlock from './technology-block.js'
+import TechnologyBlock from './technology-block'
 
 export default TechnologyBlock

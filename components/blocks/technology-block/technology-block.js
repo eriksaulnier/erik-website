@@ -12,7 +12,7 @@ export default function TechnologyBlock({ data }) {
           {category.category_title ? <h4>{category.category_title}</h4> : null}
           <ul>
             {category.technologies.map((tag, index) => (
-              <li key={index} className={styles.skill}>
+              <li key={index} className={styles.Skill}>
                 {/* {tag.icon ? React.createElement(Devicon[tag.icon]) : null} */}
                 {tag.label}
               </li>

@@ -1,3 +1,3 @@
-import FormBlock from './form-block.js'
+import FormBlock from './form-block'
 
 export default FormBlock

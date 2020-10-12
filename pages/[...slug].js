@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown/with-html'
 import { getSiteSettings, getAllPagePaths, getPageBySlug } from '../lib/api'
 import { Layout } from '../components/layout'
-import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock } from '../components/blocks'
+import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock, ArticlesBlock } from '../components/blocks'
 
 export default function Page({ site, content, page_title, tab_title, blocks }) {
   return (
@@ -25,6 +25,8 @@ export default function Page({ site, content, page_title, tab_title, blocks }) {
               return <FormBlock key={index} data={block} />
             case 'projects-block':
               return <ProjectsBlock key={index} data={block} />
+            case 'articles-block':
+              return <ArticlesBlock key={index} data={block} />
           }
         })}
       </div>

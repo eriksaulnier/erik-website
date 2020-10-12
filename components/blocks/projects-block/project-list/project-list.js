@@ -4,10 +4,10 @@ import Project from './project';
 export default function ProjectList({ projects }) {
   return (
     <>
-      <ul className={styles.projectList}>
+      <ul className={styles.ProjectList}>
         {projects.map((project, index) => (
           <li key={index}>
-            <Project project={project} key={project.title}></Project>
+            <Project data={project} />
           </li>
         ))}
       </ul>

@@ -1,3 +1,3 @@
-import ProjectList from './project-list.js'
+import ProjectList from './project-list'
 
 export default ProjectList
