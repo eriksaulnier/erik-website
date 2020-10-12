@@ -9,6 +9,8 @@ header:
     link: https://www.linkedin.com/in/eriksaulnier
     icon: FaLinkedin
   navigation:
+  - label: Contact
+    page: content/pages/contact.md
   - label: About
     page: content/pages/about.md
   - label: Projects
