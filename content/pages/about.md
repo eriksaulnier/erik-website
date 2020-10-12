@@ -40,11 +40,6 @@ blocks:
     - label: AWS
     - label: Netlify
     - label: UiPath
-- template: content-block
-  content: <p>If you'd like to work together on a project, have a technical question,
-    or just want to have a chat; feel free to get in touch with me <a href="/contact"
-    title="" editing="" creating=""><strong>using this form</strong></a>.</p>
-  block_title: Get in Contact
 tab_title: About
 
 ---
