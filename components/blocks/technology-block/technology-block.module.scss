@@ -1,8 +1,6 @@
 @import './variables';
 
 .TechnologyBlock {
-  margin-bottom: 2em;
-
   h4 {
     margin: 0 0 0.6em;
   }
@@ -11,6 +9,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    margin-bottom: 0.75em;
 
     .skill {
       display: inline-block;

@@ -20,7 +20,7 @@ export default function Page({ site, content, frontmatter }) {
             case 'content-block':
               return <ContentBlock key={index} data={block} />
             case 'technology-block':
-              return <TechnologyBlock key={index} data= {block} />
+              return <TechnologyBlock key={index} data={block} />
             case 'form-block':
               return <FormBlock key={index} data={block} />
             case 'projects-block':
