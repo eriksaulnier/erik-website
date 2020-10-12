@@ -20,9 +20,6 @@ export default function TechnologyBlock({ data }) {
           </ul>
         </div>
       ))}
-      <ul>
-        
-      </ul>
     </section>
   )
 }

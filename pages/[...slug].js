@@ -1,12 +1,12 @@
 import ReactMarkdown from 'react-markdown/with-html'
 import { getSiteSettings, getAllPagePaths, getPageBySlug } from '../lib/api'
 import { Layout } from '../components/layout'
-import { ContentBlock, TechnologyBlock, FormBlock } from '../components/blocks'
+import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock } from '../components/blocks'
 
 export default function Page({ site, content, frontmatter }) {
   return (
     <Layout site={site} pageTitle={frontmatter.tab_title}>
-      <div className="container mx-auto">
+      <div>
         <h1>{frontmatter.page_title}</h1>
 
         {content ? (
@@ -23,6 +23,8 @@ export default function Page({ site, content, frontmatter }) {
               return <TechnologyBlock key={index} data= {block} />
             case 'form-block':
               return <FormBlock key={index} data={block} />
+            case 'projects-block':
+              return <ProjectsBlock key={index} data={block} />
           }
         })}
       </div>
