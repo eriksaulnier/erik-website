@@ -1,4 +1,9 @@
 ---
 label: Projects Block
 hide_body: true
-fields: []
+fields:
+- name: block_title
+  type: text
+  config:
+    required: false
+  label: Block Title
