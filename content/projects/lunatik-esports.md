@@ -7,6 +7,6 @@ description: Worked with LunatiK eSports to design and develop a custom WordPres
   year before they decided to go a different direction with it.
 year: "2015"
 created_date: 2015-05-01T04:00:00.000+00:00
-published: false
+published: true
 
 ---
