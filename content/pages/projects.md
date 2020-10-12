@@ -5,5 +5,6 @@ blocks:
 - template: projects-block
   block_title: ''
 tab_title: Projects
+published: true
 
 ---
