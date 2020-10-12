@@ -41,6 +41,7 @@ blocks:
     - label: Netlify
     - label: UiPath
 tab_title: About
+published: true
 
 ---
 ### Hello, my name is Erik!
