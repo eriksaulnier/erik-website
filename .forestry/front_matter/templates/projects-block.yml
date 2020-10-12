@@ -7,3 +7,14 @@ fields:
   config:
     required: false
   label: Block Title
+- name: limit
+  type: number
+  label: Limit
+  description: ''
+  default: -1
+  required: true
+  config:
+    min: -1
+    max: 
+    step: 1
+    required: true
