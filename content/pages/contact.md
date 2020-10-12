@@ -1,5 +1,5 @@
 ---
-page_title: Contact
+page_title: Get in contact
 tab_title: Contact
 seo_description: ''
 blocks:
