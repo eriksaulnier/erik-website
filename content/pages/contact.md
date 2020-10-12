@@ -1,5 +1,5 @@
 ---
-page_title: Get in touch
+page_title: Contact
 tab_title: Contact
 seo_description: ''
 blocks:
@@ -88,3 +88,4 @@ blocks:
   form_name: contact
 
 ---
+If you'd like to work together on a project, have a technical question, or just want to have a chat; feel free to get in touch with using the form below or emailing me directly at [hello@eriksaulnier.com](mailto:hello@eriksaulnier.com "Email me").
