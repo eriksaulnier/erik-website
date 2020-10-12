@@ -5,7 +5,7 @@ import styles from './layout.module.scss'
 
 export default function Layout({ site, pageTitle, children }) {
   return (
-    <div className={styles.layout}>
+    <div className={styles.Layout}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -24,8 +24,8 @@ export default function Layout({ site, pageTitle, children }) {
       </Head>
 
       <Header siteTitle={site?.site_title} {...site?.header} />
-      <main className={styles.content}>
-        <div className={styles.container}>
+      <main className={styles.Content}>
+        <div className={styles.Container}>
           {children}
         </div>
       </main>

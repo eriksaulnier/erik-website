@@ -1,20 +1,19 @@
 @import './variables';
 
-.layout {
+.Layout {
   min-height: 100vh;
   padding: 0 30px;
   display: flex;
   flex-direction: column;
 
-  .content {
+  .Content {
     flex-grow: 1;
     padding: 2.5rem 2rem;
     background-color: $dark-1;
     border-radius: 0.5em;
 
-    .container {
+    .Container {
       max-width: 900px;
-      // padding: 0 30px;
       margin: 0 auto;
     }
 

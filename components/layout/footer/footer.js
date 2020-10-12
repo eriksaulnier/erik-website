@@ -4,11 +4,11 @@ import styles from './footer.module.scss'
 export default function Footer() {
   const date = new Date();
   return (
-    <footer className={styles.footer}>
-      <div className={styles.container}>
+    <footer className={styles.Footer}>
+      <div className={styles.Container}>
         <p>&copy; {date.getFullYear()} Erik Saulnier</p>
 
-        <p className={styles.powered}>
+        <p className={styles.Powered}>
           <HiLightningBolt title="Powered" />
           <span className="sr-only">Powered</span>{" by "}
           <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer">

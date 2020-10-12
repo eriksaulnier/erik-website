@@ -1,14 +1,14 @@
 @import './variables';
 @import './helpers';
 
-.footer {
+.Footer {
   padding: 0.5rem 1rem;
   color: $light-2;
   font-size: 0.9em;
   font-weight: 600;
   font-family: $font-heading;
 
-  .container {
+  .Container {
     max-width: 1300px;
     margin: 0 auto;
     display: flex;
@@ -17,7 +17,7 @@
     justify-content: space-between;
   }
 
-  .powered {
+  .Powered {
     svg {
       color: $yellow;
       vertical-align: middle;

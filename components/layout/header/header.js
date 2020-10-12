@@ -12,15 +12,15 @@ export default function Header({ siteTitle, navigation, social_links }) {
   }
 
   return (
-    <nav className={styles.header}>
-      <div className={styles.container}>
+    <nav className={styles.Header}>
+      <div className={styles.Container}>
 
-        <div className={styles.left}>
+        <div className={styles.Left}>
           <Link href="/">
-            <a className={styles.brand}>{siteTitle}</a>
+            <a className={styles.Brand}>{siteTitle}</a>
           </Link>
 
-          <div className={styles.navigation}>
+          <div className={styles.Navigation}>
             {navigation ? navigation.map((page, index) => (
               <Link key={index} href={'/'+page.slug}>
                 <a className={(isActive(page.slug) ? styles.active : '')}>
@@ -31,7 +31,7 @@ export default function Header({ siteTitle, navigation, social_links }) {
           </div>
         </div>
 
-        <div className={styles.social}>
+        <div className={styles.Social}>
           {social_links ? social_links.map((item, index) => (
             <Link key={index} href={item.link}>
               <a title={item.title} target="_blank" rel="noopener">
