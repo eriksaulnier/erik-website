@@ -33,6 +33,7 @@ fields:
   - technology-block
   - form-block
   - projects-block
+  - articles-block
   config:
     min: 
     max: 
