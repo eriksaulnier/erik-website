@@ -29,6 +29,7 @@ fields:
   - content-block
   - technology-block
   - form-block
+  - projects-block
   config:
     min: 
     max: 
