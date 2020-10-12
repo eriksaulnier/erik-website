@@ -1,5 +1,5 @@
 ---
-page_title: About Me
+page_title: About me
 seo_description: ''
 blocks:
 - template: technology-block
