@@ -41,7 +41,7 @@
         font-style: italic;
       }
 
-      .TextField {
+      &.TextField {
         input {
           width: 100%;
           padding: 0.5em 0.75em;
@@ -55,7 +55,7 @@
         }
       }
 
-      .TextareaField {
+      &.TextareaField {
         textarea {
           width: 100%;
           min-height: 6rem;
@@ -71,7 +71,7 @@
         }
       }
 
-      .SelectField {
+      &.SelectField {
         select {
           padding: 0.75em 0.75em;
           background-color: $dark-3;
@@ -87,7 +87,7 @@
         } 
       }
 
-      .RadioField {
+      &.RadioField {
         input[type="radio"] {
           margin-right: 5px;
         }
@@ -96,7 +96,7 @@
         }
       }
 
-      .CheckboxField {
+      &.CheckboxField {
         input[type="checkbox"] {
           margin-right: 5px;
         }

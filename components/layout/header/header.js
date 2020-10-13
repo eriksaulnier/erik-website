@@ -34,8 +34,9 @@ export default function Header({ siteTitle, navigation, social_links }) {
         <div className={styles.Social}>
           {social_links ? social_links.map((item, index) => (
             <Link key={index} href={item.link}>
-              <a title={item.title} target="_blank" rel="noopener">
+              <a target="_blank" rel="noopener">
                 {item.icon ? React.createElement(Fa[item.icon]) : null}
+                <span className="sr-only">{item.title}</span>
               </a>
             </Link>
           )) : null}
