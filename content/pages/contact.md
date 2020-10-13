@@ -85,7 +85,7 @@ blocks:
     width: 100
   block_title: ''
   submit_text: Send
-  form_name: contact
+  form_name: contact2
 published: true
 
 ---
