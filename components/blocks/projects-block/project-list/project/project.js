@@ -9,7 +9,7 @@ export default function Project({ data }) {
       </div>
       
       <div className={styles.image}>
-        <img src={data.thumbnail} />
+        <img alt={data.title} src={data.thumbnail} />
       </div>
     </div>
   )
