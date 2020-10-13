@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   color: $white;
+  font-size: 1rem;
   font-family: $font-body;
   background-color: $dark-2;
 }
@@ -23,6 +24,26 @@ a {
   &:hover {
     color: $primary-light;
     text-decoration: underline;
+  }
+}
+
+button {
+  display: block;
+  padding: 0.8rem 1.5rem;
+  color: $white;
+  background-color: $primary;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease-out, transform 0.1s ease-out;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $primary-dark;
+    transform: translateY(2px);
+  }
+
+  &:active {
   }
 }
 
