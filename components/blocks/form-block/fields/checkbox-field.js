@@ -7,8 +7,8 @@ export default function CheckboxField({ data }) {
       <div className={styles.CheckboxField}>
         {data.checkbox_options.map((option, index) => (
           <div key={index}>
-            <input type="checkbox" name={data.name+index} value={option.value} />
-            <label htmlFor={data.name+index}>{option.label}</label>
+            <input type="checkbox" name={data.name} value={option.value} />
+            <label htmlFor={data.name}>{option.label}</label>
           </div>
         ))}
       </div>
