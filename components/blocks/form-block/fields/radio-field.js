@@ -6,8 +6,8 @@ export default function RadioField({ data }) {
       {data.label ? <legend>{data.label}</legend> : null}
       {data.radio_options.map((option, index) => (
         <div key={index}>
-          <input id={data.name} type="radio" name={data.name} value={option.value}/>
-          <label htmlFor={option.name}>{option.label}</label>
+          <input id={data.name+index} type="radio" name={data.name} value={option.value}/>
+          <label htmlFor={data.name+index}>{option.label}</label>
         </div>
       ))}
       {data.description ? <p className={styles.Description}>{data.description}</p> : null}

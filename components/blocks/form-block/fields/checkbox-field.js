@@ -6,8 +6,8 @@ export default function CheckboxField({ data }) {
       {data.label ? <legend htmlFor={data.name}>{data.label}</legend> : null}
       {data.checkbox_options.map((option, index) => (
         <div key={index}>
-          <input id={data.name} type="checkbox" name={data.name+'[]'} value={option.value} />
-          <label htmlFor={data.name}>{option.label}</label>
+          <input id={data.name+index} type="checkbox" name={data.name+'[]'} value={option.value} />
+          <label htmlFor={data.name+index}>{option.label}</label>
         </div>
       ))}
       {data.description ? <p className={styles.Description}>{data.description}</p> : null}
