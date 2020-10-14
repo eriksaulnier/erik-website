@@ -35,7 +35,7 @@ fields:
     required: true
 - name: field_type
   type: select
-  default: Text
+  default: Input
   config:
     required: true
     options:
