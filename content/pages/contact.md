@@ -7,9 +7,9 @@ blocks:
   fields:
   - template: form-field
     name: name
-    label: Your Name
+    label: Name
     field_type: Input
-    description: This is just a test
+    description: ''
     text_placeholder: ''
     textarea_placeholder: ''
     select_options: []
@@ -20,7 +20,7 @@ blocks:
     input_placeholder: ''
   - template: form-field
     name: email
-    label: Email Address
+    label: Email
     field_type: Input
     description: ''
     text_placeholder: ''

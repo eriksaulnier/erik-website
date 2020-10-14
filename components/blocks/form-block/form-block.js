@@ -1,4 +1,4 @@
-import { TextField, TextareaField, SelectField, RadioField, CheckboxField } from './fields'
+import { InputField, TextareaField, SelectField, RadioField, CheckboxField } from './fields'
 import styles from './form-block.module.scss'
 
 export default function FormBlock({ data }) {
@@ -13,8 +13,8 @@ export default function FormBlock({ data }) {
         <div className={styles.FieldGroup}>
           {data.fields.map((field, index) => {
             switch (field.field_type) {
-              case 'Text':
-                return <TextField key={index} data={field} />
+              case 'Input':
+                return <InputField key={index} data={field} />
               case 'Textarea':
                 return <TextareaField key={index} data={field} />
               case 'Select':
