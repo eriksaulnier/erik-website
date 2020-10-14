@@ -1,6 +1,8 @@
-$primary: #2f80ed;
-$primary-light: lighten($primary, 20);
-$primary-dark: darken($primary, 20);
+// https://yeun.github.io/open-color/#
+
+$primary: #1971C2;
+$primary-light: #1c7ed6;// lighten($primary, 20);
+$primary-dark: #1864ab; // darken($primary, 20);
 
 $white: #fff;
 $yellow: #fcc419;

@@ -35,15 +35,12 @@ button {
   border: none;
   font-size: 1rem;
   font-weight: bold;
-  transition: background-color 0.3s ease-out, transform 0.1s ease-out;
+  transition: color 0.3s ease-out, background-color 0.3s ease-out, transform 0.1s ease-out;
 
-  &:hover {
+  &:hover, &:active {
     cursor: pointer;
     background-color: $primary-dark;
     transform: translateY(2px);
-  }
-
-  &:active {
   }
 }
 
