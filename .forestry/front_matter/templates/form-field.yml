@@ -50,14 +50,6 @@ fields:
       file: 
       path: 
   label: Field Type
-- name: input_placeholder
-  type: text
-  config:
-    required: false
-  label: Input Placeholder
-  showOnly:
-    field: field_type
-    value: Input
 - name: input_type
   type: select
   default: text
@@ -76,6 +68,14 @@ fields:
       file: 
       path: 
   label: Input Type
+  showOnly:
+    field: field_type
+    value: Input
+- name: input_placeholder
+  type: text
+  config:
+    required: false
+  label: Input Placeholder
   showOnly:
     field: field_type
     value: Input
