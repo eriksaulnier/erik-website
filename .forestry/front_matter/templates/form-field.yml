@@ -39,11 +39,11 @@ fields:
   config:
     required: true
     options:
-    - Text
     - Textarea
     - Select
     - Radio
     - Checkbox
+    - Input
     source:
       type: simple
       section: 
