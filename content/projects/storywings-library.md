@@ -15,7 +15,7 @@ stack:
   icon: ''
 - label: Vue.js
   icon: ''
-- label: Bootstrap 4
+- label: Bootstrap 3
   icon: ''
 - label: Sass
   icon: ''
