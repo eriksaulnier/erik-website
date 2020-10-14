@@ -26,15 +26,6 @@ fields:
   config:
     required: false
   label: Client
-- name: description
-  type: textarea
-  default: ''
-  config:
-    required: false
-    wysiwyg: false
-    schema:
-      format: markdown
-  label: Description
 - name: year
   type: text
   config:
@@ -67,6 +58,15 @@ fields:
     max: 
     labelField: 
   label: Stack
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Description
 pages:
 - content/projects/lunatik-esports.md
 - content/projects/lunatik-esports.md
