@@ -1,46 +1,66 @@
 @import './variables';
 
-$height: 18rem;
-$header-height: 4rem;
-$header-height-hover: 10rem;
+$height: 3rem;
 
-.Project {
+.project {
   position: relative;
   overflow: hidden;
-  display: flex;
-  height: $height;
+  width: 100%;
+  padding-bottom: 66%;
+  // height: 20rem;
   background-color: $dark-3;
   border-radius: 0.5em;
 
-  .header {
+  .content {
+    position: absolute;
     display: flex;
-    flex: 1;
-    height: $header-height;
-    align-self: flex-end;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 0 1.2rem;
+    transform: translateY(calc(100% - #{$height}));
     z-index: 1;
+    box-sizing: border-box;
     background-color: $dark-3;
-    transition: height 0.3s ease-out;
+    transition: transform 0.3s ease-out;
     
-    .title {
-      height: 100%;
-      margin: 0;
-      line-height: 1;
-      // vertical-align: ;
+    .heading {
+      display: flex;
+      height: $height;
+      align-items: center;
+      justify-content: space-between;
+
+      .title {
+        height: 100%;
+        margin: 0;
+        line-height: $height;
+        // vertical-align: ;
+      }
+
+      .year {
+        display: block;
+        background-color: $primary;
+        padding: 5px;
+        border-radius: 4px 6px;
+      }
     }
 
-    .year {
-      background-color: $primary;
+    .client {
+      font-style: italic;
+      background-color: $dark-2;
       padding: 5px;
       border-radius: 4px 6px;
     }
   }
 
   .image {
+    // display: none;
+    // display: block;
     position: absolute;
-    top: 0;
     left: 0;
-    right: 0;
-    bottom: $header-height;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
 
     img {
       height: 100%;
@@ -50,8 +70,8 @@ $header-height-hover: 10rem;
   }
 
   &:hover {
-    .header {
-      height: 10rem;
+    .content {
+      transform: translateY(0);
     }
   }
 }

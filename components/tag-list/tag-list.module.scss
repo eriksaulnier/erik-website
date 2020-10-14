@@ -1,0 +1,29 @@
+@import './variables';
+
+.tagList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 0.75em;
+
+  .tag {
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 0 10px 10px 0;
+    font-size: 0.9rem;
+    background-color: $dark-3;
+    border-radius: 3px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.dark-1 {
+      background-color: $dark-1;
+    }
+
+    &.dark-2 {
+      background-color: $dark-2;
+    }
+  }
+}

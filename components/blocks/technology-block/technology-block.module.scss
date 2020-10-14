@@ -4,24 +4,4 @@
   h4 {
     margin: 0 0 0.6em;
   }
-
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    margin-bottom: 0.75em;
-
-    .Skill {
-      display: inline-block;
-      padding: 4px 8px;
-      margin: 0 10px 10px 0;
-      font-size: 0.9rem;
-      background-color: $dark-3;
-      border-radius: 3px;
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
 }
