@@ -9,11 +9,15 @@ client: Course Project
 created_date: 2017-11-01T04:00:00.000+00:00
 published: true
 stack:
+- label: AWS
+  icon: ''
 - label: Laravel
   icon: ''
 - label: Vue.js
   icon: ''
-- label: AWS
+- label: Bootstrap 4
+  icon: ''
+- label: Sass
   icon: ''
 
 ---
