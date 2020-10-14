@@ -3,7 +3,8 @@ page_title: About me
 seo_description: ''
 blocks:
 - template: content-block
-  content: <p></p><p><img src="/uploads/20170316_140734.jpg"></p>
+  content: <p></p><p><img src="/uploads/20170316_140734.jpg" alt="Me looking out a
+    window"></p>
   block_title: ''
 - template: technology-block
   block_title: Technologies I Use
