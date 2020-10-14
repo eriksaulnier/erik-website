@@ -2,6 +2,9 @@
 page_title: About me
 seo_description: ''
 blocks:
+- template: content-block
+  content: <p></p><p><img src="/uploads/20170316_140734.jpg"></p>
+  block_title: ''
 - template: technology-block
   block_title: Technologies I Use
   categories:
@@ -51,5 +54,3 @@ I’m a software engineer based in upstate New York who loves turning ideas into
 Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
 
 I currently work full-time as a developer at [Troy Web Consulting](https://troyweb.com "Troy Web Consulting") in Troy, NY.
-
-![](/uploads/20170316_140734.jpg)
