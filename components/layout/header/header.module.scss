@@ -48,7 +48,7 @@
       }
   
       &:hover {
-        color: $primary;
+        color: $primary-light;
         text-decoration: none;
       }
   
@@ -63,7 +63,7 @@
           right: 0;
           height: 2px;
           border-radius: 1px;
-          background-color: $primary;
+          background-color: $primary-light;
         }
       }
     }
@@ -84,7 +84,7 @@
       }
   
       &:hover {
-        color: $primary;
+        color: $primary-light;
       }
     }
   }

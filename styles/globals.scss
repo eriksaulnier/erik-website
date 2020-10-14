@@ -16,13 +16,13 @@ h1, h2, h3, h4, h5 {
 }
 
 a {
-  color: $primary;
+  color: $primary-light;
   font-weight: 700;
   text-decoration: none;
   transition: color 0.3s ease-out;
 
   &:hover {
-    color: $primary-light;
+    color: $primary;
     text-decoration: underline;
   }
 }
