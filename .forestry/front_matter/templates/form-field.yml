@@ -50,14 +50,35 @@ fields:
       file: 
       path: 
   label: Field Type
-- name: text_placeholder
+- name: input_placeholder
   type: text
   config:
     required: false
-  label: Text Placeholder
+  label: Input Placeholder
   showOnly:
     field: field_type
-    value: Text
+    value: Input
+- name: input_type
+  type: select
+  default: text
+  config:
+    required: true
+    options:
+    - text
+    - email
+    - tel
+    - date
+    - time
+    - url
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Input Type
+  showOnly:
+    field: field_type
+    value: Input
 - name: textarea_placeholder
   type: textarea
   default: ''
@@ -69,7 +90,7 @@ fields:
   label: Textarea Placeholder
   showOnly:
     field: field_type
-    value: Textfield
+    value: Textarea
 - name: select_options
   type: field_group_list
   fields:
