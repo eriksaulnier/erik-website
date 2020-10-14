@@ -7,8 +7,8 @@ blocks:
   fields:
   - template: form-field
     name: name
-    label: Name
-    field_type: Text
+    label: Your Name
+    field_type: Input
     description: This is just a test
     text_placeholder: ''
     textarea_placeholder: ''
@@ -16,10 +16,12 @@ blocks:
     radio_options: []
     checkbox_options: []
     width: 50
+    input_type: text
+    input_placeholder: ''
   - template: form-field
     name: email
-    label: Email
-    field_type: Text
+    label: Email Address
+    field_type: Input
     description: ''
     text_placeholder: ''
     textarea_placeholder: ''
@@ -27,6 +29,8 @@ blocks:
     radio_options: []
     checkbox_options: []
     width: 50
+    input_type: email
+    input_placeholder: ''
   - template: form-field
     name: message
     label: Message
@@ -38,6 +42,8 @@ blocks:
     radio_options: []
     checkbox_options: []
     width: 100
+    input_type: ''
+    input_placeholder: ''
   - template: form-field
     field_type: Select
     name: test-select
@@ -53,6 +59,8 @@ blocks:
     radio_options: []
     checkbox_options: []
     width: 100
+    input_type: ''
+    input_placeholder: ''
   - template: form-field
     field_type: Radio
     name: test-radio
@@ -68,6 +76,8 @@ blocks:
     select_options: []
     checkbox_options: []
     width: 100
+    input_type: ''
+    input_placeholder: ''
   - template: form-field
     field_type: Checkbox
     label: Test Checkbox
@@ -83,6 +93,8 @@ blocks:
     select_options: []
     radio_options: []
     width: 100
+    input_type: ''
+    input_placeholder: ''
   block_title: ''
   submit_text: Send
   form_name: contact
