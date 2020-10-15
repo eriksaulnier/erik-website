@@ -12,5 +12,10 @@ published: true
 stack:
 - label: Javascript
   icon: ''
+links:
+- title: Chrome Web Store
+  link: https://chrome.google.com/webstore/detail/sneaky-spanish/fmbgmlhpadiloggofeliagghggmopgbk?hl=en-US
+  icon_name: ''
+  icon_title: ''
 
 ---
