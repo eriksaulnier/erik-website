@@ -17,5 +17,9 @@ links:
   link: https://chrome.google.com/webstore/detail/sneaky-spanish/fmbgmlhpadiloggofeliagghggmopgbk?hl=en-US
   icon_name: ''
   icon_title: ''
+- title: GitHub
+  link: https://github.com/eriksaulnier/sneakyspanish
+  icon_name: ''
+  icon_title: ''
 
 ---
