@@ -19,5 +19,10 @@ stack:
   icon: ''
 - label: Socket.IO
   icon: ''
+links:
+- title: GitHub
+  link: https://github.com/eriksaulnier/Pass-the-Aux
+  icon_name: ''
+  icon_title: ''
 
 ---
