@@ -67,7 +67,7 @@ fields:
     schema:
       format: markdown
   label: Description
-- name: buttons
+- name: links
   type: field_group_list
   fields:
   - name: title
@@ -84,7 +84,7 @@ fields:
     min: 
     max: 
     labelField: 
-  label: Buttons
+  label: Links
 pages:
 - content/projects/lunatik-esports.md
 - content/projects/lunatik-esports.md
