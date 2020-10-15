@@ -24,7 +24,7 @@ stack:
 - label: Socket.IO
   icon: ''
 links:
-- title: Visit Site
+- title: Heroku Site
   link: https://aux-pass.herokuapp.com/
   icon_name: ''
   icon_title: ''
