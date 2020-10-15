@@ -67,6 +67,24 @@ fields:
     schema:
       format: markdown
   label: Description
+- name: buttons
+  type: field_group_list
+  fields:
+  - name: title
+    type: text
+    config:
+      required: true
+    label: Title
+  - name: link
+    type: text
+    config:
+      required: true
+    label: Link
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Buttons
 pages:
 - content/projects/lunatik-esports.md
 - content/projects/lunatik-esports.md
