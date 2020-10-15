@@ -24,6 +24,11 @@ fields:
       config:
         required: false
       label: Label
+    - name: icon
+      type: include
+      config: {}
+      template: icon
+      label: Icon
     config:
       min: 
       max: 
