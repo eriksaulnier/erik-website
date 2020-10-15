@@ -20,6 +20,10 @@ stack:
 - label: Socket.IO
   icon: ''
 links:
+- title: Heroku Site
+  link: https://aux-pass.herokuapp.com/
+  icon_name: ''
+  icon_title: ''
 - title: GitHub
   link: https://github.com/eriksaulnier/Pass-the-Aux
   icon_name: ''
