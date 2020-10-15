@@ -17,5 +17,10 @@ stack:
   icon: ''
 - label: Sass
   icon: ''
+links:
+- title: Visit Website
+  link: https://gamehub.rpi.edu
+  icon_name: ''
+  icon_title: ''
 
 ---
