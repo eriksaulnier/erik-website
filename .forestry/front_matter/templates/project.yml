@@ -80,6 +80,11 @@ fields:
     config:
       required: true
     label: Link
+  - name: icon
+    type: include
+    config: {}
+    template: icon
+    label: Icon
   config:
     min: 
     max: 
