@@ -1,4 +1,16 @@
 ---
 label: Icon
 hide_body: true
-fields: []
+fields:
+- name: icon
+  type: text
+  config:
+    required: true
+  label: Icon
+  description: 'Icon name from here: <a href="https://react-icons.github.io/react-icons/"
+    title="https://react-icons.github.io/react-icons/" target="_blank">https://react-icons.github.io/react-icons</a>'
+- name: title
+  type: text
+  config:
+    required: true
+  label: Title
