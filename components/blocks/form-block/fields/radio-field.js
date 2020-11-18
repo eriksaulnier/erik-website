@@ -6,7 +6,7 @@ export default function RadioField({ data }) {
       {data.label ? <legend>{data.label}</legend> : null}
       {data.radio_options.map((option, index) => (
         <div key={index}>
-          <input id={data.name+index} type="radio" name={data.name} value={option.value}/>
+          <input id={data.name+index} type="radio" name={data.name} required={data.required} value={option.value}/>
           <label htmlFor={data.name+index}>{option.label}</label>
         </div>
       ))}
