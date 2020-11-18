@@ -18,6 +18,7 @@ blocks:
     width: 50
     input_type: text
     input_placeholder: ''
+    required: true
   - template: form-field
     name: email
     label: Email
@@ -31,6 +32,7 @@ blocks:
     width: 50
     input_type: email
     input_placeholder: ''
+    required: true
   - template: form-field
     name: message
     label: Message
@@ -44,57 +46,7 @@ blocks:
     width: 100
     input_type: ''
     input_placeholder: ''
-  - template: form-field
-    field_type: Select
-    name: test-select
-    label: Test Select
-    select_options:
-    - label: Option 1
-      value: option-1
-    - label: Option 2
-      value: option-2
-    description: ''
-    text_placeholder: ''
-    textarea_placeholder: ''
-    radio_options: []
-    checkbox_options: []
-    width: 100
-    input_type: ''
-    input_placeholder: ''
-  - template: form-field
-    field_type: Radio
-    name: test-radio
-    label: Test Radio
-    radio_options:
-    - label: Option 1
-      value: option-1
-    - label: Option 2
-      value: option-2
-    description: ''
-    text_placeholder: ''
-    textarea_placeholder: ''
-    select_options: []
-    checkbox_options: []
-    width: 100
-    input_type: ''
-    input_placeholder: ''
-  - template: form-field
-    field_type: Checkbox
-    label: Test Checkbox
-    name: test-checkbox
-    checkbox_options:
-    - label: Option 1
-      value: option-1
-    - label: Option 2
-      value: option-2
-    description: This is just a test
-    text_placeholder: ''
-    textarea_placeholder: ''
-    select_options: []
-    radio_options: []
-    width: 100
-    input_type: ''
-    input_placeholder: ''
+    required: true
   block_title: ''
   submit_text: Send
   form_name: contact
