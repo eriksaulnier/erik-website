@@ -42,11 +42,11 @@ fields:
   config:
     required: true
     options:
+    - Input
     - Textarea
     - Select
     - Radio
     - Checkbox
-    - Input
     source:
       type: simple
       section: 
