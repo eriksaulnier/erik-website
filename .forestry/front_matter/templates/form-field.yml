@@ -22,6 +22,9 @@ fields:
     required: false
   label: Description
   description: Help text to display beneath field
+- name: required
+  type: boolean
+  label: Required
 - name: width
   type: number
   label: Width
