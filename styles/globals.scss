@@ -27,17 +27,19 @@ a {
   }
 }
 
-button {
+button, .btn {
   display: block;
   padding: 0.8rem 1.5rem;
   color: $white;
   background-color: $primary;
   border: none;
+  border-radius: 3px;
   font-size: 1rem;
   font-weight: bold;
   transition: color 0.3s ease-out, background-color 0.3s ease-out, transform 0.1s ease-out;
 
   &:hover, &:active {
+    color: $white;
     cursor: pointer;
     background-color: $primary-dark;
     transform: translateY(2px);
