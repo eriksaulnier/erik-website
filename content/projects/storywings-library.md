@@ -7,7 +7,7 @@ description: Designed and developed the beta version of StoryWings, an online st
 year: "2018"
 client: Course Project
 created_date: 2017-11-01T04:00:00.000+00:00
-published: true
+published: false
 stack:
 - label: AWS
   icon: ''
@@ -19,5 +19,6 @@ stack:
   icon: ''
 - label: Sass
   icon: ''
+links: []
 
 ---
