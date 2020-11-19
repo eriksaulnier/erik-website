@@ -3,7 +3,6 @@
 import styles from './tag-list.module.scss'
 
 export default function TagList({ tags, color }) {
-  console.log(tags)
   return (
     <ul className={styles.tagList}>
       {tags?.map((tag, index) => (
