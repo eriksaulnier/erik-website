@@ -18,7 +18,7 @@ stack:
 - label: Sass
   icon: ''
 links:
-- title: Visit Website
+- title: Live Site
   link: https://gamehub.rpi.edu
   icon_name: ''
   icon_title: ''
