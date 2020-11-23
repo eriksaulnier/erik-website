@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { motion, AnimateSharedLayout } from 'framer-motion'
 import Header from './header'
 import Footer from './footer'
 import styles from './layout.module.scss'
@@ -23,13 +24,15 @@ export default function Layout({ site, pageTitle, children }) {
         <title>{pageTitle ? `${pageTitle} | ${site?.site_title}` : site?.site_title}</title>
       </Head>
 
-      <Header siteTitle={site?.site_title} {...site?.header} />
-      <main className={styles.Content}>
-        <div className={styles.Container}>
-          {children}
-        </div>
-      </main>
-      <Footer />
+      <AnimateSharedLayout>
+        <Header siteTitle={site?.site_title} {...site?.header} />
+        <main className={styles.Content}>
+          <motion.div layout className={styles.Container}>
+            {children}
+          </motion.div>
+        </main>
+        <Footer/>
+      </AnimateSharedLayout>
     </div>
   )
 }

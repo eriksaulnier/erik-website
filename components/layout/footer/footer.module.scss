@@ -1,14 +1,14 @@
 @import './variables';
 @import './helpers';
 
-.Footer {
+.footer {
   padding: 0.5rem 1rem;
   color: $light-2;
   font-size: 0.9em;
   font-weight: 600;
   font-family: $font-heading;
 
-  .Container {
+  .container {
     max-width: 1300px;
     margin: 0 auto;
     display: flex;
@@ -17,10 +17,22 @@
     justify-content: space-between;
   }
 
-  .Powered {
+  // .copyright { }
+
+  .poweredBy {
     svg {
       color: $yellow;
       vertical-align: middle;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+    
+    .copyright {
+      display: none;
     }
   }
 }

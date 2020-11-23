@@ -1,90 +1,209 @@
 @import './variables';
 
-.Header {
+$height: 40px;
+
+.header {
   padding: 0.8rem 1rem;
   font-weight: 600;
   color: $light-2;
 
-  .Container {
+  .container {
     max-width: 1300px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
-    .Left { 
-      display: flex;
-      flex-direction: row;
-    }
   }
 
-  .Brand {
-    color: $light-1;
-    font-size: 1.6em;
-    font-weight: 600;
-    font-family: $font-heading;
-    line-height: 40px;
-    margin-right: 80px;
-  
-    &:hover {
-      color: $primary;
-      text-decoration: none;
-    }
-  }
-  
-  .Navigation {
-    line-height: 40px;
-  
-    a {
+  .navigation {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+
+    .brand {
       position: relative;
-      margin-right: 40px;
-      color: $light-2;
-      font-size: 1.1em;
+      color: $light-1;
+      font-size: 1.6em;
+      font-weight: 600;
       font-family: $font-heading;
-  
-      &:last-child {
-        margin-right: 0;
+      line-height: $height;
+      margin-right: 4rem;
+      
+      .highlight {
+        bottom: 1px;
       }
-  
+
       &:hover {
-        color: $primary-light;
         text-decoration: none;
       }
+    }
+
+    .menuToggle {
+      display: none;
+      align-self: center;
+      margin-left: auto;
+    }
+
+    .menu {
+      align-self: center;
+    
+      .menuItem {
+        display: inline-block;
+        margin-right: 1.6rem;
+
+        a {
+          position: relative;
+          color: $light-2;
+          font-size: 1.1em;
+          font-family: $font-heading;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+
+        .highlight {
+          bottom: -5px;
+        }
+    
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .social {
+      align-self: center;
+      margin-left: auto;
+
+      .socialIcon {
+        display: inline-block;
+        margin-right: 1.6rem;
+
+        a {
+          color: $light-2;
+          font-size: 1.4em;
   
-      &.active {
-        // color: $primary;
-  
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: -3px;
-          left: 0;
-          right: 0;
-          height: 2px;
-          border-radius: 1px;
-          background-color: $primary-light;
+          svg {
+            vertical-align: middle;
+          }
+      
+          &:hover {
+            color: $primary-light;
+          }
+        }
+
+        &:last-child {
+          margin-right: 0;
         }
       }
     }
   }
-  
-  .Social {
-    a {
-      color: $light-2;
-      font-size: 1.4em;
-      margin-right: 30px;
-  
-      &:last-child {
-        margin-right: 0;
+
+  .highlight {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 1px;
+    background-color: $primary-light;
+  }
+
+  @media (max-width: 768px) {
+    height: $height;
+
+    .navigation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 40px;
+      padding: 0.8rem 30px;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      background-color: transparent;
+      transition: background-color 0.3s ease-out;
+      z-index: 2;
+
+      .brand {
+        position: absolute;
+        top: 0.8rem;
+        left: calc(30px + 0.8rem);
+        display: block;
+        line-height: $height;
       }
   
-      svg {
-        vertical-align: middle;
+      .menuToggle {
+        position: absolute;
+        top: 1.4rem;
+        right: calc(30px + 0.8rem);
+        line-height: 0;
+        display: block;
+        
+        padding: 0;
+        background-color: transparent;
+
+        svg {
+          width: 1.8rem;
+          height: 1.8rem;
+          
+          path {
+            stroke: $light-1;
+          }
+        }
+
+        &:hover, &:active {
+          transform: none;
+        }
+      }
+      
+      .menu {
+        display: none;
+
+        .menuItem {
+          display: block;
+          margin-right: 0;
+          margin-bottom: 2.3rem;
+          
+          a {
+            font-size: 1.6rem;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
       }
   
-      &:hover {
-        color: $primary-light;
+      .social {
+        display: none;
+        margin: 3.5rem 0 0;
+
+        .socialIcon {
+          margin-right: 1.8rem;
+            
+          a {
+            font-size: 1.6em;
+          }
+        }
+      }
+
+      &.active {
+        height: 100%;
+        background-color: rgba($dark-1, 0.95);
+
+        .menu {
+          display: block;
+        }
+
+        .social {
+          display: block;
+        }
       }
     }
   }

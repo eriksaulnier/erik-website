@@ -1,47 +1,158 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import * as Fa from 'react-icons/fa' 
+import { motion, AnimatePresence } from 'framer-motion'
 import styles from './header.module.scss'
 
 export default function Header({ siteTitle, navigation, social_links }) {
-  const router = useRouter();
+  const router = useRouter()
 
-  function isActive(slug) {
-    return router.asPath === `/${slug}`;
+  const [open, setOpen] = useState(false)
+  const [navigating, setNavigating] = useState(false)
+  const [currentPath, setCurrentPath] = useState(router.asPath)
+  const [resetTimeout, setResetTimeout] = useState(null)
+
+  // Set up route change listeners
+  useEffect(() => {
+    const routeChangeStart = () => {
+      setNavigating(true)
+    }
+    router.events.on('routeChangeStart', routeChangeStart)
+
+    const routeChangeComplete = (path) => {
+      setCurrentPath(path)
+      setNavigating(false)
+    }
+    router.events.on('routeChangeComplete', routeChangeComplete)
+
+    return () => {
+      router.events.off('routeChangeStart', routeChangeStart)
+      router.events.off('routeChangeComplete', routeChangeComplete)
+    }
+  }, [])
+
+  function onMenuMouseEnter(path) {
+    if (!navigating) {
+      setCurrentPath(path)
+      clearTimeout(resetTimeout)
+    }
   }
 
-  return (
-    <nav className={styles.Header}>
-      <div className={styles.Container}>
+  function onMenuMouseLeave() {
+    if (!navigating) {
+      setResetTimeout(setTimeout(() => {
+        setCurrentPath(router.asPath)
+      }, 600))
+    }
+  }
 
-        <div className={styles.Left}>
+  const activeMenuItem = navigation.find(page => `/${page.slug}` === currentPath)
+
+  return (
+    <nav className={styles.header}>
+      <div className={styles.container}>
+        <motion.nav
+          initial={false}
+          animate={open ? 'open' : 'closed'}
+          className={[styles.navigation, open && styles.active].join(' ')}
+        >
           <Link href="/">
-            <a className={styles.Brand}>{siteTitle}</a>
+            <a
+              className={styles.brand}
+              onMouseEnter={() => onMenuMouseEnter('/')}
+              onMouseLeave={onMenuMouseLeave}
+            >
+              {siteTitle}
+              {MenuHighlight(currentPath === '/' || !activeMenuItem)}
+            </a>
           </Link>
 
-          <div className={styles.Navigation}>
-            {navigation ? navigation.map((page, index) => (
-              <Link key={index} href={'/'+page.slug}>
-                <a className={(isActive(page.slug) ? styles.active : '')}>
-                  {page.label}
-                </a>
-              </Link>
+          <button className={styles.menuToggle} onClick={() => setOpen(!open)}>
+            <svg viewBox="0 0 22 22">
+              <Path
+                variants={{
+                  closed: { d: "M 2 2.5 L 20 2.5" },
+                  open: { d: "M 3 16.5 L 17 2.5" }
+                }}
+              />
+              <Path
+                d="M 2 9.423 L 20 9.423"
+                variants={{
+                  closed: { opacity: 1 },
+                  open: { opacity: 0 }
+                }}
+                transition={{ duration: 0.1 }}
+              />
+              <Path
+                variants={{
+                  closed: { d: "M 2 16.346 L 20 16.346" },
+                  open: { d: "M 3 2.5 L 17 16.346" }
+                }}
+              />
+            </svg>
+          </button>
+
+          <div className={styles.menu}>
+            <AnimatePresence>
+              {navigation && navigation.map((page, index) => (
+                <motion.div
+                  key={index}
+                  className={styles.menuItem}
+                  initial={{ opacity: 0, x: -100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <Link href={'/[...slug]'} as={`/${page.slug}`}>
+                    <a
+                      onMouseEnter={() => onMenuMouseEnter(`/${page.slug}`)}
+                      onMouseLeave={onMenuMouseLeave}
+                    >
+                      {page.label}
+                      {MenuHighlight(currentPath === `/${page.slug}`)}
+                    </a>
+                  </Link>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+          
+          <div className={styles.social}>
+            {social_links ? social_links.map((item, index) => (
+              <div key={index} className={styles.socialIcon}>
+                <Link href={item.link}>
+                  <a target="_blank" rel="noopener">
+                    <span className="sr-only">{item.name}</span>
+                    {item.icon ? React.createElement(Fa[item.icon]) : null}
+                  </a>
+                </Link>
+              </div>
             )) : null}
           </div>
-        </div>
-
-        <div className={styles.Social}>
-          {social_links ? social_links.map((item, index) => (
-            <Link key={index} href={item.link}>
-              <a target="_blank" rel="noopener">
-                <span className="sr-only">{item.name}</span>
-                {item.icon ? React.createElement(Fa[item.icon]) : null}
-              </a>
-            </Link>
-          )) : null}
-        </div>
+        </motion.nav>
       </div>
     </nav>
   )
 }
+
+const MenuHighlight = (condition)  => condition && (
+  <motion.span 
+    layoutId="header-highlight"
+    className={styles.highlight}
+    transition={{
+      type: 'spring',
+      stiffness: 250,
+      damping: 30
+    }}
+  />
+)
+
+const Path = (props) => (
+  <motion.path
+    fill="transparent"
+    strokeWidth="3"
+    stroke="hsl(0, 0%, 18%)"
+    strokeLinecap="round"
+    {...props}
+  />
+)

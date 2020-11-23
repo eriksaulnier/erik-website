@@ -1,9 +1,10 @@
+import { motion } from 'framer-motion'
 // import styles from './splash.module.scss'
 
 export default function TechnologyBlock() {
   return (
     <>
-      Splash!!1
+      <motion.h1 layoutId="page-title">HELLO MY NAME ERIK</motion.h1>
     </>
   )
 }
