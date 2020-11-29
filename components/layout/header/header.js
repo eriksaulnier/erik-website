@@ -49,12 +49,19 @@ export default function Header({ siteTitle, navigation, social_links }) {
 
   const activeMenuItem = navigation.find(page => `/${page.slug}` === currentPath)
 
+  const navigationVariants = {
+    open: { height: '100%' },
+    closed: { height: '40px' }
+  }
+
   return (
     <nav className={styles.header}>
       <div className={styles.container}>
         <motion.nav
           initial={false}
           animate={open ? 'open' : 'closed'}
+          variants={navigationVariants}
+          transition={{ ease: 'linear' }}
           className={[styles.navigation, open && styles.active].join(' ')}
         >
           <Link href="/">
@@ -69,7 +76,7 @@ export default function Header({ siteTitle, navigation, social_links }) {
           </Link>
 
           <button className={styles.menuToggle} onClick={() => setOpen(!open)}>
-            <svg viewBox="0 0 22 22">
+            <svg viewBox="0 0 20 20">
               <Path
                 variants={{
                   closed: { d: "M 2 2.5 L 20 2.5" },
@@ -78,10 +85,7 @@ export default function Header({ siteTitle, navigation, social_links }) {
               />
               <Path
                 d="M 2 9.423 L 20 9.423"
-                variants={{
-                  closed: { opacity: 1 },
-                  open: { opacity: 0 }
-                }}
+                variants={{ closed: { opacity: 1 }, open: { opacity: 0 } }}
                 transition={{ duration: 0.1 }}
               />
               <Path
@@ -94,27 +98,19 @@ export default function Header({ siteTitle, navigation, social_links }) {
           </button>
 
           <div className={styles.menu}>
-            <AnimatePresence>
-              {navigation && navigation.map((page, index) => (
-                <motion.div
-                  key={index}
-                  className={styles.menuItem}
-                  initial={{ opacity: 0, x: -100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <Link href={'/[...slug]'} as={`/${page.slug}`}>
-                    <a
-                      onMouseEnter={() => onMenuMouseEnter(`/${page.slug}`)}
-                      onMouseLeave={onMenuMouseLeave}
-                    >
-                      {page.label}
-                      {MenuHighlight(currentPath === `/${page.slug}`)}
-                    </a>
-                  </Link>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+            {navigation && navigation.map((page, index) => (
+              <div key={index} className={styles.menuItem}>
+                <Link href={'/[...slug]'} as={`/${page.slug}`}>
+                  <a
+                    onMouseEnter={() => onMenuMouseEnter(`/${page.slug}`)}
+                    onMouseLeave={onMenuMouseLeave}
+                  >
+                    {page.label}
+                    {MenuHighlight(currentPath === `/${page.slug}`)}
+                  </a>
+                </Link>
+              </div>
+            ))}
           </div>
           
           <div className={styles.social}>

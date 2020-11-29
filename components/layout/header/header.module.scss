@@ -121,8 +121,6 @@ $height: 40px;
       top: 0;
       left: 0;
       right: 0;
-      height: 40px;
-      padding: 0.8rem 30px;
       flex-direction: column;
       text-align: center;
       justify-content: center;
@@ -194,7 +192,6 @@ $height: 40px;
       }
 
       &.active {
-        height: 100%;
         background-color: rgba($dark-1, 0.95);
 
         .menu {
