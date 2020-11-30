@@ -11,4 +11,13 @@
   li {
     display: inline-block;
   }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    margin: 0 5vw;
+  }
+
+  @media (max-width: 576px) {
+    margin: 0;
+  }
 }

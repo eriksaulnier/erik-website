@@ -1,5 +1,6 @@
 @import './fonts';
 @import './variables';
+@import './mixins';
 
 body { 
   margin: 0;
@@ -67,4 +68,10 @@ button, .btn {
   overflow: visible;
   clip: auto;
   white-space: normal;
+}
+
+@include tablet-up {
+  body {
+    overflow: auto !important; // override mobile animations
+  }
 }
