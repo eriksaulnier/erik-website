@@ -96,6 +96,8 @@ export default function Header({ siteTitle, navigation, social_links }) {
           </Link>
 
           <motion.a
+            id="menu-toggle"
+            href="#menu"
             initial={false}
             animate={open ? 'open' : 'closed'}
             className={styles.menuToggle}
@@ -124,6 +126,7 @@ export default function Header({ siteTitle, navigation, social_links }) {
           </motion.a>
           
           <motion.div 
+            id="menu"
             initial={false}
             animate={open ? 'open' : 'closed'}
             variants={menuVariants}
