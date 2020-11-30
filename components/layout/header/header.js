@@ -95,13 +95,14 @@ export default function Header({ siteTitle, navigation, social_links }) {
             </a>
           </Link>
 
-          <motion.button
+          <motion.a
             initial={false}
             animate={open ? 'open' : 'closed'}
             className={styles.menuToggle}
             onClick={() => setOpen(!open)}
+            aria-label={`${open ? 'Open' : 'Close'} the menu`}
           >
-            <svg viewBox="0 0 20 20">
+            <svg viewBox="0 0 20 20" aria-hidden="true">
               <Path
                 variants={{
                   closed: { d: "M 2 2.5 L 20 2.5" },
@@ -120,7 +121,7 @@ export default function Header({ siteTitle, navigation, social_links }) {
                 }}
               />
             </svg>
-          </motion.button>
+          </motion.a>
           
           <motion.div 
             initial={false}
