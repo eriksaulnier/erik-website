@@ -1,35 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import * as Fa from 'react-icons/fa' 
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import styles from './header.module.scss'
 
 export default function Header({ siteTitle, navigation, social_links }) {
   const router = useRouter()
 
   const [open, setOpen] = useState(false)
-  const [navigating, setNavigating] = useState(false)
   const [currentPath, setCurrentPath] = useState(router.asPath)
-  const [resetTimeout, setResetTimeout] = useState(null)
+  
+  const resetTimeout = useRef(null)
+  const routerPath = useRef(router.asPath)
+  routerPath.current = router.asPath
 
-  // Set up route change listeners
   useEffect(() => {
-    const routeChangeStart = () => {
-      setNavigating(true)
-    }
-    router.events.on('routeChangeStart', routeChangeStart)
-
-    const routeChangeComplete = (path) => {
-      setCurrentPath(path)
-      setNavigating(false)
-    }
-    router.events.on('routeChangeComplete', routeChangeComplete)
-
-    return () => {
-      router.events.off('routeChangeStart', routeChangeStart)
-      router.events.off('routeChangeComplete', routeChangeComplete)
-    }
+    return () => clearTimeout(resetTimeout.current)
   }, [])
 
   // Prevent scrolling when the menu is open
@@ -43,18 +30,20 @@ export default function Header({ siteTitle, navigation, social_links }) {
   }, [open])
 
   function onMenuMouseEnter(path) {
-    if (!navigating) {
-      setCurrentPath(path)
-      clearTimeout(resetTimeout)
-    }
+    setCurrentPath(path)
+    clearTimeout(resetTimeout.current)
+    resetTimeout.current = null
   }
 
   function onMenuMouseLeave() {
-    if (!navigating) {
-      setResetTimeout(setTimeout(() => {
-        setCurrentPath(router.asPath)
-      }, 600))
+    if (resetTimeout.current !== null) {
+      clearTimeout(resetTimeout.current)
     }
+
+    resetTimeout.current = setTimeout(() => {
+      setCurrentPath(routerPath.current)
+      resetTimeout.current = null
+    }, 600)
   }
 
   const activeMenuItem = navigation.find(page => `/${page.slug}` === currentPath)

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 export default function TechnologyBlock() {
   return (
     <>
-      <motion.h1 layoutId="page-title">HELLO MY NAME ERIK</motion.h1>
+      <motion.h1 layoutId="page-title">&lt; Splash Goes Here &gt;</motion.h1>
     </>
   )
 }
