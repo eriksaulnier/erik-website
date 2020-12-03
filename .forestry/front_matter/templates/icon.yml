@@ -13,4 +13,4 @@ fields:
   type: text
   config:
     required: false
-  label: Title
+  label: Icon Title
