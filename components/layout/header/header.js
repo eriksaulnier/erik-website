@@ -46,7 +46,7 @@ export default function Header({ siteTitle, navigation, social_links }) {
     }, 600)
   }
 
-  const activeMenuItem = navigation.find(page => `/${page.slug}` === currentPath)
+  const activeMenuItem = navigation?.find(page => `/${page.slug}` === currentPath)
 
   const menuVariants = {
     open: {
@@ -155,6 +155,13 @@ export default function Header({ siteTitle, navigation, social_links }) {
       </div>
     </nav>
   )
+}
+
+export function getStaticProps({ params: { slug } }) {
+  console.log('who')
+  const site = getSiteSettings()
+  const data = getPageBySlug(slug.join('/'))
+  return { props: { site, ...data } }
 }
 
 const MenuHighlight = (condition)  => condition && (

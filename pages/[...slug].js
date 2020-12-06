@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown/with-html'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { getSiteSettings, getAllPagePaths, getPageBySlug } from '../lib/api'
 import { Layout } from '../components/layout'
 import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock, ArticlesBlock } from '../components/blocks'
@@ -15,25 +15,26 @@ export default function Page({ site, content, page_title, tab_title, blocks }) {
         </section>
       ) : null}
 
-      {blocks?.map((block, index) => (
-        <motion.div 
-          key={index}
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1, transition: { delay: 0.4 } }}
-          exit={{ scale: 0.8, opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          {
+      <AnimatePresence>
+        {blocks?.map((block, index) => (
+          <motion.div
+            key={`block-${index}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
             {
-              'content-block': <ContentBlock data={block} />,
-              'technology-block': <TechnologyBlock data={block} />,
-              'form-block': <FormBlock data={block} />,
-              'projects-block': <ProjectsBlock data={block} />,
-              'articles-block': <ArticlesBlock data={block} />
-            }[block.template]
-          }
-        </motion.div>
-      ))}
+              {
+                'content-block': <ContentBlock data={block} />,
+                'technology-block': <TechnologyBlock data={block} />,
+                'form-block': <FormBlock data={block} />,
+                'projects-block': <ProjectsBlock data={block} />,
+                'articles-block': <ArticlesBlock data={block} />
+              }[block.template]
+            }
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </Layout>
   )
 }

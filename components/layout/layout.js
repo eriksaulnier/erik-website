@@ -24,15 +24,15 @@ export default function Layout({ site, pageTitle, children }) {
         <title>{pageTitle ? `${pageTitle} | ${site?.site_title}` : site?.site_title}</title>
       </Head>
 
-        <AnimateSharedLayout>
-          <Header layoutId="header" siteTitle={site?.site_title} {...site?.header} />
-          <main className={styles.Content}>
-            <motion.div layout className={styles.Container}>
+      <AnimateSharedLayout>
+        <Header layoutId="header" siteTitle={site?.site_title} {...site?.header} />
+        <main className={styles.Content}>
+            <motion.div className={styles.Container}>
               {children}
             </motion.div>
-          </main>
-          <Footer layoutId="footer" />
-        </AnimateSharedLayout>
+        </main>
+        <Footer layoutId="footer" />
+      </AnimateSharedLayout>
     </div>
   )
 }
