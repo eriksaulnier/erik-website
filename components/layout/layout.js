@@ -27,9 +27,9 @@ export default function Layout({ site, pageTitle, children }) {
       <AnimateSharedLayout>
         <Header layoutId="header" siteTitle={site?.site_title} {...site?.header} />
         <main className={styles.Content}>
-            <motion.div className={styles.Container}>
+            <div className={styles.Container}>
               {children}
-            </motion.div>
+            </div>
         </main>
         <Footer layoutId="footer" />
       </AnimateSharedLayout>

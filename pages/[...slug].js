@@ -1,12 +1,11 @@
 import ReactMarkdown from 'react-markdown/with-html'
 import { motion, AnimatePresence } from 'framer-motion'
-import { getSiteSettings, getAllPagePaths, getPageBySlug } from '../lib/api'
-import { Layout } from '../components/layout'
+import { getAllPagePaths, getPageBySlug } from '../lib/api'
 import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock, ArticlesBlock } from '../components/blocks'
 
-export default function Page({ site, content, page_title, tab_title, blocks }) {
+export default function Page({ content, page_title, tab_title, blocks }) {
   return (
-    <Layout site={site} pageTitle={tab_title}>
+    <motion.div>
       <motion.h1 layoutId="page-title">{page_title}</motion.h1>
 
       {content ? (
@@ -35,15 +34,14 @@ export default function Page({ site, content, page_title, tab_title, blocks }) {
           </motion.div>
         ))}
       </AnimatePresence>
-    </Layout>
+    </motion.div>
   )
 }
 
 export function getStaticProps({ params: { slug } }) {
-  const site = getSiteSettings()
   const data = getPageBySlug(slug.join('/'))
 
-  return { props: { site, ...data } }
+  return { props: { ...data } }
 }
 
 export function getStaticPaths() {

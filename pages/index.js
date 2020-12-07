@@ -1,17 +1,10 @@
-import { getSiteSettings } from '../lib/api'
-import { Layout } from '../components/layout'
+import { motion } from 'framer-motion'
 import Splash from '../components/splash';
 
-export default function Home({ site }) {
+export default function Home() {
   return (
-    <Layout site={site}>
+    <motion.div>
       <Splash />
-    </Layout>
+    </motion.div>
   )
-}
-
-export function getStaticProps() {
-  const site = getSiteSettings()
-
-  return { props: { site } }
 }

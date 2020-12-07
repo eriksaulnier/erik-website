@@ -1,16 +1,9 @@
-import { getSiteSettings } from '../lib/api'
-import { Layout } from '../components/layout'
+import { motion } from 'framer-motion'
 
-export default function Custom404({ site }) {
+export default function Custom404() {
   return (
-    <Layout site={site} pageTitle="404">
+    <motion.div>
       <h1 style={{ textAlign: 'center', marginTop: '10%' }}>Page Not Found</h1>
-    </Layout>
+    </motion.div>
   )
-}
-
-export function getStaticProps() {
-  const site = getSiteSettings()
-
-  return { props: { site } }
 }

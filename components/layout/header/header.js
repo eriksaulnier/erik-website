@@ -157,13 +157,6 @@ export default function Header({ siteTitle, navigation, social_links }) {
   )
 }
 
-export function getStaticProps({ params: { slug } }) {
-  console.log('who')
-  const site = getSiteSettings()
-  const data = getPageBySlug(slug.join('/'))
-  return { props: { site, ...data } }
-}
-
 const MenuHighlight = (condition)  => condition && (
   <motion.span 
     layoutId="header-highlight"
