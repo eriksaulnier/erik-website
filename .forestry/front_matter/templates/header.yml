@@ -1,0 +1,36 @@
+---
+label: Header
+hide_body: true
+fields:
+- type: text
+  name: site_title
+  label: Site Title
+  config:
+    required: true
+- type: field_group
+  name: header
+  label: header
+  fields:
+  - type: field_group_list
+    name: social_links
+    label: social_links
+    fields:
+    - type: text
+      name: name
+      label: name
+    - type: text
+      name: link
+      label: link
+    - type: text
+      name: icon
+      label: icon
+  - type: field_group_list
+    name: navigation
+    label: navigation
+    fields:
+    - type: text
+      name: label
+      label: label
+    - type: text
+      name: page
+      label: page
