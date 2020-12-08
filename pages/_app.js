@@ -1,6 +1,5 @@
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import { Layout } from '../components/layout'
-import { getSiteSettings } from '../lib/api'
 import '../styles/globals.scss'
 
 export default function MyApp({ Component, siteProps, pageProps }) {
@@ -16,7 +15,8 @@ export default function MyApp({ Component, siteProps, pageProps }) {
 }
 
 MyApp.getInitialProps = async () => {
-  const siteProps = getSiteSettings()
-
+  const sitePropsRequest = await fetch('http://localhost:3000/api/siteProps')
+  const siteProps = await sitePropsRequest.json()
+  
   return { siteProps }
 }
