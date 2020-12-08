@@ -1,3 +1,30 @@
 {
-  "site_title": "Erik Saulnier"
+  "site_title": "Erik Saulnier",
+  "header": {
+    "navigation": [
+      {
+        "label": "About",
+        "page": "content/pages/about.md"
+      },
+      {
+        "label": "Projects",
+        "page": "content/pages/projects.md"
+      },
+      {
+        "label": "Articles",
+        "page": "content/pages/articles.md"
+      },
+      {
+        "label": "Contact",
+        "page": "content/pages/contact.md"
+      }
+    ],
+    "social_links": [
+      {
+        "name": "Twitter",
+        "link": "https://twitter.com/eriksaulnier",
+        "icon": "FaTwitter"
+      }
+    ]
+  }
 }

@@ -64,4 +64,5 @@ fields:
     label: Social Links
   label: Header
 pages:
+- app.config.json
 - content/site-settings.md
