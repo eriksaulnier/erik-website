@@ -4,7 +4,9 @@ hide_body: true
 fields:
 - type: text
   name: site_title
-  label: site_title
+  label: Site Title
+  config:
+    required: true
 - type: field_group
   name: header
   label: header
