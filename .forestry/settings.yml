@@ -7,7 +7,6 @@ sections:
 - type: document
   path: site.config.json
   label: Site
-  match: "**/*"
 - type: document
   path: content/site-settings.md
   label: Site Settings
