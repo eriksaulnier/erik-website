@@ -5,7 +5,7 @@ admin_path: "/public/admin"
 webhook_url: 
 sections:
 - type: document
-  path: site.config.json
+  path: app.config.json
   label: Site
 - type: document
   path: content/site-settings.md
