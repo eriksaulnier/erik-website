@@ -11,7 +11,7 @@ export default class Project extends Component  {
   }
 
   onHover() {
-    console.log('hiii')
+    // console.log('hiii')
   }
 
   render() {
