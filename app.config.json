@@ -11,10 +11,6 @@
         "page": "content/pages/projects.md"
       },
       {
-        "label": "Articles",
-        "page": "content/pages/articles.md"
-      },
-      {
         "label": "Contact",
         "page": "content/pages/contact.md"
       }
@@ -32,9 +28,11 @@
       },
       {
         "name": "LinkedIn",
-        "link": "https://www.linkedin.com/in/eriksaulnier",
+        "link": "https://linkedin.com/in/eriksaulnier",
         "icon": "FaLinkedin"
       }
     ]
+  },
+  "footer": {
   }
 }
