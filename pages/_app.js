@@ -1,22 +1,22 @@
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import { Layout } from '../components/layout'
+import siteConfig from '../app.config'
 import '../styles/globals.scss'
 
-export default function MyApp({ Component, siteProps, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
+  // Transform siteConfig data
+  siteConfig.header.navigation = siteConfig.header.navigation.map(item => {
+    item.slug = item.page.match(/(?<=content\/pages\/)(.*)(?=\.md)+/g)[0] || null
+    return item
+  })
+  
   return (
     <AnimateSharedLayout>
-      <Layout site={siteProps} pageTitle={pageProps?.tab_title || null}>
+      <Layout siteConfig={siteConfig} pageTitle={pageProps?.tab_title || null}>
         <AnimatePresence exitBeforeEnter>
           <Component {...pageProps} />
         </AnimatePresence>
       </Layout>
     </AnimateSharedLayout>
   )
-}
-
-MyApp.getInitialProps = async () => {
-  const sitePropsRequest = await fetch('http://localhost:3000/api/siteProps')
-  const siteProps = await sitePropsRequest.json()
-  
-  return { siteProps }
 }

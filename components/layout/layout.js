@@ -4,7 +4,7 @@ import Header from './header'
 import Footer from './footer'
 import styles from './layout.module.scss'
 
-export default function Layout({ site, pageTitle, children }) {
+export default function Layout({ siteConfig, pageTitle, children }) {
   return (
     <div className={styles.Layout}>
       <Head>
@@ -16,22 +16,22 @@ export default function Layout({ site, pageTitle, children }) {
         <meta
           property="og:image"
           content={`https://og-image.now.sh/${encodeURI(
-            site?.site_title
+            siteConfig?.site_title
           )}.png?theme=dark&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
-        <meta name="og:title" content={site?.site_title} />
+        <meta name="og:title" content={siteConfig?.site_title} />
         <meta name="twitter:card" content="summary_large_image" />
-        <title>{pageTitle ? `${pageTitle} | ${site?.site_title}` : site?.site_title}</title>
+        <title>{pageTitle ? `${pageTitle} | ${siteConfig?.site_title}` : siteConfig?.site_title}</title>
       </Head>
 
       <AnimateSharedLayout>
-        <Header layoutId="header" siteTitle={site?.site_title} {...site?.header} />
+        <Header layoutId="header" siteTitle={siteConfig?.site_title} {...siteConfig?.header} />
         <main className={styles.Content}>
             <div className={styles.Container}>
               {children}
             </div>
         </main>
-        <Footer layoutId="footer" />
+        <Footer layoutId="footer" {...siteConfig?.footer} />
       </AnimateSharedLayout>
     </div>
   )
