@@ -17,9 +17,9 @@
     ],
     "social_links": [
       {
-        "name": "Twitter",
-        "link": "https://twitter.com/eriksaulnier",
-        "icon": "FaTwitter"
+        "name": "LinkedIn",
+        "link": "https://linkedin.com/in/eriksaulnier",
+        "icon": "FaLinkedin"
       },
       {
         "name": "GitHub",
@@ -27,9 +27,9 @@
         "icon": "FaGithub"
       },
       {
-        "name": "LinkedIn",
-        "link": "https://linkedin.com/in/eriksaulnier",
-        "icon": "FaLinkedin"
+        "name": "Twitter",
+        "link": "https://twitter.com/eriksaulnier",
+        "icon": "FaTwitter"
       }
     ]
   },
