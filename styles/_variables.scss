@@ -3,6 +3,7 @@
 $primary: #1971c2;
 $primary-light: #1c7ed6;// lighten($primary, 20);
 $primary-dark: #1864ab; // darken($primary, 20);
+$primary-darker: darken($primary-dark, 15);
 
 $white: #fff;
 $yellow: #fcc419;

@@ -1,20 +1,33 @@
 @import './variables';
 
-.Layout {
+.layout {
   min-height: 100vh;
   padding: 0 30px;
   display: flex;
   flex-direction: column;
+  max-width: 1800px;
+  margin: 0 auto;
 
-  .Content {
+  .content {
+    position: relative;
     flex-grow: 1;
     padding: 2.5rem 2rem;
-    background-color: $dark-1;
+    background-color: $dark-2;
     border-radius: 0.5em;
+    align-items: stretch;
+    overflow: hidden;
 
-    .Container {
+    .container {
       max-width: 900px;
       margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 80px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     p {
@@ -27,14 +40,6 @@
 
     img {
       max-width: 100%;
-    }
-
-    section {
-      margin-bottom: 80px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
     }
   }
 }

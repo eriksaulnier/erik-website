@@ -3,37 +3,40 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { getAllPagePaths, getPageBySlug } from '../lib/api'
 import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock, ArticlesBlock } from '../components/blocks'
 
-export default function Page({ content, page_title, tab_title, blocks }) {
+export default function Page({ slug, content, page_title, blocks }) {
+  const contentAnimations = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 20 }
+  }
+
   return (
     <motion.div>
-      <motion.h1 layoutId="page-title">{page_title}</motion.h1>
-
-      {content ? (
-        <section>
-          <ReactMarkdown escapeHtml={false} source={content} />
-        </section>
-      ) : null}
+      <motion.h1 layoutId="page-title" {...contentAnimations}>{page_title}</motion.h1>
 
       <AnimatePresence>
-        {blocks?.map((block, index) => (
-          <motion.div
-            key={`block-${index}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            {
-              {
-                'content-block': <ContentBlock data={block} />,
-                'technology-block': <TechnologyBlock data={block} />,
-                'form-block': <FormBlock data={block} />,
-                'projects-block': <ProjectsBlock data={block} />,
-                'articles-block': <ArticlesBlock data={block} />
-              }[block.template]
-            }
-          </motion.div>
-        ))}
+        {content ? (
+          <motion.section {...contentAnimations}>
+            <ReactMarkdown escapeHtml={false} source={content} />
+          </motion.section>
+        ) : null}
       </AnimatePresence>
+      
+      <AnimatePresence>
+        {blocks?.map((block, index) => (
+            <motion.div key={`${slug}-${index}`} {...contentAnimations}>
+              {
+                {
+                  'content-block': <ContentBlock data={block} />,
+                  'technology-block': <TechnologyBlock data={block} />,
+                  'form-block': <FormBlock data={block} />,
+                  'projects-block': <ProjectsBlock data={block} />,
+                  'articles-block': <ArticlesBlock data={block} />
+                }[block.template]
+              }
+            </motion.div>
+          ))}
+        </AnimatePresence>
     </motion.div>
   )
 }

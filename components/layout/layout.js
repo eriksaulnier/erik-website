@@ -1,12 +1,12 @@
 import Head from 'next/head'
-import { motion, AnimateSharedLayout } from 'framer-motion'
+import { AnimateSharedLayout } from 'framer-motion'
 import Header from './header'
 import Footer from './footer'
 import styles from './layout.module.scss'
 
 export default function Layout({ siteConfig, pageTitle, children }) {
   return (
-    <div className={styles.Layout}>
+    <div className={styles.layout}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -26,10 +26,10 @@ export default function Layout({ siteConfig, pageTitle, children }) {
 
       <AnimateSharedLayout>
         <Header layoutId="header" siteTitle={siteConfig.site_title} {...siteConfig.header} />
-        <main className={styles.Content}>
-            <div className={styles.Container}>
-              {children}
-            </div>
+        <main className={styles.content}>
+          <div className={styles.container}>
+            {children}
+          </div>
         </main>
         <Footer layoutId="footer" siteTitle={siteConfig.site_title} {...siteConfig.footer} />
       </AnimateSharedLayout>

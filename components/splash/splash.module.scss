@@ -1,0 +1,40 @@
+@import './variables';
+@import './mixins';
+
+.splash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  background-color: $primary-darker;
+  transition: font-size 0.3s ease-out;
+
+  .centered {
+    display: flex;
+    min-height: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .title {
+    margin: 0;
+    font-size: 2.3em;
+    text-align: center;
+  }
+
+  .subtitle {
+    margin: 0;
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: normal;
+  }
+
+  @include tablet-up {
+    font-size: 1.8em;
+  }
+}
