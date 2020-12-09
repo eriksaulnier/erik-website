@@ -63,6 +63,9 @@ fields:
       labelField: name
     label: Social Links
   label: Header
+- name: footer
+  type: field_group
+  config: {}
+  label: Footer
 pages:
 - app.config.json
-- content/site-settings.md
