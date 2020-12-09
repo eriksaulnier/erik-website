@@ -16,22 +16,22 @@ export default function Layout({ siteConfig, pageTitle, children }) {
         <meta
           property="og:image"
           content={`https://og-image.now.sh/${encodeURI(
-            siteConfig?.site_title
+            siteConfig.site_title
           )}.png?theme=dark&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
-        <meta name="og:title" content={siteConfig?.site_title} />
+        <meta name="og:title" content={siteConfig.site_title} />
         <meta name="twitter:card" content="summary_large_image" />
-        <title>{pageTitle ? `${pageTitle} | ${siteConfig?.site_title}` : siteConfig?.site_title}</title>
+        <title>{pageTitle ? `${pageTitle} | ${siteConfig.site_title}` : siteConfig.site_title}</title>
       </Head>
 
       <AnimateSharedLayout>
-        <Header layoutId="header" siteTitle={siteConfig?.site_title} {...siteConfig?.header} />
+        <Header layoutId="header" siteTitle={siteConfig.site_title} {...siteConfig.header} />
         <main className={styles.Content}>
             <div className={styles.Container}>
               {children}
             </div>
         </main>
-        <Footer layoutId="footer" {...siteConfig?.footer} />
+        <Footer layoutId="footer" siteTitle={siteConfig.site_title} {...siteConfig.footer} />
       </AnimateSharedLayout>
     </div>
   )
