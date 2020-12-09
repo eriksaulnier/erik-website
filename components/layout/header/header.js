@@ -86,7 +86,6 @@ export default function Header({ siteTitle, navigation, social_links }) {
 
           <motion.a
             id="menu-toggle"
-            href="#menu"
             initial={false}
             animate={open ? 'open' : 'closed'}
             className={styles.menuToggle}
