@@ -12,8 +12,6 @@ export default function MyApp({ Component, pageProps }) {
     item.slug = item.page.match(/(?<=content\/pages\/)(.*)(?=\.md)+/g)[0] || null
     return item
   })
-
-  console.log(router.route)
   
   return (
     <AnimateSharedLayout>
