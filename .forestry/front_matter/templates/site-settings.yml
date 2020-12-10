@@ -31,6 +31,10 @@ fields:
           file: 
           path: 
       label: Page
+    - name: enabled
+      type: boolean
+      label: Enabled
+      default: true
     config:
       min: 
       max: 
