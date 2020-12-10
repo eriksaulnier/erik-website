@@ -1,6 +1,6 @@
 ---
 label: Content Block
-hide_body: false
+hide_body: true
 display_field: block_title
 fields:
 - name: block_title
@@ -8,3 +8,13 @@ fields:
   config:
     required: false
   label: Block Title
+- name: content
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+    max: 1.0e+34
+  label: Content
