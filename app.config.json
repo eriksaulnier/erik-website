@@ -5,7 +5,7 @@
       {
         "label": "About",
         "page": "content/pages/about.md",
-        "enabled": false
+        "enabled": true
       },
       {
         "label": "Projects",
