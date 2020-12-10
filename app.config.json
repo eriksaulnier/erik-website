@@ -10,7 +10,7 @@
       {
         "label": "Projects",
         "page": "content/pages/projects.md",
-        "enabled": false
+        "enabled": true
       },
       {
         "label": "Articles",
@@ -20,7 +20,7 @@
       {
         "label": "Contact",
         "page": "content/pages/contact.md",
-        "enabled": false
+        "enabled": true
       }
     ],
     "social_links": [
