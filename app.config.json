@@ -4,19 +4,23 @@
     "navigation": [
       {
         "label": "About",
-        "page": "content/pages/about.md"
+        "page": "content/pages/about.md",
+        "enabled": false
       },
       {
         "label": "Projects",
-        "page": "content/pages/projects.md"
+        "page": "content/pages/projects.md",
+        "enabled": false
       },
       {
         "label": "Articles",
-        "page": "content/pages/articles.md"
+        "page": "content/pages/articles.md",
+        "enabled": false
       },
       {
         "label": "Contact",
-        "page": "content/pages/contact.md"
+        "page": "content/pages/contact.md",
+        "enabled": false
       }
     ],
     "social_links": [
