@@ -2,6 +2,7 @@
 @import './mixins';
 
 $height: 40px;
+$highlight-color: $primary;
 
 .header {
   height: $height;
@@ -115,7 +116,7 @@ $height: 40px;
             }
         
             &:hover {
-              color: $primary-light;
+              color: $highlight-color;
             }
           }
 
@@ -134,7 +135,7 @@ $height: 40px;
       right: 0;
       height: 3px;
       border-radius: 1px;
-      background-color: $primary-light;
+      background-color: $highlight-color;
     }
   }
 

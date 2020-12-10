@@ -1,16 +1,16 @@
 // https://yeun.github.io/open-color
 
 $primary: #1971c2;
-$primary-light: #1c7ed6;// lighten($primary, 20);
-$primary-dark: #1864ab; // darken($primary, 20);
-$primary-darker: darken($primary-dark, 15);
+$primary-light: lighten($primary, 10);
+$primary-dark: darken($primary, 10);
+$primary-darker: #0F4271;
 
 $white: #fff;
 $yellow: #fcc419;
 
-$dark-1: #121313;
-$dark-2: #181a1b;
-$dark-3: #2a2d2e;
+$dark-1: #181a1b;
+$dark-2: #1E2021;
+$dark-3: #36363a;
 
 $light-1: $white;
 $light-2: #e2e8f0;

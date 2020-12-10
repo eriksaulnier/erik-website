@@ -1,8 +1,9 @@
 @import './variables';
+@import './mixins';
 
 .layout {
   min-height: 100vh;
-  padding: 0 30px;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
   max-width: 1800px;
@@ -41,5 +42,9 @@
     img {
       max-width: 100%;
     }
+  }
+
+  @include tablet-up {
+    padding: 0 2rem;
   }
 }
