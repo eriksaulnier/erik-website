@@ -3,6 +3,11 @@ page_title: Get in contact
 tab_title: Contact
 seo_description: ''
 blocks:
+- template: content-block
+  block_title: ''
+  content: If you'd like to work together on a project, have a technical question,
+    or just want to have a chat; feel free to get in touch with using the form below
+    or emailing me directly at [**hello@eriksaulnier.com**](mailto:hello@eriksaulnier.com).
 - template: form-block
   fields:
   - template: form-field
