@@ -1,4 +1,3 @@
-import ReactMarkdown from 'react-markdown/with-html'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getAllPagePaths, getPageBySlug } from '../lib/api'
 import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock, ArticlesBlock } from '../components/blocks'
@@ -12,6 +11,7 @@ export default function Page({ slug, content, page_title, blocks }) {
 
   return (
     <motion.div>
+      <motion.h1 {...contentAnimations}>{page_title}</motion.h1>
 
       <AnimatePresence>
         {blocks?.map((block, index) => (
