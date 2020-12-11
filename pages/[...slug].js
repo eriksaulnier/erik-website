@@ -12,16 +12,7 @@ export default function Page({ slug, content, page_title, blocks }) {
 
   return (
     <motion.div>
-      <motion.h1 layoutId="page-title" {...contentAnimations}>{page_title}</motion.h1>
 
-      <AnimatePresence>
-        {content ? (
-          <motion.section {...contentAnimations}>
-            <ReactMarkdown escapeHtml={false} source={content} />
-          </motion.section>
-        ) : null}
-      </AnimatePresence>
-      
       <AnimatePresence>
         {blocks?.map((block, index) => (
             <motion.div key={`${slug}-${index}`} {...contentAnimations}>
