@@ -23,13 +23,13 @@ export default function Layout({ siteConfig, pageTitle, children }) {
         <title>{pageTitle ? `${pageTitle} | ${siteConfig.site_title}` : siteConfig.site_title}</title>
       </Head>
 
-        <Header siteTitle={siteConfig.site_title} {...siteConfig.header} />
-        <main className={styles.content}>
-          <div className={styles.container}>
-            {children}
-          </div>
-        </main>
-        <Footer siteTitle={siteConfig.site_title} {...siteConfig.footer} />
+      <Header siteTitle={siteConfig.site_title} {...siteConfig.header} />
+      <main className={styles.content}>
+        <div className={styles.container}>
+          {children}
+        </div>
+      </main>
+      <Footer layout siteTitle={siteConfig.site_title} {...siteConfig.footer} />
     </div>
   )
 }

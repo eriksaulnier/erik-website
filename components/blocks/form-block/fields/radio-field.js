@@ -1,16 +1,27 @@
 import styles from './../form-block.module.scss'
 
-export default function RadioField({ data }) {
+export default function RadioField({
+  data: {
+    label,
+    name,
+    required,
+    radio_options,
+    description,
+    width
+  }
+}) {
   return (
-    <fieldset className={[styles.Field, styles.RadioField].join(' ')} width={data.width || 100}>
-      {data.label ? <legend>{data.label}</legend> : null}
-      {data.radio_options.map((option, index) => (
+    <fieldset className={[styles.field, styles.radioField].join(' ')} width={width || 100}>
+      {label && <label htmlFor={name}>{label}</label>}
+
+      {radio_options?.map((option, index) => (
         <div key={index}>
-          <input id={data.name+index} type="radio" name={data.name} required={data.required} value={option.value}/>
-          <label htmlFor={data.name+index}>{option.label}</label>
+          <input id={name+index} type="radio" name={name} required={required} value={option.value}/>
+          <label htmlFor={name+index}>{option.label}</label>
         </div>
       ))}
-      {data.description ? <p className={styles.Description}>{data.description}</p> : null}
+
+      {description && <p className={styles.description}>{description}</p>}
     </fieldset>
   )
 }

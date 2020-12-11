@@ -1,16 +1,26 @@
 import styles from './../form-block.module.scss'
 
-export default function CheckboxField({ data }) {
+export default function CheckboxField({
+  data: {
+    label,
+    name,
+    checkbox_options,
+    description,
+    width
+  }
+}) {
   return (
-    <fieldset className={[styles.Field, styles.CheckboxField].join(' ')} width={data.width||100}>
-      {data.label ? <legend htmlFor={data.name}>{data.label}</legend> : null}
-      {data.checkbox_options.map((option, index) => (
+    <fieldset className={[styles.field, styles.checkboxField].join(' ')} width={width||100}>
+      {label && <legend htmlFor={data.name}>{data.label}</legend>}
+
+      {checkbox_options?.map((option, index) => (
         <div key={index}>
-          <input id={data.name+index} type="checkbox" name={data.name+'[]'} value={option.value} />
-          <label htmlFor={data.name+index}>{option.label}</label>
+          <input id={name+index} type="checkbox" name={name+'[]'} value={option.value} />
+          <label htmlFor={name+index}>{option.label}</label>
         </div>
       ))}
-      {data.description ? <p className={styles.Description}>{data.description}</p> : null}
+
+      {description && <p className={styles.description}>{description}</p>}
     </fieldset>
   )
 }

@@ -1,11 +1,13 @@
 import ArticleList from './article-list'
 
-export default function ArticlesBlock({ data }) {
+export default function ArticlesBlock({ data: { block_title, articles } }) {
   return (
     <section>
-      {data.block_title ? <h2>{data.block_title}</h2> : null}
+      {block_title && <h2>{block_title}</h2>}
 
-      {data.articles ? <ArticleList articles={data.articles} /> : null}
+      {articles && (
+        <ArticleList articles={articles} />
+      )}
     </section>
   )
 }

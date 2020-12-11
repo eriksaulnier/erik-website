@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { AnimateSharedLayout } from 'framer-motion'
+import { AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 import { getSiteConfig } from '../lib/api'
 import { Layout } from '../components/layout'
 import '../styles/globals.scss'
@@ -7,11 +7,13 @@ import '../styles/globals.scss'
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const siteConfig = getSiteConfig();
-  
+
   return (
-    <AnimateSharedLayout type="crossfade">
+    <AnimateSharedLayout>
       <Layout siteConfig={siteConfig} pageTitle={pageProps?.tab_title || null}>
-          <Component {...pageProps} key={router.route} />
+        <AnimatePresence exitBeforeEnter>
+          <Component layout {...pageProps} key={router.asPath} />
+        </AnimatePresence>
       </Layout>
     </AnimateSharedLayout>
   )

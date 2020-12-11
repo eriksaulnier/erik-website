@@ -3,21 +3,36 @@ import { motion } from 'framer-motion'
 import { getAllArticlePaths, getArticleBySlug } from '../../lib/api'
 
 export default function Article({ article_title, created_date, content }) {
+  const contentAnimations = {
+    initial: { y: 20, opacity: 0 },
+    enter: { y: 0, opacity: 1 },
+    exit: { y: 20, opacity: 0 },
+  }
+  
   const date = new Date(created_date)
   const formattedDate = date.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 
   return (
-    <motion.div>
-      <div className="container mx-auto">
-        <h1>{article_title}</h1>
-        <p><b>Posted {formattedDate}</b></p>
+    <motion.div
+      initial="initial" animate="enter" exit="exit"
+      variants={{ enter: { transition: { staggerChildren: 0.1 } } }}
+    >
+      <motion.h1 variants={contentAnimations}>{article_title}</motion.h1>
+      <p><b>Posted {formattedDate}</b></p>
 
-        {content ? (
-          <section>
-            <ReactMarkdown escapeHtml={false} source={content} />
-          </section>
-        ) : null}
-      </div>
+      {content && <ReactMarkdown
+        source={content}
+        escapeHtml={false}
+        renderers={{
+          link: ({ children, href }) => {
+            return (
+              <Link href={href}>
+                <a>{children}</a>
+              </Link>
+            );
+          },
+        }}
+      />}
     </motion.div>
   )
 }

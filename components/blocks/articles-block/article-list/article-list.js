@@ -5,7 +5,7 @@ export default function ArticleList({ articles }) {
   return (
     <>
       <ul className={styles.ArticleList}>
-        {articles.map((article, index) => (
+        {articles?.map((article, index) => (
           <li key={index}>
             <Article data={article} />
           </li>

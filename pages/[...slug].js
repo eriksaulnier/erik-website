@@ -1,33 +1,35 @@
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { getAllPagePaths, getPageBySlug } from '../lib/api'
 import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock, ArticlesBlock } from '../components/blocks'
 
-export default function Page({ slug, content, page_title, blocks }) {
+export default function Page({ slug, page_title, blocks }) {
   const contentAnimations = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: 20 }
+    initial: { y: 10, opacity: 0 },
+    enter: { y: 0, opacity: 1 },
+    exit: { y: 5, opacity: 0 },
   }
 
   return (
-    <motion.div>
-      <motion.h1 {...contentAnimations}>{page_title}</motion.h1>
+    <motion.div
+      initial="initial" animate="enter" exit="exit"
+      variants={{ enter: { transition: { staggerChildren: 0.15 } } }}
+    >
+      <motion.h1 variants={contentAnimations}>{page_title}</motion.h1>
 
-      <AnimatePresence>
-        {blocks?.map((block, index) => (
-            <motion.div key={`${slug}-${index}`} {...contentAnimations}>
+      {blocks?.map((block, index) => (
+          <motion.div key={`${slug}-${index}`} variants={contentAnimations}>
+            {
               {
-                {
-                  'content-block': <ContentBlock data={block} />,
-                  'technology-block': <TechnologyBlock data={block} />,
-                  'form-block': <FormBlock data={block} />,
-                  'projects-block': <ProjectsBlock data={block} />,
-                  'articles-block': <ArticlesBlock data={block} />
-                }[block.template]
-              }
-            </motion.div>
-          ))}
-        </AnimatePresence>
+                'content-block': <ContentBlock data={block} />,
+                'technology-block': <TechnologyBlock data={block} />,
+                'form-block': <FormBlock data={block} />,
+                'projects-block': <ProjectsBlock data={block} />,
+                'articles-block': <ArticlesBlock data={block} />
+              }[block.template]
+            }
+          </motion.div>
+        ))}
     </motion.div>
   )
 }

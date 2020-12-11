@@ -1,12 +1,12 @@
 @import './variables';
 
-.FormBlock {
-  .FieldGroup {
+.formBlock {
+  .fieldGroup {
     display: grid;
     grid-template-columns: repeat(4, [col] 1fr);
     grid-gap: 2em;
 
-    .Field {
+    .field {
       width: 100%;
       padding: 0;
       margin: 0 0 1rem 0;
@@ -36,7 +36,7 @@
         font-weight: bold;
       }
 
-      .Description {
+      .description {
         margin: 0.5rem 0 0;
         font-size: 0.9rem;
         color: $light-2;
@@ -47,7 +47,7 @@
         cursor: pointer;
       }
 
-      &.InputField {
+      &.inputField {
         input {
           width: 100%;
           padding: 0.5em 0.75em;
@@ -61,7 +61,7 @@
         }
       }
 
-      &.TextareaField {
+      &.textareaField {
         textarea {
           width: 100%;
           min-height: 6rem;
@@ -77,7 +77,7 @@
         }
       }
 
-      &.SelectField {
+      &.selectField {
         select {
           padding: 0.75em 0.75em;
           background-color: $dark-3;
@@ -93,13 +93,13 @@
         } 
       }
 
-      &.RadioField {
+      &.radioField {
         input[type="radio"] {
           margin-right: 5px;
         }
       }
 
-      &.CheckboxField {
+      &.checkboxField {
         input[type="checkbox"] {
           margin-right: 5px;
         }

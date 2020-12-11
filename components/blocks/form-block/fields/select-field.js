@@ -1,15 +1,26 @@
 import styles from './../form-block.module.scss'
 
-export default function SelectField({ data }) {
+export default function SelectField({
+  data: {
+    label,
+    name,
+    required,
+    select_options,
+    description,
+    width
+  }
+}) {
   return (
-    <div className={[styles.Field, styles.SelectField].join(' ')} width={data.width || 100}>
-      {data.label ? <label htmlFor={data.name}>{data.label}</label> : null}
-      <select id={data.name} required={data.required} >
-        {data.select_options.map((option, index) => (
+    <div className={[styles.field, styles.selectField].join(' ')} width={width || 100}>
+      {label && <label htmlFor={name}>{label}</label>}
+
+      <select id={name} required={required}>
+        {select_options?.map((option, index) => (
           <option key={index} value={option.value}>{option.label}</option>
         ))}
       </select>
-      {data.description ? <p className={styles.Description}>{data.description}</p> : null}
+
+      {description && <p className={styles.description}>{description}</p>}
     </div>
   )
 }

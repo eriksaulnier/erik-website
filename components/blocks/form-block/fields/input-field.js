@@ -1,11 +1,23 @@
 import styles from './../form-block.module.scss'
 
-export default function InputField({ data }) {
+export default function InputField({
+  data: {
+    label,
+    name,
+    required,
+    input_type,
+    input_placeholder,
+    description,
+    width
+  }
+}) {
   return (
-    <div className={[styles.Field, styles.InputField].join(' ')} width={data.width || 100}>
-      {data.label ? <label htmlFor={data.name}>{data.label}</label> : null}
-      <input id={data.name} name={data.name} required={data.required} type={data.input_type || 'text'} placeholder={data.input_placeholder}/>
-      {data.description ? <p className={styles.Description}>{data.description}</p> : null}
+    <div className={[styles.field, styles.inputField].join(' ')} width={width || 100}>
+      {label && <label htmlFor={name}>{label}</label>}
+
+      <input id={name} name={name} required={required} type={input_type || 'text'} placeholder={input_placeholder}/>
+
+      {description && <p className={styles.description}>{description}</p>}
     </div>
   )
 }

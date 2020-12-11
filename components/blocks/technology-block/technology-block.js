@@ -1,16 +1,14 @@
-// import React from 'react'
-// import * as Devicon from 'react-icons/di' 
 import styles from './technology-block.module.scss'
 import TagList from '../../tag-list'
 
-export default function TechnologyBlock({ data }) {
+export default function TechnologyBlock({ data: { block_title, categories } }) {
   return (
     <section className={styles.TechnologyBlock}>
-      {data.block_title ? <h2>{data.block_title}</h2> : null}
+      {block_title && <h2>{block_title}</h2>}
 
-      {data.categories.map((category, index) => (
+      {categories?.map((category, index) => (
         <div key={index}>
-          {category.category_title ? <h4>{category.category_title}</h4> : null}
+          {category.category_title && <h4>{category.category_title}</h4>}
           <TagList tags={category.technologies} />
         </div>
       ))}

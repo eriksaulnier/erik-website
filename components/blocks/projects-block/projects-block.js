@@ -1,11 +1,13 @@
 import ProjectsList from './project-list'
 
-export default function ProjectsBlock({ data }) {
+export default function ProjectsBlock({ data: { block_title, projects } }) {
   return (
     <section>
-      {data.block_title ? <h2>{data.block_title}</h2> : null}
+      {block_title && <h2>{block_title}</h2>}
 
-      {data.projects ? <ProjectsList projects={data.projects} /> : null}
+      {projects && (
+        <ProjectsList projects={projects} />
+      )}
     </section>
   )
 }

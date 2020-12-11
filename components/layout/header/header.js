@@ -122,7 +122,7 @@ export default function Header({ siteTitle, navigation, social_links }) {
             className={styles.menu}
           >
             <div className={styles.menuItems}>
-              {navigation && navigation.map((page, index) => (
+              {navigation?.map((page, index) => (
                 <div key={index} className={styles.menuItem}>
                   <Link href={'/[...slug]'} as={`/${page.slug}`}>
                     <a
@@ -138,7 +138,7 @@ export default function Header({ siteTitle, navigation, social_links }) {
             </div>
             
             <div className={styles.social}>
-              {social_links ? social_links.map((item, index) => (
+              {social_links?.map((item, index) => (
                 <div key={index} className={styles.socialIcon}>
                   <Link href={item.link}>
                     <a target="_blank" rel="noopener">
@@ -147,7 +147,7 @@ export default function Header({ siteTitle, navigation, social_links }) {
                     </a>
                   </Link>
                 </div>
-              )) : null}
+              ))}
             </div>
           </motion.div>
         </nav>
