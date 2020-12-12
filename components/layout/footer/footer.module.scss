@@ -1,8 +1,9 @@
 @import './variables';
 @import './helpers';
+@import './mixins';
 
 .footer {
-  padding: 0.5rem 1rem;
+  padding: 0.5em 1em;
   color: $light-2;
   font-size: 0.9em;
   font-weight: 600;
@@ -12,27 +13,33 @@
     max-width: 1300px;
     margin: 0 auto;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
   }
 
-  // .copyright { }
+  p {
+    margin: 0.6em 0;
+  }
 
   .poweredBy {
+    display: none;
+
     svg {
       color: $yellow;
       vertical-align: middle;
     }
   }
+}
 
-  @media (max-width: 768px) {
+@include mobile-up {
+  .footer {
     .container {
-      flex-direction: column;
+      flex-direction: row;
     }
     
-    .copyright {
-      display: none;
+    .poweredBy {
+      display: block;
     }
   }
 }

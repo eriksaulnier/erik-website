@@ -3,16 +3,17 @@
 
 .layout {
   min-height: 100vh;
-  padding: 0 1rem;
+  padding: 0 1em;
   display: flex;
   flex-direction: column;
   max-width: 1800px;
   margin: 0 auto;
+  transition: padding 0.3s ease-out;
 
   .content {
     position: relative;
     flex-grow: 1;
-    padding: 2.5rem 2rem;
+    padding: 2.5em 2em;
     background-color: $dark-2;
     border-radius: 0.5em;
     align-items: stretch;
@@ -45,6 +46,6 @@
   }
 
   @include tablet-up {
-    padding: 0 2rem;
+    padding: 0 2em;
   }
 }
