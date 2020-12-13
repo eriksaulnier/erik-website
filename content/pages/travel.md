@@ -1,5 +1,5 @@
 ---
-page_title: Places I've Traveled
+page_title: Places I've traveled
 tab_title: Travel
 seo_description: ''
 published: true
