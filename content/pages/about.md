@@ -31,6 +31,9 @@ blocks:
     - label: GitKraken
       icon_name: ''
       icon_title: ''
+    - label: Windows Terminal
+      icon_name: ''
+      icon_title: ''
   - category_title: Programming Languages
     technologies:
     - label: Javascript
@@ -52,6 +55,9 @@ blocks:
       icon_name: ''
       icon_title: ''
     - label: Java
+      icon_name: ''
+      icon_title: ''
+    - label: Dart
       icon_name: ''
       icon_title: ''
   - category_title: Frameworks
@@ -88,7 +94,7 @@ blocks:
     - label: PostgreSQL
       icon_name: ''
       icon_title: ''
-  - category_title: Other
+  - category_title: Miscellaneous
     technologies:
     - label: Wordpress
       icon_name: ''
