@@ -12,7 +12,7 @@ blocks:
 
     I currently work full-time as a developer at [Troy Web Consulting](https://troyweb.com "Troy Web Consulting") in Troy, NY.
 
-    Check out [/uses](/uses "Uses") /travel
+    Check out [/uses](/uses "Uses") or [/travel](/travel "Travel")
   block_title: ''
 - template: technology-block
   block_title: Technologies I Use
