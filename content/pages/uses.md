@@ -2,7 +2,7 @@
 page_title: Uses
 tab_title: Uses
 seo_description: ''
-published: false
+published: true
 blocks:
 - template: content-block
   block_title: Desktop
