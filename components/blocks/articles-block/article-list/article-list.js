@@ -4,7 +4,7 @@ import Article from './article';
 export default function ArticleList({ articles }) {
   return (
     <>
-      <ul className={styles.ArticleList}>
+      <ul className={styles.articleList}>
         {articles?.map((article, index) => (
           <li key={index}>
             <Article data={article} />

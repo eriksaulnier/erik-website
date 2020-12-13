@@ -1,4 +1,5 @@
 @import './variables';
+@import './mixins';
 
 .formBlock {
   .fieldGroup {
@@ -13,22 +14,7 @@
       display: inline-block;
       vertical-align: top;
       border: none;
-
-      &[width="100"] {
-        grid-column: auto / span 4;
-      }
-
-      &[width="75"] {
-        grid-column: auto / span 3;
-      }
-
-      &[width="50"] {
-        grid-column: auto / span 2;
-      }
-
-      &[width="25"] {
-        grid-column: auto / span 1;
-      }
+      grid-column: auto / span 4;
 
       > label, > legend {
         display: block;
@@ -109,5 +95,27 @@
 
   button[type="submit"] {
     margin-top: 1.5rem;
+  }
+
+  @include mobile-up {
+    .fieldGroup {
+      .field {
+        &[width="100"] {
+          grid-column: auto / span 4;
+        }
+
+        &[width="75"] {
+          grid-column: auto / span 3;
+        }
+
+        &[width="50"] {
+          grid-column: auto / span 2;
+        }
+
+        &[width="25"] {
+          grid-column: auto / span 1;
+        }
+      }
+    }
   }
 }

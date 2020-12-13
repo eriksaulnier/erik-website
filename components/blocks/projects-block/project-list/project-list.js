@@ -4,7 +4,7 @@ import Project from './project';
 export default function ProjectList({ projects }) {
   return (
     <>
-      <ul className={styles.ProjectList}>
+      <ul className={styles.projectList}>
         {projects?.map((project, index) => (
           <li key={index}>
             <Project data={project} />

@@ -3,7 +3,7 @@ import TagList from '../../tag-list'
 
 export default function TechnologyBlock({ data: { block_title, categories } }) {
   return (
-    <section className={styles.TechnologyBlock}>
+    <section className={styles.technologyBlock}>
       {block_title && <h2>{block_title}</h2>}
 
       {categories?.map((category, index) => (

@@ -4,7 +4,7 @@ import styles from './article.module.scss'
 export default function Article({ data }) {
   
   return (
-    <div className={styles.Article}>
+    <div className={styles.article}>
       <Link href={'/articles/[...slug]'} as={`/articles/${data.slug}`}>
           <a>
             {data.article_title}
