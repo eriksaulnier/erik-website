@@ -7,7 +7,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  padding: 30px;
+  padding: 1.5em;
   box-sizing: border-box;
   background-color: $primary-darker;
   transition: font-size 0.3s ease-out;
@@ -15,7 +15,7 @@
   .centered {
     display: flex;
     min-height: 100%;
-    max-width: 800px;
+    max-width: 53em;
     margin: 0 auto;
     justify-content: center;
     flex-direction: column;
@@ -23,15 +23,19 @@
 
   .title {
     margin: 0;
-    font-size: 2.3em;
+    font-size: 2.2em;
     text-align: center;
   }
 
   .subtitle {
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1.1em;
     text-align: center;
     font-weight: normal;
+  }
+
+  @include mobile-up {
+    font-size: 1.3em;
   }
 
   @include tablet-up {

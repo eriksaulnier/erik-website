@@ -29,7 +29,7 @@
         font-style: italic;
       }
 
-      input:not([type="text"]), select {
+      input:not([type="text"],[type="email"]), select {
         cursor: pointer;
       }
 
