@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { AnimatePresence } from 'framer-motion'
 import { getAllPagePaths, getPageBySlug } from '../lib/api'
 import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock, ArticlesBlock } from '../components/blocks'
 
