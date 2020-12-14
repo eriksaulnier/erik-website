@@ -17,23 +17,6 @@ blocks:
 - template: technology-block
   block_title: Technologies I Use
   categories:
-  - category_title: Everyday Tools
-    technologies:
-    - label: VS Code
-      icon_name: ''
-      icon_title: ''
-    - label: Docker
-      icon_name: ''
-      icon_title: ''
-    - label: Cyberduck
-      icon_name: ''
-      icon_title: ''
-    - label: GitKraken
-      icon_name: ''
-      icon_title: ''
-    - label: Windows Terminal
-      icon_name: ''
-      icon_title: ''
   - category_title: Programming Languages
     technologies:
     - label: Javascript
