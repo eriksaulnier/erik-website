@@ -1,23 +1,16 @@
 @import './variables';
+@import './mixins';
 
 .projectList {
   display: grid;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   list-style: none;
-  grid-gap: 2rem;
-  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2.5em;
+  max-width: 26em;
 
-  li {
-    display: inline-block;
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    margin: 0 5vw;
-  }
-
-  @media (max-width: 576px) {
-    margin: 0;
+  @include tablet-up {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: unset;
   }
 }

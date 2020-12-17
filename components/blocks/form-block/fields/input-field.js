@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import styles from './../form-block.module.scss'
 
 export default function InputField({
@@ -9,15 +10,20 @@ export default function InputField({
     input_placeholder,
     description,
     width
-  }
+  },
+  variants
 }) {
   return (
-    <div className={[styles.field, styles.inputField].join(' ')} width={width || 100}>
+    <motion.div
+      className={[styles.field, styles.inputField].join(' ')}
+      width={width || 100}
+      variants={variants}
+    >
       {label && <label htmlFor={name}>{label}</label>}
 
       <input id={name} name={name} required={required} type={input_type || 'text'} placeholder={input_placeholder}/>
 
       {description && <p className={styles.description}>{description}</p>}
-    </div>
+    </motion.div>
   )
 }

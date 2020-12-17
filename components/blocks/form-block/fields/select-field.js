@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import styles from './../form-block.module.scss'
 
 export default function SelectField({
@@ -8,10 +9,15 @@ export default function SelectField({
     select_options,
     description,
     width
-  }
+  },
+  variants
 }) {
   return (
-    <div className={[styles.field, styles.selectField].join(' ')} width={width || 100}>
+    <motion.div
+      className={[styles.field, styles.selectField].join(' ')}
+      width={width || 100}
+      variants={variants}
+    >
       {label && <label htmlFor={name}>{label}</label>}
 
       <select id={name} required={required}>
@@ -21,6 +27,6 @@ export default function SelectField({
       </select>
 
       {description && <p className={styles.description}>{description}</p>}
-    </div>
+    </motion.div>
   )
 }

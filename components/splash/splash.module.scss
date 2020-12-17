@@ -10,7 +10,6 @@
   padding: 1.5em;
   box-sizing: border-box;
   background-color: $primary-darker;
-  transition: font-size 0.3s ease-out;
 
   .centered {
     display: flex;
@@ -25,6 +24,7 @@
     margin: 0;
     font-size: 2.2em;
     text-align: center;
+    transition: font-size 0.3s ease-out;
   }
 
   .subtitle {
@@ -32,6 +32,7 @@
     font-size: 1.1em;
     text-align: center;
     font-weight: normal;
+    transition: font-size 0.3s ease-out;
   }
 
   @include mobile-up {
@@ -40,5 +41,11 @@
 
   @include tablet-up {
     font-size: 1.8em;
+  }
+
+  @include desktop-up {
+    .title {
+      font-size: 2.6em;
+    }
   }
 }

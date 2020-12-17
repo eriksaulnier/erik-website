@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import styles from './../form-block.module.scss'
 
 export default function CheckboxField({
@@ -7,11 +8,16 @@ export default function CheckboxField({
     checkbox_options,
     description,
     width
-  }
+  },
+  variants
 }) {
   return (
-    <fieldset className={[styles.field, styles.checkboxField].join(' ')} width={width||100}>
-      {label && <legend htmlFor={data.name}>{data.label}</legend>}
+    <motion.fieldset
+      className={[styles.field, styles.checkboxField].join(' ')}
+      width={width||100}
+      variants={variants}
+    >
+      {label && <legend htmlFor={name}>{label}</legend>}
 
       {checkbox_options?.map((option, index) => (
         <div key={index}>
@@ -21,6 +27,6 @@ export default function CheckboxField({
       ))}
 
       {description && <p className={styles.description}>{description}</p>}
-    </fieldset>
+    </motion.fieldset>
   )
 }

@@ -44,6 +44,7 @@
           color: $white;
           line-height: 1.5em;
           font-size: 1em;
+          box-shadow: $box-shadow-1;
         }
       }
 
@@ -60,6 +61,7 @@
           line-height: 1.5em;
           font-size: 1em;
           resize: vertical;
+          box-shadow: $box-shadow-1;
         }
       }
 
@@ -71,10 +73,10 @@
           border: none;
           box-sizing: border-box;
           color: $white;
+          box-shadow: $box-shadow-1;
 
           option {
-          padding: 0.75em 0.75em;
-
+            padding: 0.75em 0.75em;
           }
         } 
       }

@@ -1,9 +1,16 @@
+import { motion } from 'framer-motion'
 import { InputField, TextareaField, SelectField, RadioField, CheckboxField } from './fields'
 import styles from './form-block.module.scss'
 
 export default function FormBlock({ data: { block_title, form_name, fields, submit_text } }) {
+  const fieldVariants = {
+    initial: { opacity: 0, y: 10 },
+    enter: { opacity: 1, y: 0 },
+    exit: { opacity: 0 }
+  }
+
   return (
-    <section className={styles.formBlock}>
+    <motion.section className={styles.formBlock} variants={{ enter: { transition: { staggerChildren: 0.1 } } }}>
       {block_title && <h2>{block_title}</h2>}
 
       <form name={form_name} method="POST" data-netlify="true" netlify-honeypot="verification">
@@ -14,21 +21,21 @@ export default function FormBlock({ data: { block_title, form_name, fields, subm
           {fields?.map((field, index) => {
             switch (field.field_type) {
               case 'Input':
-                return <InputField key={index} data={field} />
+                return <InputField key={index} data={field} variants={fieldVariants} />
               case 'Textarea':
-                return <TextareaField key={index} data={field} />
+                return <TextareaField key={index} data={field} variants={fieldVariants} />
               case 'Select':
-                return <SelectField key={index} data={field} />
+                return <SelectField key={index} data={field} variants={fieldVariants} />
               case 'Radio':
-                return <RadioField key={index} data={field} />
+                return <RadioField key={index} data={field} variants={fieldVariants} />
               case 'Checkbox':
-                return <CheckboxField key={index} data={field} />
+                return <CheckboxField key={index} data={field} variants={fieldVariants} />
             }
           })}
         </div>
 
-        <button type="submit">{submit_text}</button>
+        <motion.button type="submit" variants={fieldVariants}>{submit_text}</motion.button>
       </form>
-    </section>
+    </motion.section>
   )
 }

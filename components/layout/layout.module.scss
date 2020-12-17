@@ -18,7 +18,7 @@
     border-radius: 0.5em;
     align-items: stretch;
     overflow: hidden;
-    box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.4);
+    box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.3);
 
     .container {
       max-width: 900px;
@@ -26,11 +26,7 @@
     }
 
     section {
-      margin: 2em 0;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+      margin: 2.5em 0;
     }
 
     p {

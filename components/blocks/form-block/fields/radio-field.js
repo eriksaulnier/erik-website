@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import styles from './../form-block.module.scss'
 
 export default function RadioField({
@@ -8,10 +9,15 @@ export default function RadioField({
     radio_options,
     description,
     width
-  }
+  },
+  variants
 }) {
   return (
-    <fieldset className={[styles.field, styles.radioField].join(' ')} width={width || 100}>
+    <motion.fieldset
+      className={[styles.field, styles.radioField].join(' ')}
+      width={width || 100}
+      variants={variants}
+    >
       {label && <label htmlFor={name}>{label}</label>}
 
       {radio_options?.map((option, index) => (
@@ -22,6 +28,6 @@ export default function RadioField({
       ))}
 
       {description && <p className={styles.description}>{description}</p>}
-    </fieldset>
+    </motion.fieldset>
   )
 }

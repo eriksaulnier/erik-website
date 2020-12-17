@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import styles from './../form-block.module.scss'
 
 export default function TextareaField({
@@ -8,15 +9,20 @@ export default function TextareaField({
     textarea_placeholder,
     description,
     width
-  }
+  },
+  variants
 }) {
   return (
-    <div className={[styles.field, styles.textareaField].join(' ')} width={width || 100}>
+    <motion.div
+      className={[styles.field, styles.textareaField].join(' ')}
+      width={width || 100}
+      variants={variants}
+    >
       {label && <label htmlFor={name}>{label}</label>}
 
       <textarea id={name} name={name} required={required} placeholder={textarea_placeholder}/>
       
       {description && <p className={styles.description}>{description}</p>}
-    </div>
+    </motion.div>
   )
 }
