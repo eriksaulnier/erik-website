@@ -5,7 +5,11 @@ export default function Home() {
   return (
     <motion.div
       initial="initial" animate="enter" exit="exit"
-      variants={{ enter: { transition: { staggerChildren: 0.15 } } }}
+      variants={{
+        initial: { opacity: 0 },
+        enter: { opacity: 1, transition: { staggerChildren: 0.15 } },
+        exit: { opacity: 0 }
+      }}
     >
       <Splash />
     </motion.div>

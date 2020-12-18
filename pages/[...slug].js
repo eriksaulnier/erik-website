@@ -3,21 +3,30 @@ import { getAllPagePaths, getPageBySlug } from '../lib/api'
 import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock, ArticlesBlock } from '../components/blocks'
 
 export default function Page({ slug, page_title, blocks }) {
-  const contentAnimations = {
-    initial: { y: 10, opacity: 0 },
-    enter: { y: 0, opacity: 1 },
-    exit: { y: 5, opacity: 0 },
-  }
-
   return (
     <motion.div
       initial="initial" animate="enter" exit="exit"
       variants={{ enter: { transition: { staggerChildren: 0.15 } } }}
     >
-      <motion.h1 variants={contentAnimations}>{page_title}</motion.h1>
+      <motion.h1
+        variants={{
+          initial: { y: 10, opacity: 0 },
+          enter: { y: 0, opacity: 1 },
+          exit: { y: 5, opacity: 0 },
+        }}
+      >
+        {page_title}
+      </motion.h1>
 
       {blocks?.map((block, index) => (
-          <motion.div key={`${slug}-${index}`} variants={contentAnimations}>
+          <motion.div
+            key={`${slug}-${index}`}
+            variants={{
+              initial: { y: 10, opacity: 0 },
+              enter: { y: 0, opacity: 1 },
+              exit: { y: 5, opacity: 0 },
+            }}
+          >
             {
               {
                 'content-block': <ContentBlock data={block} />,
