@@ -6,15 +6,15 @@ import { Layout } from '../components/layout'
 import '../styles/globals.scss'
 
 export default function MyApp({ Component, pageProps, router }) {
-  const siteConfig = getSiteConfig();
+  const siteConfig = getSiteConfig()
 
   useState(() => {
-    const routeChange = () => {
-      // Temporary fix to avoid flash of unstyled content
-      // during route transitions. Keep an eye on this
-      // issue and remove this code when resolved:
-      // https://github.com/vercel/next.js/issues/17464
+    // Temporary fix to avoid flash of unstyled content
+    // during route transitions. Keep an eye on this
+    // issue and remove this code when resolved:
+    // https://github.com/vercel/next.js/issues/17464
 
+    const routeChange = () => {
       const tempFix = () => {
         const allStyleElems = document.querySelectorAll('style[media="x"]')
         allStyleElems.forEach((elem) => {
@@ -26,6 +26,11 @@ export default function MyApp({ Component, pageProps, router }) {
 
     Router.events.on('routeChangeComplete', routeChange)
     Router.events.on('routeChangeStart', routeChange)
+
+    return () => {
+      Router.events.off('routeChangeComplete', routeChange)
+      Router.events.off('routeChangeStart', routeChange)
+    }
   }, [])
 
   return (
