@@ -61,8 +61,8 @@ export default function Splash() {
         >
           {subtitle.split('||')[0]}
           <Typed
-            className={styles.typed}
             strings={typedWords}
+            className={styles.typed}
             startDelay={(subtitleDelay * 1000) - 1000}
             backDelay={4000}
             typeSpeed={50}
