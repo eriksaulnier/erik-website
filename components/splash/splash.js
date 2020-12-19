@@ -1,41 +1,22 @@
 import { motion } from 'framer-motion'
+import Typed from 'react-typed'
 import styles from './splash.module.scss'
-import Typed from 'typed.js'
-import { useEffect, useRef } from 'react'
 
 export default function Splash() {
   // TODO: move all these to forestry
   const title = "Hey, I'm Erik!"
   const subtitle = "I'm a || based in Troy, NY."
-  const words = [
+  const typedWords = [
     'web developer',
     'front-end developer',
-    'RPA developer',
+    'technology enthusiast',
     'designer',
+    'gamer',
     'jack of all trades',
-    'gamer'
+    'RPA developer',
   ]
 
-  const wordRef = useRef()
   const subtitleDelay = 0.13 * title.length
-
-  useEffect(() => {
-
-    const typed = new Typed(wordRef.current, {
-      strings: words,
-      typeSpeed: 50,
-      backSpeed: 60,
-      backDelay: 4000,
-      cursorChar: '|',
-      loop: true,
-      showCursor: false,
-      startDelay: (subtitleDelay * 1000) + 3000
-    })
-
-    return () => {
-      typed.destroy()
-    }
-  }, [])
 
   return (
     <div className={styles.splash}>
@@ -79,7 +60,19 @@ export default function Splash() {
           }}
         >
           {subtitle.split('||')[0]}
-          <span className={styles.word} ref={wordRef}>{words[0]}</span>
+          <Typed
+            className={styles.typed}
+            strings={typedWords}
+            startDelay={(subtitleDelay * 1000) - 1000}
+            backDelay={4000}
+            typeSpeed={50}
+            backSpeed={60}
+            cursorChar={'|'}
+            contentType={'html'}
+            autoInsertCss={false}
+            smartBackspace
+            loop
+          />
           {subtitle.split('||')[1]}
         </motion.h2>
       </div>
