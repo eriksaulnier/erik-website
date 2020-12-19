@@ -33,6 +33,10 @@
     text-align: center;
     font-weight: normal;
     transition: font-size 0.3s ease-out;
+
+    .word {
+      font-weight: bold;
+    }
   }
 
   @include mobile-up {
