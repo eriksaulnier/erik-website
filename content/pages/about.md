@@ -66,20 +66,6 @@ blocks:
     - label: Django
       icon_name: ''
       icon_title: ''
-  - category_title: Databases
-    technologies:
-    - label: MySQL
-      icon_name: ''
-      icon_title: ''
-    - label: Firestore
-      icon_name: ''
-      icon_title: ''
-    - label: MongoDB
-      icon_name: ''
-      icon_title: ''
-    - label: PostgreSQL
-      icon_name: ''
-      icon_title: ''
   - category_title: Design Tools
     technologies:
     - label: Figma
@@ -94,12 +80,29 @@ blocks:
     - label: Adobe Illustrator
       icon_name: ''
       icon_title: ''
+  - category_title: Databases
+    technologies:
+    - label: MySQL
+      icon_name: ''
+      icon_title: ''
+    - label: Firestore
+      icon_name: ''
+      icon_title: ''
+    - label: MongoDB
+      icon_name: ''
+      icon_title: ''
+    - label: PostgreSQL
+      icon_name: ''
+      icon_title: ''
   - category_title: Content Management Systems
     technologies:
     - label: Wordpress
       icon_name: ''
       icon_title: ''
     - label: Forestry
+      icon_name: ''
+      icon_title: ''
+    - label: Contentful
       icon_name: ''
       icon_title: ''
   - category_title: Miscellaneous
