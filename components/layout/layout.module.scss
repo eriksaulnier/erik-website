@@ -13,7 +13,7 @@
   .content {
     position: relative;
     flex-grow: 1;
-    padding: 2.5em 2em;
+    padding: 1.5em 1em;
     background-color: $dark-2;
     border-radius: 0.5em;
     align-items: stretch;
@@ -44,5 +44,9 @@
 
   @include tablet-up {
     padding: 0 2em;
+
+    .content {
+      padding: 2.5em 2em;
+    }
   }
 }
