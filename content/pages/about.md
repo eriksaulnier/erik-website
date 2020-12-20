@@ -71,10 +71,27 @@ blocks:
     - label: MySQL
       icon_name: ''
       icon_title: ''
+    - label: Firestore
+      icon_name: ''
+      icon_title: ''
     - label: MongoDB
       icon_name: ''
       icon_title: ''
     - label: PostgreSQL
+      icon_name: ''
+      icon_title: ''
+  - category_title: Design
+    technologies:
+    - label: Figma
+      icon_name: ''
+      icon_title: ''
+    - label: Adobe XD
+      icon_name: ''
+      icon_title: ''
+    - label: Adobe Powerpoint
+      icon_name: ''
+      icon_title: ''
+    - label: Adobe Illustrator
       icon_name: ''
       icon_title: ''
   - category_title: Miscellaneous
