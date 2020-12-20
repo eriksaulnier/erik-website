@@ -1,21 +1,10 @@
 import { motion } from 'framer-motion'
 import Typed from 'react-typed'
+import { getSiteConfig } from '../../lib/api'
 import styles from './splash.module.scss'
 
 export default function Splash() {
-  // TODO: move all these to forestry
-  const title = "Hey, I'm Erik!"
-  const subtitle = "I'm a || based in Troy, NY."
-  const typedWords = [
-    'web developer',
-    'front-end developer',
-    'technology enthusiast',
-    'designer',
-    'gamer',
-    'jack of all trades',
-    'RPA developer',
-  ]
-
+  const { splash: { title, subtitle, typed_words } } = getSiteConfig()
   const subtitleDelay = 0.13 * title.length
 
   return (
@@ -61,7 +50,7 @@ export default function Splash() {
         >
           {subtitle.split('||')[0]}
           <Typed
-            strings={typedWords}
+            strings={typed_words}
             className={styles.typed}
             startDelay={(subtitleDelay * 1000) - 1000}
             backDelay={4000}
