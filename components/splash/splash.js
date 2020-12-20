@@ -5,6 +5,9 @@ import styles from './splash.module.scss'
 
 export default function Splash() {
   const { splash: { title, subtitle, typed_words } } = getSiteConfig()
+
+  const titleWords = title.split(' ')
+  const titleParts = titleWords.map((e, i) => i < titleWords.length - 1 ? [e, '\xa0'] : [e]).reduce((a, b) => a.concat(b))
   const subtitleDelay = 0.13 * title.length
 
   return (
@@ -16,23 +19,24 @@ export default function Splash() {
             enter: { transition: { staggerChildren: 0.1 } }
           }}
         >
-          {[...title].map((character, index) => (
-            <motion.span
-              key={index}
-              style={{ display: 'inline-block', cursor: 'pointer' }}
-              variants={{
-                initial: { opacity: 0, y: 15, scaleX: 0.8 },
-                enter: { opacity: 1, y: 0, scaleX: 1 },
-                hover: { y: -5, scaleX: 0.9 }
-              }}
-              whileHover="hover"
-              transition={{
-                type: 'spring',
-                stiffness: 250
-              }}
-            >
-              {character === ' ' ? '\xa0' : character}
-            </motion.span>
+          {titleParts.map((word, index) => (
+            <span key={index} className={styles.noBreak}>
+              {[...word].map((char, i) => (
+                <motion.span
+                  key={i}
+                  variants={{
+                    initial: { opacity: 0, y: 15, scaleX: 0.8 },
+                    enter: { opacity: 1, y: 0, scaleX: 1 },
+                    hover: { y: -5, scaleX: 0.9 }
+                  }}
+                  whileHover="hover"
+                  transition={{
+                    type: 'spring',
+                    stiffness: 250
+                  }}
+                >{char}</motion.span>
+              ))}
+            </span>
           ))}
         </motion.h1>
 
