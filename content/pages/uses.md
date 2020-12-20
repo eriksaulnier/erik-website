@@ -13,5 +13,15 @@ blocks:
     Card: </strong>MSI GeForce RTX 2070 SUPER DirectX 12<br><strong>Case: </strong>NZXT
     H510 - Compact ATX Mid-Tower<br><strong>Power Supply: </strong>EVGA SuperNOVA
     750 G5, 80 Plus Gold 750W</p>"
+- template: content-block
+  block_title: Editor + Terminal
+  content: |-
+    * Code Editor: [Visual Studio Code](https://code.visualstudio.com/ "Visual Studio Code")
+      * Theme: [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl "Night Owl")
+      * Font: [JetBrains Mono](https://www.jetbrains.com/lp/mono/ "Jetbrains Mono")
+    * Terminal: [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701 "Windows Terminal")
+      * Font: MesloLGS NF
+      * Shell: [Oh My Zsh](https://ohmyz.sh/ "Oh My Zsh")
+      * Theme: [Powerlevel10k](https://github.com/romkatv/powerlevel10k "Powerlevel10k")
 
 ---
