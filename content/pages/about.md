@@ -80,7 +80,7 @@ blocks:
     - label: PostgreSQL
       icon_name: ''
       icon_title: ''
-  - category_title: Design
+  - category_title: Design Tools
     technologies:
     - label: Figma
       icon_name: ''
@@ -94,11 +94,16 @@ blocks:
     - label: Adobe Illustrator
       icon_name: ''
       icon_title: ''
-  - category_title: Miscellaneous
+  - category_title: Content Management Systems
     technologies:
     - label: Wordpress
       icon_name: ''
       icon_title: ''
+    - label: Forestry
+      icon_name: ''
+      icon_title: ''
+  - category_title: Miscellaneous
+    technologies:
     - label: AWS
       icon_name: ''
       icon_title: ''
@@ -106,6 +111,12 @@ blocks:
       icon_name: ''
       icon_title: ''
     - label: UiPath
+      icon_name: ''
+      icon_title: ''
+    - label: Squarespace
+      icon_name: ''
+      icon_title: ''
+    - label: Wix
       icon_name: ''
       icon_title: ''
 tab_title: About
