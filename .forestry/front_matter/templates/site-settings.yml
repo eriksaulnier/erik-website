@@ -7,29 +7,6 @@ fields:
   config:
     required: true
   label: Site Title
-- name: splash
-  type: field_group
-  config: {}
-  fields:
-  - name: title
-    type: text
-    config:
-      required: false
-    label: Title
-  - name: subtitle
-    type: text
-    config:
-      required: false
-    label: Subtitle
-    description: Put two vertical bars, "||", where the typed words should go<br><br>
-  - name: typed_words
-    type: list
-    config:
-      use_select: false
-      min: 
-      max: 
-    label: Typed Words
-  label: Splash
 - name: header
   type: field_group
   config: {}
@@ -90,9 +67,28 @@ fields:
       labelField: name
     label: Social Links
   label: Header
-- name: footer
+- name: splash
   type: field_group
   config: {}
-  label: Footer
+  fields:
+  - name: title
+    type: text
+    config:
+      required: false
+    label: Title
+  - name: subtitle
+    type: text
+    config:
+      required: false
+    label: Subtitle
+    description: Put two vertical bars, "||", where the typed words should go<br><br>
+  - name: typed_words
+    type: list
+    config:
+      use_select: false
+      min: 
+      max: 
+    label: Typed Words
+  label: Splash
 pages:
 - app.config.json
