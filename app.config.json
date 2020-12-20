@@ -42,5 +42,18 @@
     ]
   },
   "footer": {
+  },
+  "splash": {
+    "title": "Hey, I'm Erik!",
+    "subtitle": "I'm a || based in Troy, NY.",
+    "typed_words": [
+      "web developer",
+      "front-end developer",
+      "technology enthusiast",
+      "designer",
+      "gamer",
+      "jack of all trades",
+      "RPA developer"
+    ]
   }
 }
