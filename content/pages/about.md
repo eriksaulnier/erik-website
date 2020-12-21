@@ -80,6 +80,31 @@ blocks:
     - label: PostgreSQL
       icon_name: ''
       icon_title: ''
+  - category_title: Content Management Systems
+    technologies:
+    - label: Wordpress
+      icon_name: ''
+      icon_title: ''
+    - label: Forestry
+      icon_name: ''
+      icon_title: ''
+    - label: Contentful
+      icon_name: ''
+      icon_title: ''
+  - category_title: Development Tools
+    technologies:
+    - label: VS Code
+      icon_name: ''
+      icon_title: ''
+    - label: Windows Terminal
+      icon_name: ''
+      icon_title: ''
+    - label: Docker
+      icon_name: ''
+      icon_title: ''
+    - label: Cyberduck
+      icon_name: ''
+      icon_title: ''
   - category_title: Design Tools
     technologies:
     - label: Figma
@@ -94,14 +119,6 @@ blocks:
     - label: Adobe Illustrator
       icon_name: ''
       icon_title: ''
-  - category_title: Content Management Systems
-    technologies:
-    - label: Wordpress
-      icon_name: ''
-      icon_title: ''
-    - label: Forestry
-      icon_name: ''
-      icon_title: ''
   - category_title: Miscellaneous
     technologies:
     - label: AWS
@@ -111,12 +128,6 @@ blocks:
       icon_name: ''
       icon_title: ''
     - label: UiPath
-      icon_name: ''
-      icon_title: ''
-    - label: Squarespace
-      icon_name: ''
-      icon_title: ''
-    - label: Wix
       icon_name: ''
       icon_title: ''
 tab_title: About
