@@ -130,12 +130,6 @@ blocks:
     - label: UiPath
       icon_name: ''
       icon_title: ''
-    - label: Squarespace
-      icon_name: ''
-      icon_title: ''
-    - label: Wix
-      icon_name: ''
-      icon_title: ''
 tab_title: About
 published: true
 
