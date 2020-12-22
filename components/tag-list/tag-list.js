@@ -19,15 +19,13 @@ export default function TagList({ tags, color }) {
             initial: { opacity: 0, x: 10 },
             enter: { opacity: 1, x: 0 },
             exit: { opacity: 0 },
-            hover: { y: -5 }
+            hover: { y: -3 }
           }}
           whileHover="hover"
           transition={{
             type: 'spring',
             stiffness: 150
           }}
-          drag
-          dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
         >
           {tag.icon_name && <Icon name={tag.icon_name} />}
           {tag.label}

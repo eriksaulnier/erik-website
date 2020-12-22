@@ -11,7 +11,7 @@ export default function Page({ slug, page_title, blocks }) {
       <motion.h1
         variants={{
           initial: { opacity: 0 },
-          enter: { opacity: 1, transition: { staggerChildren: 0.15 } },
+          enter: { opacity: 1 },
           exit: { opacity: 0 }
         }}
       >
@@ -19,25 +19,25 @@ export default function Page({ slug, page_title, blocks }) {
       </motion.h1>
 
       {blocks?.map((block, index) => (
-          <motion.div
-            key={`${slug}-${index}`}
-            variants={{
-              initial: { y: 10, opacity: 0 },
-              enter: { y: 0, opacity: 1 },
-              exit: { y: 5, opacity: 0 },
-            }}
-          >
+        <motion.div
+          key={`${slug}-${index}`}
+          variants={{
+            initial: { y: 10, opacity: 0 },
+            enter: { y: 0, opacity: 1 },
+            exit: { y: 5, opacity: 0 },
+          }}
+        >
+          {
             {
-              {
-                'content-block': <ContentBlock data={block} />,
-                'technology-block': <TechnologyBlock data={block} />,
-                'form-block': <FormBlock data={block} />,
-                'projects-block': <ProjectsBlock data={block} />,
-                'articles-block': <ArticlesBlock data={block} />
-              }[block.template]
-            }
-          </motion.div>
-        ))}
+              'content-block': <ContentBlock data={block} />,
+              'technology-block': <TechnologyBlock data={block} />,
+              'form-block': <FormBlock data={block} />,
+              'projects-block': <ProjectsBlock data={block} />,
+              'articles-block': <ArticlesBlock data={block} />
+            }[block.template]
+          }
+        </motion.div>
+      ))}
     </motion.div>
   )
 }
