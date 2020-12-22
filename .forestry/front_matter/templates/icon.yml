@@ -25,6 +25,7 @@ fields:
       file: 
       path: 
   label: Icon Family
+  description: Should match the icon name used above
 - name: icon_title
   type: text
   config:
