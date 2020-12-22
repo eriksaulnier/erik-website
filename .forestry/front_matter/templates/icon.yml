@@ -6,11 +6,12 @@ fields:
   type: text
   config:
     required: false
-  label: Icon
-  description: 'Icon name from here: <a href="https://react-icons.github.io/react-icons/"
+  label: 'Icon Name '
+  description: 'Find all icon names here: <a href="https://react-icons.github.io/react-icons/"
     title="https://react-icons.github.io/react-icons/" target="_blank">https://react-icons.github.io/react-icons</a>'
 - name: icon_title
   type: text
   config:
     required: false
   label: Icon Title
+  description: Used for screen readers
