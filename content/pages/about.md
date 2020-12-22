@@ -58,55 +58,51 @@ blocks:
       icon_title: ''
       icon_family: ''
     - label: Angular
-      icon_name: ''
+      icon_name: SiAngular
       icon_title: ''
       icon_family: ''
     - label: Laravel
-      icon_name: ''
+      icon_name: SiLaravel
       icon_title: ''
       icon_family: ''
     - label: Vue.js
-      icon_name: ''
+      icon_name: SiVueDotJs
       icon_title: ''
       icon_family: ''
     - label: React Native
-      icon_name: ''
+      icon_name: SiReact
       icon_title: ''
       icon_family: ''
     - label: Next.js
-      icon_name: ''
-      icon_title: ''
-      icon_family: ''
-    - label: Django
-      icon_name: ''
+      icon_name: SiNextDotJs
       icon_title: ''
       icon_family: ''
   - category_title: Databases
     technologies:
     - label: MySQL
-      icon_name: ''
+      icon_name: GrMysql
       icon_title: ''
       icon_family: ''
     - label: Firestore
-      icon_name: ''
+      icon_name: SiFirebase
       icon_title: ''
       icon_family: ''
     - label: MongoDB
-      icon_name: ''
+      icon_name: SiMongodb
       icon_title: ''
       icon_family: ''
     - label: PostgreSQL
-      icon_name: ''
+      icon_name: SiPostgresql
       icon_title: ''
       icon_family: ''
   - category_title: Content Management Systems
     technologies:
     - label: Wordpress
-      icon_name: ''
+      icon_name: SiWordpress
       icon_title: ''
       icon_family: ''
     - label: Forestry
-      icon_name: ''
+      icon_name: GiForest
       icon_title: ''
       icon_family: ''
     - label: Contentful
@@ -116,51 +112,51 @@ blocks:
   - category_title: Development Tools
     technologies:
     - label: VS Code
-      icon_name: ''
+      icon_name: SiVisualstudiocode
       icon_title: ''
       icon_family: ''
     - label: Windows Terminal
-      icon_name: ''
+      icon_name: BsTerminal
       icon_title: ''
       icon_family: ''
     - label: Docker
-      icon_name: ''
+      icon_name: SiDocker
       icon_title: ''
       icon_family: ''
     - label: Cyberduck
-      icon_name: ''
+      icon_name: GiPlasticDuck
       icon_title: ''
       icon_family: ''
   - category_title: Design Tools
     technologies:
     - label: Figma
-      icon_name: ''
+      icon_name: SiFigma
       icon_title: ''
       icon_family: ''
     - label: Adobe XD
-      icon_name: ''
+      icon_name: SiAdobexd
       icon_title: ''
       icon_family: ''
-    - label: Adobe Powerpoint
-      icon_name: ''
+    - label: Adobe Photoshop
+      icon_name: SiAdobephotoshop
       icon_title: ''
       icon_family: ''
     - label: Adobe Illustrator
-      icon_name: ''
+      icon_name: SiAdobeillustrator
       icon_title: ''
       icon_family: ''
   - category_title: Miscellaneous
     technologies:
     - label: AWS
-      icon_name: ''
+      icon_name: SiAmazonaws
       icon_title: ''
       icon_family: ''
     - label: Netlify
-      icon_name: ''
+      icon_name: SiNetlify
       icon_title: ''
       icon_family: ''
     - label: UiPath
-      icon_name: ''
+      icon_name: GrRobot
       icon_title: ''
       icon_family: ''
 tab_title: About
