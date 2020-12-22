@@ -20,41 +20,41 @@ blocks:
   - category_title: Programming Languages
     technologies:
     - label: Javascript
-      icon_name: DiJavascript
+      icon_name: SiJavascript
       icon_title: ''
       icon_family: Devicons
     - label: Typescript
-      icon_name: ''
+      icon_name: SiTypescript
       icon_title: ''
       icon_family: ''
     - label: PHP
-      icon_name: ''
-      icon_title: ''
-      icon_family: ''
-    - label: Python
-      icon_name: ''
-      icon_title: ''
-      icon_family: ''
-    - label: C++
-      icon_name: ''
-      icon_title: ''
-      icon_family: ''
-    - label: C#
-      icon_name: ''
-      icon_title: ''
-      icon_family: ''
-    - label: Java
-      icon_name: ''
+      icon_name: SiPhp
       icon_title: ''
       icon_family: ''
     - label: Dart
-      icon_name: ''
+      icon_name: SiDart
+      icon_title: ''
+      icon_family: ''
+    - label: Python
+      icon_name: SiPython
+      icon_title: ''
+      icon_family: ''
+    - label: C++
+      icon_name: SiCplusplus
+      icon_title: ''
+      icon_family: ''
+    - label: C#
+      icon_name: SiCsharp
+      icon_title: ''
+      icon_family: ''
+    - label: Java
+      icon_name: SiJava
       icon_title: ''
       icon_family: ''
   - category_title: Frameworks
     technologies:
     - label: React
-      icon_name: ''
+      icon_name: SiReact
       icon_title: ''
       icon_family: ''
     - label: Angular
