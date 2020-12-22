@@ -20,116 +20,149 @@ blocks:
   - category_title: Programming Languages
     technologies:
     - label: Javascript
-      icon_name: ''
+      icon_name: DiJavascript
       icon_title: ''
+      icon_family: Devicons
     - label: Typescript
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: PHP
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Python
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: C++
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: C#
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Java
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Dart
       icon_name: ''
       icon_title: ''
+      icon_family: ''
   - category_title: Frameworks
     technologies:
     - label: React
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Angular
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Laravel
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Vue.js
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: React Native
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Next.js
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Django
       icon_name: ''
       icon_title: ''
+      icon_family: ''
   - category_title: Databases
     technologies:
     - label: MySQL
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Firestore
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: MongoDB
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: PostgreSQL
       icon_name: ''
       icon_title: ''
+      icon_family: ''
   - category_title: Content Management Systems
     technologies:
     - label: Wordpress
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Forestry
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Contentful
       icon_name: ''
       icon_title: ''
+      icon_family: ''
   - category_title: Development Tools
     technologies:
     - label: VS Code
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Windows Terminal
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Docker
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Cyberduck
       icon_name: ''
       icon_title: ''
+      icon_family: ''
   - category_title: Design Tools
     technologies:
     - label: Figma
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Adobe XD
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Adobe Powerpoint
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Adobe Illustrator
       icon_name: ''
       icon_title: ''
+      icon_family: ''
   - category_title: Miscellaneous
     technologies:
     - label: AWS
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: Netlify
       icon_name: ''
       icon_title: ''
+      icon_family: ''
     - label: UiPath
       icon_name: ''
       icon_title: ''
+      icon_family: ''
 tab_title: About
 published: true
 
