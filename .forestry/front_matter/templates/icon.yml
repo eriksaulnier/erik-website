@@ -9,11 +9,6 @@ fields:
   label: 'Icon Name '
   description: 'Find all icon names here: <a href="https://react-icons.github.io/react-icons/"
     title="https://react-icons.github.io/react-icons/" target="_blank">https://react-icons.github.io/react-icons</a>'
-- name: icon_title
-  type: text
-  config:
-    required: false
-  label: Icon Title
 - name: icon_family
   type: select
   default: Font Awesome
@@ -30,3 +25,9 @@ fields:
       file: 
       path: 
   label: Icon Family
+- name: icon_title
+  type: text
+  config:
+    required: false
+  label: Icon Title
+  description: Used for screen readers
