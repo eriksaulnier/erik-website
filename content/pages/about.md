@@ -58,27 +58,23 @@ blocks:
       icon_title: ''
       icon_family: ''
     - label: Angular
-      icon_name: ''
+      icon_name: SiAngular
       icon_title: ''
       icon_family: ''
     - label: Laravel
-      icon_name: ''
+      icon_name: SiLaravel
       icon_title: ''
       icon_family: ''
     - label: Vue.js
-      icon_name: ''
+      icon_name: SiVueDotJs
       icon_title: ''
       icon_family: ''
     - label: React Native
-      icon_name: ''
+      icon_name: SiReact
       icon_title: ''
       icon_family: ''
     - label: Next.js
-      icon_name: ''
-      icon_title: ''
-      icon_family: ''
-    - label: Django
-      icon_name: ''
+      icon_name: SiNextDotJs
       icon_title: ''
       icon_family: ''
   - category_title: Databases
