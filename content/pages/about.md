@@ -65,6 +65,10 @@ blocks:
       icon_name: SiLaravel
       icon_title: ''
       icon_family: ''
+    - label: Next.js
+      icon_name: SiNextDotJs
+      icon_title: ''
+      icon_family: ''
     - label: Vue.js
       icon_name: SiVueDotJs
       icon_title: ''
@@ -73,10 +77,9 @@ blocks:
       icon_name: SiReact
       icon_title: ''
       icon_family: ''
-    - label: Next.js
-      icon_name: SiNextDotJs
+    - label: Ionic
+      icon_name: SiIonic
       icon_title: ''
-      icon_family: ''
   - category_title: Databases
     technologies:
     - label: MySQL
