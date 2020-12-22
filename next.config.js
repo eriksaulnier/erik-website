@@ -1,6 +1,8 @@
 const path = require('path')
+const withPlugins = require('next-compose-plugins')
+const withTM = require('next-transpile-modules')(['react-icons/all'])
 
-module.exports = {
+module.exports = withPlugins([withTM], {
   target: 'serverless',
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
@@ -15,4 +17,4 @@ module.exports = {
 
     return config
   }
-}
+})

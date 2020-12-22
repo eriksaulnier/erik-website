@@ -8,7 +8,7 @@ export default function TechnologyBlock({ data: { block_title, categories } }) {
       {block_title && <h2>{block_title}</h2>}
 
       {categories?.map((category, index) => (
-        <div key={index}>
+        <div className={styles.section} key={index}>
           {category.category_title && <h4>{category.category_title}</h4>}
           <TagList tags={category.technologies} />
         </div>

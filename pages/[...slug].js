@@ -10,9 +10,9 @@ export default function Page({ slug, page_title, blocks }) {
     >
       <motion.h1
         variants={{
-          initial: { y: 10, opacity: 0 },
-          enter: { y: 0, opacity: 1 },
-          exit: { y: 5, opacity: 0 },
+          initial: { opacity: 0 },
+          enter: { opacity: 1, transition: { staggerChildren: 0.15 } },
+          exit: { opacity: 0 }
         }}
       >
         {page_title}
