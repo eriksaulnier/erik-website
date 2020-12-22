@@ -155,6 +155,9 @@ blocks:
       icon_name: SiNetlify
       icon_title: ''
       icon_family: ''
+    - label: Heroku
+      icon_name: SiHeroku
+      icon_title: ''
     - label: UiPath
       icon_name: SiProbot
       icon_title: ''
