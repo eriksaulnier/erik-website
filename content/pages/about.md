@@ -156,7 +156,7 @@ blocks:
       icon_title: ''
       icon_family: ''
     - label: UiPath
-      icon_name: GrRobot
+      icon_name: SiProbot
       icon_title: ''
       icon_family: ''
 tab_title: About
