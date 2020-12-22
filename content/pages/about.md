@@ -105,10 +105,9 @@ blocks:
       icon_name: GiForest
       icon_title: ''
       icon_family: ''
-    - label: Contentful
-      icon_name: ''
+    - label: Wix
+      icon_name: SiWix
       icon_title: ''
-      icon_family: ''
   - category_title: Development Tools
     technologies:
     - label: VS Code
