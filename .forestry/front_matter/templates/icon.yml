@@ -14,3 +14,19 @@ fields:
   config:
     required: false
   label: Icon Title
+- name: icon_family
+  type: select
+  default: Font Awesome
+  config:
+    required: true
+    options:
+    - Font Awesome
+    - Devicons
+    - Simple Icons
+    - Heroicons
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Icon Family
