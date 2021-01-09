@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import Typed from 'react-typed'
+import Particles from 'react-particles-js'
 import { getSiteConfig } from '../../lib/api'
+import particleConfig from './particlesjs-config'
 import styles from './splash.module.scss'
 
 export default function Splash() {
@@ -10,6 +12,7 @@ export default function Splash() {
   const titleParts = titleWords.map((e, i) => i < titleWords.length - 1 ? [e, '\xa0'] : [e]).reduce((a, b) => a.concat(b))
   const subtitleDelay = 0.13 * title.length
 
+  console.log(particleConfig)
   return (
     <div className={styles.splash}>
       <div className={styles.centered}>
@@ -69,6 +72,11 @@ export default function Splash() {
           {subtitle.split('||')[1]}
         </motion.h2>
       </div>
+
+      <Particles
+        className={styles.background}
+        params={particleConfig}
+      />
     </div>
   )
 }
