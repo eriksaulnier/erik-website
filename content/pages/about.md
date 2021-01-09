@@ -3,12 +3,10 @@ page_title: About me
 seo_description: ''
 blocks:
 - template: content-block
-  content: "I'm a software engineer based in Troy, NY who has a strong passion for
-    all things tech. Over the last 7 years, I have had experience working on a large
-    variety of projects including software applications, mobile apps, websites, and
-    even some video games. I am always excited when presented with opportunities to
-    add new technologies to my toolbelt and am never afraid of a challenge. \n\nIf
-    you are curious about my desk setup check out [/uses](/uses)."
+  content: |-
+    I'm a software engineer based in Troy, NY who has a strong passion for all things tech. Over the last 7 years, I have had experience working on a large variety of projects including software applications, mobile apps, websites, and even some video games. I am always excited when presented with opportunities to add new technologies to my toolbelt and am never afraid of a challenge.
+
+    If you are curious about my desk setup check out [/uses](/uses).
   block_title: Hey, I'm Erik.
 - template: content-block
   block_title: Education
