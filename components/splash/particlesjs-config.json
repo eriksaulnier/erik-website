@@ -22,7 +22,7 @@
       "random": true,
       "anim": {
         "enable": true,
-        "speed": 0.4795204795204795,
+        "speed": 0.5,
         "opacity_min": 0.25,
         "sync": false
       }
@@ -41,7 +41,7 @@
       "enable": true,
       "distance": 140,
       "color": "#ffffff",
-      "opacity": 0.19728691040806817,
+      "opacity": 0.2,
       "width": 1
     },
     "move": {
@@ -80,10 +80,10 @@
         }
       },
       "bubble": {
-        "distance": 275.7242757242757,
+        "distance": 275,
         "size": 5,
         "duration": 10,
-        "opacity": 0.1838161838161838,
+        "opacity": 0.2,
         "speed": 3
       },
       "repulse": {
