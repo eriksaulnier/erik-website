@@ -3,17 +3,20 @@ page_title: About me
 seo_description: ''
 blocks:
 - template: content-block
-  content: |-
-    ### Hey, my name is Erik!
-
-    I’m a software engineer based in upstate New York who loves turning ideas into code. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
-
-    Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
-
-    I currently work full-time as a developer at [Troy Web Consulting](https://troyweb.com "Troy Web Consulting") in Troy, NY.
-
-    Check out [/uses](/uses "Uses") or [/travel](/travel "Travel")
+  content: "### Hey, I'm Erik.\n\nI'm a software engineer based in Troy, NY who has
+    a strong passion for all things tech. Over the last 7 years, I have had experience
+    working on a large variety of projects including software applications, mobile
+    apps, websites, and even some video games. I am always excited when presented
+    with opportunities to add new technologies to my toolbelt and am never afraid
+    of a challenge. \n\nIf you are curious about my computer/desk setup check out
+    my [uses page](/uses).\n\n#### Education\n\nI graduated from Rensselaer Polytechnic
+    Institute with a bachelor's degree in Information Technology and Web Science with
+    a concentration in Entrepreneurship.\n\n#### Work\n\nI currently work as a Developer
+    at [Troy Web Consulting](https://troyweb.com \"Troy Web Consulting\")."
   block_title: ''
+- template: content-block
+  block_title: Work
+  content: I currently work as a developer at [Troy Web Consulting](https://troyweb.com).
 - template: technology-block
   block_title: Technologies I Use
   categories:
@@ -129,25 +132,7 @@ blocks:
       icon_name: GiPlasticDuck
       icon_title: ''
       icon_family: ''
-  - category_title: Design Tools
-    technologies:
-    - label: Figma
-      icon_name: SiFigma
-      icon_title: ''
-      icon_family: ''
-    - label: Adobe XD
-      icon_name: SiAdobexd
-      icon_title: ''
-      icon_family: ''
-    - label: Adobe Photoshop
-      icon_name: SiAdobephotoshop
-      icon_title: ''
-      icon_family: ''
-    - label: Adobe Illustrator
-      icon_name: SiAdobeillustrator
-      icon_title: ''
-      icon_family: ''
-  - category_title: Miscellaneous
+  - category_title: Other
     technologies:
     - label: AWS
       icon_name: SiAmazonaws
