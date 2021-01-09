@@ -35,7 +35,7 @@ export default function Splash() {
                   whileHover="hover"
                   transition={{
                     type: 'spring',
-                    stiffness: 250
+                    stiffness: 300
                   }}
                 >{char}</motion.span>
               ))}
