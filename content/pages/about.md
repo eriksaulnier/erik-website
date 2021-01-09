@@ -11,12 +11,12 @@ blocks:
     of a challenge. \n\nIf you are curious about my computer/desk setup check out
     my [uses page](/uses).\n\n#### Education\n\nI graduated from Rensselaer Polytechnic
     Institute with a bachelor's degree in Information Technology and Web Science with
-    a concentration in Entrepreneurship.\n\n#### Work\n\nI currently work as a Developer
-    at [Troy Web Consulting](https://troyweb.com \"Troy Web Consulting\")."
+    a concentration in Entrepreneurship."
   block_title: ''
 - template: content-block
   block_title: Work
-  content: I currently work as a developer at [Troy Web Consulting](https://troyweb.com).
+  content: I currently work as a Developer at [Troy Web Consulting](https://troyweb.com
+    "Troy Web Consulting").
 - template: technology-block
   block_title: Technologies I Use
   categories:
