@@ -13,7 +13,7 @@
 
   .title {
     margin: 0;
-    font-size: 2.2em;
+    font-size: 2.6em;
     text-align: center;
     z-index: 1;
 
@@ -29,7 +29,7 @@
 
   .subtitle {
     margin: 0;
-    font-size: 1.3em;
+    font-size: 1.2em;
     text-align: center;
     font-weight: normal;
     z-index: 1;
@@ -61,12 +61,10 @@
   }
 
   @include tablet-up {
-    font-size: 1.8em;
+    font-size: 1.6em;
   }
 
   @include desktop-up {
-    .title {
-      font-size: 2.6em;
-    }
+    font-size: 1.8em;
   }
 }
