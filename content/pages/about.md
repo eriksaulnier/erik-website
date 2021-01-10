@@ -9,7 +9,7 @@ blocks:
     I currently work as a Developer at [Troy Web Consulting](https://troyweb.com "Troy Web Consulting").
 
     If you are curious about my desk setup check out [/uses](/uses).
-  block_title: Hey, I'm Erik.
+  block_title: Hey, my name is Erik.
 - template: content-block
   block_title: Education
   content: I graduated from Rensselaer Polytechnic Institute with a bachelor's degree
