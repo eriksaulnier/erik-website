@@ -7,7 +7,7 @@ export default function Home() {
       initial="initial" animate="enter" exit="exit"
       variants={{
         initial: { opacity: 0 },
-        enter: { opacity: 1, transition: { staggerChildren: 0.15 } },
+        enter: { opacity: 1 },
         exit: { opacity: 0 }
       }}
     >

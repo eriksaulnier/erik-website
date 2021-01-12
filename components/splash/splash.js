@@ -9,10 +9,11 @@ export default function Splash() {
   const { splash: { title, subtitle, typed_words } } = getSiteConfig()
 
   const titleWords = title.split(' ')
-  const titleParts = titleWords.map((e, i) => i < titleWords.length - 1 ? [e, '\xa0'] : [e]).reduce((a, b) => a.concat(b))
+  const titleParts = titleWords
+                      .map((e, i) => i < titleWords.length - 1 ? [e, '\xa0'] : [e])
+                      .reduce((a, b) => a.concat(b))
   const subtitleDelay = 0.13 * title.length
 
-  console.log(particleConfig)
   return (
     <div className={styles.splash}>
       <div className={styles.centered}>
