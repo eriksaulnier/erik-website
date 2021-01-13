@@ -1,5 +1,5 @@
 ---
-page_title: Notable Projects
+page_title: Some of my projects
 seo_description: ''
 blocks:
 - template: projects-block
