@@ -92,5 +92,25 @@ blocks:
     select_options: []
     radio_options: []
   block_title: ''
+- template: content-block
+  block_title: Content Test
+  content: |-
+    # Heading 1
+
+    ## Heading 2
+
+    ### Heading 3
+
+    #### Heading 4
+
+    ##### Heading 5??
+
+    * This is an ordered list
+    * A list has items
+    * They don't have numbers
+
+    1. This is a numbered list
+    2. A list has items
+    3. They do have numbers
 
 ---
