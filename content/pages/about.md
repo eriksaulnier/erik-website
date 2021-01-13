@@ -7,9 +7,9 @@ blocks:
     I'm a software engineer based in Troy, NY who has a strong passion for all things tech. Over the last 7 years, I have had experience working on a large variety of projects of varying sizes including software applications, mobile apps, websites, and even some video games. I am always excited when presented with opportunities to add new technologies to my toolbelt and am never afraid of a challenge.
 
     I currently work as a Developer at [Troy Web Consulting](https://troyweb.com).
-  block_title: Hey, my name is Erik.
+  block_title: Hey, my name is Erik
 - template: technology-block
-  block_title: Technologies I Use
+  block_title: Technologies I use
   categories:
   - category_title: Programming Languages
     technologies:
@@ -141,7 +141,8 @@ blocks:
       icon_title: ''
       icon_family: ''
 - template: content-block
-  content: If you are curious about my desk setup check out [/uses](/uses "Uses Page").
+  content: If you are curious about the other stuff I use check out [/uses](/uses
+    "Uses Page")
   block_title: ''
 tab_title: About
 published: true
