@@ -143,6 +143,10 @@ blocks:
       icon_name: SiProbot
       icon_title: ''
       icon_family: ''
+- template: content-block
+  content: <p>If you are curious about my desk setup check out my <a href="/uses"
+    title="">uses page</a>.</p>
+  block_title: ''
 tab_title: About
 published: true
 
