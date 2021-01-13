@@ -5,9 +5,10 @@ seo_description: ''
 blocks:
 - template: content-block
   block_title: ''
-  content: If you'd like to work together on a project, have a technical question,
+  content: <p>If you'd like to work together on a project, have a technical question,
     or just want to have a chat; feel free to get in touch with using the form below
-    or emailing me directly at [**hello@eriksaulnier.com**](mailto:hello@eriksaulnier.com).
+    or emailing me directly at <a href="mailto:hello@eriksaulnier.com" title="" editing=""
+    creating="">hello@eriksaulnier.com</a>.</p>
 - template: form-block
   fields:
   - template: form-field
