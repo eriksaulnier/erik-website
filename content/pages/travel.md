@@ -2,7 +2,7 @@
 page_title: Places I've traveled
 tab_title: Travel
 seo_description: ''
-published: true
+published: false
 blocks:
 - template: content-block
   content: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque
