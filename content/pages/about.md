@@ -8,10 +8,8 @@ blocks:
     variety of projects of varying sizes including software applications, mobile apps,
     websites, and even some video games. I am always excited when presented with opportunities
     to add new technologies to my toolbelt and am never afraid of a challenge.</p><p></p><p>I
-    currently work as a Developer at <a href="https://troyweb.com" title="" editing=""
-    creating="">Troy Web Consulting</a>.</p><br><p>If you are curious about
-    my desk setup check out my <a href="/uses" title="" editing="" creating="">uses
-    page</a>.</p>
+    currently work as a Developer at <a href="https://troyweb.com" title="">Troy Web
+    Consulting</a>.</p>
   block_title: Hey, my name is Erik.
 - template: technology-block
   block_title: Technologies I Use
