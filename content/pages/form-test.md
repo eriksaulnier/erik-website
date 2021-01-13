@@ -1,6 +1,6 @@
 ---
-page_title: Form Test
-tab_title: Form Test
+page_title: Test Page
+tab_title: Test
 seo_description: ''
 published: false
 blocks:
