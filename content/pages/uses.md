@@ -6,7 +6,7 @@ published: true
 blocks:
 - template: content-block
   block_title: ''
-  content: "![](/uploads/pxl_20210113_034248860.jpg)"
+  content: "![My desk setup from 2020](/uploads/pxl_20210113_034248860.jpg)"
 - template: content-block
   block_title: Development Environment
   content: |-
