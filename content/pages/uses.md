@@ -8,8 +8,10 @@ blocks:
   block_title: ''
   content: "![My desk setup from 2020](/uploads/pxl_20210113_034248860.jpg)"
 - template: content-block
-  block_title: Development Environment
+  block_title: Software
   content: |-
+    ### Development Environment
+
     * Code Editor - [Visual Studio Code](https://code.visualstudio.com/)
       * Font - [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
       * Theme - [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
@@ -44,7 +46,7 @@ blocks:
 - template: content-block
   block_title: Accessories
   content: |-
-    ### Home Desk
+    ### Desk
 
     * Desk - [Autonomous SmartDesk 2 Premium](https://www.autonomous.ai/standing-desks/smartdesk-2-business "Autonomous SmartDesk 2 Premium")
     * Standing Mat - [Ergodriven Topo](https://ergodriven.com/products/topo?variant=27365321411)
