@@ -10,15 +10,15 @@ blocks:
 - template: content-block
   block_title: Development Environment
   content: |-
-    * Code Editor - [**Visual Studio Code**](https://code.visualstudio.com/)
-      * Font - [**JetBrains Mono**](https://www.jetbrains.com/lp/mono/)
-      * Theme - [**Night Owl**](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
-    * Terminal - [**Windows Terminal**](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701)
+    * Code Editor - [Visual Studio Code](https://code.visualstudio.com/)
+      * Font - [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
+      * Theme - [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
+    * Terminal - [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701)
       * Font - MesloLGS NF
-      * Shell - [**Oh My Zsh**](https://ohmyz.sh/)
-      * Theme - [**Powerlevel10k**](https://github.com/romkatv/powerlevel10k)
+      * Shell - [Oh My Zsh](https://ohmyz.sh/)
+      * Theme - [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
     * Operating System - Windows 10 Pro
-      * I do all of my development in a virtual Ubuntu environment using [**WSL**](https://docs.microsoft.com/en-us/windows/wsl/about)
+      * I do all of my development in a virtual Ubuntu environment using [WSL](https://docs.microsoft.com/en-us/windows/wsl/about)
 - template: content-block
   block_title: Hardware
   content: |-
