@@ -17,7 +17,7 @@ export default function TechnologyBlock({ data: { block_title, categories } }) {
             exit: { y: 5, opacity: 0 },
           }}
         >
-          {category.category_title && <h4>{category.category_title}</h4>}
+          {category.category_title && <h3>{category.category_title}</h3>}
           <TagList tags={category.technologies} />
         </motion.div>
       ))}

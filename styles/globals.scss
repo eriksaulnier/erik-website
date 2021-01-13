@@ -15,11 +15,41 @@ body {
 h1, h2, h3, h4, h5 {
   font-weight: 600;
   font-family: $font-heading;
+  line-height: unset;
+  margin: unset;
+}
+
+h1 {
+  margin: 0.3em 0 0.5em;
+  font-size: 2em;
+}
+
+h2 {
+  margin: 0.3em 0 0.5em;
+  font-size: 1.4em;
+}
+
+h3 {
+  margin: 0.3em 0 0.5em;
+  font-size: 1.1em;
+  font-weight: 400;
+  color: lighten($primary, 25);
+}
+
+h4 {
+  margin: 0.3em 0 0.5em;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+h5 {
+  margin: 0.3em 0 0.5em;
+  font-size: 0.8em;
+  color: lighten($primary, 20);
 }
 
 a {
   color: $primary-light;
-  font-weight: 700;
   text-decoration: none;
   transition: color 0.3s ease-out;
 
@@ -75,5 +105,25 @@ button, .btn {
 @include tablet-up {
   body {
     overflow: auto !important; // override mobile animations
+  }
+
+  h1 {
+    font-size: 2.3em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+  }
+
+  h4 {
+    font-size: 1em;
+  }
+
+  h5 {
+    font-size: 0.8em;
   }
 }

@@ -13,7 +13,7 @@
   .content {
     position: relative;
     flex-grow: 1;
-    padding: 1.5em 1em;
+    padding: 0.5em 1em;
     background-color: $dark-2;
     border-radius: 0.5em;
     align-items: stretch;
@@ -26,15 +26,11 @@
     }
 
     section {
-      margin: 1em 0 2em;
+      margin: 1em 0 2.5em;
     }
 
     p {
       line-height: 1.6em;
-    }
-
-    h1 {
-      margin: 0 0 1em 0;
     }
 
     img {
@@ -46,7 +42,7 @@
     padding: 0 2em;
 
     .content {
-      padding: 2.5em 2em;
+      padding: 1.5em 2.5em;
 
       img {
         max-width: 65%;
