@@ -1,5 +1,5 @@
 ---
-page_title: Uses
+page_title: Stuff I use
 tab_title: Uses
 seo_description: ''
 published: true
