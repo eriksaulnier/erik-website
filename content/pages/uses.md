@@ -59,6 +59,7 @@ blocks:
     * Headphones -
       * [Steelseries Arctis 7](https://steelseries.com/gaming-headsets/arctis-7)
       * [Sony WH-1000XM3](https://www.sony.com/electronics/headband-headphones/wh-1000xm3)
+    * Mousepad - [Glorious Stitch Cloth Mousepad XXL Extended (18x36in)](https://www.pcgamingrace.com/products/glorious-xxl-extended-18x36-stealth-edition)
     * Microphone - [Tonor TC-777](https://www.tonormic.com/products/tonor-tc-777-usb-microphone "Tonor TC-777")
     * Camera - [Amcrest AWC201-B](https://amcrest.com/webcam-with-privacy-cover-usb-webcam-live-streaming-built-in-mic-awc201-b.html "Amcrest AWC201-B")
 
