@@ -20,57 +20,44 @@ blocks:
     - label: Typescript
       icon_name: SiTypescript
       icon_title: ''
-      icon_family: ''
     - label: PHP
       icon_name: SiPhp
       icon_title: ''
-      icon_family: ''
     - label: Dart
       icon_name: SiDart
       icon_title: ''
-      icon_family: ''
     - label: Python
       icon_name: SiPython
       icon_title: ''
-      icon_family: ''
     - label: C++
       icon_name: SiCplusplus
       icon_title: ''
-      icon_family: ''
     - label: C#
       icon_name: SiCsharp
       icon_title: ''
-      icon_family: ''
     - label: Java
       icon_name: SiJava
       icon_title: ''
-      icon_family: ''
   - category_title: Frameworks
     technologies:
     - label: React
       icon_name: SiReact
       icon_title: ''
-      icon_family: ''
     - label: Angular
       icon_name: SiAngular
       icon_title: ''
-      icon_family: ''
     - label: Laravel
       icon_name: SiLaravel
       icon_title: ''
-      icon_family: ''
     - label: Next.js
       icon_name: SiNextDotJs
       icon_title: ''
-      icon_family: ''
     - label: Vue.js
       icon_name: SiVueDotJs
       icon_title: ''
-      icon_family: ''
     - label: React Native
       icon_name: SiReact
       icon_title: ''
-      icon_family: ''
     - label: Ionic
       icon_name: SiIonic
       icon_title: ''
@@ -79,29 +66,23 @@ blocks:
     - label: MySQL
       icon_name: GrMysql
       icon_title: ''
-      icon_family: ''
     - label: Firestore
       icon_name: SiFirebase
       icon_title: ''
-      icon_family: ''
     - label: MongoDB
       icon_name: SiMongodb
       icon_title: ''
-      icon_family: ''
     - label: PostgreSQL
       icon_name: SiPostgresql
       icon_title: ''
-      icon_family: ''
   - category_title: Content Management Systems
     technologies:
     - label: Wordpress
       icon_name: SiWordpress
       icon_title: ''
-      icon_family: ''
     - label: Forestry
       icon_name: GiForest
       icon_title: ''
-      icon_family: ''
     - label: Wix
       icon_name: SiWix
       icon_title: ''
@@ -110,36 +91,29 @@ blocks:
     - label: VS Code
       icon_name: SiVisualstudiocode
       icon_title: ''
-      icon_family: ''
     - label: Windows Terminal
       icon_name: BsTerminal
       icon_title: ''
-      icon_family: ''
     - label: Docker
       icon_name: SiDocker
       icon_title: ''
-      icon_family: ''
     - label: Cyberduck
       icon_name: GiPlasticDuck
       icon_title: ''
-      icon_family: ''
   - category_title: Other
     technologies:
     - label: AWS
       icon_name: SiAmazonaws
       icon_title: ''
-      icon_family: ''
     - label: Netlify
       icon_name: SiNetlify
       icon_title: ''
-      icon_family: ''
     - label: Heroku
       icon_name: SiHeroku
       icon_title: ''
     - label: UiPath
       icon_name: SiProbot
       icon_title: ''
-      icon_family: ''
 - template: content-block
   content: If you are curious about the other stuff I use check out [/uses](/uses
     "Uses Page")

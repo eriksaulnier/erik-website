@@ -27,14 +27,12 @@
       {
         "name": "GitHub",
         "link": "https://github.com/eriksaulnier",
-        "icon": "FaGithub",
         "icon_name": "SiGithub",
         "icon_title": ""
       },
       {
         "name": "LinkedIn",
         "link": "https://linkedin.com/in/eriksaulnier",
-        "icon": "FaLinkedin",
         "icon_name": "SiLinkedin",
         "icon_title": ""
       }
