@@ -54,13 +54,10 @@ fields:
         required: true
       label: Link
     - name: icon
-      type: text
-      config:
-        required: true
+      type: include
+      config: {}
+      template: icon
       label: Icon
-      description: FontAwesome icon name from <a href="https://react-icons.github.io/react-icons/icons?name=fa"
-        title="" target="_blank">here</a>
-      default: FaGlobe
     config:
       min: 
       max: 

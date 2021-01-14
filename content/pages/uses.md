@@ -8,18 +8,6 @@ blocks:
   block_title: ''
   content: "![My desk setup from 2020](/uploads/pxl_20210113_034248860.jpg)"
 - template: content-block
-  block_title: Development Environment
-  content: |-
-    * Code Editor - [Visual Studio Code](https://code.visualstudio.com/)
-      * Font - [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
-      * Theme - [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
-    * Terminal - [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701)
-      * Font - MesloLGS NF
-      * Shell - [Oh My Zsh](https://ohmyz.sh/)
-      * Theme - [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
-    * Operating System - Windows 10 Pro
-      * I do all of my development in a virtual Ubuntu environment using [WSL](https://docs.microsoft.com/en-us/windows/wsl/about)
-- template: content-block
   block_title: Hardware
   content: |-
     ### Desktop
@@ -44,7 +32,7 @@ blocks:
 - template: content-block
   block_title: Accessories
   content: |-
-    ### Home Desk
+    ### Desk
 
     * Desk - [Autonomous SmartDesk 2 Premium](https://www.autonomous.ai/standing-desks/smartdesk-2-business "Autonomous SmartDesk 2 Premium")
     * Standing Mat - [Ergodriven Topo](https://ergodriven.com/products/topo?variant=27365321411)
@@ -59,6 +47,7 @@ blocks:
     * Headphones -
       * [Steelseries Arctis 7](https://steelseries.com/gaming-headsets/arctis-7)
       * [Sony WH-1000XM3](https://www.sony.com/electronics/headband-headphones/wh-1000xm3)
+    * Mousepad - [Glorious Stitch Cloth Mousepad XXL Extended (18x36in)](https://www.pcgamingrace.com/products/glorious-xxl-extended-18x36-stealth-edition)
     * Microphone - [Tonor TC-777](https://www.tonormic.com/products/tonor-tc-777-usb-microphone "Tonor TC-777")
     * Camera - [Amcrest AWC201-B](https://amcrest.com/webcam-with-privacy-cover-usb-webcam-live-streaming-built-in-mic-awc201-b.html "Amcrest AWC201-B")
 
