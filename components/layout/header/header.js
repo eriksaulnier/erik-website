@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import * as Fa from 'react-icons/fa' 
 import { motion } from 'framer-motion'
+import Icon from '@/components/icon'
 import styles from './header.module.scss'
 
 export default function Header({ siteTitle, navigation, social_links }) {
@@ -143,7 +143,7 @@ export default function Header({ siteTitle, navigation, social_links }) {
                   <Link href={item.link}>
                     <a target="_blank" rel="noopener">
                       <span className="sr-only">{item.name}</span>
-                      {item.icon ? React.createElement(Fa[item.icon]) : null}
+                      {item.icon_name && <Icon name={item.icon_name} />}
                     </a>
                   </Link>
                 </div>

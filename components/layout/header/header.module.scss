@@ -2,7 +2,7 @@
 @import './mixins';
 
 $height: 40px;
-$highlight-color: $primary;
+$highlight-color: $primary-light;
 
 .header {
   height: $height;
@@ -35,8 +35,12 @@ $highlight-color: $primary;
       z-index: 6;
       align-self: center;
 
+      &:after {
+        content: none;
+      }
+
       .highlight {
-        bottom: -2px;
+        bottom: 1px;
       }
 
       &:hover {
@@ -49,6 +53,10 @@ $highlight-color: $primary;
       z-index: 6;
       margin-top: 4px;
       align-self: center;
+
+      &:after {
+        content: none;
+      }
 
       svg {
         width: 1.5em;
@@ -82,8 +90,13 @@ $highlight-color: $primary;
           a {
             position: relative;
             color: $light-2;
+            font-weight: 600;
             font-size: 1.6em;
             font-family: $font-heading;
+            
+            &:after {
+              content: none;
+            }
 
             &:hover {
               text-decoration: none;
@@ -91,7 +104,7 @@ $highlight-color: $primary;
           }
 
           .highlight {
-            bottom: -5px;
+            bottom: 0;
           }
 
           &:last-child {
@@ -110,7 +123,11 @@ $highlight-color: $primary;
           a {
             color: $light-2;
             font-size: 1.6em;
-    
+            
+            &:after {
+              content: none;
+            }
+
             svg {
               vertical-align: middle;
             }
@@ -133,7 +150,7 @@ $highlight-color: $primary;
       bottom: 0;
       left: 0;
       right: 0;
-      height: 3px;
+      height: 2px;
       border-radius: 1px;
       background-color: $highlight-color;
       box-shadow: $box-shadow-1;

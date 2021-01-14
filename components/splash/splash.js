@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import Typed from 'react-typed'
 import Particles from 'react-particles-js'
-import { getSiteConfig } from '../../lib/api'
+import { getSiteConfig } from '@/lib/api'
 import particleConfig from './particlesjs-config'
 import styles from './splash.module.scss'
 

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import styles from './technology-block.module.scss'
-import TagList from '../../tag-list'
+import TagList from '@/components/tag-list'
 
 export default function TechnologyBlock({ data: { block_title, categories } }) {
   return (

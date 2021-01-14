@@ -1,6 +1,6 @@
 import ReactMarkdown from 'react-markdown/with-html'
 import { motion } from 'framer-motion'
-import { getAllArticlePaths, getArticleBySlug } from '../../lib/api'
+import { getAllArticlePaths, getArticleBySlug } from '@/lib/api'
 
 export default function Article({ article_title, created_date, content }) {
   const contentAnimations = {

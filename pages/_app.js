@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Router } from 'next/router'
 import { AnimateSharedLayout, AnimatePresence } from 'framer-motion'
-import { getSiteConfig } from '../lib/api'
-import { Layout } from '../components/layout'
-import '../styles/globals.scss'
+import { getSiteConfig } from '@/lib/api'
+import { Layout } from '@/components/layout'
+import '@/styles/globals.scss'
 
 export default function MyApp({ Component, pageProps, router }) {
   const siteConfig = getSiteConfig()

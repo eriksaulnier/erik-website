@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import Icon from '../icon'
+import Icon from '@/components/icon'
 import styles from './tag-list.module.scss'
 
 export default function TagList({ tags, color }) {

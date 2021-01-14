@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import TagList from '../../../../tag-list'
+import TagList from '@/components/tag-list'
 import styles from './project.module.scss'
 
 export default function Project({ data: { title, thumbnail, year, stack, links} }) {
