@@ -105,6 +105,32 @@ button, .btn {
   }
 }
 
+ul {
+  margin: 0.6em 0;
+  padding-left: 2.2em;
+
+  li {
+    position: relative;
+    list-style: none;
+    line-height: 1.4;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: -1.2em;
+      width: 0.5em;
+      height: 0.4em;
+      top: 0.35em;
+      clip-path: polygon(100% 50%, 0 0, 0 100%);
+      background-color: $primary-light;
+    }
+
+    ul {
+      margin: 0.2em 0;
+    }
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
