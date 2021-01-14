@@ -34,21 +34,21 @@ blocks:
   content: |-
     ### Desk
 
-    * Desk: [Autonomous SmartDesk 2 Premium](https://www.autonomous.ai/standing-desks/smartdesk-2-business "Autonomous SmartDesk 2 Premium")
+    * Desk: [Autonomous SmartDesk 2 Premium](https://www.autonomous.ai/standing-desks/smartdesk-2-business)
     * Standing Mat: [Ergodriven Topo](https://ergodriven.com/products/topo?variant=27365321411)
 
     ### Peripherals
 
-    * Keyboard: [Vortexgear Race 3 ](http://www.vortexgear.tw/vortex2_2.asp?kind=47&kind2=225&kind3=&kind4=1044 "Vortexgear Race 3 (Cherry MX Silent Red)")[(Cherry MX Silent Red)](https://www.amazon.com/gp/product/B07GTHW9FG/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
-    * Mouse: [Logitech G Pro Wireless](https://www.logitechg.com/en-us/products/gaming-mice/pro-wireless-mouse.910-005270.html "Logitech Pro Wireles")
+    * Keyboard: [Vortexgear Race 3 (Cherry MX Silent Red)](http://www.vortexgear.tw/vortex2_2.asp?kind=47&kind2=225&kind3=&kind4=1044)
+    * Mouse: [Logitech G Pro Wireless](https://www.logitechg.com/en-us/products/gaming-mice/pro-wireless-mouse.910-005270.html)
     * Monitors:
-      * [ASUS TUF Gaming VG27BQ 27''](https://www.asus.com/us/Monitors/TUF-Gaming-VG27BQ/ "ASUS TUF Gaming VG27BQ")
-      * [ASUS PB287Q 28''](https://www.asus.com/us/Commercial-Monitors/PB287Q/ "ASUS PB287Q")
+      * [ASUS TUF Gaming VG27BQ 27''](https://www.asus.com/us/Monitors/TUF-Gaming-VG27BQ/)
+      * [ASUS PB287Q 28''](https://www.asus.com/us/Commercial-Monitors/PB287Q/)
     * Headphones:
       * [Steelseries Arctis 7](https://steelseries.com/gaming-headsets/arctis-7)
       * [Sony WH-1000XM3](https://www.sony.com/electronics/headband-headphones/wh-1000xm3)
     * Mousepad: [Glorious Stitch Cloth Mousepad XXL Extended (18x36in)](https://www.pcgamingrace.com/products/glorious-xxl-extended-18x36-stealth-edition)
     * Microphone: [Tonor TC-777](https://www.tonormic.com/products/tonor-tc-777-usb-microphone "Tonor TC-777")
-    * Camera: [Amcrest AWC201-B](https://amcrest.com/webcam-with-privacy-cover-usb-webcam-live-streaming-built-in-mic-awc201-b.html "Amcrest AWC201-B")
+    * Webcam: [Amcrest AWC201-B](https://amcrest.com/webcam-with-privacy-cover-usb-webcam-live-streaming-built-in-mic-awc201-b.html "Amcrest AWC201-B")
 
 ---
