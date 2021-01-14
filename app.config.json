@@ -37,13 +37,6 @@
         "icon": "FaLinkedin",
         "icon_name": "SiLinkedin",
         "icon_title": ""
-      },
-      {
-        "name": "Twitter",
-        "link": "https://twitter.com/eriksaulnier",
-        "icon": "FaTwitter",
-        "icon_name": "SiTwitter",
-        "icon_title": ""
       }
     ]
   },
