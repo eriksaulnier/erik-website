@@ -5,7 +5,7 @@ export default function Article({ data }) {
   
   return (
     <div className={styles.article}>
-      <Link href={'/articles/[...slug]'} as={`/articles/${data.slug}`}>
+      <Link href={`/articles/${data.slug}`}>
           <a>
             {data.article_title}
           </a>

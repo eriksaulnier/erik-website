@@ -124,7 +124,7 @@ export default function Header({ siteTitle, navigation, social_links }) {
             <div className={styles.menuItems}>
               {navigation?.map((page, index) => (
                 <div key={index} className={styles.menuItem}>
-                  <Link href={'/[...slug]'} as={`/${page.slug}`}>
+                  <Link href={`/${page.slug}`}>
                     <a
                       onMouseEnter={() => onMenuMouseEnter(`/${page.slug}`)}
                       onMouseLeave={onMenuMouseLeave}
