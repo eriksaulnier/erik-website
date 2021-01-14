@@ -23,7 +23,7 @@ export default function TagList({ tags, color }) {
           whileHover="hover"
           transition={{
             type: 'spring',
-            stiffness: 250
+            stiffness: 300
           }}
         >
           {tag.icon_name && <Icon name={tag.icon_name} />}
