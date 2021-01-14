@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import Splash from '../components/splash';
+import Splash from '@/components/splash';
 
 export default function Home() {
   return (
