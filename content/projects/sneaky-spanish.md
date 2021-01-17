@@ -21,5 +21,8 @@ links:
   link: https://github.com/eriksaulnier/sneakyspanish
   icon_name: ''
   icon_title: ''
+categories:
+- label: Chrome Extension
+  icon_name: SiChrome
 
 ---
