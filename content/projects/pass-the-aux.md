@@ -32,5 +32,9 @@ links:
   link: https://github.com/eriksaulnier/Pass-the-Aux
   icon_name: ''
   icon_title: ''
+categories:
+- label: Web Development
+- label: React
+  icon_name: SiReact
 
 ---
