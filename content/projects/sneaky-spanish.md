@@ -23,6 +23,6 @@ links:
   icon_title: ''
 categories:
 - label: Chrome Extension
-  icon_name: SiChrome
+  icon_name: SiGooglechrome
 
 ---
