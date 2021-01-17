@@ -17,5 +17,6 @@ categories:
 - label: WordPress Development
   icon_name: SiWordpress
 - label: Web Design
+  icon_name: GiPaintRoller
 
 ---
