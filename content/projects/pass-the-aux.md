@@ -33,8 +33,9 @@ links:
   icon_name: ''
   icon_title: ''
 categories:
-- label: Web Development
-- label: React
+- label: React Development
   icon_name: SiReact
+- label: Spotify API
+  icon_name: SiSpotify
 
 ---
