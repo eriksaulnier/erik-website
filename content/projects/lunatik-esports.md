@@ -13,5 +13,10 @@ stack:
   icon: ''
 - label: Sass
   icon: ''
+categories:
+- label: Web Development
+- label: Web Design
+- label: WordPress Theme
+  icon_name: SiWordPress
 
 ---
