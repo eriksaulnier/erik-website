@@ -47,6 +47,24 @@ fields:
     schema:
       format: markdown
   label: Description
+- name: categories
+  type: field_group_list
+  fields:
+  - name: label
+    type: text
+    config:
+      required: false
+    label: Label
+  - name: icon
+    type: include
+    config: {}
+    template: icon
+    label: Icon
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Categories
 - name: stack
   type: field_group_list
   fields:
