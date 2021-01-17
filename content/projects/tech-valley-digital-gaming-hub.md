@@ -22,5 +22,10 @@ links:
   link: https://gamehub.rpi.edu
   icon_name: ''
   icon_title: ''
+categories:
+- label: WordPress Development
+  icon_name: SiWordpress
+- label: Web Design
+  icon_name: GiPaintRoller
 
 ---
