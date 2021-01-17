@@ -16,7 +16,7 @@ stack:
 categories:
 - label: Web Development
 - label: Web Design
-- label: WordPress Theme
-  icon_name: SiWordPress
+- label: WordPress
+  icon_name: SiWordpress
 
 ---
