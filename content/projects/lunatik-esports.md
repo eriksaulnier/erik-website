@@ -14,9 +14,8 @@ stack:
 - label: Sass
   icon: ''
 categories:
-- label: Web Development
-- label: Web Design
-- label: WordPress
+- label: WordPress Development
   icon_name: SiWordpress
+- label: Web Design
 
 ---
