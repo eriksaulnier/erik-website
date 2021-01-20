@@ -39,7 +39,9 @@ blocks:
 
     ### Peripherals
 
-    * Keyboard: [Vortexgear Race 3 (Cherry MX Silent Red)](http://www.vortexgear.tw/vortex2_2.asp?kind=47&kind2=225&kind3=&kind4=1044)
+    * Keyboards:
+      * [Keychron K3 Ultra-slim (Low Profile Gateron Brown)](https://www.keychron.com/products/keychron-k3-wireless-mechanical-keyboard)
+      * [Vortexgear Race 3 (Cherry MX Silent Red)](http://www.vortexgear.tw/vortex2_2.asp?kind=47&kind2=225&kind3=&kind4=1044)
     * Mouse: [Logitech G Pro Wireless](https://www.logitechg.com/en-us/products/gaming-mice/pro-wireless-mouse.910-005270.html)
     * Monitors:
       * [ASUS TUF Gaming VG27BQ 27''](https://www.asus.com/us/Monitors/TUF-Gaming-VG27BQ/)
