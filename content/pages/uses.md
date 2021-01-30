@@ -6,7 +6,7 @@ published: true
 blocks:
 - template: content-block
   block_title: ''
-  content: "![My desk setup as of January 2021](/uploads/dsc00027-2.JPG)"
+  content: "![](/uploads/dsc00122-3.JPG)"
 - template: content-block
   block_title: Hardware
   content: |-
