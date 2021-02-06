@@ -1,5 +1,5 @@
 ---
-thumbnail: "/uploads/2015_lunatikesports.jpg"
+thumbnail: "/uploads/600x400.png"
 title: LunatiK eSports
 client: LunatiK eSports
 description: Custom WordPress theme designed and developed for LunatiK eSports
