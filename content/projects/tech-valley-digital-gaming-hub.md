@@ -1,5 +1,5 @@
 ---
-thumbnail: ''
+thumbnail: "/uploads/600x400.png"
 title: Tech Valley Digital Gaming Hub
 description: Worked with Rensselaer Polytechnic Institute's GSAS department to design/develop
   a custom WordPress theme and plugins for the school's Digital Gaming Hub website.
