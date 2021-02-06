@@ -21,11 +21,6 @@ fields:
 - name: published
   type: boolean
   label: Published
-- name: client
-  type: text
-  config:
-    required: false
-  label: Client
 - name: year
   type: text
   config:
@@ -38,6 +33,10 @@ fields:
     maxSize: 64
   label: Thumbnail
   default: "/uploads/600x400.png"
+- name: images
+  type: image_gallery
+  config: {}
+  label: Images
 - name: description
   type: textarea
   default: ''
@@ -108,10 +107,6 @@ fields:
     max: 
     labelField: 
   label: Links
-- name: images
-  type: image_gallery
-  config: {}
-  label: Images
 pages:
 - content/projects/diare.md
 - content/projects/lunatik-esports.md
