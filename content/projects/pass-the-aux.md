@@ -1,5 +1,5 @@
 ---
-thumbnail: "/uploads/600x400.png"
+thumbnail: ''
 title: Pass the Aux
 client: Course Project
 description: Many of us have had the responsibility of playing music at a party, sometimes
@@ -37,5 +37,6 @@ categories:
   icon_name: SiReact
 - label: Spotify API
   icon_name: SiSpotify
+images: []
 
 ---
