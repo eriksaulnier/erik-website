@@ -108,6 +108,10 @@ fields:
     max: 
     labelField: 
   label: Links
+- name: images
+  type: image_gallery
+  config: {}
+  label: Images
 pages:
 - content/projects/diare.md
 - content/projects/lunatik-esports.md
