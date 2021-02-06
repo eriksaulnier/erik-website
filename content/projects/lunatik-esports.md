@@ -5,7 +5,7 @@ client: LunatiK eSports
 description: Custom WordPress theme designed and developed for LunatiK eSports
 year: "2015"
 created_date: 2015-05-01T04:00:00.000+00:00
-published: true
+published: false
 stack:
 - label: WordPress
   icon: ''
