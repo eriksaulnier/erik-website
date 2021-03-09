@@ -117,6 +117,9 @@ blocks:
     - label: UiPath
       icon_name: SiProbot
       icon_title: ''
+- template: content-block
+  content: If you are curious about the other stuff I use check out [/uses](/uses
+    "Uses Page").
 tab_title: About
 published: true
 
