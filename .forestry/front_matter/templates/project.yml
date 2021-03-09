@@ -105,6 +105,7 @@ fields:
   label: Links
 pages:
 - content/projects/diare.md
+- content/projects/initialize-esports.md
 - content/projects/lunatik-esports.md
 - content/projects/pass-the-aux.md
 - content/projects/portfolio.md
