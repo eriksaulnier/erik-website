@@ -3,14 +3,16 @@ page_title: About me
 seo_description: ''
 blocks:
 - template: content-block
-  content: "I'm a software engineer based in Troy, NY who has a strong passion for
-    all things tech. Over the last 7 years, I have had experience working on a large
-    variety of projects of varying sizes including software applications, mobile apps,
-    websites, and even some video games. I am always excited when presented with opportunities
-    to add new technologies to my toolbelt and am never afraid of a challenge.\n\n####
-    \n\nI currently work as a Developer at [Troy Web Consulting](https://troyweb.com).\n\n###
-    \n\nIf you are curious about the other stuff I use check out [/uses](/uses \"Uses
-    Page\")"
+  content: |-
+    I'm a software engineer based in Troy, NY who has a strong passion for all things tech. Over the last 7 years, I have had experience working on a large variety of projects of varying sizes including software applications, mobile apps, websites, and even some video games. I am always excited when presented with opportunities to add new technologies to my toolbelt and am never afraid of a challenge.
+
+    <br/>
+
+    I currently work as a Developer at [Troy Web Consulting](https://troyweb.com).
+
+    <br/>
+
+    If you are curious about the other stuff I use check out [/uses](/uses "Uses Page")
   block_title: Hey, my name is Erik
   aside_image: "/uploads/profile-cropped.jpg"
 - template: technology-block
