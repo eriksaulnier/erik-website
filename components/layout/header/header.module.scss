@@ -2,7 +2,7 @@
 @import './mixins';
 
 $height: 40px;
-$highlight-color: $primary-light;
+$highlight-color: $primary;
 
 .header {
   height: $height;
@@ -104,7 +104,7 @@ $highlight-color: $primary-light;
           }
 
           .highlight {
-            bottom: 0;
+            bottom: -1px;
           }
 
           &:last-child {
