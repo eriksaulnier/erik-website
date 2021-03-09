@@ -8,6 +8,7 @@ blocks:
 
     I currently work as a Developer at [Troy Web Consulting](https://troyweb.com).
   block_title: Hey, my name is Erik
+  aside_image: "/uploads/pxl_20210306_203723335-portrait.jpg"
 - template: technology-block
   block_title: Technologies I use
   categories:
