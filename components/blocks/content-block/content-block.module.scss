@@ -1,0 +1,35 @@
+@import './variables';
+@import './mixins';
+
+.contentBlock {
+  .asideImage {
+    position: relative;
+    display: block;
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    font-size: 0;
+  }
+
+  @include mobile-up {
+    .asideImage {
+      max-width: 60%;
+      margin: 2rem auto;
+    }
+  }
+
+  @include tablet-up {
+    display: flex;
+    flex-direction: row;
+
+    .content {
+      flex: 2;
+    }
+
+    .asideImage {
+      width: 30%;
+      flex: 1;
+      margin-left: 4rem;
+    }
+  }
+}
