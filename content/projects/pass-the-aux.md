@@ -1,5 +1,5 @@
 ---
-thumbnail: "/uploads/pass-the-aux-3.png"
+thumbnail: "/uploads/pass-the-aux.png"
 title: Pass the Aux
 client: Course Project
 description: Many of us have had the responsibility of playing music at a party, sometimes
