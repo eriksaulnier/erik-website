@@ -6,11 +6,5 @@
   margin: 0 auto;
   padding: 0;
   list-style: none;
-  grid-gap: 2.5em;
-  max-width: 26em;
-
-  @include tablet-up {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: unset;
-  }
+  grid-gap: 4em;
 }

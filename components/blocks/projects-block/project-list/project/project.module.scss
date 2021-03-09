@@ -1,102 +1,61 @@
 @import './variables';
-
-$height: 3rem;
+@import './mixins';
 
 .project {
-  position: relative;
-  overflow: hidden;
-  padding-bottom: calc(66% + #{$height});
-  background-color: $dark-3;
-  border-radius: 0.5em;
-  box-shadow: $box-shadow-1;
-  cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  
+  .image {
+    margin: auto 0;
+    grid-area: 1 / 1 / -1 / -1;
+    font-size: 0;
+    background-color: $primary-dark;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
 
   .content {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    padding: 0 1.2rem;
+    margin: auto 2em;
+    grid-area: 1 / 1 / -1 / -1;
     z-index: 1;
-    box-sizing: border-box;
-    background-color: $dark-3;
-    transition: transform 0.8s ease-in-out;
-    
-    .heading {
-      display: flex;
-      height: $height;
-      // margin-bottom: 1.5rem;
-      align-items: center;
-      justify-content: space-between;
 
-      .title {
-        margin: 0;
-        font-size: 1em;
-        transition: font-size 0.4s ease-out 0.4s;
-      }
-
-      .year {
-        display: block;
-        background-color: $primary;
-        padding: 5px 7px;
-        font-size: 0.9em;
-        font-weight: bold;
-        border-radius: 4px 6px;
-        box-shadow: $box-shadow-1;
-      }
+    .title {
+      margin: 0;
+      font-size: 1.4em;
     }
 
-    .client {
-      font-style: italic;
-      background-color: $dark-2;
-      padding: 5px;
-      border-radius: 4px 6px;
-    }
-
-    .links {
-      > a {
-        display: inline-block;
-        margin-right: 1em;
-
-        &:last-child {
-          margin-right: 0;
-        }
-      }
+    .description {
+      padding: 1em 1.2em;
+      color: $light-2;
+      border-radius: 0.5rem;
+      background-color: $dark-3;
+      overflow: hidden;
     }
   }
 
-  .image {
-    position: absolute;
-    top: 0;
-    bottom: $height;
-    left: 0;
-    right: 0;
+  @include tablet-up {
+    grid-template-columns: repeat(12, 1fr);
 
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
+    .image {
+      margin: auto 0;
+      grid-area: 1 / 6 / -1 / -1;
+    }
+
+    .content {
+      margin: auto 0;
+      text-align: left;
+      grid-area: 1 / 1 / -1 / 9;
+    }
+
+    &:nth-child(even) {
+      .image {
+        grid-area: 1 / 1 / -1 / 8;
+      }
+
+      .content {
+        text-align: right;
+        grid-area: 1 / 5 / -1 / -1;
+      }
     }
   }
-
-  // &:hover, &:focus, &.active {
-  //   // position: absolute;
-  //   // top: 10%;
-  //   // bottom: 10%;
-  //   // left: 5%;
-  //   // right: 5%;
-  //   // box-sizing: border-box;
-
-  //   .content {
-  //     transform: translateY(0);
-
-  //     .heading {
-  //       .title {
-  //         font-size: 1.2em;
-  //         transition: font-size 0.6s ease-out;
-  //       }
-  //     }
-  //   }
-  // }
 }

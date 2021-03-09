@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import TagList from '@/components/tag-list'
 import styles from './project.module.scss'
 
-export default function Project({ data: { title, thumbnail, year, stack, links} }) {
+export default function Project({ data }) {
   return (
     <motion.div
       className={styles.project}
@@ -18,46 +19,28 @@ export default function Project({ data: { title, thumbnail, year, stack, links} 
       }}
     >
       <div className={styles.image}>
-        <img alt={title} src={thumbnail} />
+        <motion.div variants={{ initial: { opacity: 0.4 }, hover: { opacity: 0.8 } }}>
+          <Image alt={data.title} src={data.thumbnail} width="600" height="400" objectFit="cover" />
+        </motion.div>
       </div>
 
-      <motion.div
-        className={styles.content}
-        variants={{
-          initial: { y: 'calc(100% - 3em)' },
-          hover: { y: 0 }
-        }}
-        transition={{
-          type: 'spring',
-          stiffness: 150
-        }}
-      >
-        <div className={styles.heading}>
-          <motion.h4 className={styles.title}>{title}</motion.h4>
-          <span className={styles.year}>{year}</span>
-        </div>
+      <div className={styles.content}>
+        <motion.h4 className={styles.title}>{data.title}</motion.h4>
 
-        {/* <span className={styles.client}>{client}</span> */}
+        <p className={styles.description}>{data.description}</p>
 
-        {stack ? (
-          <>
-            <h5>Technologies Used</h5>
-            <TagList tags={stack} color={'light-2'} />
-          </>
-        ) : null}
-
-        {/* <p>{description}</p> */}
-
-        <div className={styles.links}>
-          {links?.map((item, index) => (
+        {data.stack && <TagList tags={data.stack} color={'light-2'} />}
+      </div>
+      
+        {/* <div className={styles.links}>
+          {data.links?.map((item, index) => (
             <Link href={item.link} key={index}>
               <a className="btn">
                 {item.title}
               </a>
             </Link>
           ))}
-        </div>
-      </motion.div>
+        </div> */}
     </motion.div>
   )
 }
