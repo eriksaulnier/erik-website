@@ -25,15 +25,21 @@
     ],
     "social_links": [
       {
-        "name": "GitHub",
-        "link": "https://github.com/eriksaulnier",
-        "icon_name": "SiGithub",
-        "icon_title": ""
-      },
-      {
         "name": "LinkedIn",
         "link": "https://linkedin.com/in/eriksaulnier",
         "icon_name": "SiLinkedin",
+        "icon_title": ""
+      },
+      {
+        "name": "Upwork",
+        "link": "https://www.upwork.com/o/profiles/users/~019104ef6477a3e650/",
+        "icon_name": "SiUpwork",
+        "icon_title": ""
+      },
+      {
+        "name": "GitHub",
+        "link": "https://github.com/eriksaulnier",
+        "icon_name": "SiGithub",
         "icon_title": ""
       }
     ]
