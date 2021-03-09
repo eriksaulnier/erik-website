@@ -9,10 +9,6 @@ blocks:
     <br/>
 
     I currently work as a Developer at [Troy Web Consulting](https://troyweb.com).
-
-    <br/>
-
-    If you are curious about the other stuff I use check out [/uses](/uses "Uses Page")
   block_title: Hey, my name is Erik
   aside_image: "/uploads/profile-cropped.jpg"
 - template: technology-block
