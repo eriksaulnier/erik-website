@@ -20,7 +20,7 @@ export default function Project({ data }) {
     >
       <div className={styles.image}>
         <motion.div variants={{ initial: { opacity: 0.4 }, hover: { opacity: 0.8 } }}>
-          <Image alt={data.title} src={data.thumbnail} width="600" height="400" objectFit="cover" />
+          <Image alt={data.title} src={data.thumbnail} width="600" height="400" />
         </motion.div>
       </div>
 
@@ -31,7 +31,7 @@ export default function Project({ data }) {
 
         {data.stack && <TagList tags={data.stack} color={'light-2'} />}
       </div>
-      
+
         {/* <div className={styles.links}>
           {data.links?.map((item, index) => (
             <Link href={item.link} key={index}>
