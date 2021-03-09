@@ -1,5 +1,5 @@
 ---
-thumbnail: "/uploads/600x400.png"
+thumbnail: "/uploads/sneaky-spanish.png"
 title: Sneaky Spanish
 client: Course Project
 description: Sneaky Spanish is a Chrome extension that allows you to learn Spanish
