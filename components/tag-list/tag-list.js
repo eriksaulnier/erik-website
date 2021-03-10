@@ -3,7 +3,6 @@ import Icon from '@/components/icon'
 import styles from './tag-list.module.scss'
 
 export default function TagList({ tags, className, tagClassName }) {
-  console.log(className)
   return (
     <motion.ul
       className={[styles.tagList, className].join(' ')}
