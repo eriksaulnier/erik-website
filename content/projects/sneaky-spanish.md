@@ -10,6 +10,8 @@ year: "2015"
 created_date: 2015-11-01T04:00:00.000+00:00
 published: true
 stack:
+- label: Chrome Extension
+  icon: SiGooglechrome
 - label: Javascript
   icon: ''
 links:
@@ -21,8 +23,6 @@ links:
   link: https://github.com/eriksaulnier/sneakyspanish
   icon_name: ''
   icon_title: ''
-categories:
-- label: Chrome Extension
-  icon_name: SiGooglechrome
+categories: []
 
 ---
