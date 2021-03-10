@@ -4,7 +4,7 @@ thumbnail: "/uploads/portfolio.png"
 title: Portfolio
 published: true
 year: "2021"
-description: ''
+description: The latest iteration of my main website.
 categories: []
 stack:
 - label: Netlify
