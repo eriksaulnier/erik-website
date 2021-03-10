@@ -29,7 +29,7 @@ export default function ContentBlock({ data: { block_title, content, aside_image
 
       {aside_image && (
         <div className={styles.asideImage}>
-          <Image src={aside_image.image} alt={aside_image.alt} width="500" height="500" objectFit="cover" />
+          <Image src={aside_image.image} alt={aside_image.alt} width="280" height="280" objectFit="cover" />
         </div>
       )}
     </section>
