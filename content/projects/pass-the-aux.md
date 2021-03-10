@@ -32,11 +32,7 @@ links:
   link: https://github.com/eriksaulnier/Pass-the-Aux
   icon_name: ''
   icon_title: ''
-categories:
-- label: React Development
-  icon_name: SiReact
-- label: Spotify API
-  icon_name: SiSpotify
+categories: []
 images: []
 
 ---
