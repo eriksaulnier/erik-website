@@ -31,6 +31,20 @@
       background-color: $dark-3;
       overflow: hidden;
     }
+
+    .stack {
+      margin-top: 1em;
+
+      .tag {
+        color: $dark-1;
+        background-color: $light-2;
+        margin: 0 0.7em 0.7em 0;
+
+        &:last-child {
+          margin-left: 0;
+        }
+      }
+    }
   }
 
   @include tablet-up {
@@ -55,6 +69,18 @@
       .content {
         text-align: right;
         grid-area: 1 / 5 / -1 / -1;
+      }
+
+      .stack {
+        justify-content: flex-end;
+
+        .tag {
+          margin: 0 0 0.7em 0.7em;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
       }
     }
   }

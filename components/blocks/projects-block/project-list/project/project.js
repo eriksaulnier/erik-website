@@ -29,7 +29,9 @@ export default function Project({ data }) {
 
         <p className={styles.description}>{data.description}</p>
 
-        {data.stack && <TagList tags={data.stack} color={'light-2'} />}
+        {data.stack && (
+          <TagList className={styles.stack} tagClassName={styles.tag} tags={data.stack} />
+        )}
       </div>
 
         {/* <div className={styles.links}>

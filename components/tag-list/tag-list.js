@@ -2,10 +2,11 @@ import { motion } from 'framer-motion'
 import Icon from '@/components/icon'
 import styles from './tag-list.module.scss'
 
-export default function TagList({ tags, color }) {
+export default function TagList({ tags, className, tagClassName }) {
+  console.log(className)
   return (
     <motion.ul
-      className={styles.tagList}
+      className={[styles.tagList, className].join(' ')}
       variants={{
         enter: { transition: { staggerChildren: 0.1 } }
       }}
@@ -13,7 +14,7 @@ export default function TagList({ tags, color }) {
       {tags?.map((tag, index) => (
         <motion.li
           key={index}
-          className={[styles.tag, color ? styles[color] : null].join(' ')}
+          className={[styles.tag, tagClassName].join(' ')}
           variants={{
             initial: { opacity: 0, x: 10 },
             enter: { opacity: 1, x: 0 },
