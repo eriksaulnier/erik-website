@@ -135,11 +135,13 @@ blocks:
       icon_title: ''
   - category_title: Other
     technologies:
-    - label: AWS
-      icon_name: SiAmazonaws
-      icon_title: ''
+    - label: Firebase
+      icon_name: SiFirebase
     - label: Netlify
       icon_name: SiNetlify
+      icon_title: ''
+    - label: AWS
+      icon_name: SiAmazonaws
       icon_title: ''
     - label: Heroku
       icon_name: SiHeroku
