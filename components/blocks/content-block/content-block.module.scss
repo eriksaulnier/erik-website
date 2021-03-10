@@ -5,16 +5,16 @@
   .asideImage {
     position: relative;
     display: block;
-    margin-top: 2rem;
+    margin: 2rem auto;
     border-radius: 0.5rem;
     overflow: hidden;
     font-size: 0;
+    max-width: 80%;
   }
 
   @include mobile-up {
     .asideImage {
       max-width: 60%;
-      margin: 2rem auto;
     }
   }
 
