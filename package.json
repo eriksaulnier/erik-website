@@ -25,7 +25,5 @@
     "react-typed": "^1.2.0",
     "sass": "^1.26.10"
   },
-  "devDependencies": {
-    "@netlify/plugin-nextjs": "^3.0.0"
-  }
+  "devDependencies": {}
 }
