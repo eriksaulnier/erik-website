@@ -10,7 +10,37 @@ blocks:
 
     I currently work as a Developer at [Troy Web Consulting](https://troyweb.com).
   block_title: Hey, my name is Erik
-  aside_image: "/uploads/profile-cropped.jpg"
+  aside_image:
+    '0': "/"
+    '1': u
+    '2': p
+    '3': l
+    '4': o
+    '5': a
+    '6': d
+    '7': s
+    '8': "/"
+    '9': p
+    '10': r
+    '11': o
+    '12': f
+    '13': i
+    '14': l
+    '15': e
+    '16': "-"
+    '17': c
+    '18': r
+    '19': o
+    '20': p
+    '21': p
+    '22': e
+    '23': d
+    '24': "."
+    '25': j
+    '26': p
+    '27': g
+    image: "/uploads/profile-cropped.jpg"
+    alt: A picture of me
 - template: technology-block
   block_title: Technologies I use
   categories:
