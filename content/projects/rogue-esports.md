@@ -1,7 +1,7 @@
 ---
 created_date: 2016-10-07T03:18:22.000+00:00
 thumbnail: "/uploads/rogue-esports-concept.png"
-title: Rogue Concept Website
+title: Rogue eSports Concept
 published: false
 year: "2016"
 description: Made a concept of a website for Rogue eSports as a web design exercise.
