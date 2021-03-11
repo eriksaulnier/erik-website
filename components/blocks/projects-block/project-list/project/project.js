@@ -18,31 +18,35 @@ export default function Project({ data }) {
         stiffness: 250
       }}
     >
-      <div className={styles.image}>
-        <motion.div variants={{ initial: { opacity: 0.6 }, hover: { opacity: 0.9 } }}>
-          <Image alt={data.title} src={data.thumbnail} width="525" height="350" />
-        </motion.div>
-      </div>
+      <motion.div className={styles.image} variants={{ initial: { opacity: 0.6 }, hover: { opacity: 1 } }}>
+        <Image alt={data.title} src={data.thumbnail} width="525" height="350" />
+      </motion.div>
 
       <div className={styles.content}>
         <motion.h4 className={styles.title}>{data.title}</motion.h4>
 
-        <p className={styles.description}>{data.description}</p>
+        <div className={styles.description}>
+          <p>{data.description}</p>
 
-        {data.stack && (
-          <TagList className={styles.stack} tagClassName={styles.tag} tags={data.stack} />
-        )}
+          {data.stack && (
+            <TagList className={styles.stack} tagClassName={styles.tag} tags={data.stack} />
+          )}
+        </div>
+
+        {data.links && (
+          <div className={styles.buttonList}>
+            {data.links?.map((item, index) => (
+              <Link href={item.link} key={index}>
+                <a className={[styles.button, 'btn'].join(' ')}>
+                  {item.title}
+                </a>
+              </Link>
+            ))}
+          </div>
+        )} 
       </div>
 
-        {/* <div className={styles.links}>
-          {data.links?.map((item, index) => (
-            <Link href={item.link} key={index}>
-              <a className="btn">
-                {item.title}
-              </a>
-            </Link>
-          ))}
-        </div> */}
+        
     </motion.div>
   )
 }

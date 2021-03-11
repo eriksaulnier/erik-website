@@ -12,37 +12,54 @@
     background-color: $primary-dark;
     border-radius: 0.5rem;
     overflow: hidden;
+    
+    img {
+      opacity: 0.9;
+    }
   }
 
   .content {
-    margin: auto 2em;
+    margin: auto 2rem;
     grid-area: 1 / 1 / -1 / -1;
     z-index: 1;
 
     .title {
-      margin: 0;
-      font-size: 1.4em;
+      margin: 0 0 0.5rem 0;
+      font-size: 1.4rem;
     }
 
     .description {
-      padding: 1em 1.2em;
+      padding: 1rem 1.2rem;
       color: $light-2;
       border-radius: 0.5rem;
       background-color: $dark-3;
       overflow: hidden;
+
+      p {
+        margin: 0;
+      }
+
+      .stack {
+        margin-top: 1rem;
+
+        .tag {
+          color: $dark-3;
+          margin: 0 0.7rem 0.7rem 0;
+          background-color: $light-1;
+
+          &:last-child {
+            margin-left: 0;
+          }
+        }
+      }
     }
 
-    .stack {
-      margin-top: 1em;
+    .buttonList {
+      margin-top: 1rem;
 
-      .tag {
-        color: $dark-1;
-        background-color: $light-2;
-        margin: 0 0.7em 0.7em 0;
-
-        &:last-child {
-          margin-left: 0;
-        }
+      .button {
+        display: inline-block;
+        margin-right: 1rem;
       }
     }
   }
@@ -69,17 +86,17 @@
       .content {
         text-align: right;
         grid-area: 1 / 5 / -1 / -1;
-      }
 
-      .stack {
-        justify-content: flex-end;
+        .stack {
+          justify-content: flex-end;
 
-        .tag {
-          margin: 0 0 0.7em 0.7em;
+          .tag {
+            margin: 0 0 0.7rem 0.7rem;
 
-          &:last-child {
-            margin-right: 0;
-            margin-left: 0.7em;
+            &:last-child {
+              margin-right: 0;
+              margin-left: 0.7rem;
+            }
           }
         }
       }
