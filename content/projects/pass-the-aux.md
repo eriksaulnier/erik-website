@@ -13,18 +13,25 @@ published: true
 stack:
 - icon: ''
   label: React
+  icon_name: SiReact
 - label: Redux
   icon: ''
-- label: Express
-  icon: ''
-- label: MongoDB
-  icon: ''
-- label: Spotify API
+  icon_name: SiRedux
+- label: Express.js
   icon: ''
 - label: Socket.IO
   icon: ''
+  icon_name: SiSocketDotIo
+- label: MongoDB
+  icon: ''
+  icon_name: SiMongodb
+- label: Spotify Web API
+  icon: ''
+  icon_name: SiSpotify
+- label: Heroku
+  icon_name: SiHeroku
 links:
-- title: Live Site
+- title: Visit Site
   link: https://aux-pass.herokuapp.com/
   icon_name: ''
   icon_title: ''
