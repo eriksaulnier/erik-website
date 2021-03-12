@@ -1,17 +1,14 @@
 @import './variables';
 @import './mixins';
 
-.project {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  
+.project {  
   .image {
-    margin: auto 0;
-    grid-area: 1 / 1 / -1 / -1;
     font-size: 0;
-    background-color: $primary-dark;
+    // grid-area: 1 / 1 / -1 / -1;
+    background-color: $primary-darker;
     border-radius: 0.5rem;
     overflow: hidden;
+    box-shadow: $box-shadow-1;
     
     img {
       opacity: 0.9;
@@ -20,12 +17,13 @@
 
   .content {
     margin: auto 2rem;
-    grid-area: 1 / 1 / -1 / -1;
+    // grid-area: 1 / 1 / -1 / -1;
     z-index: 1;
 
     .title {
       margin: 0 0 0.5rem 0;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
+      font-weight: 600;
     }
 
     .description {
@@ -34,22 +32,23 @@
       border-radius: 0.5rem;
       background-color: $dark-3;
       overflow: hidden;
+      box-shadow: $box-shadow-1;
 
       p {
         margin: 0;
       }
+    }
 
-      .stack {
-        margin-top: 1rem;
+    .stack {
+      margin-top: 0.8rem;
 
-        .tag {
-          color: $dark-3;
-          margin: 0 0.7rem 0.7rem 0;
-          background-color: $light-1;
+      .tag {
+        color: $light-2;
+        margin: 0 0.7rem 0.7rem 0;
+        background-color: $dark-2;
 
-          &:last-child {
-            margin-left: 0;
-          }
+        &:last-child {
+          margin-left: 0;
         }
       }
     }
@@ -60,16 +59,21 @@
       .button {
         display: inline-block;
         margin-right: 1rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
       }
     }
   }
 
   @include tablet-up {
+    display: grid;
     grid-template-columns: repeat(12, 1fr);
 
     .image {
       margin: auto 0;
-      grid-area: 1 / 6 / -1 / -1;
+      grid-area: 1 / 7 / -1 / -1;
     }
 
     .content {
@@ -80,7 +84,7 @@
 
     &:nth-child(even) {
       .image {
-        grid-area: 1 / 1 / -1 / 8;
+        grid-area: 1 / 1 / -1 / 7;
       }
 
       .content {
