@@ -8,7 +8,6 @@ export default function Project({ data }) {
   return (
     <motion.div
       className={styles.project}
-      whileHover="hover"
       variants={{
         initial: { opacity: 0, y: 10 },
         enter: { opacity: 1, y: 0 }
@@ -19,7 +18,7 @@ export default function Project({ data }) {
       }}
     >
       <div className={styles.image}>
-        <motion.div variants={{ initial: { opacity: 0.6 }, hover: { opacity: 0.9 } }}>
+        <motion.div whileHover="hover" variants={{ initial: { opacity: 0.4 }, hover: { opacity: 1 } }}>
           <Image alt={data.title} src={data.thumbnail} width="525" height="350" />
         </motion.div>
       </div>
