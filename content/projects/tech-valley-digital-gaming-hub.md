@@ -13,8 +13,10 @@ published: true
 stack:
 - label: WordPress
   icon: ''
+  icon_name: SiWordpress
 - label: Bootstrap 3
   icon: ''
+  icon_name: SiBootstrap
 links:
 - title: Live Site
   link: https://gamehub.rpi.edu
