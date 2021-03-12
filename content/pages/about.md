@@ -91,6 +91,7 @@ blocks:
     - label: React Native
       icon_name: SiReact
       icon_title: ''
+    - label: Express.js
     - label: Ionic
       icon_name: SiIonic
       icon_title: ''
