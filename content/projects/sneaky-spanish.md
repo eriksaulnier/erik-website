@@ -8,12 +8,14 @@ description: Sneaky Spanish is a Chrome extension that allows you to learn Spani
   development of the extension.
 year: "2015"
 created_date: 2015-11-01T04:00:00.000+00:00
-published: true
+published: false
 stack:
 - label: Chrome Extension
   icon: SiGooglechrome
+  icon_name: SiGooglechrome
 - label: Javascript
   icon: ''
+  icon_name: SiJavascript
 links:
 - title: Chrome Web Store
   link: https://chrome.google.com/webstore/detail/sneaky-spanish/fmbgmlhpadiloggofeliagghggmopgbk?hl=en-US
