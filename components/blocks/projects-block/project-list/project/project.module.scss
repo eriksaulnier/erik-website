@@ -43,7 +43,9 @@
       margin-top: 0.8rem;
 
       .tag {
+        color: $light-2;
         margin: 0 0.7rem 0.7rem 0;
+        background-color: $dark-2;
 
         &:last-child {
           margin-left: 0;
