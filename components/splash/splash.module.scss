@@ -7,13 +7,13 @@
   left: 0;
   height: 100%;
   width: 100%;
-  padding: 1.5em;
+  padding: 1.5rem;
   box-sizing: border-box;
   background-color: $primary-dark;
 
   .title {
     margin: 0;
-    font-size: 2.6em;
+    font-size: 2.6rem;
     text-align: center;
     cursor: default;
     z-index: 1;
@@ -29,7 +29,7 @@
 
   .subtitle {
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     text-align: center;
     font-weight: normal;
     cursor: default;
@@ -43,7 +43,7 @@
   .centered {
     display: flex;
     min-height: 100%;
-    max-width: 53em;
+    max-width: 53rem;
     margin: 0 auto;
     justify-content: center;
     flex-direction: column;
@@ -58,14 +58,14 @@
   }
 
   @include mobile-up {
-    font-size: 1.3em;
+    font-size: 1.3rem;
   }
 
   @include tablet-up {
-    font-size: 1.6em;
+    font-size: 1.6rem;
   }
 
   @include desktop-up {
-    font-size: 1.8em;
+    font-size: 1.8rem;
   }
 }
