@@ -2,18 +2,18 @@
 
 .tagList {
   display: flex;
-  margin: 0 0 0.75em;
+  margin: 0 0 0.75rem;
   padding: 0;
   list-style: none;
   flex-wrap: wrap;
-  margin-bottom: -0.7em;
+  margin-bottom: -0.7rem;
 
   .tag {
     display: inline-flex;
     align-items: center;
-    height: 1.6em;
-    padding: 0.2em 0.7em;
-    margin: 0 0.7em 0.7em 0;
+    height: 1.6rem;
+    padding: 0.2rem 0.7rem;
+    margin: 0 0.7rem 0.7rem 0;
     font-size: 1rem;
     cursor: default;
     background-color: $dark-3;
@@ -32,7 +32,7 @@
 
     svg {
       height: 100%;
-      margin-right: 0.5em;
+      margin-right: 0.5rem;
     }
   }
 }

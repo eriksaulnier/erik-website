@@ -34,7 +34,6 @@ export default function Project({ data }) {
           )}
         </div>
 
-
         {data.links && (
           <div className={styles.buttonList}>
             {data.links?.map((item, index) => (
@@ -47,8 +46,6 @@ export default function Project({ data }) {
           </div>
         )} 
       </div>
-
-        
     </motion.div>
   )
 }
