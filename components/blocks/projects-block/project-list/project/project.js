@@ -5,6 +5,9 @@ import TagList from '@/components/tag-list'
 import styles from './project.module.scss'
 
 export default function Project({ data }) {
+  const createdDate = new Date(data.created_date);
+  const dateFormat = { month: 'long', year: 'numeric' }
+
   return (
     <motion.div
       className={styles.project}
@@ -24,15 +27,13 @@ export default function Project({ data }) {
       </div>
 
       <div className={styles.content}>
+        <p className={styles.date}>{createdDate.toLocaleDateString('en-US', dateFormat)}</p>
         <motion.h4 className={styles.title}>{data.title}</motion.h4>
+        <p className={styles.description}>{data.description}</p>
 
-        <div className={styles.description}>
-          <p>{data.description}</p>
-          
-          {data.stack && (
-            <TagList className={styles.stack} tagClassName={styles.tag} tags={data.stack} />
-          )}
-        </div>
+        {data.stack && (
+          <TagList className={styles.stack} tagClassName={styles.tag} tags={data.stack} />
+        )}
 
         {data.links && (
           <div className={styles.buttonList}>
