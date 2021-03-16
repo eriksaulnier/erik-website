@@ -26,18 +26,18 @@
     }
 
     .date {
-      margin: 0;
-      padding: 1rem 1.2rem;
-      border-radius: 3px;
-      background-color: $dark-3;
-      overflow: hidden;
-      box-shadow: $box-shadow-1;
+      margin: 0 0 0.1rem;
       color: $primary-light;
     }
 
     .description {
       margin: 0;
       color: $light-2;
+      padding: 1rem 1.2rem;
+      border-radius: 3px;
+      background-color: $dark-3;
+      overflow: hidden;
+      box-shadow: $box-shadow-1;
     }
 
     .stack {
