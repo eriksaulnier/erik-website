@@ -15,9 +15,14 @@ export default function Header({ siteTitle, navigation, social_links }) {
   const routerPath = useRef(router.asPath)
   routerPath.current = router.asPath
 
+  // Listen for route change
   useEffect(() => {
+    // Close the menu if it is open
+    if (open) setOpen(false);
+
+    // Cleanup reset timeout
     return () => clearTimeout(resetTimeout.current)
-  }, [])
+  }, [router.asPath])
 
   // Prevent scrolling when the menu is open
   useEffect(() => {
