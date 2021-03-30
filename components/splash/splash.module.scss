@@ -12,8 +12,8 @@
   background-color: $primary-dark;
 
   .title {
-    margin: 0;
-    font-size: 2.6rem;
+    margin: 0 0 0.2em;
+    font-size: 2.5em;
     text-align: center;
     cursor: default;
     z-index: 1;
@@ -29,7 +29,7 @@
 
   .subtitle {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     text-align: center;
     font-weight: normal;
     cursor: default;
@@ -43,7 +43,7 @@
   .centered {
     display: flex;
     min-height: 100%;
-    max-width: 53rem;
+    max-width: 53em;
     margin: 0 auto;
     justify-content: center;
     flex-direction: column;
