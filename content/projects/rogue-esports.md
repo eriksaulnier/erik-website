@@ -12,9 +12,9 @@ stack:
   icon_name: SiAdobephotoshop
   icon_title: ''
 links:
-- title: Behance
+- title: Behance Post
   link: https://www.behance.net/gallery/43700467/Rogue-eSports-Website-Concept
-  icon_name: ''
+  icon_name: FaExternalLinkAlt
   icon_title: ''
 
 ---
