@@ -28,7 +28,7 @@ stack:
 - label: Heroku
   icon_name: SiHeroku
 links:
-- title: GitHub Project
+- title: GitHub Repository
   link: https://github.com/eriksaulnier/Pass-the-Aux
   icon_name: ''
   icon_title: ''
