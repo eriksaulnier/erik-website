@@ -28,13 +28,13 @@ stack:
 - label: Heroku
   icon_name: SiHeroku
 links:
-- title: Visit Site
-  link: https://aux-pass.herokuapp.com/
-  icon_name: FaExternalLinkAlt
-  icon_title: ''
 - title: GitHub
   link: https://github.com/eriksaulnier/Pass-the-Aux
   icon_name: ''
+  icon_title: ''
+- title: Visit Site
+  link: https://aux-pass.herokuapp.com/
+  icon_name: FaExternalLinkAlt
   icon_title: ''
 categories: []
 images: []
