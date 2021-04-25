@@ -18,7 +18,7 @@ stack:
 links:
 - title: Visit Site
   link: https://gamehub.rpi.edu
-  icon_name: HiExternalLink
+  icon_name: FaExternalLinkAlt
   icon_title: ''
 categories: []
 
