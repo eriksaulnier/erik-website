@@ -14,7 +14,7 @@ stack:
 links:
 - title: Behance Post
   link: https://www.behance.net/gallery/43700467/Rogue-eSports-Website-Concept
-  icon_name: FaExternalLinkAlt
+  icon_name: ''
   icon_title: ''
 
 ---
