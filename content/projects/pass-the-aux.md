@@ -34,7 +34,7 @@ links:
   icon_title: ''
 - title: GitHub
   link: https://github.com/eriksaulnier/Pass-the-Aux
-  icon_name: SiGithub
+  icon_name: ''
   icon_title: ''
 categories: []
 images: []
