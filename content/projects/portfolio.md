@@ -22,6 +22,10 @@ stack:
   icon: SiNetlify
   icon_name: SiNetlify
   icon_title: ''
-links: []
+links:
+- title: GitHub Repository
+  link: https://github.com/eriksaulnier/nextjs-portfolio
+  icon_name: ''
+  icon_title: ''
 
 ---
