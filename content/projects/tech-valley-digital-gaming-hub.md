@@ -18,9 +18,9 @@ stack:
   icon: ''
   icon_name: SiBootstrap
 links:
-- title: Live Site
+- title: Visit Site
   link: https://gamehub.rpi.edu
-  icon_name: ''
+  icon_name: HiExternalLink
   icon_title: ''
 categories: []
 
