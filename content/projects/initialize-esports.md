@@ -2,9 +2,9 @@
 created_date: 2015-07-15T04:00:00.000+00:00
 thumbnail: "/uploads/initialize-esports.png"
 title: Initialize eSports Logo
-published: false
+published: true
 year: "2015"
-description: Designed a logo for my CS:GO team
+description: Designed a logo for my CS:GO team at the time
 categories: []
 stack:
 - label: Adobe Illustrator
