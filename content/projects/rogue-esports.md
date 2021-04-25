@@ -4,7 +4,7 @@ thumbnail: "/uploads/rogue-esports-concept.png"
 title: Rogue eSports Website Concept
 published: true
 year: "2016"
-description: Made a concept of a website for Rogue eSports as a web design exercise.
+description: Made a concept of a website for Rogue eSports as a web design exercise
 categories: []
 stack:
 - label: Adobe Photoshop
