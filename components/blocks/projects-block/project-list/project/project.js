@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import TagList from '@/components/tag-list'
+import Icon from '@/components/icon'
 import styles from './project.module.scss'
 
 export default function Project({ data }) {
@@ -40,8 +41,9 @@ export default function Project({ data }) {
           <div className={styles.buttonList}>
             {data.links?.map((item, index) => (
               <Link href={item.link} key={index}>
-                <a className={[styles.button, 'btn'].join(' ')}>
+                <a className={[styles.button, 'btn'].join(' ')} target="blank">
                   {item.title}
+                  {item.icon_name && <Icon name={item.icon_name} />}
                 </a>
               </Link>
             ))}
