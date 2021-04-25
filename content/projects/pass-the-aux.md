@@ -30,7 +30,7 @@ stack:
 links:
 - title: Visit Site
   link: https://aux-pass.herokuapp.com/
-  icon_name: HiExternalLink
+  icon_name: FaExternalLinkAlt
   icon_title: ''
 - title: GitHub
   link: https://github.com/eriksaulnier/Pass-the-Aux
