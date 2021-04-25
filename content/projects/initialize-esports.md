@@ -14,7 +14,7 @@ stack:
 links:
 - title: Behance Post
   link: https://www.behance.net/gallery/33834060/Initialize-eSports
-  icon_name: ''
+  icon_name: FaExternalLinkAlt
   icon_title: ''
 
 ---
