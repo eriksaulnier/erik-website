@@ -14,7 +14,7 @@ stack:
 links:
 - title: Behance
   link: https://www.behance.net/gallery/33834060/Initialize-eSports
-  icon_name: SiBehance
+  icon_name: ''
   icon_title: ''
 
 ---
