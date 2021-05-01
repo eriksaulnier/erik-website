@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { getAllPagePaths, getPageBySlug } from '../lib/api'
-import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock, ArticlesBlock } from '../components/blocks'
+import { getAllPagePaths, getPageBySlug } from '@/lib/api'
+import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock, ArticlesBlock } from '@/components/blocks'
 
 export default function Page({ slug, page_title, blocks }) {
   return (

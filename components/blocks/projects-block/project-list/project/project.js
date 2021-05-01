@@ -1,9 +1,14 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import TagList from '../../../../tag-list'
+import TagList from '@/components/tag-list'
+import Icon from '@/components/icon'
 import styles from './project.module.scss'
 
-export default function Project({ data: { title, thumbnail, year, stack, links} }) {
+export default function Project({ data }) {
+  const createdDate = new Date(data.created_date);
+  const dateFormat = { month: 'long', year: 'numeric' }
+
   return (
     <motion.div
       className={styles.project}
@@ -18,46 +23,33 @@ export default function Project({ data: { title, thumbnail, year, stack, links} 
       }}
     >
       <div className={styles.image}>
-        <img alt={title} src={thumbnail} />
+        <motion.div variants={{ initial: { opacity: 0.4 }, hover: { opacity: 1 } }}>
+          <Image alt={data.title} src={data.thumbnail} width="525" height="350" />
+        </motion.div>
       </div>
 
-      <motion.div
-        className={styles.content}
-        variants={{
-          initial: { y: 'calc(100% - 3em)' },
-          hover: { y: 0 }
-        }}
-        transition={{
-          type: 'spring',
-          stiffness: 150
-        }}
-      >
-        <div className={styles.heading}>
-          <motion.h4 className={styles.title}>{title}</motion.h4>
-          <span className={styles.year}>{year}</span>
-        </div>
+      <div className={styles.content}>
+        <p className={styles.date}>{createdDate.toLocaleDateString('en-US', dateFormat)}</p>
+        <motion.h4 className={styles.title}>{data.title}</motion.h4>
+        <p className={styles.description}>{data.description}</p>
 
-        {/* <span className={styles.client}>{client}</span> */}
+        {data.stack && (
+          <TagList className={styles.stack} tagClassName={styles.tag} tags={data.stack} />
+        )}
 
-        {stack ? (
-          <>
-            <h5>Technologies Used</h5>
-            <TagList tags={stack} color={'light-2'} />
-          </>
-        ) : null}
-
-        {/* <p>{description}</p> */}
-
-        <div className={styles.links}>
-          {links?.map((item, index) => (
-            <Link href={item.link} key={index}>
-              <a className="btn">
-                {item.title}
-              </a>
-            </Link>
-          ))}
-        </div>
-      </motion.div>
+        {data.links && (
+          <div className={styles.buttonList}>
+            {data.links?.map((item, index) => (
+              <Link href={item.link} key={index}>
+                <a className={[styles.button, 'btn'].join(' ')} target="blank">
+                  {item.title}
+                  {item.icon_name && <Icon name={item.icon_name} />}
+                </a>
+              </Link>
+            ))}
+          </div>
+        )} 
+      </div>
     </motion.div>
   )
 }

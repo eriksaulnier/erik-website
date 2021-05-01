@@ -17,27 +17,16 @@ fields:
     display_utc: false
     export_format: YYYY-MM-DDThh:mm:ssZ
   default: now
-  label: Created Date
+  label: Sort Date
 - name: published
   type: boolean
   label: Published
-- name: client
-  type: text
-  config:
-    required: false
-  label: Client
 - name: year
   type: text
   config:
     required: true
     max: 4
   label: Year
-- name: thumbnail
-  type: file
-  config:
-    maxSize: 64
-  label: Thumbnail
-  default: "/uploads/600x400.png"
 - name: description
   type: textarea
   default: ''
@@ -47,6 +36,12 @@ fields:
     schema:
       format: markdown
   label: Description
+- name: thumbnail
+  type: file
+  config:
+    maxSize: 64
+  label: Thumbnail
+  default: "/uploads/600x400.png"
 - name: stack
   type: field_group_list
   fields:
@@ -56,12 +51,10 @@ fields:
       required: true
     label: Label
   - name: icon
-    type: text
-    config:
-      required: false
+    type: include
+    config: {}
+    template: icon
     label: Icon
-    description: 'Icon name from here: <a href="https://react-icons.github.io/react-icons"
-      title="https://react-icons.github.io/react-icons" target="_blank">https://react-icons.github.io/react-icons</a>'
   config:
     min: 
     max: 
@@ -91,15 +84,11 @@ fields:
     labelField: 
   label: Links
 pages:
-- content/projects/diare.md
-- content/projects/diare.md
-- content/projects/lunatik-esports.md
-- content/projects/lunatik-esports.md
+- content/projects/initialize-esports.md
+- content/projects/initialize-esports.md
 - content/projects/pass-the-aux.md
-- content/projects/pass-the-aux.md
-- content/projects/sneaky-spanish.md
-- content/projects/sneaky-spanish.md
-- content/projects/storywings-library.md
-- content/projects/storywings-library.md
-- content/projects/tech-valley-digital-gaming-hub.md
+- content/projects/portfolio.md
+- content/projects/portfolio.md
+- content/projects/rogue-esports.md
+- content/projects/rogue-esports.md
 - content/projects/tech-valley-digital-gaming-hub.md

@@ -1,63 +1,74 @@
 @import './variables';
-
-$height: 3rem;
+@import './mixins';
 
 .project {
-  position: relative;
-  overflow: hidden;
-  padding-bottom: calc(66% + #{$height});
-  background-color: $dark-3;
-  border-radius: 0.5em;
-  box-shadow: $box-shadow-1;
-  cursor: pointer;
+  text-align: center;
+
+  .image {
+    display: inline-block;
+    font-size: 0;
+    background-color: $primary-darker;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: $box-shadow-1;
+    
+    img {
+      opacity: 0.9;
+    }
+  }
 
   .content {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    padding: 0 1.2rem;
+    margin: 1em 0 0;
+    text-align: left;
     z-index: 1;
-    box-sizing: border-box;
-    background-color: $dark-3;
-    transition: transform 0.8s ease-in-out;
-    
-    .heading {
-      display: flex;
-      height: $height;
-      // margin-bottom: 1.5rem;
-      align-items: center;
-      justify-content: space-between;
 
-      .title {
-        margin: 0;
-        font-size: 1em;
-        transition: font-size 0.4s ease-out 0.4s;
-      }
+    .title {
+      margin: 0 0 0.8rem 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $light-2;
+    }
 
-      .year {
-        display: block;
-        background-color: $primary;
-        padding: 5px 7px;
-        font-size: 0.9em;
-        font-weight: bold;
-        border-radius: 4px 6px;
-        box-shadow: $box-shadow-1;
+    .date {
+      margin: 0 0 0.1rem;
+      color: $primary-light;
+    }
+
+    .description {
+      margin: 0;
+      padding: 0.8rem 1.1rem;
+      color: $light-2;
+      border-radius: 3px;
+      background-color: $dark-3;
+      overflow: hidden;
+      box-shadow: $box-shadow-1;
+    }
+
+    .stack {
+      margin-top: 1rem;
+      
+      .tag {
+        color: $light-2;
+        margin: 0 0.7rem 0.7rem 0;
+        background-color: $dark-3;
+
+        &:last-child {
+          margin-left: 0;
+        }
       }
     }
 
-    .client {
-      font-style: italic;
-      background-color: $dark-2;
-      padding: 5px;
-      border-radius: 4px 6px;
-    }
+    .buttonList {
+      margin-top: 1rem;
 
-    .links {
-      > a {
+      .button {
         display: inline-block;
-        margin-right: 1em;
+        margin-right: 1rem;
+
+        svg {
+          height: 100%;
+          margin-left: 0.5rem;
+        }
 
         &:last-child {
           margin-right: 0;
@@ -66,37 +77,42 @@ $height: 3rem;
     }
   }
 
-  .image {
-    position: absolute;
-    top: 0;
-    bottom: $height;
-    left: 0;
-    right: 0;
+  @include tablet-up {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
 
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
+    .image {
+      margin: auto 0;
+      grid-area: 1 / 7 / -1 / -1;
+    }
+
+    .content {
+      text-align: left;
+      grid-area: 1 / 1 / -1 / 9;
+    }
+
+    &:nth-child(even) {
+      .image {
+        grid-area: 1 / 1 / -1 / 7;
+      }
+
+      .content {
+        text-align: right;
+        grid-area: 1 / 5 / -1 / -1;
+
+        .stack {
+          justify-content: flex-end;
+
+          .tag {
+            margin: 0 0 0.7rem 0.7rem;
+
+            &:last-child {
+              margin-right: 0;
+              margin-left: 0.7rem;
+            }
+          }
+        }
+      }
     }
   }
-
-  // &:hover, &:focus, &.active {
-  //   // position: absolute;
-  //   // top: 10%;
-  //   // bottom: 10%;
-  //   // left: 5%;
-  //   // right: 5%;
-  //   // box-sizing: border-box;
-
-  //   .content {
-  //     transform: translateY(0);
-
-  //     .heading {
-  //       .title {
-  //         font-size: 1.2em;
-  //         transition: font-size 0.6s ease-out;
-  //       }
-  //     }
-  //   }
-  // }
 }

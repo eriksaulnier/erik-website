@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import * as Fa from 'react-icons/fa' 
 import { motion } from 'framer-motion'
+import Icon from '@/components/icon'
 import styles from './header.module.scss'
 
 export default function Header({ siteTitle, navigation, social_links }) {
@@ -15,9 +15,14 @@ export default function Header({ siteTitle, navigation, social_links }) {
   const routerPath = useRef(router.asPath)
   routerPath.current = router.asPath
 
+  // Listen for route change
   useEffect(() => {
+    // Close the menu if it is open
+    if (open) setOpen(false);
+
+    // Cleanup reset timeout
     return () => clearTimeout(resetTimeout.current)
-  }, [])
+  }, [router.asPath])
 
   // Prevent scrolling when the menu is open
   useEffect(() => {
@@ -124,7 +129,7 @@ export default function Header({ siteTitle, navigation, social_links }) {
             <div className={styles.menuItems}>
               {navigation?.map((page, index) => (
                 <div key={index} className={styles.menuItem}>
-                  <Link href={'/[...slug]'} as={`/${page.slug}`}>
+                  <Link href={`/${page.slug}`}>
                     <a
                       onMouseEnter={() => onMenuMouseEnter(`/${page.slug}`)}
                       onMouseLeave={onMenuMouseLeave}
@@ -143,7 +148,7 @@ export default function Header({ siteTitle, navigation, social_links }) {
                   <Link href={item.link}>
                     <a target="_blank" rel="noopener">
                       <span className="sr-only">{item.name}</span>
-                      {item.icon ? React.createElement(Fa[item.icon]) : null}
+                      {item.icon_name && <Icon name={item.icon_name} />}
                     </a>
                   </Link>
                 </div>

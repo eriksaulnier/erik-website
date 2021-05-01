@@ -3,7 +3,7 @@
 
 .layout {
   min-height: 100vh;
-  padding: 0 1em;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
   max-width: 1800px;
@@ -13,28 +13,24 @@
   .content {
     position: relative;
     flex-grow: 1;
-    padding: 1.5em 1em;
+    padding: 0.5rem 1rem;
     background-color: $dark-2;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     align-items: stretch;
     overflow: hidden;
     box-shadow: $box-shadow-1;
 
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
     section {
-      margin: 2.5em 0;
+      margin: 1rem 0 2.5rem;
     }
 
     p {
-      line-height: 1.6em;
-    }
-
-    h1 {
-      margin: 0 0 30px 0;
+      line-height: 1.6rem;
     }
 
     img {
@@ -43,14 +39,10 @@
   }
 
   @include tablet-up {
-    padding: 0 2em;
+    padding: 0 2rem;
 
     .content {
-      padding: 2.5em 2em;
-
-      img {
-        max-width: 65%;
-      }
+      padding: 1.5rem 2.5rem;
     }
   }
 }

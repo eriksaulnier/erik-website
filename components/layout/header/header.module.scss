@@ -6,7 +6,7 @@ $highlight-color: $primary;
 
 .header {
   height: $height;
-  padding: 0.8em 1em;
+  padding: 0.8rem 1rem;
   font-weight: 600;
   color: $light-2;
 
@@ -29,14 +29,18 @@ $highlight-color: $primary;
     .brand {
       position: relative;
       color: $light-1;
-      font-size: 1.6em;
+      font-size: 1.6rem;
       font-weight: 600;
       font-family: $font-heading;
       z-index: 6;
       align-self: center;
 
+      &:after {
+        content: none;
+      }
+
       .highlight {
-        bottom: -2px;
+        bottom: 1px;
       }
 
       &:hover {
@@ -50,9 +54,13 @@ $highlight-color: $primary;
       margin-top: 4px;
       align-self: center;
 
+      &:after {
+        content: none;
+      }
+
       svg {
-        width: 1.5em;
-        height: 1.5em;
+        width: 1.5rem;
+        height: 1.5rem;
         
         path {
           stroke: $light-1;
@@ -77,13 +85,18 @@ $highlight-color: $primary;
         
         .menuItem {
           display: block;
-          margin-bottom: 2.3em;
+          margin-bottom: 2.3rem;
 
           a {
             position: relative;
             color: $light-2;
-            font-size: 1.6em;
+            font-weight: 600;
+            font-size: 1.6rem;
             font-family: $font-heading;
+            
+            &:after {
+              content: none;
+            }
 
             &:hover {
               text-decoration: none;
@@ -91,7 +104,7 @@ $highlight-color: $primary;
           }
 
           .highlight {
-            bottom: -5px;
+            bottom: -1px;
           }
 
           &:last-child {
@@ -105,12 +118,16 @@ $highlight-color: $primary;
 
         .socialIcon {
           display: inline-block;
-          margin-right: 1.8em;
+          margin-right: 1.8rem;
 
           a {
             color: $light-2;
-            font-size: 1.6em;
-    
+            font-size: 1.6rem;
+            
+            &:after {
+              content: none;
+            }
+
             svg {
               vertical-align: middle;
             }
@@ -133,7 +150,7 @@ $highlight-color: $primary;
       bottom: 0;
       left: 0;
       right: 0;
-      height: 3px;
+      height: 2px;
       border-radius: 1px;
       background-color: $highlight-color;
       box-shadow: $box-shadow-1;
@@ -143,7 +160,7 @@ $highlight-color: $primary;
   @include tablet-up {
     .navigation {
       .brand {
-        margin-right: 2em;
+        margin-right: 2rem;
       }
 
       .menuToggle {
@@ -168,11 +185,11 @@ $highlight-color: $primary;
         .menuItems {
           .menuItem {
             display: inline-block;
-            margin-right: 1.6em;
+            margin-right: 1.6rem;
             margin-bottom: 0;
 
             a {
-              font-size: 1.1em;
+              font-size: 1.1rem;
             }
           }
         }
@@ -183,7 +200,7 @@ $highlight-color: $primary;
           .socialIcon {
             a {
               display: block;
-              font-size: 1.4em;
+              font-size: 1.4rem;
               padding-bottom: 4px;
             }
           }
@@ -195,7 +212,7 @@ $highlight-color: $primary;
   @include desktop-up {
     .navigation {
       .brand {
-        margin-right: 3em;
+        margin-right: 3rem;
       }
     }
   }

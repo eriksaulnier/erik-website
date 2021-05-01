@@ -1,11 +1,11 @@
 @import './variables';
 
 .technologyBlock {
-  h4 {
-    margin: 0 0 0.6em;
-  }
-
   .section {
-    margin-bottom: 1em;
+      margin-bottom: 1rem;
+
+    h3 {
+      margin-bottom: 0.4rem;
+    }
   }
 }
