@@ -24,7 +24,7 @@ stack:
   icon_title: ''
 links:
 - title: GitHub Repository
-  link: https://github.com/eriksaulnier/nextjs-portfolio
+  link: https://github.com/eriksaulnier/portfolio-2020
   icon_name: ''
   icon_title: ''
 
