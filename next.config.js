@@ -2,7 +2,6 @@ const path = require('path')
 const withPlugins = require('next-compose-plugins')
 
 module.exports = withPlugins([], {
-  target: 'serverless',
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
