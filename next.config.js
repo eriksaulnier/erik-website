@@ -1,7 +1,6 @@
 const path = require('path')
-const withPlugins = require('next-compose-plugins')
 
-module.exports = withPlugins([], {
+module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
@@ -15,4 +14,4 @@ module.exports = withPlugins([], {
 
     return config
   }
-})
+}
