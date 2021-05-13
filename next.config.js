@@ -1,9 +1,6 @@
 const path = require('path')
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
 
-module.exports = withBundleAnalyzer({
+module.exports = {
   target: 'serverless',
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
@@ -18,4 +15,4 @@ module.exports = withBundleAnalyzer({
 
     return config
   }
-})
+}
