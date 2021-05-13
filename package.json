@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^2.3.0",
+    "@next/bundle-analyzer": "^10.2.0",
     "autoprefixer": "^9.8.6",
     "framer-motion": "^2.9.4",
     "gray-matter": "^4.0.2",
