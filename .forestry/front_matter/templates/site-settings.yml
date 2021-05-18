@@ -2,12 +2,12 @@
 label: Site Settings
 hide_body: true
 fields:
-- name: site_title
+- name: title
   type: text
   config:
     required: true
   label: Site Title
-- name: site_description
+- name: description
   type: textarea
   default: ''
   config:

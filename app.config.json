@@ -1,5 +1,7 @@
 {
-  "site_title": "Erik Saulnier",
+  "title": "Erik Saulnier",
+  "description": "Erik is a talented full stack developer based in Troy, NY who has a passion for all things tech",
+  "thumbnail_image":"",
   "header": {
     "navigation": [
       {
