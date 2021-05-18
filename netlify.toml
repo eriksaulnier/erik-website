@@ -10,3 +10,9 @@
 
 [[plugins]]
   package = "netlify-plugin-cache-nextjs"
+
+[[redirects]]
+  from = "https://erik.software"
+  to = "https://eriksaulnier.com"
+  status = 301
+  force = true
