@@ -23,9 +23,7 @@ export default function Project({ data }) {
       }}
     >
       <div className={styles.image}>
-        <motion.div variants={{ initial: { opacity: 0.4 }, hover: { opacity: 1 } }}>
-          <Image alt={data.title} src={data.thumbnail} width="525" height="350" />
-        </motion.div>
+        <Image alt={data.title} src={data.thumbnail} width="525" height="350" />
       </div>
 
       <div className={styles.content}>
