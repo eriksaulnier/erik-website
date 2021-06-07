@@ -22,6 +22,8 @@ stack:
   icon: SiNetlify
   icon_name: SiNetlify
   icon_title: ''
-links: []
+links:
+- title: GitHub Repository
+  link: https://github.com/eriksaulnier/portfolio-2020
 
 ---
