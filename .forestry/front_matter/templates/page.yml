@@ -39,9 +39,16 @@ fields:
     max: 
 pages:
 - content/pages/about.md
+- content/pages/about.md
+- content/pages/articles.md
 - content/pages/articles.md
 - content/pages/contact.md
+- content/pages/contact.md
+- content/pages/form-test.md
 - content/pages/form-test.md
 - content/pages/projects.md
+- content/pages/projects.md
 - content/pages/travel.md
+- content/pages/travel.md
+- content/pages/uses.md
 - content/pages/uses.md
