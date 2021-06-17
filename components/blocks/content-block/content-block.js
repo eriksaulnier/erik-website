@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import Markdown from 'react-markdown'
-import rehypeRaw from 'rehype-raw'
-import rehypeSanitize from 'rehype-sanitize'
+import ReactMarkdown from 'react-markdown/with-html'
 import styles from './content-block.module.scss'
 
 export default function ContentBlock({ data: { block_title, content, aside_image }}) {
@@ -12,11 +10,11 @@ export default function ContentBlock({ data: { block_title, content, aside_image
         <div className={styles.content}>
           {block_title && <h2>{block_title}</h2>}
 
-          <Markdown
-            children={content}
+          <ReactMarkdown
+            source={content}
+            escapeHtml={false}
             className={styles.content}
-            rehypePlugins={[rehypeRaw, rehypeSanitize]}
-            components={{
+            renderers={{
               link: ({ children, href }) => {
                 return (
                   <Link href={href}>

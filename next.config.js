@@ -6,9 +6,11 @@ module.exports = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   webpack: (config, { isServer }) => {
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      fs: false
+    // Fixes npm packages that depend on `fs` module
+    if (!isServer) {
+      config.node = {
+        fs: 'empty'
+      }
     }
 
     return config
