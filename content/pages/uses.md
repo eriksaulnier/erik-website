@@ -7,6 +7,9 @@ blocks:
 - template: content-block
   block_title: ''
   content: "![My home desk setup](/uploads/dsc00122-3.JPG)"
+  aside_image:
+    image: ''
+    alt: ''
 - template: content-block
   block_title: Hardware
   content: |-
@@ -29,6 +32,9 @@ blocks:
     * Memory: 32 GB DDR4 3200MHz (16 GB Soldered + 16 GB DIMM)
     * Storage: 1 TB PCIe SSDWD Green 500GB SATA III SSD
     * Display: 14.0" FHD (1920 x 1080) IPS, anti-glare, low power, 400 nits
+  aside_image:
+    image: ''
+    alt: ''
 - template: content-block
   block_title: Accessories
   content: |-
@@ -49,8 +55,11 @@ blocks:
     * Headphones:
       * [Steelseries Arctis 7](https://steelseries.com/gaming-headsets/arctis-7)
       * [Sony WH-1000XM3](https://www.sony.com/electronics/headband-headphones/wh-1000xm3)
-    * Mousepad: [Glorious Stitch Cloth Mousepad XXL Extended (18x36in)](https://www.pcgamingrace.com/products/glorious-xxl-extended-18x36-stealth-edition)
+    * Mousepad: [Glorious Stitch Cloth Mousepad XXL Extended](https://www.pcgamingrace.com/products/glorious-xxl-extended-18x36-stealth-edition)
     * Microphone: [Tonor TC-777](https://www.tonormic.com/products/tonor-tc-777-usb-microphone "Tonor TC-777")
-    * Webcam: [Amcrest AWC201-B](https://amcrest.com/webcam-with-privacy-cover-usb-webcam-live-streaming-built-in-mic-awc201-b.html "Amcrest AWC201-B")
+    * Webcam: [Logitech C922x](https://www.logitech.com/en-us/products/webcams/c922-pro-stream-webcam.html)
+  aside_image:
+    image: ''
+    alt: ''
 
 ---
