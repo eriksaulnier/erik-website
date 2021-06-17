@@ -1,5 +1,5 @@
 # Erik's Portfolio Site
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ff472cc5-d22f-48c2-ab4a-6ed815fbc269/deploy-status)](https://app.netlify.com/sites/erik-portfolio/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ce6a60de-8447-44fd-bb29-43472ec1f850/deploy-status)](https://app.netlify.com/sites/erik-portfolio/deploys)
 
 The latest iteration of my personal website, this time built with **Jamstack**!
 
