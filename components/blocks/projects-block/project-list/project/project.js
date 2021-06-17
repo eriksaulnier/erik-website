@@ -23,7 +23,13 @@ export default function Project({ data }) {
       }}
     >
       <div className={styles.image}>
-        <Image alt={data.title} src={data.thumbnail} width="525" height="350" />
+        <Image
+          alt={data.title}
+          src={data.thumbnail}
+          width="525"
+          height="350"
+          layout="responsive"
+        />
       </div>
 
       <div className={styles.content}>
