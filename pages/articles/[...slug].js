@@ -1,4 +1,6 @@
-import ReactMarkdown from 'react-markdown/with-html'
+import Markdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import rehypeSanitize from 'rehype-sanitize'
 import { motion } from 'framer-motion'
 import { getAllArticlePaths, getArticleBySlug } from '@/lib/api'
 
@@ -19,11 +21,11 @@ export default function Article({ article_title, created_date, content }) {
     >
       <motion.h1 variants={contentAnimations}>{article_title}</motion.h1>
       <p><b>Posted {formattedDate}</b></p>
-
-      {content && <ReactMarkdown
-        source={content}
-        escapeHtml={false}
-        renderers={{
+    
+      {content && <Markdown
+        children={content}
+        rehypePlugins={[rehypeRaw, rehypeSanitize]}
+        components={{
           link: ({ children, href }) => {
             return (
               <Link href={href}>
