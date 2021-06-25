@@ -29,7 +29,7 @@ export default function ContentBlock({ data: { block_title, content, aside_image
         </div>
       )}
 
-      {aside_image && (
+      {(aside_image && aside_image.image) && (
         <div className={styles.asideImage}>
           <Image
             src={aside_image.image}
