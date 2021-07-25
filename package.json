@@ -26,9 +26,5 @@
     "rehype-raw": "^5.1.0",
     "rehype-sanitize": "^4.0.0",
     "sass": "^1.35.1"
-  },
-  "devDependencies": {
-    "@netlify/plugin-nextjs": "3.4.2",
-    "netlify-plugin-cache-nextjs": "^1.6.1"
   }
 }
