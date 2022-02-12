@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import Typed from 'react-typed'
-import Particles from 'react-particles-js'
+import Particles from 'react-tsparticles'
 import { getSiteConfig } from '@/lib/api'
 import particleConfig from './particlesjs-config'
 import styles from './splash.module.scss'
@@ -76,7 +76,7 @@ export default function Splash() {
 
       <Particles
         className={styles.background}
-        params={particleConfig}
+        options={particleConfig}
       />
     </div>
   )
