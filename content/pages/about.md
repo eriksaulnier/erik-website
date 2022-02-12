@@ -86,10 +86,10 @@ blocks:
       icon_name: SiLaravel
       icon_title: ''
     - label: Next.js
-      icon_name: SiNextDotJs
+      icon_name: SiNextdots
       icon_title: ''
     - label: Vue.js
-      icon_name: SiVueDotJs
+      icon_name: SiVuedotjs
       icon_title: ''
     - label: React Native
       icon_name: SiReact
