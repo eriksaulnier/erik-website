@@ -8,8 +8,8 @@ description: The latest iteration of my main website.
 categories: []
 stack:
 - label: Next.js
-  icon: SiNextDotJs
-  icon_name: SiNextDotJs
+  icon: SiNextdotjs
+  icon_name: SiNextdotjs
   icon_title: ''
 - label: Framer Motion
   icon_name: SiFramer

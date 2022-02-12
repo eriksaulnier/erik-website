@@ -18,7 +18,7 @@ stack:
   icon: ''
 - label: Socket.IO
   icon: ''
-  icon_name: SiSocketDotIo
+  icon_name: SiSocketdotio
 - label: MongoDB
   icon: ''
   icon_name: SiMongodb

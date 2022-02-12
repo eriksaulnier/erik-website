@@ -1,4 +1,7 @@
 {
+  "fullScreen": {
+    "enable": false
+  },
   "particles": {
     "number": {
       "value": 60,
