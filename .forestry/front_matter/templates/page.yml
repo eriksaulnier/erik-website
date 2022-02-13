@@ -34,6 +34,7 @@ fields:
   - form-block
   - projects-block
   - articles-block
+  - spotify-block
   config:
     min: 
     max: 
