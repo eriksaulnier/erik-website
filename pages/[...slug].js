@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { getAllPagePaths, getPageBySlug } from '@/lib/api'
-import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock, ArticlesBlock } from '@/components/blocks'
+import * as Blocks from '@/components/blocks'
 
 export default function Page({ slug, page_title, blocks }) {
   return (
@@ -29,11 +29,12 @@ export default function Page({ slug, page_title, blocks }) {
         >
           {
             {
-              'content-block': <ContentBlock data={block} />,
-              'technology-block': <TechnologyBlock data={block} />,
-              'form-block': <FormBlock data={block} />,
-              'projects-block': <ProjectsBlock data={block} />,
-              'articles-block': <ArticlesBlock data={block} />
+              'content-block': <Blocks.ContentBlock data={block} />,
+              'technology-block': <Blocks.TechnologyBlock data={block} />,
+              'form-block': <Blocks.FormBlock data={block} />,
+              'projects-block': <Blocks.ProjectsBlock data={block} />,
+              'articles-block': <Blocks.ArticlesBlock data={block} />,
+              'spotify-block': <Blocks.SpotifyBlock data={block} />
             }[block.template]
           }
         </motion.div>
