@@ -3,17 +3,20 @@ page_title: What I'm listening to
 seo_description: ''
 blocks:
 - template: spotify-block
-  block_title: 'Top Tracks'
-  block_type: 'top-tracks'
+  block_title: Top Tracks
+  block_type: Top Tracks
   limit: 10
+  time_range: Medium Term (6 months)
 - template: spotify-block
-  block_title: 'Top Artists'
-  block_type: 'top-artists'
+  block_title: Top Artists
+  block_type: Top Tracks
   limit: 10
+  time_range: Medium Term (6 months)
 - template: spotify-block
-  block_title: 'Currently Playing'
-  block_type: 'currently-playing'
+  block_title: Currently Playing
+  block_type: Top Tracks
   limit: 10
+  time_range: Short Term (4 weeks)
 tab_title: Listening
 published: false
 
