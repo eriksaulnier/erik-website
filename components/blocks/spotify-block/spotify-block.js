@@ -9,9 +9,9 @@ export default function SpotifyBlock({ data: { block_title, block_type }}) {
 
       {
         {
-          'top-tracks': <TopTracks limit={3} />,
-          'top-artists': <TopArtists limit={3} />,
-          'currently-playing': <CurrentlyPlaying />
+          'Top Tracks': <TopTracks limit={3} />,
+          'Top Artists': <TopArtists limit={3} />,
+          'Currently Playing': <CurrentlyPlaying />
         }[block_type]
       }
     </section>
