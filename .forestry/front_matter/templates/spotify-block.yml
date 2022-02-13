@@ -1,4 +1,53 @@
 ---
 label: Spotify Block
 hide_body: true
-fields: []
+fields:
+- name: block_title
+  type: text
+  config:
+    required: false
+  label: Block Title
+- name: block_type
+  type: select
+  default: Top Tracks
+  config:
+    required: true
+    options:
+    - Top Tracks
+    - Top Artists
+    - Currently Playing
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Block Type
+- name: time_range
+  type: select
+  default: Medium Term (6 months)
+  config:
+    required: true
+    options:
+    - Short Term (4 weeks)
+    - Medium Term (6 months)
+    - Long Term (several years)
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Time Range
+  showOnly:
+    value: Top Tracks
+- name: limit
+  type: number
+  label: Limit
+  description: ''
+  default: 10
+  required: true
+  config:
+    min: 0
+    max: 50
+    step: 
+  showOnly:
+    value: Top Artists
