@@ -12,7 +12,9 @@ export default function CurrentlyPlaying() {
 
   return (
     <div className={styles.currentlyPlaying}>
-      <h3>{track.name}</h3>
+      {track && (
+        <h3>{track.name}</h3>
+      )}
     </div>
   )
 }
