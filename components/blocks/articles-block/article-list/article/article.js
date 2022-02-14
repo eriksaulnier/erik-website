@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/link'
 import styles from './article.module.scss'
 
 export default function Article({ data }) {
