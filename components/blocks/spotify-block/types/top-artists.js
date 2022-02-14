@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import querystring from 'querystring'
+import Link from 'next/link'
 import { fetchFromApi } from '@/lib/util'
 import styles from '../spotify-block.module.scss'
 
@@ -19,9 +20,12 @@ export default function TopArtists({ limit, timeRange }) {
   return (
     <div className={styles.artistList}>
       {artists && artists.map(artist => (
-        <div className={styles.artist} key={artist.id}>
-          <h3>{artist.name}</h3>
-        </div>
+        <Link href={artist.link}>
+          <a className={styles.artist} key={artist.id}>
+            <img className={styles.artistImage} src={artist.image} alt={artist.name} />
+            <h3 className={styles.artistName}>{artist.name}</h3>
+          </a>
+        </Link>
       ))}
     </div>
   )

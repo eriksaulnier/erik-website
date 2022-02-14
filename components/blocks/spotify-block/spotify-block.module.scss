@@ -1,2 +1,79 @@
 @import './variables';
 @import './mixins';
+
+.track {
+  display: flex;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid $primary;
+  align-items: center;
+  transition: 0.3s ease-in background-color;
+
+  .placeholder {
+    margin: 0;
+    font-size: 0.9rem;
+    color: $white;
+  }
+
+  .trackArtwork {
+    display: inline-block;
+    width: 60px;
+    margin-right: 15px;
+  }
+
+  .trackDetails {
+    display: inline-block;
+
+    .trackTitle {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .trackArtist {
+      margin: 0;
+      font-size: 0.9rem;
+      color: $white;
+    }
+  }
+
+  &:after {
+    content: none;
+  }
+
+  &[href]:hover {
+    background-color: rgba($primary, 0.2);
+  }
+}
+
+.artist {
+  display: flex;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid $primary;
+  align-items: center;
+  transition: 0.3s ease-in background-color;
+
+  .artistImage {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    object-fit: cover;
+  }
+
+  .artistName {
+    display: inline-block;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  &:after {
+    content: none;
+  }
+
+  &:hover {
+    background-color: rgba($primary, 0.2);
+  }
+}
