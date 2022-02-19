@@ -1,4 +1,20 @@
 ---
 label: Map Block
 hide_body: true
-fields: []
+fields:
+- name: block_title
+  type: text
+  config:
+    required: false
+  label: Block Title
+- name: map_type
+  type: text
+  config:
+    required: true
+  label: Map Type
+  description: 'Supported map types: world, usa'
+  default: world
+- name: checked_layers
+  type: tag_list
+  default: []
+  label: Checked Layers
