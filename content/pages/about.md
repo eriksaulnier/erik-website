@@ -48,52 +48,54 @@ blocks:
 - template: technology-block
   block_title: Technologies I use
   categories:
-  - category_title: Programming Languages
+  - category_title: Languages
     technologies:
     - label: Javascript
       icon_name: SiJavascript
       icon_title: ''
       icon_family: Devicons
-    - label: Typescript
-      icon_name: SiTypescript
-      icon_title: ''
     - label: PHP
       icon_name: SiPhp
       icon_title: ''
-    - label: Dart
-      icon_name: SiDart
+    - label: Node.js
+      icon_name: SiNodedotjs
+    - label: SASS / LESS
+      icon_name: SiSass
+    - label: SQL
+    - label: Typescript
+      icon_name: SiTypescript
       icon_title: ''
     - label: Python
       icon_name: SiPython
       icon_title: ''
-    - label: C++
-      icon_name: SiCplusplus
-      icon_title: ''
     - label: C#
       icon_name: SiCsharp
+      icon_title: ''
+    - label: C++
+      icon_name: SiCplusplus
       icon_title: ''
     - label: Java
       icon_name: SiJava
       icon_title: ''
   - category_title: Frameworks
     technologies:
-    - label: React
-      icon_name: SiReact
-      icon_title: ''
-    - label: Angular
-      icon_name: SiAngular
-      icon_title: ''
     - label: Laravel
       icon_name: SiLaravel
-      icon_title: ''
-    - label: Next.js
-      icon_name: SiNextdotjs
       icon_title: ''
     - label: Vue.js
       icon_name: SiVuedotjs
       icon_title: ''
+    - label: React
+      icon_name: SiReact
+      icon_title: ''
     - label: React Native
       icon_name: SiReact
+      icon_title: ''
+    - label: Next.js
+      icon_name: SiNextdotjs
+      icon_title: ''
+    - label: Angular
+      icon_name: SiAngular
       icon_title: ''
     - label: Express.js
     - label: Ionic
@@ -104,15 +106,30 @@ blocks:
     - label: MySQL
       icon_name: GrMysql
       icon_title: ''
+    - label: DynamoDB
+      icon_name: SiAmazondynamodb
     - label: Firestore
       icon_name: SiFirebase
-      icon_title: ''
-    - label: MongoDB
-      icon_name: SiMongodb
       icon_title: ''
     - label: PostgreSQL
       icon_name: SiPostgresql
       icon_title: ''
+    - label: MongoDB
+      icon_name: SiMongodb
+      icon_title: ''
+  - category_title: DevOps
+    technologies:
+    - label: Docker
+      icon_name: SiDocker
+      icon_title: ''
+    - label: AWS
+      icon_name: SiAmazonaws
+    - label: Firebase
+      icon_name: SiFirebase
+    - label: Netlify
+      icon_name: SiNetlify
+    - label: Heroku
+      icon_name: SiHeroku
   - category_title: Content Management Systems
     technologies:
     - label: Wordpress
@@ -124,40 +141,10 @@ blocks:
     - label: Wix
       icon_name: SiWix
       icon_title: ''
-  - category_title: Development Tools
-    technologies:
-    - label: VS Code
-      icon_name: SiVisualstudiocode
-      icon_title: ''
-    - label: Windows Terminal
-      icon_name: BsTerminal
-      icon_title: ''
-    - label: Docker
-      icon_name: SiDocker
-      icon_title: ''
-    - label: Cyberduck
-      icon_name: GiPlasticDuck
-      icon_title: ''
-  - category_title: Other
-    technologies:
-    - label: Firebase
-      icon_name: SiFirebase
-    - label: Netlify
-      icon_name: SiNetlify
-      icon_title: ''
-    - label: AWS
-      icon_name: SiAmazonaws
-      icon_title: ''
-    - label: Heroku
-      icon_name: SiHeroku
-      icon_title: ''
-    - label: UiPath
-      icon_name: SiProbot
-      icon_title: ''
 - template: content-block
   content: If you are curious about the other stuff I use check out [/uses](/uses
     "Uses Page").
-  block_title: Uses Page
+  block_title: Other Stuff I Use
 tab_title: About
 published: true
 
