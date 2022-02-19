@@ -12,7 +12,9 @@ fields:
   config:
     required: true
   label: Map Type
-  description: 'Supported map types: world, usa'
+  description: 'Supported map types: world, usa<br><br>More maps can be added by downloading
+    them from the <a href="https://react-vector-maps.netlify.app/maps" title="" target="_blank">react-vector-maps
+    website</a> and adding them to the /components/blocks/map-block/maps directory'
   default: world
 - name: checked_layers
   type: tag_list
