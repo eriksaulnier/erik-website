@@ -4,35 +4,56 @@ import styles from './map-block.module.scss'
 
 export default function MapBlock({ data: { block_title, map_type, checked_layers, show_tooltips, tooltips_checked_layers_only } }) {
   const [map, setMap] = useState(null)
-  const [label, setLabel] = useState(null)
+  const [checkedLayers, setCheckedLayers] = useState([])
+  const [tooltip, setTooltip] = useState(null)
   const [[x, y], setPosition] = useState([])
 
   useEffect(async () => {
-    setMap(await import(`./maps/${map_type}.json`))
+    // Load the map type
+    const map = await import(`./maps/${map_type}.json`)
+    setMap(map)
+
+    // Get a list of all of the valid layer IDs and the name mappings
+    const layerIds = map.layers.map(layer => layer.id)
+    const nameMappings = map.layers.reduce((result, { id, name }) => {
+      result[name] = id
+      return result
+    }, [])
+
+    // Parse the provided checked layers list
+    const checkedLayers = checked_layers.map(id => {
+      if (layerIds.includes(id)) {
+        return id
+      } else if (nameMappings.hasOwnProperty(id)) {
+        return nameMappings[id]
+      } else {
+        return null
+      }
+    }).filter(id => id !== null)
+    setCheckedLayers(checkedLayers)
   }, [])
 
   const onMouseOver = (event) => {
     if (show_tooltips) {
       if (tooltips_checked_layers_only) {
         if (event.target.attributes['aria-checked'].value === 'true') {
-          setLabel(event.target.attributes.name.value)
+          setTooltip(event.target.attributes.name.value)
         }
       } else {
-        setLabel(event.target.attributes.name.value)
+        setTooltip(event.target.attributes.name.value)
       }
     }
   }
 
   const onMouseMove = (event) => {
     if (show_tooltips) {
-      console.log(event)
       setPosition([event.clientX, event.clientY])
     }
   }
 
-  const onMouseOut = (event) => {
-    if (show_tooltips && label) {
-      setLabel(null)
+  const onMouseOut = () => {
+    if (show_tooltips && tooltip) {
+      setTooltip(null)
     }
   }
 
@@ -42,10 +63,13 @@ export default function MapBlock({ data: { block_title, map_type, checked_layers
 
       <VectorMap
         {...map}
-        checkedLayers={checked_layers}
+        checkedLayers={checkedLayers}
         layerProps={{ onMouseOver, onMouseMove, onMouseOut }}
       />
-      {show_tooltips && <span className={styles.tooltip} style={{ top: y, left: x, opacity: label ? 1 : 0 }}>{label}</span>}
+
+      {show_tooltips && (
+        <span className={styles.tooltip} style={{ top: y, left: x, opacity: tooltip ? 1 : 0 }}>{tooltip}</span>
+      )}
     </section>
   ) : <></>
 }
