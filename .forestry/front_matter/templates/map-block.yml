@@ -21,6 +21,7 @@ fields:
   type: tag_list
   default: []
   label: Checked Layers
+  description: Layers can be specified using their ID or name
 - name: show_tooltips
   type: boolean
   label: Show Tooltips
