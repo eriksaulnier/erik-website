@@ -3,15 +3,16 @@ page_title: About me
 seo_description: ''
 blocks:
 - template: content-block
-  content: "I'm a software engineer based in Troy, NY who has a strong passion for
-    all things tech. Over the last 6 years, I have had experience working on a large
-    variety of projects of varying sizes including software applications, mobile apps,
-    websites, and even some video games. I am always excited when presented with opportunities
-    to add new technologies to my toolbelt and am never afraid of a challenge.\n\n<br/>\n\nI
-    have a Bachelor of Science Degree in Information Technology and Web Science with
-    a Concentration in Entrepreneurship from [Rensselaer Polytechnic Institute](https://rpi.edu
-    \"Rensselaer Polytechnic Instutite\"). \n\n<br/>\n\nI currently work as a Developer
-    at [Troy Web Consulting](https://troyweb.com)."
+  content: |-
+    I'm a software engineer based in Troy, NY who has a strong passion for all things tech. Over the last 6 years, I have had experience working on a large variety of projects of varying sizes including software applications, mobile apps, websites, and even some video games. I am always excited when presented with opportunities to add new technologies to my toolbelt and am never afraid of a challenge.
+
+    <br/>
+
+    I have a Bachelor of Science Degree in Information Technology and Web Science with a Concentration in Entrepreneurship from [Rensselaer Polytechnic Institute](https://rpi.edu "Rensselaer Polytechnic Instutite").
+
+    <br/>
+
+    I currently work as a Senior Developer at [Troy Web Consulting](https://troyweb.com).
   block_title: Hey, my name is Erik
   aside_image:
     '0': "/"
