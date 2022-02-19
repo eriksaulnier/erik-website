@@ -9,21 +9,20 @@ blocks:
   checked_layers:
   - us
   - au
-  - kh
+  - mx
   - cr
-  - cu
   - it
-  - 'no'
-  - pe
-  - th
-  - tz
-  - ca
-  - vn
   - fr
   - at
+  - pe
+  - tz
+  - vn
+  - kh
+  - th
+  - 'no'
   - ec
-  - mx
-  - ch
+  - ca
+  - cu
   show_tooltips: true
   tooltips_checked_layers_only: true
 
