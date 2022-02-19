@@ -24,5 +24,7 @@ blocks:
   - ec
   - mx
   - ch
+  show_tooltips: true
+  tooltips_checked_layers_only: true
 
 ---
