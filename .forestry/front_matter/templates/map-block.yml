@@ -18,3 +18,13 @@ fields:
   type: tag_list
   default: []
   label: Checked Layers
+- name: show_tooltips
+  type: boolean
+  label: Show Tooltips
+  default: false
+- name: tooltips_on_checked_layers_only
+  type: boolean
+  label: Tooltips On Checked Layers Only
+  showOnly:
+    field: show_tooltips
+    value: true
