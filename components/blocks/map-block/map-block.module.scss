@@ -3,7 +3,7 @@
 
 .mapBlock {
   svg {
-    stroke: rgba($primary-lighter, 0.2);
+    stroke: rgba($white, 0.15);
 
     path {
       fill: transparent;
@@ -11,11 +11,11 @@
       transition: fill 0.3s ease-out, stroke 0.3s ease-out;
 
       &[aria-checked='true'] {
-        fill: $primary-light;
+        fill: $primary;
         cursor: pointer;
 
         &:hover {
-          stroke: $white;
+          stroke: rgba($white, 0.6);
         }
       }
     }
