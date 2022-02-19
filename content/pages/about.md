@@ -59,7 +59,7 @@ blocks:
       icon_title: ''
     - label: Node.js
       icon_name: SiNodedotjs
-    - label: SASS
+    - label: Sass
       icon_name: SiSass
     - label: SQL
     - label: Typescript
