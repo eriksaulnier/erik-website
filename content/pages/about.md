@@ -98,6 +98,7 @@ blocks:
       icon_name: SiAngular
       icon_title: ''
     - label: Express.js
+      icon_name: SiExpress
     - label: Ionic
       icon_name: SiIonic
       icon_title: ''
