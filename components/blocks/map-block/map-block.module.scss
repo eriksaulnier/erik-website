@@ -1,0 +1,47 @@
+@import './variables';
+@import './mixins';
+
+.mapBlock {
+  svg {
+    stroke: rgba($primary-lighter, 0.2);
+
+    path {
+      fill: transparent;
+      outline: none;
+      transition: fill 0.3s ease-out, stroke 0.3s ease-out;
+
+      &[aria-checked='true'] {
+        fill: $primary-light;
+        cursor: pointer;
+
+        &:hover {
+          stroke: $white;
+        }
+      }
+    }
+  }
+
+  &.hoverAll {
+    svg {
+      path {
+        cursor: pointer;
+
+        &:hover {
+          stroke: $primary-light;
+        }
+      }
+    }
+  }
+
+  .tooltip {
+    position: fixed;
+    padding: 0.2rem 0.7rem;
+    color: $white;
+    font-size: 0.9rem;
+    background-color: $dark-3;
+    border-radius: 3px;
+    box-shadow: $box-shadow-1;
+    transition: opacity 0.3s ease-out;
+    pointer-events: none;
+  }
+}
