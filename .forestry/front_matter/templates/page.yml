@@ -35,6 +35,7 @@ fields:
   - projects-block
   - articles-block
   - spotify-block
+  - map-block
   config:
     min: 
     max: 
