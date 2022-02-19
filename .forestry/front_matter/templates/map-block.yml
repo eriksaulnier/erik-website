@@ -22,7 +22,7 @@ fields:
   type: boolean
   label: Show Tooltips
   default: false
-- name: tooltips_on_checked_layers_only
+- name: tooltips_checked_layers_only
   type: boolean
   label: Tooltips On Checked Layers Only
   showOnly:
