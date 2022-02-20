@@ -145,7 +145,7 @@ blocks:
 - template: content-block
   content: If you are curious about the other stuff I use check out [/uses](/uses
     "Uses Page").
-  block_title: Other Stuff I Use
+  block_title: Other stuff I use
 tab_title: About
 published: true
 
