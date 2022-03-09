@@ -41,6 +41,7 @@ blocks:
     ### Desk
 
     * Desk: [Autonomous SmartDesk 2 Premium](https://www.autonomous.ai/standing-desks/smartdesk-2-business)
+    * Chair: [Herman Miller Embody Gaming Chair](https://store.hermanmiller.com/gaming-chairs/embody-gaming-chair/2517590.html)
     * Standing Mat: [Ergodriven Topo](https://ergodriven.com/products/topo?variant=27365321411)
 
     ### Peripherals
