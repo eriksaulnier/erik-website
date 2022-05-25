@@ -57,7 +57,8 @@ blocks:
       * [Steelseries Arctis 7](https://steelseries.com/gaming-headsets/arctis-7)
       * [Sony WH-1000XM3](https://www.sony.com/electronics/headband-headphones/wh-1000xm3)
     * Mousepad: [Glorious Stitch Cloth Mousepad XXL Extended](https://www.pcgamingrace.com/products/glorious-xxl-extended-18x36-stealth-edition)
-    * Microphone: [Tonor TC-777](https://www.tonormic.com/products/tonor-tc-777-usb-microphone "Tonor TC-777")
+    * Microphone: [RØDE PodMic](https://rode.com/en/microphones/broadcast/podmic)
+    * Mixer: [Elgato Wave XLR](https://www.elgato.com/en/wave-xlr)
     * Webcam: [Logitech C922x](https://www.logitech.com/en-us/products/webcams/c922-pro-stream-webcam.html)
   aside_image:
     image: ''
