@@ -12,7 +12,9 @@ blocks:
 
     <br/>
 
-    I currently work as a Senior Developer at [Troy Web Consulting](https://troyweb.com).
+    I currently work as a Software Engineer at [Traackr](https://www.traackr.com/).
+
+    Previously I was working as a Senior Developer at [Troy Web Consulting](https://troyweb.com).
   block_title: Hey, my name is Erik
   aside_image:
     '0': "/"
