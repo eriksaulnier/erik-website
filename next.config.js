@@ -5,6 +5,17 @@ module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: `${process.env.NEXT_PUBLIC_S3_BUCKET}.s3.${process.env.NEXT_PUBLIC_S3_REGION}.amazonaws.com`,
+        port: '',
+        pathname: '/**',
+      }
+    ]
+  },
   webpack: (config, { isServer }) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,
@@ -12,5 +23,16 @@ module.exports = {
     }
 
     return config
-  }
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/admin',
+        destination: '/admin/index.html',
+      },
+    ]
+  },
+  eslint: {
+    dirs: ['pages', 'components', 'lib', 'styles', '.tina'],
+  },
 }

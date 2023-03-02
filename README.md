@@ -1,42 +1,44 @@
-# Erik's Portfolio Site
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ce6a60de-8447-44fd-bb29-43472ec1f850/deploy-status)](https://app.netlify.com/sites/erik-portfolio/deploys)
+This is a [Tina CMS](https://tina.io/) project.
 
-The latest iteration of my personal website, this time built with **Jamstack**! 
+## Local Development
 
-## Tech Stack
+Install the project's dependencies:
 
-- [Next.js](https://nextjs.org/)
-- [Forestry](https://forestry.io/)
-- [Framer Motion](https://www.framer.com/motion/)
-
-See the full list of dependencies [here](package.json).
-
-## Installation 
-
-```bash 
-  # clone the project
-  git clone git@github.com:eriksaulnier/portfolio-2020.git
-  
-  # go to the project directory
-  cd portfolio-2020
-
-  # install dependencies
-  npm install
+```
+yarn install
 ```
 
-## Run Locally
+Run the project locally:
 
-```bash 
-  # start the development server
-  npm run dev
+```
+yarn dev
 ```
 
-## Deployment
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Building the Starter Locally (Using the hosted content API)
+
+Replace the `.env.example`, with `.env`
+
+```
+NEXT_PUBLIC_TINA_CLIENT_ID=<get this from the project you create at app.tina.io>
+TINA_TOKEN=<get this from the project you create at app.tina.io>
+NEXT_PUBLIC_TINA_BRANCH=<Specify the branch with Tina configured>
+```
+
+Build the project:
 
 ```bash
-  # build the site to the .next folder
-  npm run build
-
-  # start a nodejs server to host the site
-  npm run start
+yarn build
 ```
+
+## Learn More
+
+To learn more about Tina, take a look at the following resources:
+
+- [Tina Docs](https://tina.io/docs)
+- [Getting starter guide](https://tina.io/guides/tina-cloud/starter/overview/)
+
+You can check out [Tina Github repository](https://github.com/tinacms/tinacms) - your feedback and contributions are welcome!
+
+## [Deploy on Vercel](https://tina.io/guides/tina-cloud/add-tinacms-to-existing-site/deployment/)

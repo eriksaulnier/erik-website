@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import Icon from '@/components/icon'
 import styles from './header.module.scss'
 
-export default function Header({ siteTitle, navigation, social_links }) {
+export default function Header({ siteTitle, navigation, social }) {
   const router = useRouter()
 
   const [open, setOpen] = useState(false)
@@ -22,7 +22,7 @@ export default function Header({ siteTitle, navigation, social_links }) {
 
     // Cleanup reset timeout
     return () => clearTimeout(resetTimeout.current)
-  }, [router.asPath])
+  }, [open, router.asPath])
 
   // Prevent scrolling when the menu is open
   useEffect(() => {
@@ -78,15 +78,14 @@ export default function Header({ siteTitle, navigation, social_links }) {
     <nav className={styles.header}>
       <div className={styles.container}>
         <nav className={[styles.navigation, open && styles.active].join(' ')}>
-          <Link href="/">
-            <a
-              className={styles.brand}
-              onMouseEnter={() => onMenuMouseEnter('/')}
-              onMouseLeave={onMenuMouseLeave}
-            >
-              {siteTitle}
-              {MenuHighlight(currentPath === '/' || !activeMenuItem)}
-            </a>
+          <Link
+            href="/"
+            className={styles.brand}
+            onMouseEnter={() => onMenuMouseEnter('/')}
+            onMouseLeave={onMenuMouseLeave}
+          >
+            {siteTitle}
+            {MenuHighlight(currentPath === '/' || !activeMenuItem)}
           </Link>
 
           <motion.a
@@ -100,8 +99,8 @@ export default function Header({ siteTitle, navigation, social_links }) {
             <svg viewBox="0 0 20 20" aria-hidden="true">
               <Path
                 variants={{
-                  closed: { d: "M 2 2.5 L 20 2.5" },
-                  open: { d: "M 3 16.5 L 17 2.5" }
+                  closed: { d: 'M 2 2.5 L 20 2.5' },
+                  open: { d: 'M 3 16.5 L 17 2.5' }
                 }}
               />
               <Path
@@ -111,8 +110,8 @@ export default function Header({ siteTitle, navigation, social_links }) {
               />
               <Path
                 variants={{
-                  closed: { d: "M 2 16.346 L 20 16.346" },
-                  open: { d: "M 3 2.5 L 17 16.346" }
+                  closed: { d: 'M 2 16.346 L 20 16.346' },
+                  open: { d: 'M 3 2.5 L 17 16.346' }
                 }}
               />
             </svg>
@@ -127,29 +126,26 @@ export default function Header({ siteTitle, navigation, social_links }) {
             className={styles.menu}
           >
             <div className={styles.menuItems}>
-              {navigation?.map((page, index) => (
+              {navigation?.map(({ title, path }, index) => (
                 <div key={index} className={styles.menuItem}>
-                  <Link href={`/${page.slug}`}>
-                    <a
-                      onMouseEnter={() => onMenuMouseEnter(`/${page.slug}`)}
-                      onMouseLeave={onMenuMouseLeave}
-                    >
-                      {page.label}
-                      {MenuHighlight(currentPath === `/${page.slug}`)}
-                    </a>
+                  <Link
+                    href={path}
+                    onMouseEnter={() => onMenuMouseEnter(path)}
+                    onMouseLeave={onMenuMouseLeave}
+                  >
+                    {title}
+                    {MenuHighlight(currentPath === path)}
                   </Link>
                 </div>
               ))}
             </div>
             
             <div className={styles.social}>
-              {social_links?.map((item, index) => (
+              {social?.map(({ title, icon, link }, index) => (
                 <div key={index} className={styles.socialIcon}>
-                  <Link href={item.link}>
-                    <a target="_blank" rel="noopener">
-                      <span className="sr-only">{item.name}</span>
-                      {item.icon_name && <Icon name={item.icon_name} />}
-                    </a>
+                  <Link href={link} target="_blank" rel="noopener">
+                    <span className="sr-only">{title}</span>
+                    {icon && <Icon name={icon} />}
                   </Link>
                 </div>
               ))}

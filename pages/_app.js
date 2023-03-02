@@ -1,12 +1,10 @@
 import { useEffect } from 'react'
 import { AnimateSharedLayout, AnimatePresence } from 'framer-motion'
-import { getSiteConfig } from '@/lib/api'
 import { Layout } from '@/components/layout'
+import appConfig from '@/appConfig'
 import '@/styles/globals.scss'
 
 export default function MyApp({ Component, pageProps, router }) {
-  const siteConfig = getSiteConfig()
-
   // Temporary fix to avoid flash of unstyled content
   // during route transitions. Keep an eye on this
   // issue and remove this code when resolved:
@@ -39,7 +37,7 @@ export default function MyApp({ Component, pageProps, router }) {
 
   return (
     <AnimateSharedLayout>
-      <Layout siteConfig={siteConfig} pageTitle={pageProps?.tab_title || null}>
+      <Layout appConfig={appConfig} pageTitle={pageProps?.tab_title || null}>
         <AnimatePresence exitBeforeEnter>
           <Component layout {...pageProps} key={router.asPath} />
         </AnimatePresence>

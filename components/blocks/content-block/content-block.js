@@ -1,26 +1,23 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import Markdown from 'react-markdown'
-import rehypeRaw from 'rehype-raw'
-import rehypeSanitize from 'rehype-sanitize'
+import Image from 'next/image';
+import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import styles from './content-block.module.scss'
 
-export default function ContentBlock({ data: { block_title, content, aside_image }}) {
+export default function ContentBlock({ data: { title, body, aside_image }}) {
   return (
     <section className={styles.contentBlock}>
-      {content && (
+      {body && (
         <div className={styles.content}>
-          {block_title && <h2>{block_title}</h2>}
+          {title && <h2>{title}</h2>}
 
-          <Markdown
-            children={content}
+          <TinaMarkdown
+            content={body}
             className={styles.content}
-            rehypePlugins={[rehypeRaw, rehypeSanitize]}
             components={{
-              link: ({ children, href }) => {
+              a: ({ url, children }) => {
                 return (
-                  <Link href={href}>
-                    <a>{children}</a>
+                  <Link href={url}>
+                    {children}
                   </Link>
                 );
               },
@@ -36,10 +33,14 @@ export default function ContentBlock({ data: { block_title, content, aside_image
             alt={aside_image.alt}
             width="280"
             height="280"
-            layout="responsive"
+            sizes="100vw"
+            style={{
+              width: '100%',
+              height: 'auto'
+            }}
           />
         </div>
       )}
     </section>
-  )
+  );
 }

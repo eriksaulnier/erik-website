@@ -26,7 +26,7 @@ export default function TagList({ tags, className, tagClassName }) {
             stiffness: 300
           }}
         >
-          {tag.icon_name && <Icon name={tag.icon_name} />}
+          {tag.icon && <Icon name={tag.icon} />}
           {tag.label}
         </motion.li>
       ))}
