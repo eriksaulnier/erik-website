@@ -12,7 +12,7 @@ export const config = defineConfig({
     process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ||
     process.env.HEAD,
   token: process.env.TINA_TOKEN,
-  localContentPath: '../content',
+  localContentPath: '../../erik-website-content',
   media: {
     loadCustomStore: async () => {
       const pack = await import('next-tinacms-s3')
