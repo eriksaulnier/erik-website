@@ -15,7 +15,7 @@ export default function FormBlock({ data: { title, name, fields, submit_label, .
       {title && <h2>{title}</h2>}
 
       <form name={name} method="POST" data-netlify="true" netlify-honeypot="verification">
-        <input type="hidden" name="form-name" value={name} />
+        {name && <input type="hidden" name="form-name" value={name} />}
         <input type="hidden" name="verification" />
 
         <div className={styles.fieldGroup}>
@@ -35,7 +35,7 @@ export default function FormBlock({ data: { title, name, fields, submit_label, .
           })}
         </div>
 
-        <button type="submit" variants={fieldVariants}>{submit_label}</button>
+        <button type="submit" variants={fieldVariants}>{submit_label || 'Submit'}</button>
       </form>
     </motion.section>
   )

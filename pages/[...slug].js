@@ -58,13 +58,15 @@ export default function Page(props) {
   )
 }
 
-export const getStaticProps = async ({ params: { slug } }) => {
+export const getStaticProps = async ({ params, preview = false }) => {
   const { data, query, variables } = await client.queries.pages({
-    relativePath: `${slug.join('/')}.mdx`
+    relativePath: `${params.slug.join('/')}.mdx`
   });
 
   return {
+    notFound: !data?.pages?.published && !preview,
     props: {
+      preview,
       data,
       query,
       variables
@@ -73,7 +75,13 @@ export const getStaticProps = async ({ params: { slug } }) => {
 };
 
 export const getStaticPaths = async () => {
-  const { data } = await client.queries.pagesConnection();
+  const { data } = await client.queries.pagesConnection({
+    filter: {
+      blocks: {
+        published: { eq: true }
+      }
+    }
+  });
   const paths = data.pagesConnection.edges.map((x) => {
     return {
       params: {

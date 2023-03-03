@@ -41,6 +41,7 @@
       background-color: $dark-3;
       overflow: hidden;
       box-shadow: $box-shadow-1;
+      white-space: pre-line;
     }
 
     .stack {
@@ -67,6 +68,7 @@
         svg {
           height: 100%;
           margin-left: 0.5rem;
+          vertical-align: middle;
         }
 
         &:last-child {

@@ -5,23 +5,23 @@ export default function SelectField({
   data: {
     label,
     name,
-    required,
-    select_options,
     description,
+    required,
+    options,
     width
   },
   variants
 }) {
   return (
     <motion.div
-      className={[styles.field, styles.selectField].join(' ')}
+      className={[styles.field, styles.selectField, required && styles.required].join(' ')}
       width={width || 100}
       variants={variants}
     >
       {label && <label htmlFor={name}>{label}</label>}
 
       <select id={name} required={required}>
-        {select_options?.map((option, index) => (
+        {options?.map((option, index) => (
           <option key={index} value={option.value}>{option.label}</option>
         ))}
       </select>

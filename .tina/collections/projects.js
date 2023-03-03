@@ -6,19 +6,18 @@ const projects = {
   ui: {
     // TODO: Some day projects could have dedicated pages
     // router: ({ document }) => {
-    //   return `/projects/${document._sys.filename}`;
+    //   return `/projects/${document._sys.breadcrumbs.join('/')}`;
     // },
     filename: {
       slugify: (values) => {
         const name = values?.name?.toLowerCase().replace(/ /g, '-');
         const publish_date = new Date(values?.publish_date);
         const year = publish_date.getFullYear();
-        return `${year}-${name}`
+        return `${year}/${name}`
       }
     },
     defaultItem: () => {
       return {
-        name: '',
         publish_date: new Date().toString(),
       }
     },

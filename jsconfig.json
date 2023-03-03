@@ -13,10 +13,6 @@
       ],
       "@/tina/*": [
         ".tina/__generated__/*"
-      ],
-      // TODO: there's got to be a way to do this with tina (without directly referencing the file)
-      "@/appConfig": [
-        "content/global/app.config.json"
       ]
     }
   }

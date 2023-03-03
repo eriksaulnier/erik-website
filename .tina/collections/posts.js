@@ -1,11 +1,11 @@
 const posts = {
-  label: 'Blog Posts',
+  label: 'Posts',
   name: 'posts',
   path: 'posts',
   format: 'mdx',
   ui: {
     router: ({ document }) => {
-      return `/posts/${document._sys.filename}`;
+      return `/posts/${document._sys.breadcrumbs.join('/')}`;
     },
     filename: {
       slugify: (values) => {

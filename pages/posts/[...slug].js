@@ -58,13 +58,15 @@ export default function Post(props) {
   )
 }
 
-export const getStaticProps = async ({ params: { slug } }) => {
+export const getStaticProps = async ({ params, preview = false }) => {
   const { data, query, variables } = await client.queries.posts({
-    relativePath: `${slug.join('/')}.mdx`
+    relativePath: `${params.slug.join('/')}.mdx`
   });
 
   return {
+    notFound: !data?.posts?.published && !preview,
     props: {
+      preview,
       data,
       query,
       variables
@@ -73,7 +75,11 @@ export const getStaticProps = async ({ params: { slug } }) => {
 };
 
 export const getStaticPaths = async () => {
-  const { data } = await client.queries.postsConnection();
+  const { data } = await client.queries.postsConnection({
+    filter: {
+      published: { eq: true }
+    }
+  });
   const paths = data.postsConnection.edges.map((x) => {
     return {
       params: {

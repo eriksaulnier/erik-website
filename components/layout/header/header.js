@@ -22,7 +22,7 @@ export default function Header({ siteTitle, navigation, social }) {
 
     // Cleanup reset timeout
     return () => clearTimeout(resetTimeout.current)
-  }, [open, router.asPath])
+  }, [router.asPath])
 
   // Prevent scrolling when the menu is open
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function Header({ siteTitle, navigation, social }) {
     }, 600)
   }
 
-  const activeMenuItem = navigation?.find(page => `/${page.slug}` === currentPath)
+  const activeMenuItem = navigation?.find(page => page.path === currentPath)
 
   const menuVariants = {
     open: {

@@ -5,22 +5,22 @@ export default function RadioField({
   data: {
     label,
     name,
-    required,
-    radio_options,
     description,
+    required,
+    options,
     width
   },
   variants
 }) {
   return (
     <motion.fieldset
-      className={[styles.field, styles.radioField].join(' ')}
+      className={[styles.field, styles.radioField, required && styles.required].join(' ')}
       width={width || 100}
       variants={variants}
     >
       {label && <label htmlFor={name}>{label}</label>}
 
-      {radio_options?.map((option, index) => (
+      {options?.map((option, index) => (
         <div key={index}>
           <input id={name+index} type="radio" name={name} required={required} value={option.value}/>
           <label htmlFor={name+index}>{option.label}</label>

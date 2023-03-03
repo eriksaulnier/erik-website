@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { client } from '@/tina/client'
+import { getFeaturedProjects } from '@/lib/content'
 import { useTina } from 'tinacms/dist/react';
 import { ProjectsBlock } from '@/components/blocks'
 
@@ -39,13 +39,9 @@ export default function ProjectsPage(props) {
   )
 }
 
-export const getStaticProps = async () => {
-  const { data, query, variables } = await client.queries.projectsConnection({
-    filter: {
-      featured: { eq: true }
-    },
-    sort: 'publish_date',
-    last: 10,
+export const getStaticProps = async ({ preview = false }) => {
+  const { data, query, variables } = await getFeaturedProjects({
+    preview
   });
 
   return {

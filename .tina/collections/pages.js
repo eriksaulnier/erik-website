@@ -3,15 +3,22 @@ const pages = {
   name: 'pages',
   path: 'pages',
   format: 'mdx',
+  ui: {
+    router: ({ document }) => {
+      if (document._sys.filename === 'home') {
+        return '/';
+      }
+      return `/${document._sys.breadcrumbs.join('/')}`;
+    },
+    filename: {
+      slugify: (values) => (values?.title?.toLowerCase().replace(/ /g, '-')),
+      readonly: true
+    }
+  },
   templates: [
     {
       name: 'blocks',
       label: 'Blocks Page',
-      ui: {
-        filename: {
-          slugify: (values) => (values?.title?.toLowerCase().replace(/ /g, '-')),
-        },
-      },
       fields: [
         {
           name: 'title',
@@ -98,6 +105,14 @@ const pages = {
                   name: 'name',
                   label: 'Form Name',
                   type: 'string',
+                  description: 'Used as the value of the "name" attribute on the form element',
+                  ui: {
+                    validate: (value) => {
+                      if (value && !value?.match(/^[a-z0-9_-]+$/)) {
+                        return 'Form name must be lowercase letters, numbers, hyphens, and underscores only (no spaces)';
+                      }
+                    }
+                  }
                 },
                 {
                   name: 'fields',
@@ -112,6 +127,9 @@ const pages = {
                         itemProps: (item) => ({
                           label: item.label ? `Input: ${item.label}` : 'Input',
                         }),
+                        defaultItem: () => ({
+                          width: 100
+                        })
                       },
                       fields: [
                         {
@@ -124,7 +142,14 @@ const pages = {
                           name: 'name',
                           label: 'Name',
                           type: 'string',
-                          description: 'HTML \'name\' attribute. Keep this to letters and underscores only (no spaces)',
+                          description: 'Used as the value of the "name" and "id" attributes on the input element',
+                          ui: {
+                            validate: (value) => {
+                              if (value && !value?.match(/^[a-z0-9_-]+$/)) {
+                                return 'Field name must be lowercase letters, numbers, hyphens, and underscores only (no spaces)';
+                              }
+                            }
+                          }
                         },
                         {
                           name: 'description',
@@ -181,6 +206,9 @@ const pages = {
                         itemProps: (item) => ({
                           label: item.label ? `Textarea: ${item.label}` : 'Textarea',
                         }),
+                        defaultItem: () => ({
+                          width: 100
+                        })
                       },
                       fields: [
                         {
@@ -193,7 +221,14 @@ const pages = {
                           name: 'name',
                           label: 'Name',
                           type: 'string',
-                          description: 'HTML \'name\' attribute. Keep this to letters and underscores only (no spaces)',
+                          description: 'Used as the value of the "name" and "id" attributes on the input element',
+                          ui: {
+                            validate: (value) => {
+                              if (value && !value?.match(/^[a-z0-9_-]+$/)) {
+                                return 'Field name must be lowercase letters, numbers, hyphens, and underscores only (no spaces)';
+                              }
+                            }
+                          }
                         },
                         {
                           name: 'description',
@@ -237,6 +272,9 @@ const pages = {
                         itemProps: (item) => ({
                           label: item.label ? `Select: ${item.label}` : 'Select',
                         }),
+                        defaultItem: () => ({
+                          width: 100
+                        })
                       },
                       fields: [
                         {
@@ -249,7 +287,14 @@ const pages = {
                           name: 'name',
                           label: 'Name',
                           type: 'string',
-                          description: 'HTML \'name\' attribute. Keep this to letters and underscores only (no spaces)',
+                          description: 'Used as the value of the "name" and "id" attributes on the input element',
+                          ui: {
+                            validate: (value) => {
+                              if (value && !value?.match(/^[a-z0-9_-]+$/)) {
+                                return 'Field name must be lowercase letters, numbers, hyphens, and underscores only (no spaces)';
+                              }
+                            }
+                          }
                         },
                         {
                           name: 'description',
@@ -263,25 +308,27 @@ const pages = {
                           type: 'boolean',
                         },
                         {
-                          name: 'placeholder',
-                          label: 'Placeholder',
-                          type: 'string'
-                        },
-                        {
                           name: 'options',
                           label: 'Options',
                           type: 'object',
                           list: true,
+                          ui: {
+                            itemProps: (item) => ({
+                              label: item.label || '(new option)',
+                            }),
+                          },
                           fields: [
                             {
                               name: 'label',
                               label: 'Label',
                               type: 'string',
+                              required: true,
                             },
                             {
                               name: 'value',
                               label: 'Value',
                               type: 'string',
+                              required: true,
                             },
                           ],
                         },
@@ -306,6 +353,9 @@ const pages = {
                         itemProps: (item) => ({
                           label: item.label ? `Checkbox: ${item.label}` : 'Checkbox',
                         }),
+                        defaultItem: () => ({
+                          width: 100
+                        })
                       },
                       fields: [
                         {
@@ -318,7 +368,14 @@ const pages = {
                           name: 'name',
                           label: 'Name',
                           type: 'string',
-                          description: 'HTML \'name\' attribute. Keep this to letters and underscores only (no spaces)',
+                          description: 'Used as the value of the "name" and "id" attributes on the input element',
+                          ui: {
+                            validate: (value) => {
+                              if (value && !value?.match(/^[a-z0-9_-]+$/)) {
+                                return 'Field name must be lowercase letters, numbers, hyphens, and underscores only (no spaces)';
+                              }
+                            }
+                          }
                         },
                         {
                           name: 'description',
@@ -332,25 +389,27 @@ const pages = {
                           type: 'boolean',
                         },
                         {
-                          name: 'placeholder',
-                          label: 'Placeholder',
-                          type: 'string'
-                        },
-                        {
                           name: 'options',
                           label: 'Options',
                           type: 'object',
                           list: true,
+                          ui: {
+                            itemProps: (item) => ({
+                              label: item.label || '(new option)',
+                            }),
+                          },
                           fields: [
                             {
                               name: 'label',
                               label: 'Label',
                               type: 'string',
+                              required: true,
                             },
                             {
                               name: 'value',
                               label: 'Value',
                               type: 'string',
+                              required: true,
                             },
                           ],
                         },
@@ -375,6 +434,9 @@ const pages = {
                         itemProps: (item) => ({
                           label: item.label ? `Radio: ${item.label}` : 'Radio',
                         }),
+                        defaultItem: () => ({
+                          width: 100
+                        })
                       },
                       fields: [
                         {
@@ -387,7 +449,14 @@ const pages = {
                           name: 'name',
                           label: 'Name',
                           type: 'string',
-                          description: 'HTML \'name\' attribute. Keep this to letters and underscores only (no spaces)',
+                          description: 'Used as the value of the "name" and "id" attributes on the input element',
+                          ui: {
+                            validate: (value) => {
+                              if (value && !value?.match(/^[a-z0-9_-]+$/)) {
+                                return 'Field name must be lowercase letters, numbers, hyphens, and underscores only (no spaces)';
+                              }
+                            }
+                          }
                         },
                         {
                           name: 'description',
@@ -401,25 +470,27 @@ const pages = {
                           type: 'boolean',
                         },
                         {
-                          name: 'placeholder',
-                          label: 'Placeholder',
-                          type: 'string'
-                        },
-                        {
                           name: 'options',
                           label: 'Options',
                           type: 'object',
                           list: true,
+                          ui: {
+                            itemProps: (item) => ({
+                              label: item.label || '(new option)',
+                            }),
+                          },
                           fields: [
                             {
                               name: 'label',
                               label: 'Label',
                               type: 'string',
+                              required: true,
                             },
                             {
                               name: 'value',
                               label: 'Value',
                               type: 'string',
+                              required: true,
                             },
                           ],
                         },
@@ -583,12 +654,7 @@ const pages = {
           filename: 'home.mdx',
           title: 'Home'
         }),
-        filename: {
-          readonly: true
-        },
-        router: () => {
-          return '/';
-        },
+        // TODO: this doesn't actually do anything, but it should
         allowedActions: {
           create: false,
           delete: false,
