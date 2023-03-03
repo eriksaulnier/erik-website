@@ -1,7 +1,7 @@
 const posts = {
   label: 'Posts',
   name: 'posts',
-  path: 'posts',
+  path: 'content/posts',
   format: 'mdx',
   ui: {
     router: ({ document }) => {

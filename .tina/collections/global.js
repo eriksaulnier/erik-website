@@ -1,7 +1,7 @@
 const global = {
   label: 'Global',
   name: 'global',
-  path: 'global',
+  path: 'content/global',
   format: 'json',
   ui: {
     global: true,
