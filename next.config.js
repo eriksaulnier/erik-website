@@ -24,7 +24,7 @@ module.exports = {
 
     return config
   },
-  async rewrites() {
+  rewrites: async function() {
     return [
       {
         source: '/admin',
@@ -33,6 +33,6 @@ module.exports = {
     ]
   },
   eslint: {
-    dirs: ['pages', 'components', 'lib', 'styles', '.tina'],
+    dirs: ['pages', 'components', 'lib', 'styles', '.tina', '!.tina/__generated__'],
   },
 }
