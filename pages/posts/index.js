@@ -45,6 +45,7 @@ export const getStaticProps = async () => {
       published: { eq: true }
     },
     sort: 'publish_date',
+    last: 10,
   });
   return {
     props: {
