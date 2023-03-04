@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { getPlaceholderImageURL } from '@/lib/images'
 import styles from './content-block.module.scss'
 
 export default function ContentBlock({ data: { title, body, aside_image }}) {
@@ -11,6 +12,8 @@ export default function ContentBlock({ data: { title, body, aside_image }}) {
           <Image
             src={aside_image.image}
             alt={aside_image.alt}
+            placeholder="blur"
+            blurDataURL={getPlaceholderImageURL(aside_image.image)}
             width="280"
             height="280"
             sizes="100vw"

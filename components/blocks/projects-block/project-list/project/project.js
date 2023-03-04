@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion'
 import TagList from '@/components/tag-list'
 import Icon from '@/components/icon'
+import { getPlaceholderImageURL } from '@/lib/images'
 import styles from './project.module.scss'
 
 export default function Project({ data }) {
@@ -30,6 +31,8 @@ export default function Project({ data }) {
         <Image
           alt={project.name}
           src={project.image}
+          placeholder="blur"
+          blurDataURL={getPlaceholderImageURL(project.image)}
           width="525"
           height="350"
           sizes="100vw"
