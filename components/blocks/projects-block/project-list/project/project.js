@@ -22,6 +22,10 @@ export default function Project({ data }) {
         stiffness: 250
       }}
     >
+      <div className={styles.heading}>
+        <p className={styles.date}>{publishDate.getFullYear()}</p>
+        <motion.h4 className={styles.title}>{project.name}</motion.h4>
+      </div>
       <div className={styles.image}>
         <Image
           alt={project.name}
@@ -35,10 +39,7 @@ export default function Project({ data }) {
           }}
         />
       </div>
-
       <div className={styles.content}>
-        <p className={styles.date}>{publishDate.getFullYear()}</p>
-        <motion.h4 className={styles.title}>{project.name}</motion.h4>
         <p className={styles.description}>{project.description}</p>
 
         {project.technologies && (

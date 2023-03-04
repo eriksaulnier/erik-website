@@ -4,19 +4,7 @@
 .project {
   text-align: center;
 
-  .image {
-    font-size: 0;
-    background-color: $primary-darker;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: $box-shadow-1;
-    
-    img {
-      opacity: 0.9;
-    }
-  }
-
-  .content {
+  .heading {
     margin: 1em 0 0;
     text-align: left;
     z-index: 1;
@@ -32,6 +20,25 @@
       margin: 0 0 0.1rem;
       color: $primary-light;
     }
+  }
+
+  .image {
+    font-size: 0;
+    background-color: $primary-darker;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: $box-shadow-1;
+    border: 2px solid $dark-3;
+    
+    img {
+      opacity: 0.9;
+    }
+  }
+
+  .content {
+    margin: 1em 0 0;
+    text-align: left;
+    z-index: 1;
 
     .description {
       margin: 0;
@@ -81,6 +88,13 @@
   @include tablet-up {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto 1fr;
+
+    .heading {
+      margin: 0;
+      text-align: left;
+      grid-area: 1 / 1 / 2 / 9;
+    }
 
     .image {
       margin: auto 0;
@@ -89,17 +103,22 @@
 
     .content {
       text-align: left;
-      grid-area: 1 / 1 / -1 / 9;
+      grid-area: 2 / 1 / -1 / 9;
     }
 
     &:nth-child(even) {
+      .heading {
+        text-align: right;
+        grid-area: 1 / 5 / 2 / -1;
+      }
+
       .image {
         grid-area: 1 / 1 / -1 / 7;
       }
 
       .content {
         text-align: right;
-        grid-area: 1 / 5 / -1 / -1;
+        grid-area: 2 / 5 / -1 / -1;
 
         .stack {
           justify-content: flex-end;

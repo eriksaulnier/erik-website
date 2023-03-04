@@ -1,7 +1,7 @@
 @import './variables';
 @import './mixins';
 
-.contentBlock {
+.contentBlock {  
   .asideImage {
     display: block;
     max-width: 80%;
@@ -24,7 +24,7 @@
 
   @include tablet-up {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
 
     .content {
       flex: 2;
