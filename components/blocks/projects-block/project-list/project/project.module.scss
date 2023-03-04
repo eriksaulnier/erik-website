@@ -31,11 +31,6 @@
     border: 2px solid $dark-3;
     
     img {
-      object-fit: contain;
-      width: 100% !important;
-      position: relative !important;
-      height: unset !important;
-      border-radius: 0.5rem;
       opacity: 0.9;
     }
   }

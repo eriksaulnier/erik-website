@@ -22,7 +22,6 @@ export default function Header({ siteTitle, navigation, social }) {
 
     // Cleanup reset timeout
     return () => clearTimeout(resetTimeout.current)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.asPath])
 
   // Prevent scrolling when the menu is open

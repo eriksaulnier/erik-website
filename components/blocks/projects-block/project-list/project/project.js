@@ -30,7 +30,13 @@ export default function Project({ data }) {
         <Image
           alt={project.name}
           src={project.image}
-          fill
+          width="525"
+          height="350"
+          sizes="100vw"
+          style={{
+            width: '100%',
+            height: 'auto'
+          }}
         />
       </div>
       <div className={styles.content}>
