@@ -11,13 +11,7 @@ export default function ContentBlock({ data: { title, body, aside_image }}) {
           <Image
             src={aside_image.image}
             alt={aside_image.alt}
-            width="280"
-            height="280"
-            sizes="100vw"
-            style={{
-              width: '100%',
-              height: 'auto'
-            }}
+            fill
           />
         </div>
       )}

@@ -7,11 +7,13 @@
     max-width: 80%;
     margin: 2rem auto;
     text-align: center;
-
+  
     img {
-      display: block;
+      object-fit: contain;
+      width: 100% !important;
+      position: relative !important;
+      height: unset !important;
       border-radius: 0.5rem;
-      overflow: hidden;
       background-color: $primary-darker;
     }
   }
