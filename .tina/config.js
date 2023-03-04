@@ -12,10 +12,11 @@ export const config = defineConfig({
     process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ||
     process.env.HEAD,
   token: process.env.TINA_TOKEN,
+  localContentPath: '../content',
   media: {
-    tina: {
-      publicFolder: 'public',
-      mediaRoot: 'uploads',
+    loadCustomStore: async () => {
+      const pack = await import('next-tinacms-s3')
+      return pack.TinaCloudS3MediaStore
     },
   },
   admin: {

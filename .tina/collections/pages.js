@@ -1,7 +1,7 @@
 const pages = {
   label: 'Pages',
   name: 'pages',
-  path: 'content/pages',
+  path: 'pages',
   format: 'mdx',
   ui: {
     router: ({ document }) => {

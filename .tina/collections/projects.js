@@ -1,7 +1,7 @@
 const projects = {
   label: 'Projects',
   name: 'projects',
-  path: 'content/projects',
+  path: 'projects',
   format: 'mdx',
   ui: {
     // TODO: Some day projects could have dedicated pages
