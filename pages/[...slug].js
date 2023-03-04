@@ -8,6 +8,7 @@ import {
   ProjectsBlock,
   PostsBlock
 } from '@/components/blocks'
+import { getPlaceholderImageURL } from '@/lib/images'
 
 export default function Page(props) {
   const { data: { pages: pageData } } = useTina({
@@ -62,6 +63,19 @@ export const getStaticProps = async ({ params, preview = false }) => {
   const { data, query, variables } = await client.queries.pages({
     relativePath: `${params.slug.join('/')}.mdx`
   });
+
+  if (data?.pages?.blocks) {
+    data.pages.blocks = await Promise.all(data.pages.blocks.map(async (block) => {
+      if (block.__typename === 'PagesBlocksBlocksContent') {
+        if (block.aside_image?.image) {
+          block.aside_image.image = await getPlaceholderImageURL(block.aside_image.image);
+        }
+      }
+      return block;
+    }))
+  }
+
+  console.log('data', data?.pages?.blocks)
 
   return {
     notFound: !data?.pages?.published && !preview,

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { getFeaturedProjects } from '@/lib/content'
 import { useTina } from 'tinacms/dist/react';
 import { ProjectsBlock } from '@/components/blocks'
+import { getPlaceholderImageURL } from '@/lib/images'
 
 export default function ProjectsPage(props) {
   const { data } = useTina({
@@ -43,6 +44,14 @@ export const getStaticProps = async ({ preview = false }) => {
   const { data, query, variables } = await getFeaturedProjects({
     preview
   });
+
+  if (data?.projectsConnection?.edges) {
+    data.projectsConnection.edges = await Promise.all(data.projectsConnection.edges.map(async (edge) => {
+      edge.node.image = await getPlaceholderImageURL(edge.node.image);
+      return edge;
+    }))
+    console.log('data', data.projectsConnection.edges[0].node.image)
+  }
 
   return {
     props: {
