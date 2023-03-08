@@ -64,7 +64,7 @@ export const getStaticProps = async ({ params, preview = false }) => {
   });
 
   return {
-    notFound: !data?.pages?.published && !preview,
+    notFound: !!data?.pages?.draft && !preview,
     props: {
       preview,
       data,
@@ -78,7 +78,7 @@ export const getStaticPaths = async () => {
   const { data } = await client.queries.pagesConnection({
     filter: {
       blocks: {
-        published: { eq: true }
+        draft: { eq: false }
       }
     }
   });

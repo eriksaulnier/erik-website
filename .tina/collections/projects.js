@@ -12,6 +12,7 @@ const projects = {
     // },
     filename: {
       slugify: (values) => {
+        // TODO: Would be better if we stored the project in a 'drafts' folder until it's published
         const name = values?.name?.toLowerCase().replace(/ /g, '-');
         const publish_date = new Date(values?.publish_date);
         const year = publish_date.getFullYear();
@@ -20,6 +21,7 @@ const projects = {
     },
     defaultItem: () => {
       return {
+        draft: true,
         publish_date: new Date().toString(),
       }
     },
@@ -33,8 +35,8 @@ const projects = {
       required: true
     },
     {
-      name: 'published',
-      label: 'Published',
+      name: 'draft',
+      label: 'Draft',
       type: 'boolean',
     },
     {

@@ -64,7 +64,7 @@ export const getStaticProps = async ({ params, preview = false }) => {
   });
 
   return {
-    notFound: !data?.posts?.published && !preview,
+    notFound: !!data?.posts?.draft && !preview,
     props: {
       preview,
       data,
@@ -77,7 +77,7 @@ export const getStaticProps = async ({ params, preview = false }) => {
 export const getStaticPaths = async () => {
   const { data } = await client.queries.postsConnection({
     filter: {
-      published: { eq: true }
+      draft: { eq: false }
     }
   });
 

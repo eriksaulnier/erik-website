@@ -21,6 +21,11 @@ const pages = {
     {
       name: 'blocks',
       label: 'Blocks Page',
+      ui: {
+        defaultItem: () => ({
+          draft: true
+        })
+      },
       fields: [
         {
           name: 'title',
@@ -41,8 +46,8 @@ const pages = {
           type: 'string',
         },
         {
-          name: 'published',
-          label: 'Published',
+          name: 'draft',
+          label: 'Draft',
           type: 'boolean',
         },
         {

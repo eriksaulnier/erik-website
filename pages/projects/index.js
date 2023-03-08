@@ -41,7 +41,7 @@ export default function ProjectsPage(props) {
 
 export const getStaticProps = async ({ preview = false }) => {
   let filter = {
-    published: { eq: true },
+    draft: { eq: false },
     featured: { eq: true }
   };
 

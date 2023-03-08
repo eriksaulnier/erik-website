@@ -41,7 +41,7 @@ export default function PostsPage(props) {
 
 export const getStaticProps = async ({ preview = false }) => {
   let filter = {
-    published: { eq: true }
+    draft: { eq: false }
   };
 
   // If we're in preview mode, we want to show everything
