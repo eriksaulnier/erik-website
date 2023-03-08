@@ -3,7 +3,7 @@ import Header from './header'
 import Footer from './footer'
 import styles from './layout.module.scss'
 
-export default function Layout({ appConfig, pageTitle, children }) {
+export default function Layout({ appConfig, pageTitle, preview, children }) {
   return (
     <div className={styles.layout}>
       <Head>
@@ -40,6 +40,17 @@ export default function Layout({ appConfig, pageTitle, children }) {
       <Header siteTitle={appConfig.title} {...appConfig.header} />
       <main className={styles.content}>
         <div className={styles.container}>
+          {preview && (
+            <div>
+              You are in preview-mode
+              <a
+                href={'/admin/index.html#/logout?slug=/api/preview/exit?slug=/'}
+              >
+                Click here
+              </a>{' '}
+              to exit
+            </div>
+          )}
           {children}
         </div>
       </main>

@@ -1,3 +1,5 @@
+import imageField from '../fields/image';
+
 const posts = {
   label: 'Posts',
   name: 'posts',
@@ -23,9 +25,9 @@ const posts = {
   },
   fields: [
     {
-      type: 'string',
-      label: 'Title',
       name: 'title',
+      label: 'Title',
+      type: 'string',
       isTitle: true,
       required: true
     },
@@ -39,28 +41,14 @@ const posts = {
       label: 'Publish Date',
       type: 'datetime',
     },
+
     {
-      name: 'tags',
-      label: 'Tags',
-      type: 'string',
-      list: true,
-      ui: {
-        component: 'tags'
-      },
-      fields: [
-        {
-          type: 'string',
-          label: 'Tag',
-          name: 'tag',
-          required: true
-        }
-      ]
-    },
-    {
-      type: 'rich-text',
-      label: 'Blog Post Body',
       name: 'body',
-      isBody: true
+      label: 'Blog Post Body',
+      type: 'rich-text',
+      isBody: true,
+      // TODO: need to disable default image upload
+      templates: [imageField]
     },
   ],
 };

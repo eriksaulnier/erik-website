@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { client } from '@/tina/client'
 import { useTina } from 'tinacms/dist/react';
+import { client } from '@/tina/client'
 import Splash from '@/components/splash'
 
 export default function Home(props) {

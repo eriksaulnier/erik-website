@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { client } from '@/tina/client'
 import { useTina } from 'tinacms/dist/react';
+import { client } from '@/tina/client'
 import {
   ContentBlock,
   TechnologyBlock,
@@ -8,7 +8,6 @@ import {
   ProjectsBlock,
   PostsBlock
 } from '@/components/blocks'
-import { getPlaceholderImageURL } from '@/lib/images'
 
 export default function Page(props) {
   const { data: { pages: pageData } } = useTina({
@@ -64,19 +63,6 @@ export const getStaticProps = async ({ params, preview = false }) => {
     relativePath: `${params.slug.join('/')}.mdx`
   });
 
-  if (data?.pages?.blocks) {
-    data.pages.blocks = await Promise.all(data.pages.blocks.map(async (block) => {
-      if (block.__typename === 'PagesBlocksBlocksContent') {
-        if (block.aside_image?.image) {
-          block.aside_image.image = await getPlaceholderImageURL(block.aside_image.image);
-        }
-      }
-      return block;
-    }))
-  }
-
-  console.log('data', data?.pages?.blocks)
-
   return {
     notFound: !data?.pages?.published && !preview,
     props: {
@@ -96,13 +82,13 @@ export const getStaticPaths = async () => {
       }
     }
   });
-  const paths = data.pagesConnection.edges.map((x) => {
-    return {
-      params: {
-        slug: x.node._sys.breadcrumbs
-      }
-    };
-  });
+  
+  const paths = data?.pagesConnection?.edges?.map(({ node }) => ({
+    params: {
+      slug: node._sys.breadcrumbs
+    }
+  }));
+
   return {
     paths,
     fallback: 'blocking',

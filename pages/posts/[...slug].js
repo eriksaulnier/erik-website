@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import { client } from '@/tina/client'
 import { useTina } from 'tinacms/dist/react';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { client } from '@/tina/client'
 import Link from 'next/link';
 
 export default function Post(props) {
@@ -80,13 +80,13 @@ export const getStaticPaths = async () => {
       published: { eq: true }
     }
   });
-  const paths = data.postsConnection.edges.map((x) => {
-    return {
-      params: {
-        slug: x.node._sys.breadcrumbs
-      }
-    };
-  });
+
+  const paths = data?.postsConnection?.edges?.map(({ node }) => ({
+    params: {
+      slug: node._sys.breadcrumbs
+    }
+  }));
+
   return {
     paths,
     fallback: 'blocking',

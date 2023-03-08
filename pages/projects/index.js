@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion'
-import { getFeaturedProjects } from '@/lib/content'
 import { useTina } from 'tinacms/dist/react';
+import { client } from '@/tina/client'
 import { ProjectsBlock } from '@/components/blocks'
-import { getPlaceholderImageURL } from '@/lib/images'
 
 export default function ProjectsPage(props) {
   const { data } = useTina({
@@ -41,17 +40,22 @@ export default function ProjectsPage(props) {
 }
 
 export const getStaticProps = async ({ preview = false }) => {
-  const { data, query, variables } = await getFeaturedProjects({
-    preview
-  });
+  let filter = {
+    published: { eq: true },
+    featured: { eq: true }
+  };
 
-  if (data?.projectsConnection?.edges) {
-    data.projectsConnection.edges = await Promise.all(data.projectsConnection.edges.map(async (edge) => {
-      edge.node.image = await getPlaceholderImageURL(edge.node.image);
-      return edge;
-    }))
-    console.log('data', data.projectsConnection.edges[0].node.image)
+  // If we're in preview mode, we want to show everything
+  if (preview) {
+    filter = {};
   }
+
+  const { data, query, variables } = await client.queries.projectsConnection({
+    filter,
+    sort: 'publish_date',
+    // return the results in reverse order
+    last: -1,
+  });
 
   return {
     props: {

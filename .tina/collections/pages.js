@@ -1,3 +1,5 @@
+import imageField from '../fields/image';
+
 const pages = {
   label: 'Pages',
   name: 'pages',
@@ -66,24 +68,14 @@ const pages = {
                 {
                   name: 'body',
                   label: 'Body',
-                  type: 'rich-text'
+                  type: 'rich-text',
+                  // TODO: need to disable default image upload
+                  templates: [imageField]
                 },
                 {
+                  ...imageField,
                   name: 'aside_image',
-                  label: 'Aside Image',
-                  type: 'object',
-                  fields: [
-                    {
-                      name: 'image',
-                      label: 'Image',
-                      type: 'image',
-                    },
-                    {
-                      name: 'alt',
-                      label: 'Alt Text',
-                      type: 'string',
-                    },
-                  ],
+                  label: 'Aside Image'
                 },
               ],
             },

@@ -1,18 +1,21 @@
 import Link from 'next/link'
 import Image from 'next/image';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import blurHashToDataURL from '@/lib/blurhash'
 import styles from './content-block.module.scss'
 
 export default function ContentBlock({ data: { title, body, aside_image }}) {
-  console.log('aside_image', aside_image);
+  const asideBlurDataUrl = aside_image?.blurhash && blurHashToDataURL(aside_image.blurhash, aside_image.width, aside_image.height);
+
   return (
     <section className={styles.contentBlock}>
-      {(aside_image && aside_image.image) && (
+      {(aside_image && aside_image.src) && (
         <div className={styles.asideImage}>
+          {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image
-            {...aside_image.image}
-            alt={aside_image.name}
-            placeholder="blur"
+            {...aside_image}
+            blurDataURL={asideBlurDataUrl}
+            placeholder={asideBlurDataUrl ? 'blur' : 'empty'}
             style={{
               width: '100%',
               height: 'auto'
@@ -36,6 +39,17 @@ export default function ContentBlock({ data: { title, body, aside_image }}) {
                   </Link>
                 );
               },
+              image: ({ type, ...props }) => {
+                const blurDataUrl = props.blurhash && blurHashToDataURL(props.blurhash, props.width, props.height);
+                return (
+                  // eslint-disable-next-line jsx-a11y/alt-text
+                  <Image
+                    {...props}
+                    blurDataURL={blurDataUrl}
+                    placeholder={blurDataUrl ? 'blur' : 'empty'}
+                  />
+                )
+              }
             }}
           />
         </div>

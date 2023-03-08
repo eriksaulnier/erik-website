@@ -74,7 +74,7 @@ export default function MyApp({ Component, pageProps, router }) {
   useNextCssRemovalPrevention();
   return (
     <AnimateSharedLayout>
-      <Layout appConfig={appConfig} pageTitle={pageProps?.tab_title || null}>
+      <Layout appConfig={appConfig} pageTitle={pageProps?.tab_title || null} preview={pageProps.preview}>
         <AnimatePresence exitBeforeEnter>
           <Component layout {...pageProps} key={router.asPath} />
         </AnimatePresence>

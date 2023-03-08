@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { getPosts } from '@/lib/content'
 import { useTina } from 'tinacms/dist/react';
+import { client } from '@/tina/client'
 import { PostsBlock } from '@/components/blocks'
 
 export default function PostsPage(props) {
@@ -40,14 +40,27 @@ export default function PostsPage(props) {
 }
 
 export const getStaticProps = async ({ preview = false }) => {
-  const { data, query, variables } = await getPosts({
-    preview
+  let filter = {
+    published: { eq: true }
+  };
+
+  // If we're in preview mode, we want to show everything
+  if (preview) {
+    filter = {};
+  };
+
+  const { data, query, variables } = await client.queries.postsConnection({
+    filter,
+    sort: 'publish_date',
+    // return the results in reverse order
+    last: -1,
   });
+
   return {
     props: {
-      data,
-      query,
-      variables
+      data: data || null,
+      query: query || null,
+      variables: variables || null,
     },
   };
 };

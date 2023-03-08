@@ -1,3 +1,5 @@
+import imageField from '../fields/image';
+
 const projects = {
   label: 'Projects',
   name: 'projects',
@@ -109,9 +111,9 @@ const projects = {
       ],
     },
     {
-      name: 'image',
-      label: 'Project Image',
-      type: 'image',
+      ...imageField,
+      name: 'thumbnail',
+      label: 'Thumbnail',
     },
     // TODO: Some day projects could have dedicated pages
     // {
