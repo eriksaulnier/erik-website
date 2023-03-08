@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useTina } from 'tinacms/dist/react';
 import { client } from '@/tina/client'
+import { transformImages } from '@/lib/images'
 import { ProjectsBlock } from '@/components/blocks'
 
 export default function ProjectsPage(props) {
@@ -56,6 +57,11 @@ export const getStaticProps = async ({ preview = false }) => {
     // return the results in reverse order
     last: -1,
   });
+
+  // Transform the images
+  if (data?.projectsConnection?.edges) {
+    data.projectsConnection.edges = await transformImages(data.projectsConnection.edges);
+  }
 
   return {
     props: {

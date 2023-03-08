@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useTina } from 'tinacms/dist/react';
 import { client } from '@/tina/client'
+import { transformImages } from '@/lib/images'
 import {
   ContentBlock,
   TechnologyBlock,
@@ -62,6 +63,11 @@ export const getStaticProps = async ({ params, preview = false }) => {
   const { data, query, variables } = await client.queries.pages({
     relativePath: `${params.slug.join('/')}.mdx`
   });
+
+  // Transform the images
+  if (data?.pages?.blocks) {
+    data.pages.blocks = await transformImages(data.pages.blocks)
+  }
 
   return {
     notFound: !!data?.pages?.draft && !preview,
