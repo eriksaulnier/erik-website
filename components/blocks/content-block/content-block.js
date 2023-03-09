@@ -35,8 +35,16 @@ export default function ContentBlock({ data: { title, body, aside_image }}) {
                 );
               },
               image: ({ type, ...props }) => {
-                // eslint-disable-next-line jsx-a11y/alt-text
-                return <Image {...props} />
+                return (
+                  // eslint-disable-next-line jsx-a11y/alt-text
+                  <Image
+                    {...props}
+                    style={{
+                      width: '100%',
+                      height: 'auto'
+                    }}
+                  />
+                )
               }
             }}
           />
