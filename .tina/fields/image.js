@@ -42,10 +42,10 @@ const imageField = {
               const image = await loadImage(value);
               const imageData = getImageData(image);
 
-              // Calculate the image aspect ratio and use it to get the blurhash
-              const ratioX = Math.round(imageData.width / 200) % 9;
-              const ratioY = Math.round(imageData.height / 200) % 9;
-              const blurhash = encode(imageData.data, imageData.width, imageData.height, ratioX, ratioY);
+              // Calculate the blurhash placeholder for the image
+              const width = Math.round(imageData.width / 200) % 9;
+              const height = Math.round(imageData.height / 200) % 9;
+              const blurhash = encode(imageData.data, imageData.width, imageData.height, width, height);
 
               set(allValues, `${propertyPrefix}width`, imageData.width);
               set(allValues, `${propertyPrefix}height`, imageData.height);
