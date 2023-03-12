@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { AnimateSharedLayout, AnimatePresence } from 'framer-motion'
+import { LayoutGroup, AnimatePresence } from 'framer-motion'
 import { Layout } from '@/components/layout'
 import '@/styles/globals.scss'
 
@@ -73,12 +73,13 @@ export const useNextCssRemovalPrevention = () => {
 export default function MyApp({ Component, pageProps, router }) {
   useNextCssRemovalPrevention();
   return (
-    <AnimateSharedLayout>
+    <LayoutGroup>
       <Layout appConfig={appConfig} pageTitle={pageProps?.tab_title || null} preview={pageProps.preview}>
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence mode="wait">
           <Component layout {...pageProps} key={router.asPath} />
         </AnimatePresence>
       </Layout>
-    </AnimateSharedLayout>
+
+    </LayoutGroup>
   )
 }
