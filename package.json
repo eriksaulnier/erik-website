@@ -41,6 +41,7 @@
     "tsparticles-slim": "^2.9.3"
   },
   "devDependencies": {
+    "@netlify/plugin-lighthouse": "^4.0.7",
     "@tinacms/cli": "^1.0.6",
     "eslint": "7",
     "eslint-config-next": "^13.2.1",

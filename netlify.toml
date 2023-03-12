@@ -1,0 +1,23 @@
+[build]
+  publish = ".next"
+  command = "npm run build"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  [[plugins.inputs.audits]]
+    path = "server/pages/about.html"
+  [[plugins.inputs.audits]]
+    path = "server/pages/projects.html"
+  [[plugins.inputs.audits]]
+    path = "server/pages/contact.html"
+  
+
+[[redirects]]
+  from = "/uses"
+  to = "/about/uses"
+
+[dev]
+  command = "yarn dev"
+  port = 3000
+  publish = "dist"
