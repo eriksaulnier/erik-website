@@ -28,8 +28,9 @@ export default function ContentBlock({ data: { title, body, aside_image }}) {
             className={styles.content}
             components={{
               a: ({ url, children }) => {
+                const external = url.startsWith('http');
                 return (
-                  <Link href={url}>
+                  <Link href={url} target={external ? '_blank' : '_self'}>
                     {children}
                   </Link>
                 );
