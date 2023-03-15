@@ -1,6 +1,9 @@
 const path = require('path')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
-module.exports = {
+module.exports = withBundleAnalyzer({
   swcMinify: true,
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
@@ -35,4 +38,4 @@ module.exports = {
   eslint: {
     dirs: ['pages', 'components', 'lib', 'styles', '.tina', '!.tina/__generated__'],
   },
-}
+})
