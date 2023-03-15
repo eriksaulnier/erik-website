@@ -1,4 +1,4 @@
-import styles from './post-list.module.scss'
+import styles from './post-list.module.scss';
 import Post from './post';
 
 export default function PostList({ posts }) {
@@ -12,5 +12,5 @@ export default function PostList({ posts }) {
         ))}
       </ul>
     </>
-  )
+  );
 }

@@ -1,3 +1,3 @@
-import PostsBlock from './posts-block'
+import PostsBlock from './posts-block';
 
-export default PostsBlock
+export default PostsBlock;

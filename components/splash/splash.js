@@ -1,17 +1,17 @@
-import { motion } from 'framer-motion'
-import Typed from 'react-typed'
-import Particles from 'react-tsparticles'
-import { loadSlim } from 'tsparticles-slim'
-import particleConfig from './particlesjs-config'
-import styles from './splash.module.scss'
-import { useCallback } from 'react'
+import { motion } from 'framer-motion';
+import Typed from 'react-typed';
+import Particles from 'react-tsparticles';
+import { loadSlim } from 'tsparticles-slim';
+import particleConfig from './particlesjs-config';
+import styles from './splash.module.scss';
+import { useCallback } from 'react';
 
 export default function Splash({ data: { heading, subheading, typed_words, shuffle_words} }) {
-  const headingWords = heading.split(' ')
+  const headingWords = heading.split(' ');
   const headingParts = headingWords
     .map((e, i) => i < headingWords.length - 1 ? [e, '\xa0'] : [e])
-    .reduce((a, b) => a.concat(b))
-  const subheadingDelay = 0.13 * heading.length
+    .reduce((a, b) => a.concat(b));
+  const subheadingDelay = 0.13 * heading.length;
 
   const particlesInit = useCallback(async (engine) => {
     // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
@@ -87,5 +87,5 @@ export default function Splash({ data: { heading, subheading, typed_words, shuff
         options={particleConfig}
       />
     </div>
-  )
+  );
 }

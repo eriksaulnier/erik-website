@@ -15,7 +15,7 @@ const posts = {
         const title = values?.title?.toLowerCase().replace(/ /g, '-');
         const publish_date = new Date(values?.publish_date);
         const year = publish_date.getFullYear();
-        return `${year}/${title}`
+        return `${year}/${title}`;
       },
     },
     defaultItem: () => ({

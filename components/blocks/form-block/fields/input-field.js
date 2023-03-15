@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import styles from './../form-block.module.scss'
+import { motion } from 'framer-motion';
+import styles from './../form-block.module.scss';
 
 export default function InputField({
   data: {
@@ -25,5 +25,5 @@ export default function InputField({
 
       {description && <p className={styles.description}>{description}</p>}
     </motion.div>
-  )
+  );
 }

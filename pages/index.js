@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 import { useTina } from 'tinacms/dist/react';
-import { client } from '@/tina/client'
-import Splash from '@/components/splash'
+import { client } from '@/tina/client';
+import Splash from '@/components/splash';
 
 export default function Home(props) {
   const { data: { pages: pageData } } = useTina({
@@ -21,7 +21,7 @@ export default function Home(props) {
     >
       <Splash data={pageData} />
     </motion.div>
-  )
+  );
 }
 
 export const getStaticProps = async () => {

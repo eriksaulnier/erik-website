@@ -1,7 +1,7 @@
-const path = require('path')
+const path = require('path');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
-})
+});
 
 module.exports = withBundleAnalyzer({
   swcMinify: true,
@@ -23,9 +23,8 @@ module.exports = withBundleAnalyzer({
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false
-    }
-
-    return config
+    };
+    return config;
   },
   rewrites: async function() {
     return [
@@ -33,9 +32,9 @@ module.exports = withBundleAnalyzer({
         source: '/admin',
         destination: '/admin/index.html',
       },
-    ]
+    ];
   },
   eslint: {
     dirs: ['pages', 'components', 'lib', 'styles', '.tina', '!.tina/__generated__'],
   },
-})
+});

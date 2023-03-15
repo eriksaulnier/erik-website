@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { motion } from 'framer-motion'
-import Icon from '@/components/icon'
-import styles from './header.module.scss'
+import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
+import Icon from '@/components/icon';
+import styles from './header.module.scss';
 
 export default function Header({ siteTitle, navigation, social }) {
-  const router = useRouter()
+  const router = useRouter();
 
-  const [open, setOpen] = useState(false)
-  const [currentPath, setCurrentPath] = useState(router.asPath)
+  const [open, setOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState(router.asPath);
   
-  const resetTimeout = useRef(null)
-  const routerPath = useRef(router.asPath)
-  routerPath.current = router.asPath
+  const resetTimeout = useRef(null);
+  const routerPath = useRef(router.asPath);
+  routerPath.current = router.asPath;
 
   // Listen for route change
   useEffect(() => {
@@ -21,38 +21,38 @@ export default function Header({ siteTitle, navigation, social }) {
     if (open) setOpen(false);
 
     // Cleanup reset timeout
-    return () => clearTimeout(resetTimeout.current)
+    return () => clearTimeout(resetTimeout.current);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.asPath])
+  }, [router.asPath]);
 
   // Prevent scrolling when the menu is open
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = 'hidden'
-      window.scrollTo(0, 0)
+      document.body.style.overflow = 'hidden';
+      window.scrollTo(0, 0);
     } else {
-      document.body.style.overflow = 'auto'
+      document.body.style.overflow = 'auto';
     }
-  }, [open])
+  }, [open]);
 
   function onMenuMouseEnter(path) {
-    setCurrentPath(path)
-    clearTimeout(resetTimeout.current)
-    resetTimeout.current = null
+    setCurrentPath(path);
+    clearTimeout(resetTimeout.current);
+    resetTimeout.current = null;
   }
 
   function onMenuMouseLeave() {
     if (resetTimeout.current !== null) {
-      clearTimeout(resetTimeout.current)
+      clearTimeout(resetTimeout.current);
     }
 
     resetTimeout.current = setTimeout(() => {
-      setCurrentPath(routerPath.current)
-      resetTimeout.current = null
-    }, 600)
+      setCurrentPath(routerPath.current);
+      resetTimeout.current = null;
+    }, 600);
   }
 
-  const activeMenuItem = navigation?.find(page => page.path === currentPath)
+  const activeMenuItem = navigation?.find(page => page.path === currentPath);
 
   const menuVariants = {
     open: {
@@ -73,7 +73,7 @@ export default function Header({ siteTitle, navigation, social }) {
         display: 'none'
       }
     }
-  }
+  };
 
   return (
     <nav className={styles.header}>
@@ -155,7 +155,7 @@ export default function Header({ siteTitle, navigation, social }) {
         </nav>
       </div>
     </nav>
-  )
+  );
 }
 
 const MenuHighlight = (condition)  => condition && (
@@ -168,7 +168,7 @@ const MenuHighlight = (condition)  => condition && (
       damping: 30
     }}
   />
-)
+);
 
 const Path = (props) => (
   <motion.path
@@ -178,4 +178,4 @@ const Path = (props) => (
     strokeLinecap="round"
     {...props}
   />
-)
+);

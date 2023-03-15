@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import styles from './../form-block.module.scss'
+import { motion } from 'framer-motion';
+import styles from './../form-block.module.scss';
 
 export default function TextareaField({
   data: {
@@ -25,5 +25,5 @@ export default function TextareaField({
       
       {description && <p className={styles.description}>{description}</p>}
     </motion.div>
-  )
+  );
 }

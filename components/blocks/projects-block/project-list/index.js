@@ -1,3 +1,3 @@
-import ProjectList from './project-list'
+import ProjectList from './project-list';
 
-export default ProjectList
+export default ProjectList;

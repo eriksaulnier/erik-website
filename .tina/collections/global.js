@@ -120,10 +120,10 @@ const global = {
               ui: {
                 validate: (value, data) => {
                   if (isNaN(value)) {
-                    return 'Year must be a number'
+                    return 'Year must be a number';
                   }
                   if (value.length !== 4) {
-                    return 'Year must be 4 digits'
+                    return 'Year must be 4 digits';
                   }
                   
                 }

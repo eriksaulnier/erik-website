@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion'
-import Icon from '@/components/icon'
-import styles from './tag-list.module.scss'
+import { motion } from 'framer-motion';
+import Icon from '@/components/icon';
+import styles from './tag-list.module.scss';
 
 export default function TagList({ tags, className, tagClassName }) {
   return (
@@ -31,5 +31,5 @@ export default function TagList({ tags, className, tagClassName }) {
         </motion.li>
       ))}
     </motion.ul>
-  )
+  );
 }

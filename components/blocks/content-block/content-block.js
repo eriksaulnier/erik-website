@@ -1,7 +1,7 @@
-import Link from 'next/link'
+import Link from 'next/link';
 import Image from 'next/image';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
-import styles from './content-block.module.scss'
+import styles from './content-block.module.scss';
 
 export default function ContentBlock({ data: { title, body, aside_image }}) {
   return (
@@ -44,7 +44,7 @@ export default function ContentBlock({ data: { title, body, aside_image }}) {
                       height: 'auto'
                     }}
                   />
-                )
+                );
               }
             }}
           />

@@ -1,14 +1,14 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 import { useTina } from 'tinacms/dist/react';
-import { client } from '@/tina/client'
-import { PostsBlock } from '@/components/blocks'
+import { client } from '@/tina/client';
+import { PostsBlock } from '@/components/blocks';
 
 export default function PostsPage(props) {
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
     data: props.data,
-  })
+  });
   const posts = data.postsConnection.edges;
 
   return (
@@ -36,7 +36,7 @@ export default function PostsPage(props) {
         <PostsBlock data={{ posts }} />
       </motion.div>
     </motion.div>
-  )
+  );
 }
 
 export const getStaticProps = async ({ preview = false }) => {

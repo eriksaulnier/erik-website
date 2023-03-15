@@ -1,5 +1,5 @@
-import { createMediaHandler } from 'next-tinacms-s3/dist/handlers'
-import { isAuthorized } from '@tinacms/auth'
+import { createMediaHandler } from 'next-tinacms-s3/dist/handlers';
+import { isAuthorized } from '@tinacms/auth';
 
 export default createMediaHandler({
   config: {
@@ -12,15 +12,15 @@ export default createMediaHandler({
   bucket: process.env.NEXT_PUBLIC_S3_BUCKET || '',
   authorized: async (req, _res) => {
     if (process.env.NODE_ENV === 'development') {
-      return true
+      return true;
     }
     try {
-      const user = await isAuthorized(req)
+      const user = await isAuthorized(req);
 
-      return user && user.verified
+      return user && user.verified;
     } catch (e) {
-      console.error(e)
-      return false
+      console.error(e);
+      return false;
     }
   },
-})
+});

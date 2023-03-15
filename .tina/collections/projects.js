@@ -16,14 +16,14 @@ const projects = {
         const name = values?.name?.toLowerCase().replace(/ /g, '-');
         const publish_date = new Date(values?.publish_date);
         const year = publish_date.getFullYear();
-        return `${year}/${name}`
+        return `${year}/${name}`;
       }
     },
     defaultItem: () => {
       return {
         draft: true,
         publish_date: new Date().toString(),
-      }
+      };
     },
   },
   fields: [

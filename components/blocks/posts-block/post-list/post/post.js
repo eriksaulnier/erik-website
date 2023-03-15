@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './post.module.scss'
+import styles from './post.module.scss';
 
 export default function Post({ data }) {
   const post = data.node || data;
@@ -10,5 +10,5 @@ export default function Post({ data }) {
         {post.title}
       </Link>
     </div>
-  )
+  );
 }

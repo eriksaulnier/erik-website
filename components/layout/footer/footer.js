@@ -1,5 +1,5 @@
 import { HiLightningBolt } from 'react-icons/hi';
-import styles from './footer.module.scss'
+import styles from './footer.module.scss';
 
 export default function Footer({ copyright }) {
   const date = new Date();
@@ -25,5 +25,5 @@ export default function Footer({ copyright }) {
         </p>
       </div>
     </footer>
-  )
+  );
 }

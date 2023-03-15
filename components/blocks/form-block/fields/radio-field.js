@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import styles from './../form-block.module.scss'
+import { motion } from 'framer-motion';
+import styles from './../form-block.module.scss';
 
 export default function RadioField({
   data: {
@@ -29,5 +29,5 @@ export default function RadioField({
 
       {description && <p className={styles.description}>{description}</p>}
     </motion.fieldset>
-  )
+  );
 }

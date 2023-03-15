@@ -1,3 +1,3 @@
-import ProjectsBlock from './projects-block'
+import ProjectsBlock from './projects-block';
 
-export default ProjectsBlock
+export default ProjectsBlock;

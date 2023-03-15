@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion'
-import styles from './technology-block.module.scss'
-import TagList from '@/components/tag-list'
+import { motion } from 'framer-motion';
+import styles from './technology-block.module.scss';
+import TagList from '@/components/tag-list';
 
 export default function TechnologyBlock({ data: { title, categories } }) {
   return (
@@ -22,5 +22,5 @@ export default function TechnologyBlock({ data: { title, categories } }) {
         </motion.div>
       ))}
     </motion.section>
-  )
+  );
 }

@@ -1,3 +1,3 @@
-import FormBlock from './form-block'
+import FormBlock from './form-block';
 
-export default FormBlock
+export default FormBlock;

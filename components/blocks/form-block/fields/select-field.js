@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import styles from './../form-block.module.scss'
+import { motion } from 'framer-motion';
+import styles from './../form-block.module.scss';
 
 export default function SelectField({
   data: {
@@ -28,5 +28,5 @@ export default function SelectField({
 
       {description && <p className={styles.description}>{description}</p>}
     </motion.div>
-  )
+  );
 }

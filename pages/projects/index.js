@@ -1,15 +1,15 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 import { useTina } from 'tinacms/dist/react';
-import { client } from '@/tina/client'
-import { transformImages } from '@/lib/images'
-import { ProjectsBlock } from '@/components/blocks'
+import { client } from '@/tina/client';
+import { transformImages } from '@/lib/images';
+import { ProjectsBlock } from '@/components/blocks';
 
 export default function ProjectsPage(props) {
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
     data: props.data,
-  })
+  });
   const projects = data.projectsConnection.edges;
 
   return (
@@ -37,7 +37,7 @@ export default function ProjectsPage(props) {
         <ProjectsBlock data={{ projects }} />
       </motion.div>
     </motion.div>
-  )
+  );
 }
 
 export const getStaticProps = async ({ preview = false }) => {

@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import styles from './project-list.module.scss'
+import { motion } from 'framer-motion';
+import styles from './project-list.module.scss';
 import Project from './project';
 
 export default function ProjectList({ projects, onClick }) {
@@ -14,5 +14,5 @@ export default function ProjectList({ projects, onClick }) {
         <Project key={index} data={project} onClick={onClick} />
       ))}
     </motion.div>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import Header from './header'
-import Footer from './footer'
-import styles from './layout.module.scss'
+import Head from 'next/head';
+import Header from './header';
+import Footer from './footer';
+import styles from './layout.module.scss';
 
 export default function Layout({ appConfig, pageTitle, preview, children }) {
   return (
@@ -56,5 +56,5 @@ export default function Layout({ appConfig, pageTitle, preview, children }) {
       </main>
       <Footer layout {...appConfig.footer} />
     </div>
-  )
+  );
 }

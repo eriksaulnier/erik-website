@@ -1,4 +1,4 @@
-import PostList from './post-list'
+import PostList from './post-list';
 
 export default function PostsBlock({ data: { title, posts } }) {
   return (
@@ -9,5 +9,5 @@ export default function PostsBlock({ data: { title, posts } }) {
         <PostList posts={posts} />
       )}
     </section>
-  )
+  );
 }

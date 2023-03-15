@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 import { useTina } from 'tinacms/dist/react';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
-import { client } from '@/tina/client'
+import { client } from '@/tina/client';
 import Link from 'next/link';
 
 export default function Post(props) {
@@ -9,16 +9,16 @@ export default function Post(props) {
     query: props.query,
     variables: props.variables,
     data: props.data,
-  })
+  });
 
   const contentAnimations = {
     initial: { y: 10, opacity: 0 },
     enter: { y: 0, opacity: 1 },
     exit: { y: 5, opacity: 0 },
-  }
+  };
 
-  const date = new Date(postData.publish_date)
-  const formattedDate = date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+  const date = new Date(postData.publish_date);
+  const formattedDate = date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
     <motion.div
@@ -55,7 +55,7 @@ export default function Post(props) {
         />
       </motion.div>}
     </motion.div>
-  )
+  );
 }
 
 export const getStaticProps = async ({ params, preview = false }) => {

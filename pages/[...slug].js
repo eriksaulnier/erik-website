@@ -1,23 +1,23 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 import { useTina } from 'tinacms/dist/react';
-import { client } from '@/tina/client'
-import { transformImages } from '@/lib/images'
+import { client } from '@/tina/client';
+import { transformImages } from '@/lib/images';
 import {
   ContentBlock,
   TechnologyBlock,
   FormBlock,
   ProjectsBlock,
   PostsBlock
-} from '@/components/blocks'
+} from '@/components/blocks';
 
 export default function Page(props) {
   const { data: { pages: pageData } } = useTina({
     query: props.query,
     variables: props.variables,
     data: props.data,
-  })
-  const slug = props.variables.relativePath.replace('.mdx', '')
-  const { heading, blocks } = pageData
+  });
+  const slug = props.variables.relativePath.replace('.mdx', '');
+  const { heading, blocks } = pageData;
   const typenamePrefix = 'PagesBlocksBlocks';
 
   return (
@@ -56,7 +56,7 @@ export default function Page(props) {
         </motion.div>
       ))}
     </motion.div>
-  )
+  );
 }
 
 export const getStaticProps = async ({ params, preview = false }) => {
@@ -66,7 +66,7 @@ export const getStaticProps = async ({ params, preview = false }) => {
 
   // Transform the images
   if (data?.pages?.blocks) {
-    data.pages.blocks = await transformImages(data.pages.blocks)
+    data.pages.blocks = await transformImages(data.pages.blocks);
   }
 
   return {

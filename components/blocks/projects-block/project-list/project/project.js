@@ -1,9 +1,9 @@
-import Link from 'next/link'
+import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion'
-import TagList from '@/components/tag-list'
-import Icon from '@/components/icon'
-import styles from './project.module.scss'
+import { motion } from 'framer-motion';
+import TagList from '@/components/tag-list';
+import Icon from '@/components/icon';
+import styles from './project.module.scss';
 
 export default function Project({ data }) {
   const project = data.node || data;

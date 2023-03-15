@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
-import { LayoutGroup, AnimatePresence } from 'framer-motion'
-import { Layout } from '@/components/layout'
-import '@/styles/globals.scss'
+import { useEffect } from 'react';
+import { LayoutGroup, AnimatePresence } from 'framer-motion';
+import { Layout } from '@/components/layout';
+import '@/styles/globals.scss';
 
 // TODO: Would be better if this was fetched using Tina rather than accessing
 // the file directly
-import appConfig from '../content/global/app.config.json'
+import appConfig from '../content/global/app.config.json';
 
 // TODO: Temporary fix to avoid flash of unstyled content during route
 // transitions. Keep an eye on this issue and remove this code when resolved:
@@ -81,5 +81,5 @@ export default function MyApp({ Component, pageProps, router }) {
       </Layout>
 
     </LayoutGroup>
-  )
+  );
 }
