@@ -40,17 +40,6 @@ export default function Layout({ appConfig, pageTitle, preview, children }) {
       <Header siteTitle={appConfig.title} {...appConfig.header} />
       <main className={styles.content}>
         <div className={styles.container}>
-          {preview && (
-            <div>
-              You are in preview-mode
-              <a
-                href={'/admin/index.html#/logout?slug=/api/preview/exit?slug=/'}
-              >
-                Click here
-              </a>{' '}
-              to exit
-            </div>
-          )}
           {children}
         </div>
       </main>
