@@ -1,3 +1,3 @@
-import TechnologyBlock from './technology-block'
+import TechnologyBlock from './technology-block';
 
-export default TechnologyBlock
+export default TechnologyBlock;

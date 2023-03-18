@@ -1,8 +1,25 @@
-import { motion } from 'framer-motion'
-import { getAllPagePaths, getPageBySlug } from '@/lib/api'
-import { ContentBlock, TechnologyBlock, FormBlock, ProjectsBlock, ArticlesBlock } from '@/components/blocks'
+import { motion } from 'framer-motion';
+import { useTina } from 'tinacms/dist/react';
+import { client } from '@/tina/client';
+import { transformImages } from '@/lib/images';
+import {
+  ContentBlock,
+  TechnologyBlock,
+  FormBlock,
+  ProjectsBlock,
+  PostsBlock
+} from '@/components/blocks';
 
-export default function Page({ slug, page_title, blocks }) {
+export default function Page(props) {
+  const { data: { pages: pageData } } = useTina({
+    query: props.query,
+    variables: props.variables,
+    data: props.data,
+  });
+  const slug = props.variables.relativePath.replace('.mdx', '');
+  const { heading, blocks } = pageData;
+  const typenamePrefix = 'PagesBlocksBlocks';
+
   return (
     <motion.div
       initial="initial" animate="enter" exit="exit"
@@ -15,7 +32,7 @@ export default function Page({ slug, page_title, blocks }) {
           exit: { opacity: 0 }
         }}
       >
-        {page_title}
+        {heading}
       </motion.h1>
 
       {blocks?.map((block, index) => (
@@ -29,30 +46,57 @@ export default function Page({ slug, page_title, blocks }) {
         >
           {
             {
-              'content-block': <ContentBlock data={block} />,
-              'technology-block': <TechnologyBlock data={block} />,
-              'form-block': <FormBlock data={block} />,
-              'projects-block': <ProjectsBlock data={block} />,
-              'articles-block': <ArticlesBlock data={block} />
-            }[block.template]
+              [`${typenamePrefix}Content`]: <ContentBlock data={block} />,
+              [`${typenamePrefix}Technology`]: <TechnologyBlock data={block} />,
+              [`${typenamePrefix}Form`]: <FormBlock data={block} />,
+              [`${typenamePrefix}Projects`]: <ProjectsBlock data={block} />,
+              [`${typenamePrefix}Posts`]: <PostsBlock data={block} />
+            }[block.__typename]
           }
         </motion.div>
       ))}
     </motion.div>
-  )
+  );
 }
 
-export function getStaticProps({ params: { slug } }) {
-  const data = getPageBySlug(slug.join('/'))
+export const getStaticProps = async ({ params, preview = false }) => {
+  const { data, query, variables } = await client.queries.pages({
+    relativePath: `${params.slug.join('/')}.mdx`
+  });
 
-  return { props: { ...data } }
-}
+  // Transform the images
+  if (data?.pages?.blocks) {
+    data.pages.blocks = await transformImages(data.pages.blocks);
+  }
 
-export function getStaticPaths() {
-  const paths = getAllPagePaths()
-  const formattedPaths = paths.map(path => {
-    return { params: { slug: path } }
-  })
+  return {
+    notFound: !!data?.pages?.draft && !preview,
+    props: {
+      preview,
+      data,
+      query,
+      variables
+    },
+  };
+};
+
+export const getStaticPaths = async () => {
+  const { data } = await client.queries.pagesConnection({
+    filter: {
+      blocks: {
+        draft: { eq: false }
+      }
+    }
+  });
   
-  return { paths: formattedPaths, fallback: false }
-}
+  const paths = data?.pagesConnection?.edges?.map(({ node }) => ({
+    params: {
+      slug: node._sys.breadcrumbs
+    }
+  }));
+
+  return {
+    paths,
+    fallback: 'blocking',
+  };
+};

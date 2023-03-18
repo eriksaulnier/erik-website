@@ -1,13 +1,14 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-import TagList from '@/components/tag-list'
-import Icon from '@/components/icon'
-import styles from './project.module.scss'
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import TagList from '@/components/tag-list';
+import Icon from '@/components/icon';
+import styles from './project.module.scss';
 
 export default function Project({ data }) {
-  const createdDate = new Date(data.created_date);
-  const dateFormat = { month: 'long', year: 'numeric' }
+  const project = data.node || data;
+  const publishDate = new Date(project.publish_date);
+  const thumbnail = project.thumbnail;
 
   return (
     <motion.div
@@ -22,38 +23,38 @@ export default function Project({ data }) {
         stiffness: 250
       }}
     >
+      <div className={styles.heading}>
+        <p className={styles.date}>{publishDate.getFullYear()}</p>
+        <motion.h4 className={styles.title}>{project.name}</motion.h4>
+      </div>
       <div className={styles.image}>
         <Image
-          alt={data.title}
-          src={data.thumbnail}
-          width="525"
-          height="350"
-          layout="responsive"
+          {...thumbnail}
+          alt={thumbnail.alt || project.name}
+          style={{
+            width: '100%',
+            height: 'auto'
+          }}
         />
       </div>
-
       <div className={styles.content}>
-        <p className={styles.date}>{createdDate.toLocaleDateString('en-US', dateFormat)}</p>
-        <motion.h4 className={styles.title}>{data.title}</motion.h4>
-        <p className={styles.description}>{data.description}</p>
+        <p className={styles.description}>{project.description}</p>
 
-        {data.stack && (
-          <TagList className={styles.stack} tagClassName={styles.tag} tags={data.stack} />
+        {project.technologies && (
+          <TagList className={styles.stack} tagClassName={styles.tag} tags={project.technologies} />
         )}
 
-        {data.links && (
+        {project.links && (
           <div className={styles.buttonList}>
-            {data.links?.map((item, index) => (
-              <Link href={item.link} key={index}>
-                <a className={[styles.button, 'btn'].join(' ')} target="blank">
-                  {item.title}
-                  {item.icon_name && <Icon name={item.icon_name} />}
-                </a>
+            {project.links?.map((item, index) => (
+              <Link href={item.href} key={index} className={[styles.button, 'btn'].join(' ')} target="blank">
+                {item.title}
+                {item.icon && <Icon name={item.icon} />}
               </Link>
             ))}
           </div>
         )} 
       </div>
     </motion.div>
-  )
+  );
 }

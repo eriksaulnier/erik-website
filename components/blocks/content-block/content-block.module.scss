@@ -1,7 +1,7 @@
 @import './variables';
 @import './mixins';
 
-.contentBlock {
+.contentBlock {  
   .asideImage {
     display: block;
     max-width: 80%;
@@ -9,6 +9,7 @@
     text-align: center;
 
     img {
+      display: block;
       border-radius: 0.5rem;
       overflow: hidden;
       background-color: $primary-darker;
@@ -23,7 +24,7 @@
 
   @include tablet-up {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
 
     .content {
       flex: 2;

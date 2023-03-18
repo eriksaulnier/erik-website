@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion'
-import Icon from '@/components/icon'
-import styles from './tag-list.module.scss'
+import { motion } from 'framer-motion';
+import Icon from '@/components/icon';
+import styles from './tag-list.module.scss';
 
 export default function TagList({ tags, className, tagClassName }) {
   return (
@@ -26,10 +26,10 @@ export default function TagList({ tags, className, tagClassName }) {
             stiffness: 300
           }}
         >
-          {tag.icon_name && <Icon name={tag.icon_name} />}
+          {tag.icon && <Icon name={tag.icon} />}
           {tag.label}
         </motion.li>
       ))}
     </motion.ul>
-  )
+  );
 }

@@ -4,6 +4,24 @@
 .project {
   text-align: center;
 
+  .heading {
+    margin: 1em 0 0;
+    text-align: left;
+    z-index: 1;
+
+    .title {
+      margin: 0 0 0.8rem 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $light-2;
+    }
+
+    .date {
+      margin: 0 0 0.1rem;
+      color: $primary-light;
+    }
+  }
+
   .image {
     font-size: 0;
     background-color: $primary-darker;
@@ -21,18 +39,6 @@
     text-align: left;
     z-index: 1;
 
-    .title {
-      margin: 0 0 0.8rem 0;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: $light-2;
-    }
-
-    .date {
-      margin: 0 0 0.1rem;
-      color: $primary-light;
-    }
-
     .description {
       margin: 0;
       padding: 0.8rem 1.1rem;
@@ -41,6 +47,7 @@
       background-color: $dark-3;
       overflow: hidden;
       box-shadow: $box-shadow-1;
+      white-space: pre-line;
     }
 
     .stack {
@@ -67,6 +74,7 @@
         svg {
           height: 100%;
           margin-left: 0.5rem;
+          vertical-align: middle;
         }
 
         &:last-child {
@@ -79,6 +87,13 @@
   @include tablet-up {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto 1fr;
+
+    .heading {
+      margin: 0;
+      text-align: left;
+      grid-area: 1 / 1 / 2 / 9;
+    }
 
     .image {
       margin: auto 0;
@@ -87,17 +102,22 @@
 
     .content {
       text-align: left;
-      grid-area: 1 / 1 / -1 / 9;
+      grid-area: 2 / 1 / -1 / 9;
     }
 
     &:nth-child(even) {
+      .heading {
+        text-align: right;
+        grid-area: 1 / 5 / 2 / -1;
+      }
+
       .image {
         grid-area: 1 / 1 / -1 / 7;
       }
 
       .content {
         text-align: right;
-        grid-area: 1 / 5 / -1 / -1;
+        grid-area: 2 / 5 / -1 / -1;
 
         .stack {
           justify-content: flex-end;

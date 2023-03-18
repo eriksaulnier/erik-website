@@ -1,9 +1,9 @@
-import Head from 'next/head'
-import Header from './header'
-import Footer from './footer'
-import styles from './layout.module.scss'
+import Head from 'next/head';
+import Header from './header';
+import Footer from './footer';
+import styles from './layout.module.scss';
 
-export default function Layout({ siteConfig, pageTitle, children }) {
+export default function Layout({ appConfig, pageTitle, preview, children }) {
   return (
     <div className={styles.layout}>
       <Head>
@@ -24,26 +24,26 @@ export default function Layout({ siteConfig, pageTitle, children }) {
         <meta name="msapplication-TileColor" content="#FFFFFF"/>
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
         <meta name="theme-color" content="#FFFFFF"/>
-        {siteConfig.description && <meta
+        {appConfig.description && <meta
           name="description"
-          content={siteConfig.description}
+          content={appConfig.description}
         />}
-        {siteConfig.thumbnail_image && <meta
+        {appConfig.thumbnail && <meta
           property="og:image"
-          content={siteConfig.thumbnail_image}
+          content={appConfig.thumbnail}
         />}
-        <meta name="og:title" content={siteConfig.title} />
+        <meta name="og:title" content={appConfig.title} />
         <meta name="twitter:card" content="summary_large_image" />
-        <title>{pageTitle ? `${pageTitle} | ${siteConfig.title}` : siteConfig.title}</title>
+        <title>{pageTitle ? `${pageTitle} | ${appConfig.title}` : appConfig.title}</title>
       </Head>
 
-      <Header siteTitle={siteConfig.title} {...siteConfig.header} />
+      <Header siteTitle={appConfig.title} {...appConfig.header} />
       <main className={styles.content}>
         <div className={styles.container}>
           {children}
         </div>
       </main>
-      <Footer layout siteTitle={siteConfig.title} {...siteConfig.footer} />
+      <Footer layout {...appConfig.footer} />
     </div>
-  )
+  );
 }

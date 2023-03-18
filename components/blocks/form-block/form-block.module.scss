@@ -22,6 +22,17 @@
         font-weight: bold;
       }
 
+      &.required {
+        > label {
+          &:after {
+            content: '*';
+            margin-left: 4px;
+            color: $red;
+            opacity: 0.8;
+          }
+        }
+      }
+
       .description {
         margin: 0.5rem 0 0;
         font-size: 0.9rem;

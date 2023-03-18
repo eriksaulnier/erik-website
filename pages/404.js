@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 export default function Custom404() {
   return (
@@ -17,5 +17,5 @@ export default function Custom404() {
         Page Not Found
       </motion.h1>
     </motion.div>
-  )
+  );
 }
