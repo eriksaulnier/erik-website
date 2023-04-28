@@ -35,6 +35,6 @@ module.exports = withBundleAnalyzer({
     ];
   },
   eslint: {
-    dirs: ['pages', 'components', 'lib', 'styles', '.tina', '!.tina/__generated__'],
+    dirs: ['pages', 'components', 'lib', 'styles', 'tina', '!tina/__generated__'],
   },
 });
