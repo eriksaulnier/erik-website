@@ -29,12 +29,23 @@ module.exports = withBundleAnalyzer({
   rewrites: async function() {
     return [
       {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap.xml',
+      },
+      {
+        source: '/robots.txt',
+        destination: '/api/robots.txt',
+      },
+      {
         source: '/admin',
         destination: '/admin/index.html',
-      },
+      }
     ];
   },
   eslint: {
     dirs: ['pages', 'components', 'lib', 'styles', 'tina', '!tina/__generated__'],
   },
+  // experimental: {
+  //   appDir: true
+  // }
 });
