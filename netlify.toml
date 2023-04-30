@@ -1,12 +1,12 @@
 [build]
   publish = ".next"
-  command = "npm run build"
+  command = "pnpm build"
 
 [[redirects]]
   from = "/uses"
   to = "/about/uses"
 
 [dev]
-  command = "yarn dev"
+  command = "pnpm dev"
   port = 3000
   publish = "dist"

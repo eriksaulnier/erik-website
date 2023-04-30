@@ -11,6 +11,10 @@ The latest iteration of my personal website, this time built with **Jamstack**!
 
 See the full list of dependencies [here](package.json).
 
+## Prerequisites
+- [Node.js](https://nodejs.org/en)
+- [pnpm](https://pnpm.io) package manager
+
 ## Installation 
 
 ```bash 
@@ -21,7 +25,7 @@ See the full list of dependencies [here](package.json).
   cd erik-website
   
   # install npm dependencies
-  yarn
+  pnpm install
 
   # duplicate environment file template
   cp .env.example .env
@@ -37,15 +41,15 @@ TINA_TOKEN=<get from app.tina.io>
 
 ```bash 
   # start the development server
-  yarn dev
+  pnpm dev
 ```
 
 ## Deployment
 
 ```bash
   # build the site to the .next folder
-  yarn build
+  pnpm build
 
   # start a nodejs server to host the site
-  yarn start
+  pnpm start
 ```
