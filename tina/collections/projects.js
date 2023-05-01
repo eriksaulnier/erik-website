@@ -11,13 +11,7 @@ const projects = {
     //   return `/projects/${document._sys.breadcrumbs.join('/')}`;
     // },
     filename: {
-      slugify: (values) => {
-        // TODO: Would be better if we stored the project in a 'drafts' folder until it's published
-        const name = values?.name?.toLowerCase().replace(/ /g, '-');
-        const publish_date = new Date(values?.publish_date);
-        const year = publish_date.getFullYear();
-        return `${year}/${name}`;
-      }
+      slugify: (values) => (values?.name?.toLowerCase().replace(/ /g, '-')),
     },
     defaultItem: () => {
       return {
