@@ -89,7 +89,7 @@ export default function Header({ siteTitle, navigation, social }) {
             {MenuHighlight(currentPath === '/' || !activeMenuItem)}
           </Link>
 
-          <motion.a
+          <motion.button
             id="menu-toggle"
             initial={false}
             animate={open ? 'open' : 'closed'}
@@ -116,7 +116,7 @@ export default function Header({ siteTitle, navigation, social }) {
                 }}
               />
             </svg>
-          </motion.a>
+          </motion.button>
           
           <motion.div 
             id="menu"

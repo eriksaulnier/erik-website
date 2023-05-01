@@ -35,7 +35,7 @@ export default function FormBlock({ data: { title, name, fields, submit_label, .
           })}
         </div>
 
-        <button type="submit" variants={fieldVariants}>{submit_label || 'Submit'}</button>
+        <button type="submit" class="btn" variants={fieldVariants}>{submit_label || 'Submit'}</button>
       </form>
     </motion.section>
   );
