@@ -13,7 +13,7 @@ module.exports = withBundleAnalyzer({
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: `${process.env.NEXT_PUBLIC_S3_BUCKET}.s3.${process.env.NEXT_PUBLIC_S3_REGION}.amazonaws.com`,
+        hostname: process.env.NEXT_PUBLIC_S3_HOSTNAME || `${process.env.NEXT_PUBLIC_S3_BUCKET}.s3.${process.env.NEXT_PUBLIC_S3_REGION}.amazonaws.com`,
         port: '',
         pathname: '/**',
       }
