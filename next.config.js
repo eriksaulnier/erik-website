@@ -45,7 +45,7 @@ module.exports = withBundleAnalyzer({
   eslint: {
     dirs: ['pages', 'components', 'lib', 'styles', 'tina', '!tina/__generated__'],
   },
-  // experimental: {
-  //   appDir: true
-  // }
+  experimental: {
+    appDir: true
+  }
 });
