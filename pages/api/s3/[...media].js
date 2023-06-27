@@ -24,5 +24,5 @@ export default createMediaHandler({
     }
   }
 }, process.env.NEXT_PUBLIC_S3_HOSTNAME ? {
-  cdnUrl: process.env.NEXT_PUBLIC_S3_HOSTNAME,
+  cdnUrl: `https://${process.env.NEXT_PUBLIC_S3_HOSTNAME}`,
 } : null);
