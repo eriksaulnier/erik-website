@@ -36,5 +36,8 @@ jobs:
       source: erik-website-review
       provider: anthropic
       debug: ${{ vars.REVIEW_DEBUG == 'true' }}
+      # The default 40 turns ran out on the 58-file migration PR, and a round that runs out publishes
+      # no verdict.
+      max_turns: 100
     secrets:
       claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
