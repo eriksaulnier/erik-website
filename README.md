@@ -35,9 +35,11 @@ The site needs no environment variables.
 ## Editing
 
 ```bash
-# start the local Keystatic editor at http://127.0.0.1:4321/keystatic
-mise run admin
+# start the site at http://localhost:3000 and the Keystatic editor at http://127.0.0.1:4321/keystatic
+mise run dev
 ```
+
+In dev, every page shows an **Edit in Keystatic** link that opens the matching entry in the editor. Keystatic has no on-page editing, so this link is the shortcut. It is not in production builds.
 
 The editor writes straight to `content/` and `public/images/`. Check the result with `mise run build`, then commit and push. A push to `main` deploys the site.
 
@@ -48,8 +50,9 @@ Upload images as JPEG or WebP at a sensible size. They are served as uploaded.
 ```bash
 mise tasks          # list every task
 mise run setup      # install dependencies and wire up lefthook
-mise run dev        # Next.js dev server
-mise run build      # static export to out/, plus out/sitemap.xml
+mise run dev        # Next.js dev server and the Keystatic editor together
+mise run dev:site   # Next.js dev server only
+mise run build      # biome ci, then static export to out/, plus out/sitemap.xml
 mise run preview    # serve out/ through wrangler, as Cloudflare does
 mise run admin      # local Keystatic editor
 mise run test       # content and image tests
@@ -57,7 +60,7 @@ mise run lint       # biome check
 mise run format     # biome check --write
 ```
 
-Each task calls the `package.json` script of the same name, which Cloudflare Workers Builds also uses (`pnpm build`).
+Each task calls the `package.json` script of the same name, which Cloudflare Workers Builds also uses (`pnpm build`). The build runs `biome ci` first, so a lint error fails the deploy even when a commit skipped the git hooks.
 
 [Biome](https://biomejs.dev) handles lint and formatting. [lefthook](https://lefthook.dev) runs `biome check` on staged files at pre-commit and `node --test` at pre-push.
 

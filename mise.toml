@@ -8,7 +8,11 @@ description = "Install dependencies and wire up git hooks"
 run = ["pnpm install --frozen-lockfile", "lefthook install"]
 
 [tasks.dev]
-description = "Start the Next.js dev server"
+description = "Start the Next.js dev server and the local Keystatic editor together"
+depends = ["dev:site", "admin"]
+
+[tasks."dev:site"]
+description = "Start only the Next.js dev server"
 run = "pnpm dev"
 
 [tasks.build]

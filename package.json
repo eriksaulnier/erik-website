@@ -5,9 +5,9 @@
   "packageManager": "pnpm@10.33.2",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/build-sitemap.mjs",
+    "build": "biome ci . && next build && node scripts/build-sitemap.mjs",
     "preview": "wrangler dev",
-    "admin": "astro dev --root admin",
+    "admin": "astro dev --root admin --ignore-lock",
     "analyze": "ANALYZE=true pnpm build",
     "lint": "biome check .",
     "format": "biome check --write .",
