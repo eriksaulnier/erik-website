@@ -2,6 +2,8 @@
 
 This section is erik-website's own. Everything above it holds for any repository.
 
+These rules describe the site after the Cloudflare migration in #7. Until #7 merges, `main` still runs the old Tina and Netlify stack, with `next start`, API routes and S3 images. A pull request against that older code MUST be judged on what its tree contains, and a rule below that names a file the tree does not have does not apply.
+
 ## What the site is
 
 A personal portfolio on Next.js 13.3 (Pages Router), built with `output: 'export'` and served as static files from Cloudflare Workers static assets. No Next server, middleware, API route, image optimizer or server action runs in production. A finding that depends on any of those at request time does not apply. Next, React and the animation libraries are pinned on purpose, and the Next upgrade is planned work. A finding that only says "upgrade Next" is noise.
