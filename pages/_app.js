@@ -1,9 +1,16 @@
 import { useEffect } from 'react';
 import { LayoutGroup, AnimatePresence } from 'framer-motion';
 import { Layout } from '@/components/layout';
+import dynamic from 'next/dynamic';
 import '@/styles/globals.scss';
 
 import appConfig from '../content/global.json';
+
+// The condition is a build-time constant, so production bundles drop the import entirely.
+const EditLink =
+  process.env.NODE_ENV === 'development'
+    ? dynamic(() => import('@/components/edit-link'))
+    : () => null;
 
 // TODO: Temporary fix to avoid flash of unstyled content during route
 // transitions. Keep an eye on this issue and remove this code when resolved:
@@ -74,6 +81,7 @@ export default function MyApp({ Component, pageProps, router }) {
           <Component layout {...pageProps} key={router.asPath} />
         </AnimatePresence>
       </Layout>
+      <EditLink />
     </LayoutGroup>
   );
 }
