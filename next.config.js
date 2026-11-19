@@ -16,7 +16,7 @@ module.exports = withBundleAnalyzer({
   webpack: (config, { isServer }) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,
-      fs: false
+      fs: false,
     };
     return config;
   },

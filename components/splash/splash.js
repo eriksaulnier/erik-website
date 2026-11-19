@@ -6,10 +6,12 @@ import particleConfig from './particlesjs-config';
 import styles from './splash.module.scss';
 import { useCallback } from 'react';
 
-export default function Splash({ data: { heading, subheading, typed_words, shuffle_words} }) {
+export default function Splash({
+  data: { heading, subheading, typed_words, shuffle_words },
+}) {
   const headingWords = heading.split(' ');
   const headingParts = headingWords
-    .map((e, i) => i < headingWords.length - 1 ? [e, '\xa0'] : [e])
+    .map((e, i) => (i < headingWords.length - 1 ? [e, '\xa0'] : [e]))
     .reduce((a, b) => a.concat(b));
   const subheadingDelay = 0.13 * heading.length;
 
@@ -26,7 +28,7 @@ export default function Splash({ data: { heading, subheading, typed_words, shuff
         <motion.h1
           className={styles.heading}
           variants={{
-            enter: { transition: { staggerChildren: 0.1 } }
+            enter: { transition: { staggerChildren: 0.1 } },
           }}
         >
           {headingParts.map((word, index) => (
@@ -42,9 +44,11 @@ export default function Splash({ data: { heading, subheading, typed_words, shuff
                   // whileHover="hover"
                   transition={{
                     type: 'spring',
-                    stiffness: 300
+                    stiffness: 300,
                   }}
-                >{char}</motion.span>
+                >
+                  {char}
+                </motion.span>
               ))}
             </span>
           ))}
@@ -59,14 +63,14 @@ export default function Splash({ data: { heading, subheading, typed_words, shuff
           transition={{
             delay: subheadingDelay,
             type: 'spring',
-            stiffness: 300
+            stiffness: 300,
           }}
         >
           {subheading.split('||')[0]}
           <Typed
             strings={typed_words}
             className={styles.typed}
-            startDelay={(subheadingDelay * 1000) - 1000}
+            startDelay={subheadingDelay * 1000 - 1000}
             backDelay={4000}
             typeSpeed={50}
             backSpeed={60}

@@ -15,11 +15,11 @@ export default function Project({ data }) {
       whileHover="hover"
       variants={{
         initial: { opacity: 0, y: 10 },
-        enter: { opacity: 1, y: 0 }
+        enter: { opacity: 1, y: 0 },
       }}
       transition={{
         type: 'spring',
-        stiffness: 250
+        stiffness: 250,
       }}
     >
       <div className={styles.heading}>
@@ -32,7 +32,7 @@ export default function Project({ data }) {
           alt={thumbnail.alt || project.name}
           style={{
             width: '100%',
-            height: 'auto'
+            height: 'auto',
           }}
         />
       </div>
@@ -40,19 +40,28 @@ export default function Project({ data }) {
         <p className={styles.description}>{project.description}</p>
 
         {project.technologies && (
-          <TagList className={styles.stack} tagClassName={styles.tag} tags={project.technologies} />
+          <TagList
+            className={styles.stack}
+            tagClassName={styles.tag}
+            tags={project.technologies}
+          />
         )}
 
         {project.links && (
           <div className={styles.buttonList}>
             {project.links?.map((item, index) => (
-              <Link href={item.href} key={index} className={[styles.button, 'btn'].join(' ')} target="blank">
+              <Link
+                href={item.href}
+                key={index}
+                className={[styles.button, 'btn'].join(' ')}
+                target="blank"
+              >
                 {item.title}
                 {item.icon && <Icon name={item.icon} />}
               </Link>
             ))}
           </div>
-        )} 
+        )}
       </div>
     </motion.div>
   );

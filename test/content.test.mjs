@@ -1,9 +1,19 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { getGlobal, getHome, getPage, listPageSlugs, listProjects } from '../lib/content.mjs';
+import {
+  getGlobal,
+  getHome,
+  getPage,
+  listPageSlugs,
+  listProjects,
+} from '../lib/content.mjs';
 
 test('listPageSlugs returns every published page, including nested slugs', async () => {
-  assert.deepEqual((await listPageSlugs()).sort(), ['about', 'about/uses', 'contact']);
+  assert.deepEqual((await listPageSlugs()).sort(), [
+    'about',
+    'about/uses',
+    'contact',
+  ]);
 });
 
 test('getPage returns null for a page that does not exist', async () => {
@@ -15,7 +25,9 @@ test('getPage turns Markdoc bodies into plain JSON trees', async () => {
   const body = page.blocks[0].value.body;
   assert.ok(Array.isArray(body));
   assert.deepEqual(JSON.parse(JSON.stringify(body)), body);
-  const image = body.flatMap((n) => [n, ...(n.children ?? [])]).find((n) => n?.name === 'Image');
+  const image = body
+    .flatMap((n) => [n, ...(n.children ?? [])])
+    .find((n) => n?.name === 'Image');
   assert.equal(image.attributes.src, '/images/pages/about/uses/desk-2023.png');
 });
 
@@ -31,5 +43,8 @@ test('listProjects with featuredOnly drops unfeatured projects and sorts newest 
 
 test('home and global singletons load', async () => {
   assert.ok((await getHome()).typed_words.length > 0);
-  assert.equal((await getGlobal()).thumbnail.src, '/images/site/thumbnail/src.png');
+  assert.equal(
+    (await getGlobal()).thumbnail.src,
+    '/images/site/thumbnail/src.png',
+  );
 });

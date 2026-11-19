@@ -7,9 +7,4 @@ const blockComponents = {
   technology: TechnologyBlock,
 };
 
-export {
-  ContentBlock,
-  TechnologyBlock,
-  ProjectsBlock,
-  blockComponents
-};
+export { ContentBlock, TechnologyBlock, ProjectsBlock, blockComponents };

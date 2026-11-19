@@ -9,11 +9,17 @@ const BASE_URL = 'https://eriksaulnier.com';
 const { thumbnail } = await getGlobal();
 if (thumbnail?.src) {
   await access(join(process.cwd(), 'public', thumbnail.src)).catch(() => {
-    throw new Error(`Image not found: ${thumbnail.src} in content/global.json at thumbnail`);
+    throw new Error(
+      `Image not found: ${thumbnail.src} in content/global.json at thumbnail`,
+    );
   });
 }
 
-const paths = ['/', ...(await listPageSlugs()).map((slug) => `/${slug}`), '/projects'];
+const paths = [
+  '/',
+  ...(await listPageSlugs()).map((slug) => `/${slug}`),
+  '/projects',
+];
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${paths.map((path) => `  <url>\n    <loc>${BASE_URL}${path === '/' ? '/' : path}</loc>\n  </url>`).join('\n')}

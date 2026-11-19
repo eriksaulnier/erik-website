@@ -11,7 +11,7 @@ import appConfig from '../content/global.json';
 export const useNextCssRemovalPrevention = () => {
   useEffect(() => {
     // Next.js removes server-rendered stylesheets whose link node carries data-n-p.
-    document.querySelectorAll('head > link[data-n-p]').forEach(linkNode => {
+    document.querySelectorAll('head > link[data-n-p]').forEach((linkNode) => {
       linkNode.removeAttribute('data-n-p');
     });
 
@@ -19,7 +19,7 @@ export const useNextCssRemovalPrevention = () => {
       mutations.forEach(({ target, addedNodes }) => {
         if (target.nodeName === 'HEAD') {
           // Next.js removes or disables dynamic stylesheets that keep data-n-href or media.
-          addedNodes.forEach(node => {
+          addedNodes.forEach((node) => {
             const el = node;
             if (el.nodeName === 'STYLE' && el.hasAttribute('data-n-href')) {
               const href = el.getAttribute('data-n-href');
@@ -33,7 +33,9 @@ export const useNextCssRemovalPrevention = () => {
 
           // Remove all stylesheets that we don't need anymore
           // (all except the two that were most recently added).
-          const styleNodes = document.querySelectorAll('head > style[data-n-href-perm]');
+          const styleNodes = document.querySelectorAll(
+            'head > style[data-n-href-perm]',
+          );
           const requiredHrefs = new Set();
           for (let i = styleNodes.length - 1; i >= 0; i--) {
             const el = styleNodes[i];
@@ -72,7 +74,6 @@ export default function MyApp({ Component, pageProps, router }) {
           <Component layout {...pageProps} key={router.asPath} />
         </AnimatePresence>
       </Layout>
-
     </LayoutGroup>
   );
 }
