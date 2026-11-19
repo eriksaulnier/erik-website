@@ -1,0 +1,40 @@
+name: review
+
+# The plumbing lives in secondshift-labs/ai-review-workflows, shared with the other repositories
+# reviewed this way. What stays here is what only this repository can answer: when a round is asked
+# for, whether rounds are turned on at all, and which model reviews. The per-round guidance is in
+# .github/review-instructions.md, read from the default branch and never from the pull request.
+#
+# A pull request opened ready gets one round unasked. One opened as a draft gets it when it is
+# marked ready. Every round after that is asked for by putting the ai-review label back on.
+on:
+  workflow_dispatch:
+    inputs:
+      pull_request:
+        description: Pull request number to review
+        required: true
+        type: number
+  pull_request:
+    types: [opened, ready_for_review, labeled]
+
+jobs:
+  review:
+    # Kill switch: flip the REVIEW_ENABLED repository variable to "true" to let a round run at all.
+    if: vars.REVIEW_ENABLED == 'true'
+    # A called workflow's job permissions are capped by this job's, so the four the called jobs ask
+    # for are granted here or the publishing job gets a read-only token and fails at the send.
+    permissions:
+      contents: read
+      pull-requests: write
+      checks: read
+      actions: read
+    uses: secondshift-labs/ai-review-workflows/.github/workflows/review.yml@7555c6d3a60770f51675129936ccff7e8677a83c # v3.0.0
+    with:
+      pull_request: ${{ inputs.pull_request || github.event.pull_request.number }}
+      model: ${{ vars.REVIEW_MODEL }}
+      # Fixed for good: a later round finds the previous one by this name.
+      source: erik-website-review
+      provider: anthropic
+      debug: ${{ vars.REVIEW_DEBUG == 'true' }}
+    secrets:
+      claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
