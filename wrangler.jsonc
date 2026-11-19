@@ -2,6 +2,8 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "erik-website",
   "compatibility_date": "2026-11-18",
+  // Branch builds run `wrangler preview`, which requires this block.
+  "previews": {},
   "assets": {
     "directory": "./out",
     "not_found_handling": "404-page",
