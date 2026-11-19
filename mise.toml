@@ -9,11 +9,11 @@ run = ["pnpm install --frozen-lockfile", "lefthook install"]
 
 [tasks.dev]
 description = "Start the Next.js dev server and the local Keystatic editor together"
-depends = ["dev:site", "admin"]
+run = "pnpm dev"
 
 [tasks."dev:site"]
 description = "Start only the Next.js dev server"
-run = "pnpm dev"
+run = "pnpm dev:site"
 
 [tasks.build]
 description = "Static export to out/, plus out/sitemap.xml"

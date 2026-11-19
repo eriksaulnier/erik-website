@@ -60,7 +60,7 @@ mise run lint       # biome check
 mise run format     # biome check --write
 ```
 
-Each task calls the `package.json` script of the same name, which Cloudflare Workers Builds also uses (`pnpm build`). The build runs `biome ci` first, so a lint error fails the deploy even when a commit skipped the git hooks.
+`pnpm dev` does the same as `mise run dev`: it runs every `dev:*` script in parallel. Each task calls the `package.json` script of the same name, which Cloudflare Workers Builds also uses (`pnpm build`). The build runs `biome ci` first, so a lint error fails the deploy even when a commit skipped the git hooks.
 
 [Biome](https://biomejs.dev) handles lint and formatting. [lefthook](https://lefthook.dev) runs `biome check` on staged files at pre-commit and `node --test` at pre-push.
 
