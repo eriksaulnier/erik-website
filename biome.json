@@ -2,7 +2,14 @@
   "$schema": "https://biomejs.dev/schemas/2.6.8/schema.json",
   "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
   "files": {
-    "includes": ["**", "!content", "!public", "!pnpm-lock.yaml", "!**/*.scss"]
+    "includes": [
+      "**",
+      "!content",
+      "!public",
+      "!pnpm-lock.yaml",
+      "!**/*.scss",
+      "!**/*.md"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -16,6 +23,7 @@
       "semicolons": "always"
     }
   },
+  "assist": { "actions": { "source": { "organizeImports": "off" } } },
   "linter": {
     "enabled": true,
     "rules": {
