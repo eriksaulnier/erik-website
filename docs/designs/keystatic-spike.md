@@ -14,13 +14,16 @@ Schema tested: a `pages` collection with path `content/pages/**`, YAML data, and
    - Astro 7 needs Node 22.23.4 or later. Node 22.22.2 is refused.
    - In an agent shell, Astro 7 moves `dev` to a detached process by default. `--ignore-lock` keeps it in the foreground. This does not affect a person running it in a terminal.
 
-2. **Images must sit at Keystatic's own path, or the admin deletes the reference.**
-   - The admin writes `<directory>/<entry slug>/<field path>/src.<ext>` and stores that public path in the YAML.
+2. **An image must sit inside its own entry's folder, or the admin deletes the reference.**
+   - The admin writes `<directory>/<entry slug>/<field path>/src.<ext>` and stores that public path in the YAML. A singleton has no slug: `<directory>/<field path>/src.<ext>`.
    - Project thumbnail: `/images/projects/pass-the-aux/thumbnail/src.png`.
    - Image inside a block: `/images/pages/about/blocks/0/value/aside_image/src.png`. The path includes the block index.
-   - A hand-converted entry with `src: /images/projects/storywings.png` showed no image in the admin. **Saving the entry removed `src` from the YAML.**
-   - The same file moved to the native path displayed (800 px) and survived an edit and save.
-   - The conversion MUST write each image to its native path.
+   - `global` singleton thumbnail: `/images/site/thumbnail/src.png`.
+   - A hand-converted entry with `src: /images/projects/storywings.png`, outside the entry's folder, showed no image in the admin. **Saving the entry removed `src` from the YAML.**
+   - Any file name inside the entry's folder is recognized. `/images/projects/storywings/storywings.png` displayed (800 px). For a field image, the next save moves the file to the `<field path>/src.<ext>` name and rewrites `src` to match. The `about` aside image at `/images/pages/about/erik-saulnier.png` became `/images/pages/about/blocks/0/value/aside_image/src.png` on save.
+   - An image inside an `{% image %}` Markdoc tag keeps its file name. A test file at `/images/pages/about/uses/desk.png` displayed in the tag's editor, and a save of `about/uses` left both the file and the `src` unchanged.
+   - A nested entry's folder survives a save of its parent. Saving `about` with `about/uses` present left `content/pages/about/uses.yaml` and the same test file in place. The converted content uses `desk-2023.png` at that folder, under the same rule.
+   - The conversion MUST write each image inside its entry's folder.
    - Not tested: whether reordering blocks moves the indexed image files.
 
 3. **The block YAML shape is `{discriminant, value}`.** Hand-written blocks in that shape load in the admin.

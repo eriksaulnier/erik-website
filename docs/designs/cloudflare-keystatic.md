@@ -51,7 +51,7 @@ An earlier attempt rewrote the site in Astro with a new design (branch `astro-re
 
 ## Open Questions
 
-*   **Image paths for a singleton and a Markdoc tag (verify).** The spike confirmed Keystatic's image path for a collection field and for an image inside a block. It did not test the `global` singleton thumbnail or an image inside a Markdoc tag. Implementation confirms both by one upload in the local admin before the conversion runs. See item 4.
+*   **Image paths for a singleton and a Markdoc tag.** Settled during implementation. The `global` thumbnail is at `/images/site/thumbnail/src.png`. An image inside a Markdoc tag keeps any file name inside its entry's folder. A save of a parent entry leaves a nested entry's files alone. See [keystatic-spike.md](keystatic-spike.md), result 2.
 *   **Block reorder and indexed image paths (verify).** An image inside a block is stored under the block's index (`blocks/0/...`). The spike did not test whether reordering blocks in the admin moves those files. If it does not, a reorder leaves a broken path, and the build check catches it.
 
 ## Critical User Journeys (CUJs)
@@ -126,10 +126,11 @@ A one-time Node script reads each Tina file, maps it field by field to the Keyst
 *   Convert folded (`>`) YAML strings to literal (`|`) blocks, so that Markdown paragraphs and nested lists keep their line breaks. Keep the Markdown escapes (`mailto\:`, `WD\_BLACK`).
 *   Rewrite the one `<image .../>` embed in `about/uses` as an `{% image %}` tag.
 *   Normalize `publish_date` to `YYYY-MM-DD`.
-*   **Images.** Download each S3 image once. Write it to the path Keystatic's admin would write, then store that public path as `src`. Drop `width`, `height` and `blurhash`, because the build computes them. The spike found that the admin does not show an image at any other path, and that saving such an entry deletes its `src`. The native paths are:
+*   **Images.** Download each S3 image once. Write it to the path Keystatic's admin would write, then store that public path as `src`. Drop `width`, `height` and `blurhash`, because the build computes them. The spike found that the admin does not show an image outside its entry's folder, and that saving such an entry deletes its `src`. Field images go to the native paths, so the first editor save changes nothing. The paths are:
     *   A collection field: `public/images/<area>/<slug>/<field path>/src.<ext>`, for example `/images/projects/pass-the-aux/thumbnail/src.png`.
     *   An image inside a block: `/images/pages/about/blocks/0/value/aside_image/src.png`.
-    *   The singleton and Markdoc tag paths are confirmed during implementation. See Open Questions.
+    *   The `global` singleton: `/images/site/thumbnail/src.png`.
+    *   An image inside a Markdoc tag: any file name inside the entry's folder, for example `/images/pages/about/uses/desk-2023.png`. The editor keeps that name on save.
 *   Check counts at the end: 1 home, 1 global, 3 pages (`about`, `about/uses`, `contact`), 8 projects and 11 images. Exit non-zero on any mismatch, on any field the script cannot map, or on any image download failure.
 
 ### Images
