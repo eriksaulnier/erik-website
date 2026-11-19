@@ -1,0 +1,10 @@
+pre-commit:
+  jobs:
+    - name: biome
+      glob: "*.{js,mjs,cjs,jsx,json,jsonc}"
+      run: pnpm exec biome check --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+
+pre-push:
+  jobs:
+    - name: test
+      run: pnpm test

@@ -20,7 +20,4 @@ module.exports = withBundleAnalyzer({
     };
     return config;
   },
-  eslint: {
-    dirs: ['pages', 'components', 'lib', 'styles'],
-  },
 });

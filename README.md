@@ -20,8 +20,8 @@ See the full list of dependencies [here](package.json).
 ```bash
 git clone git@github.com:eriksaulnier/erik-website.git
 cd erik-website
-mise install
-pnpm install
+mise trust && mise install
+mise run setup   # installs dependencies and wires up the lefthook git hooks
 ```
 
 The site needs no environment variables.
@@ -36,21 +36,30 @@ The site needs no environment variables.
 
 ```bash
 # start the local Keystatic editor at http://127.0.0.1:4321/keystatic
-pnpm admin
+mise run admin
 ```
 
-The editor writes straight to `content/` and `public/images/`. Check the result with `pnpm build`, then commit and push. A push to `main` deploys the site.
+The editor writes straight to `content/` and `public/images/`. Check the result with `mise run build`, then commit and push. A push to `main` deploys the site.
 
 Upload images as JPEG or WebP at a sensible size. They are served as uploaded.
 
-## Run Locally
+## Tasks
 
 ```bash
-pnpm dev       # Next.js dev server
-pnpm build     # static export to out/, plus out/sitemap.xml
-pnpm preview   # serve out/ through wrangler, as Cloudflare does
-pnpm test      # content and image tests
+mise tasks          # list every task
+mise run setup      # install dependencies and wire up lefthook
+mise run dev        # Next.js dev server
+mise run build      # static export to out/, plus out/sitemap.xml
+mise run preview    # serve out/ through wrangler, as Cloudflare does
+mise run admin      # local Keystatic editor
+mise run test       # content and image tests
+mise run lint       # biome check
+mise run format     # biome check --write
 ```
+
+Each task calls the `package.json` script of the same name, which Cloudflare Workers Builds also uses (`pnpm build`).
+
+[Biome](https://biomejs.dev) handles lint and formatting. [lefthook](https://lefthook.dev) runs `biome check` on staged files at pre-commit and `node --test` at pre-push.
 
 ## Deployment
 
