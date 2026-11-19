@@ -1,0 +1,22 @@
+name: Portfolio Site
+draft: false
+featured: true
+publish_date: 2021-03-02
+description: The latest iteration of my portfolio website, this time using JAMStack! Designed and developed the site mostly from scratch. Since the initial launch, I've updated the website to use TinaCMS instead of Forestry.
+technologies:
+  - label: Next.js
+    icon: SiNextdotjs
+  - label: Framer Motion
+    icon: SiFramer
+  - label: Sass
+    icon: SiSass
+  - label: Forestry
+    icon: GiForest
+  - label: Netlify
+    icon: SiNetlify
+links:
+  - title: GitHub Repository
+    href: https://github.com/eriksaulnier/erik-website
+    icon: BiLinkExternal
+thumbnail:
+  src: /images/projects/portfolio-site/thumbnail/src.png

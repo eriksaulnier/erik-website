@@ -1,0 +1,27 @@
+name: Pass the Aux
+draft: false
+featured: true
+publish_date: 2019-04-01
+description: Created as part of a course at RPI, Pass the Aux is an application that allows guests at a party to select and vote on the music that they want to hear. I served as the lead developer and designer for the project.
+technologies:
+  - label: React
+    icon: SiReact
+  - label: Redux
+    icon: SiRedux
+  - label: Express.js
+  - label: Socket.IO
+    icon: SiSocketdotio
+  - label: MongoDB
+    icon: SiMongodb
+  - label: Spotify Web API
+    icon: SiSpotify
+  - label: Sass
+    icon: SiSass
+  - label: Heroku
+    icon: SiHeroku
+links:
+  - title: GitHub Repository
+    href: https://github.com/eriksaulnier/Pass-the-Aux
+    icon: BiLinkExternal
+thumbnail:
+  src: /images/projects/pass-the-aux/thumbnail/src.png

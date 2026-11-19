@@ -1,0 +1,46 @@
+{
+  "title": "Erik Saulnier",
+  "description": "Erik Saulnier is a full-stack developer based in Troy, NY, with over 8 years of experience in software applications, mobile apps, websites, and video games",
+  "thumbnail": {
+    "src": "/images/site/thumbnail/src.png"
+  },
+  "header": {
+    "navigation": [
+      {
+        "title": "About",
+        "path": "/about"
+      },
+      {
+        "title": "Projects",
+        "path": "/projects"
+      },
+      {
+        "title": "Contact",
+        "path": "/contact"
+      }
+    ],
+    "social": [
+      {
+        "title": "LinkedIn",
+        "icon": "SiLinkedin",
+        "link": "https://linkedin.com/in/eriksaulnier"
+      },
+      {
+        "title": "GitHub",
+        "icon": "SiGithub",
+        "link": "https://github.com/eriksaulnier"
+      },
+      {
+        "title": "Behance",
+        "icon": "SiBehance",
+        "link": "https://behance.net/eriksaulnier"
+      }
+    ]
+  },
+  "footer": {
+    "copyright": {
+      "year": "2015",
+      "text": "Erik Saulnier"
+    }
+  }
+}

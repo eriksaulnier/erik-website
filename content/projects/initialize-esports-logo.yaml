@@ -1,0 +1,14 @@
+name: Initialize eSports Logo
+draft: false
+featured: true
+publish_date: 2015-01-01
+description: "Designed a logo and other graphics for a Counter Strike: Global Offensive team."
+technologies:
+  - label: Adobe Illustrator
+    icon: SiAdobeillustrator
+links:
+  - title: Behance Post
+    href: https://www.behance.net/gallery/33834060/Initialize-eSports
+    icon: BiLinkExternal
+thumbnail:
+  src: /images/projects/initialize-esports-logo/thumbnail/src.png

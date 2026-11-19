@@ -1,0 +1,19 @@
+name: StoryWings
+draft: false
+featured: true
+publish_date: 2018-05-01
+description: Designed and developed the beta version of StoryWings, a streamlined online platform that allows users to record and share stories with family and friends through generations.
+technologies:
+  - label: Laravel
+    icon: SiLaravel
+  - label: Vue.js
+    icon: SiVuedotjs
+  - label: Bootstrap
+    icon: SiBootstrap
+  - label: Sass
+    icon: SiSass
+  - label: AWS
+    icon: SiAmazonaws
+links: []
+thumbnail:
+  src: /images/projects/storywings/thumbnail/src.png
