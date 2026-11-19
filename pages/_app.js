@@ -3,17 +3,14 @@ import { LayoutGroup, AnimatePresence } from 'framer-motion';
 import { Layout } from '@/components/layout';
 import '@/styles/globals.scss';
 
-// TODO: Would be better if this was fetched using Tina rather than accessing
-// the file directly
-import appConfig from '../content/global/app.config.json';
+import appConfig from '../content/global.json';
 
 // TODO: Temporary fix to avoid flash of unstyled content during route
 // transitions. Keep an eye on this issue and remove this code when resolved:
 // https://github.com/vercel/next.js/issues/17464
 export const useNextCssRemovalPrevention = () => {
   useEffect(() => {
-    // Remove data-n-p attribute from all link nodes.
-    // This prevents Next.js from removing server rendered stylesheets.
+    // Next.js removes server-rendered stylesheets whose link node carries data-n-p.
     document.querySelectorAll('head > link[data-n-p]').forEach(linkNode => {
       linkNode.removeAttribute('data-n-p');
     });
@@ -21,9 +18,7 @@ export const useNextCssRemovalPrevention = () => {
     const mutationHandler = (mutations) => {
       mutations.forEach(({ target, addedNodes }) => {
         if (target.nodeName === 'HEAD') {
-          // Add data-n-href-perm attribute to all style nodes with attribute data-n-href,
-          // and remove data-n-href and media attributes from those nodes.
-          // This prevents Next.js from removing or disabling dynamic stylesheets.
+          // Next.js removes or disables dynamic stylesheets that keep data-n-href or media.
           addedNodes.forEach(node => {
             const el = node;
             if (el.nodeName === 'STYLE' && el.hasAttribute('data-n-href')) {
@@ -59,12 +54,10 @@ export const useNextCssRemovalPrevention = () => {
       });
     };
 
-    // Observe changes to the head element and its descendents.
     const observer = new MutationObserver(mutationHandler);
     observer.observe(document.head, { childList: true, subtree: true });
 
     return () => {
-      // Disconnect the observer when the component unmounts.
       observer.disconnect();
     };
   }, []);
@@ -74,7 +67,7 @@ export default function MyApp({ Component, pageProps, router }) {
   useNextCssRemovalPrevention();
   return (
     <LayoutGroup>
-      <Layout appConfig={appConfig} pageTitle={pageProps?.tab_title || null} preview={pageProps.preview}>
+      <Layout appConfig={appConfig} pageTitle={pageProps?.tab_title || null}>
         <AnimatePresence mode="wait">
           <Component layout {...pageProps} key={router.asPath} />
         </AnimatePresence>

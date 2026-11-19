@@ -8,16 +8,10 @@ module.exports = withBundleAnalyzer({
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  output: 'export',
+  trailingSlash: false,
   images: {
-    formats: ['image/avif', 'image/webp'],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: process.env.NEXT_PUBLIC_S3_HOSTNAME || `${process.env.NEXT_PUBLIC_S3_BUCKET}.s3.${process.env.NEXT_PUBLIC_S3_REGION}.amazonaws.com`,
-        port: '',
-        pathname: '/**',
-      }
-    ]
+    unoptimized: true,
   },
   webpack: (config, { isServer }) => {
     config.resolve.fallback = {
@@ -26,26 +20,7 @@ module.exports = withBundleAnalyzer({
     };
     return config;
   },
-  rewrites: async function() {
-    return [
-      {
-        source: '/sitemap.xml',
-        destination: '/api/sitemap.xml',
-      },
-      {
-        source: '/robots.txt',
-        destination: '/api/robots.txt',
-      },
-      {
-        source: '/admin',
-        destination: '/admin/index.html',
-      }
-    ];
-  },
   eslint: {
-    dirs: ['pages', 'components', 'lib', 'styles', 'tina', '!tina/__generated__'],
+    dirs: ['pages', 'components', 'lib', 'styles'],
   },
-  // experimental: {
-  //   appDir: true
-  // }
 });

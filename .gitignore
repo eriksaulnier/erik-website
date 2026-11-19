@@ -31,12 +31,12 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# Local Netlify folder
-.netlify
-
-# Netlify functions
-functions
-
 build/
 dist/
 node_modules/
+
+# cloudflare
+/.wrangler/
+
+# local keystatic admin
+/admin/.astro/

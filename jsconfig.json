@@ -10,9 +10,6 @@
       ],
       "@/styles/*": [
         "styles/*"
-      ],
-      "@/tina/*": [
-        "tina/__generated__/*"
       ]
     }
   }

@@ -3,7 +3,7 @@ import Header from './header';
 import Footer from './footer';
 import styles from './layout.module.scss';
 
-export default function Layout({ appConfig, pageTitle, preview, children }) {
+export default function Layout({ appConfig, pageTitle, children }) {
   return (
     <div className={styles.layout}>
       <Head>
@@ -28,9 +28,9 @@ export default function Layout({ appConfig, pageTitle, preview, children }) {
           name="description"
           content={appConfig.description}
         />}
-        {appConfig.thumbnail && <meta
+        {appConfig.thumbnail?.src && <meta
           property="og:image"
-          content={appConfig.thumbnail}
+          content={`https://eriksaulnier.com${appConfig.thumbnail.src}`}
         />}
         <meta name="og:title" content={appConfig.title} />
         <meta name="twitter:card" content="summary_large_image" />

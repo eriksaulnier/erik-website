@@ -6,8 +6,7 @@ import Icon from '@/components/icon';
 import styles from './project.module.scss';
 
 export default function Project({ data }) {
-  const project = data.node || data;
-  const publishDate = new Date(project.publish_date);
+  const project = data;
   const thumbnail = project.thumbnail;
 
   return (
@@ -24,7 +23,7 @@ export default function Project({ data }) {
       }}
     >
       <div className={styles.heading}>
-        <p className={styles.date}>{publishDate.getFullYear()}</p>
+        <p className={styles.date}>{project.publish_date.slice(0, 4)}</p>
         <motion.h4 className={styles.title}>{project.name}</motion.h4>
       </div>
       <div className={styles.image}>

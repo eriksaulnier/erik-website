@@ -14,14 +14,6 @@ export default function Footer({ copyright }) {
           <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer">
             Next.js
           </a>
-          {', '}
-          <a href="https://tina.io" target="_blank" rel="noopener noreferrer">
-            TinaCMS
-          </a>
-          {', and '}
-          <a href="https://netlify.com" target="_blank" rel="noopener noreferrer">
-            Netlify
-          </a>
         </p>
       </div>
     </footer>

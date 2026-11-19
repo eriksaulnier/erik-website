@@ -5,7 +5,6 @@ module.exports = {
     indent: ['error', 2],
     semi: ['error', 'always'],
   },
-  ignorePatterns: ['tina/__generated__'],
   overrides: [
     {
       files: ['*.js'],
