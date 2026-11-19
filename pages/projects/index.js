@@ -35,7 +35,9 @@ export default function ProjectsPage({ projects }) {
 export const getStaticProps = async () => {
   return {
     props: {
-      projects: await resolveImages(await listProjects({ featuredOnly: true }), 'projects'),
+      projects: await Promise.all(
+        (await listProjects({ featuredOnly: true })).map((project) => resolveImages(project, `projects/${project.slug}`)),
+      ),
     },
   };
 };
