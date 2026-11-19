@@ -148,7 +148,7 @@ export default config({
         name: fields.slug({ name: { label: 'Name' } }),
         draft: fields.checkbox({ label: 'Draft' }),
         featured: fields.checkbox({ label: 'Featured' }),
-        publish_date: fields.date({ label: 'Publish date' }),
+        publish_date: fields.date({ label: 'Publish date', validation: { isRequired: true } }),
         description: fields.text({ label: 'Description', multiline: true }),
         technologies,
         links: fields.array(
