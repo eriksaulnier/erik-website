@@ -90,8 +90,8 @@ export default config({
               validation: {
                 isRequired: true,
                 pattern: {
-                  regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: 'Must be an email address',
+                  regex: /^[\w.+-]+@[\w-]+(\.[\w-]+)+$/,
+                  message: 'Must be an ASCII email address',
                 },
               },
             }),

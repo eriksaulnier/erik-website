@@ -72,6 +72,8 @@ export const useNextCssRemovalPrevention = () => {
 
 export default function MyApp({ Component, pageProps, router }) {
   useNextCssRemovalPrevention();
+  // The client-side error fallback renders without getStaticProps, so it has no site config.
+  if (!pageProps.site) return <Component {...pageProps} />;
   return (
     <LayoutGroup>
       <Layout
