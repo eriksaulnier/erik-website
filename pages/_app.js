@@ -75,6 +75,7 @@ export default function MyApp({ Component, pageProps, router }) {
   // The client-side error fallback renders without getStaticProps, so it has no site config.
   // scripts/build-sitemap.mjs fails the build if an exported page lost its layout this way.
   if (!pageProps.site) return <Component {...pageProps} />;
+  // Reduced motion skips transform and layout animations (page slides, the nav highlight) by design.
   return (
     <MotionConfig reducedMotion="user">
       <LayoutGroup>
