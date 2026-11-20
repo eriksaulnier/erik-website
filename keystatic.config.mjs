@@ -165,6 +165,50 @@ export default config({
                 ),
               }),
             },
+            experience: {
+              label: 'Experience',
+              itemLabel: (props) => props.fields.title.value || 'Experience',
+              schema: fields.object({
+                title: fields.text({ label: 'Title' }),
+                companies: fields.array(
+                  fields.object({
+                    name: fields.text({
+                      label: 'Name',
+                      validation: { isRequired: true },
+                    }),
+                    url: fields.url({ label: 'URL' }),
+                    roles: fields.array(
+                      fields.object({
+                        title: fields.text({
+                          label: 'Title',
+                          validation: { isRequired: true },
+                        }),
+                        start: fields.integer({
+                          label: 'Start year',
+                          validation: { isRequired: true },
+                        }),
+                        end: fields.integer({
+                          label: 'End year',
+                          description: 'Leave empty for a current role',
+                        }),
+                        note: fields.text({
+                          label: 'Note',
+                          description: 'Optional, for example while at RPI',
+                        }),
+                      }),
+                      {
+                        label: 'Roles',
+                        itemLabel: (props) => props.fields.title.value,
+                      },
+                    ),
+                  }),
+                  {
+                    label: 'Companies',
+                    itemLabel: (props) => props.fields.name.value,
+                  },
+                ),
+              }),
+            },
           },
           { label: 'Blocks' },
         ),

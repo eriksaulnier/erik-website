@@ -16,21 +16,43 @@ blocks:
       aside_image:
         src: /images/pages/about/blocks/0/value/aside_image/src.png
         alt: A picture of me
-  - discriminant: content
+  - discriminant: experience
     value:
       title: Experience
-      body: |
-        - [Traackr](https://www.traackr.com/), 2022 to now
-          - Staff Engineer, 2026 to now
-          - Tech Lead, Design System, 2024 to 2026
-          - Senior Software Engineer, 2023 to 2024
-          - Software Engineer, 2022 to 2023
-        - [Troy Web Consulting](https://www.troyweb.com), 2017 to 2022
-          - Senior Developer, 2021 to 2022
-          - Developer, 2019 to 2021
-          - Part-Time Developer, 2017 to 2019 (while at RPI)
-        - [1st Playable Productions](https://1stplayable.com), 2016. Seasonal Programmer.
-      aside_image: {}
+      companies:
+        - name: Traackr
+          url: https://www.traackr.com/
+          roles:
+            - title: Staff Engineer
+              start: 2026
+            - title: Tech Lead, Design System
+              start: 2024
+              end: 2026
+            - title: Senior Software Engineer
+              start: 2023
+              end: 2024
+            - title: Software Engineer
+              start: 2022
+              end: 2023
+        - name: Troy Web Consulting
+          url: https://www.troyweb.com
+          roles:
+            - title: Senior Developer
+              start: 2021
+              end: 2022
+            - title: Developer
+              start: 2019
+              end: 2021
+            - title: Part-Time Developer
+              start: 2017
+              end: 2019
+              note: while at RPI
+        - name: 1st Playable Productions
+          url: https://1stplayable.com
+          roles:
+            - title: Seasonal Programmer
+              start: 2016
+              end: 2016
   - discriminant: technology
     value:
       title: What I work with
