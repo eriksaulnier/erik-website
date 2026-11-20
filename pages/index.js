@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { getHome } from '@/lib/content.mjs';
+import { getGlobal, getHome } from '@/lib/content.mjs';
 import Splash from '@/components/splash';
 
 export default function Home({ home }) {
@@ -23,6 +23,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       home: await getHome(),
+      site: await getGlobal(),
     },
   };
 };

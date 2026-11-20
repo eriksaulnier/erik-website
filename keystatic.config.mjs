@@ -86,16 +86,14 @@ export default config({
         footer: fields.object(
           {
             email: fields.text({
-              label: 'Email (encoded)',
+              label: 'Email',
               validation: {
                 isRequired: true,
                 pattern: {
-                  regex: /^[A-Za-z0-9+/]+={0,2}$/,
-                  message: 'Must be base64, not a plain address',
+                  regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: 'Must be an email address',
                 },
               },
-              description:
-                'Reversed base64 of the address, so scrapers cannot read it. Build it with encodeEmail in lib/email.mjs',
             }),
             copyright: fields.object(
               {

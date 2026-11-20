@@ -15,10 +15,10 @@ test('encodeEmail output contains neither the at sign nor the domain', () => {
   assert.ok(!encoded.includes('eriksaulnier'));
 });
 
-test('the Keystatic email field rejects a plain address and accepts an encoded one', async () => {
+test('the Keystatic email field accepts an address and rejects other text', async () => {
   const { default: config } = await import('../keystatic.config.mjs');
   const field = config.singletons.global.schema.footer.fields.email;
-  const parse = (value) => {
+  const valid = (value) => {
     try {
       field.validate(value);
       return true;
@@ -26,6 +26,7 @@ test('the Keystatic email field rejects a plain address and accepts an encoded o
       return false;
     }
   };
-  assert.equal(parse('hello@eriksaulnier.com'), false);
-  assert.equal(parse(encodeEmail('hello@eriksaulnier.com')), true);
+  assert.equal(valid('hello@eriksaulnier.com'), true);
+  assert.equal(valid(encodeEmail('hello@eriksaulnier.com')), false);
+  assert.equal(valid(''), false);
 });

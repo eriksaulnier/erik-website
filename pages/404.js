@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { getGlobal } from '@/lib/content.mjs';
 
 export default function Custom404() {
   return (
@@ -21,3 +22,7 @@ export default function Custom404() {
     </motion.div>
   );
 }
+
+export const getStaticProps = async () => {
+  return { props: { site: await getGlobal() } };
+};
