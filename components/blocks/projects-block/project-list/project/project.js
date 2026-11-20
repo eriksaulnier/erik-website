@@ -3,11 +3,13 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import TagList from '@/components/tag-list';
 import Icon from '@/components/icon';
+import { HOVER_SPRING, useHoverLift } from '@/lib/motion-preference';
 import styles from './project.module.scss';
 
 export default function Project({ data }) {
   const project = data;
   const thumbnail = project.thumbnail;
+  const hoverLift = useHoverLift(4);
 
   return (
     <motion.div
@@ -27,7 +29,11 @@ export default function Project({ data }) {
         <motion.h4 className={styles.title}>{project.name}</motion.h4>
       </div>
       {thumbnail?.src && (
-        <div className={styles.image}>
+        <motion.div
+          className={styles.image}
+          {...hoverLift}
+          transition={HOVER_SPRING}
+        >
           <Image
             {...thumbnail}
             alt={thumbnail.alt || project.name}
@@ -36,7 +42,7 @@ export default function Project({ data }) {
               height: 'auto',
             }}
           />
-        </div>
+        </motion.div>
       )}
       <div className={styles.content}>
         <p className={styles.description}>{project.description}</p>

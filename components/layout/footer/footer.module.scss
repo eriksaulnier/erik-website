@@ -25,13 +25,26 @@
     bottom: 0px;
   }
 
+  // Invisible hit areas: the targets are one small line of text, so hovering
+  // near them should count without shifting the layout.
+  .email a::before {
+    content: '';
+    position: absolute;
+    inset: -0.6rem -0.9rem;
+  }
+
   .origin {
+    position: relative;
     display: inline-flex;
     align-items: center;
     gap: 0.4em;
     color: rgba($light-2, 0.55);
     font-size: 0.8rem;
     font-weight: 500;
+  }
+
+  .originIcon {
+    display: inline-flex;
   }
 }
 
@@ -56,6 +69,14 @@
     .origin {
       justify-self: end;
       text-align: right;
+
+      // Wide layouts only: stacked on a phone, this box would cover taps meant
+      // for the email link, and the lift is off for touch anyway.
+      &::before {
+        content: '';
+        position: absolute;
+        inset: -0.6rem -0.9rem;
+      }
     }
   }
 }

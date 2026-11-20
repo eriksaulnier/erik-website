@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { FaMountainSun } from 'react-icons/fa6';
 import { decodeEmail } from '../../../lib/email.mjs';
+import { HOVER_SPRING, useHoverLift } from '../../../lib/motion-preference';
 import styles from './footer.module.scss';
 
 export default function Footer({ copyright, email }) {
   const date = new Date();
   const [address, setAddress] = useState(null);
+  const hoverLift = useHoverLift(2);
 
   useEffect(() => {
     setAddress(decodeEmail(email));
@@ -22,10 +25,17 @@ export default function Footer({ copyright, email }) {
           {address ? <a href={`mailto:${address}`}>{address}</a> : 'Email'}
         </p>
 
-        <p className={styles.origin}>
-          <FaMountainSun aria-hidden="true" />
+        <motion.p className={styles.origin} whileHover="hover">
+          <motion.span
+            className={styles.originIcon}
+            aria-hidden="true"
+            {...hoverLift}
+            transition={HOVER_SPRING}
+          >
+            <FaMountainSun />
+          </motion.span>
           Made in Upstate NY
-        </p>
+        </motion.p>
       </div>
     </footer>
   );
