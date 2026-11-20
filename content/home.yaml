@@ -1,12 +1,10 @@
 heading: Hey, I'm Erik!
-subheading: I'm a || based in Troy, NY.
+subheading: I'm a || based in Upstate NY.
 typed_words:
-  - web developer
-  - front-end developer
-  - software developer
-  - tech enthusiast
-  - designer
+  - design engineer
+  - full-stack developer
+  - AI tooling builder
   - gamer
-  - photographer
+  - home cook
 shuffle_words: false
 title: Home

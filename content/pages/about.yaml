@@ -5,13 +5,13 @@ blocks:
   - discriminant: content
     value:
       body: |
-        I'm a software engineer based in Troy, NY who has a strong passion for all things tech. Over the last 6 years, I have had experience working on a large variety of projects of varying sizes including software applications, mobile apps, websites, and even some video games. I am always excited when presented with opportunities to add new technologies to my toolbelt and am never afraid of a challenge.
+        I'm a full-stack engineer in Upstate NY, and I've been building for the web since 2017. Lately I focus on frontend architecture and design systems. Outside of work I game and cook.
 
-        I have a Bachelor of Science Degree in Information Technology and Web Science with a Concentration in Entrepreneurship from [Rensselaer Polytechnic Institute](https://rpi.edu).
+        I build the stuff other engineers build on top of. Component libraries, developer tooling, and the conventions that keep a product consistent as a team grows.
 
-        I currently work full-time as a Software Engineer at [Traackr](https://www.traackr.com/).
+        I'm a Staff Engineer at [Traackr](https://www.traackr.com/), leading frontend development and the design system. I grew the system from 8 shared components to 50 used across the org, and built an MCP server that exposes it to coding agents.
 
-        Previously, I have worked at [Troy Web Consulting](https://www.troyweb.com) and [1st Playable Productions](https://1stplayable.com).
+        I have a Bachelor of Science Degree in Information Technology and Web Science with a Concentration in Entrepreneurship from [Rensselaer Polytechnic Institute](https://rpi.edu). Before Traackr I worked at [Troy Web Consulting](https://www.troyweb.com) and [1st Playable Productions](https://1stplayable.com).
       title: Hey, my name is Erik
       aside_image:
         src: /images/pages/about/blocks/0/value/aside_image/src.png
