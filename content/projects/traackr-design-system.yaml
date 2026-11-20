@@ -1,0 +1,15 @@
+name: Traackr Design System
+draft: true
+featured: true
+publish_date: 2026-02-01
+description: Traackr's shared UI started as a loose collection of 8 components. I took it on as tech lead and built it into a design system of 50 components, now the UI standard across two product teams. That included the monorepo, linting and accessibility standards, a Storybook upgrade from 7 to 10, and a release pipeline that moved CI from Jenkins to GitHub Actions and publishes versions automatically. I also migrated the library from Vue 2 to Web Components so it doesn't lock the org into one framework, and built an MCP server that exposes the design system to coding agents.
+technologies:
+  - label: Web Components
+    icon: SiWebcomponentsdotorg
+  - label: TypeScript
+    icon: SiTypescript
+  - label: Storybook
+    icon: SiStorybook
+  - label: Vite
+    icon: SiVite
+  - label: MCP

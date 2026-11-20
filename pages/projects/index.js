@@ -3,7 +3,7 @@ import { getGlobal, listProjects } from '@/lib/content.mjs';
 import { resolveImages } from '@/lib/images.mjs';
 import { ProjectsBlock } from '@/components/blocks';
 
-export default function ProjectsPage({ projects }) {
+export default function ProjectsPage({ featured, earlier }) {
   return (
     <motion.div
       initial="initial"
@@ -28,21 +28,27 @@ export default function ProjectsPage({ projects }) {
           exit: { y: 5, opacity: 0 },
         }}
       >
-        <ProjectsBlock data={{ projects }} />
+        <ProjectsBlock data={{ projects: featured }} />
+        {earlier.length > 0 && (
+          <ProjectsBlock data={{ title: 'Earlier work', projects: earlier }} />
+        )}
       </motion.div>
     </motion.div>
   );
 }
 
 export const getStaticProps = async () => {
+  const projects = await Promise.all(
+    (await listProjects()).map((project) =>
+      resolveImages(project, `projects/${project.slug}`),
+    ),
+  );
+
   return {
     props: {
       site: await getGlobal(),
-      projects: await Promise.all(
-        (await listProjects({ featuredOnly: true })).map((project) =>
-          resolveImages(project, `projects/${project.slug}`),
-        ),
-      ),
+      featured: projects.filter((project) => project.featured),
+      earlier: projects.filter((project) => !project.featured),
     },
   };
 };

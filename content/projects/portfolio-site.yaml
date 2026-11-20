@@ -2,7 +2,7 @@ name: Portfolio Site
 draft: false
 featured: true
 publish_date: 2021-03-02
-description: The latest iteration of my portfolio website, this time using JAMStack! Designed and developed the site mostly from scratch. Since the initial launch, I've updated the website to use TinaCMS instead of Forestry.
+description: The site you're on. A static Next.js export hosted on Cloudflare Workers, with the content stored as YAML and JSON in the repo and edited locally in Keystatic. Designed and developed mostly from scratch, and rebuilt a few times as the hosting and CMS changed.
 technologies:
   - label: Next.js
     icon: SiNextdotjs
@@ -10,10 +10,9 @@ technologies:
     icon: SiFramer
   - label: Sass
     icon: SiSass
-  - label: Forestry
-    icon: GiForest
-  - label: Netlify
-    icon: SiNetlify
+  - label: Keystatic
+  - label: Cloudflare Workers
+    icon: SiCloudflare
 links:
   - title: GitHub Repository
     href: https://github.com/eriksaulnier/erik-website

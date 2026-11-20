@@ -28,9 +28,14 @@ for (const file of htmlFiles) {
   }
 }
 
+// Reachable only by direct link, on purpose.
+const UNLISTED = new Set(['about/uses']);
+
 const paths = [
   '/',
-  ...(await listPageSlugs()).map((slug) => `/${slug}`),
+  ...(await listPageSlugs())
+    .filter((slug) => !UNLISTED.has(slug))
+    .map((slug) => `/${slug}`),
   '/projects',
 ];
 const xml = `<?xml version="1.0" encoding="UTF-8"?>

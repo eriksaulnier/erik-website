@@ -26,16 +26,18 @@ export default function Project({ data }) {
         <p className={styles.date}>{project.publish_date.slice(0, 4)}</p>
         <motion.h4 className={styles.title}>{project.name}</motion.h4>
       </div>
-      <div className={styles.image}>
-        <Image
-          {...thumbnail}
-          alt={thumbnail.alt || project.name}
-          style={{
-            width: '100%',
-            height: 'auto',
-          }}
-        />
-      </div>
+      {thumbnail?.src && (
+        <div className={styles.image}>
+          <Image
+            {...thumbnail}
+            alt={thumbnail.alt || project.name}
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
+          />
+        </div>
+      )}
       <div className={styles.content}>
         <p className={styles.description}>{project.description}</p>
 

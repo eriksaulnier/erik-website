@@ -1,6 +1,6 @@
 name: Sneaky Spanish
 draft: false
-featured: true
+featured: false
 publish_date: 2015-12-01
 description: Created as part of a course at RPI, Sneaky Spanish is a Chrome extension that allows you to learn Spanish in the context of web pages you are already reading on the web by selectively translating words on the pages you view. I served as a developer for the development of the extension. The extension is no longer maintained and has since been removed from the Chrome web store.
 technologies:

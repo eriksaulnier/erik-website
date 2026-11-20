@@ -5,87 +5,109 @@ blocks:
   - discriminant: content
     value:
       body: |
-        I'm a software engineer based in Troy, NY who has a strong passion for all things tech. Over the last 6 years, I have had experience working on a large variety of projects of varying sizes including software applications, mobile apps, websites, and even some video games. I am always excited when presented with opportunities to add new technologies to my toolbelt and am never afraid of a challenge.
+        I'm a full-stack developer in Upstate NY who leans toward the design side of things. I've been building for the web since 2017. These days I mostly build the stuff other engineers build on top of.
 
-        I have a Bachelor of Science Degree in Information Technology and Web Science with a Concentration in Entrepreneurship from [Rensselaer Polytechnic Institute](https://rpi.edu).
+        I'm a Staff Engineer at [Traackr](https://www.traackr.com/). Most of my time still goes to leading the engineering side of our design system. I also built an MCP server so coding agents can use it, and I've been doing some work on our platform rebuild with micro-frontends.
 
-        I currently work full-time as a Software Engineer at [Traackr](https://www.traackr.com/).
+        Outside of work I like to hike, cook, and play games. I also tinker on side projects like [Loupe](https://github.com/secondshift-labs/loupe).
 
-        Previously, I have worked at [Troy Web Consulting](https://www.troyweb.com) and [1st Playable Productions](https://1stplayable.com).
+        I have a B.S. in Information Technology and Web Science from [RPI](https://rpi.edu) with a concentration in Entrepreneurship.
       title: Hey, my name is Erik
       aside_image:
         src: /images/pages/about/blocks/0/value/aside_image/src.png
         alt: A picture of me
-  - discriminant: technology
-    value:
-      title: Technologies I use
-      categories:
-        - label: Languages
-          technologies:
-            - label: JavaScript
-              icon: SiJavascript
-            - label: PHP
-              icon: SiPhp
-            - label: Sass
-              icon: SiSass
-            - label: Node.js
-              icon: SiNodedotjs
-            - label: Typescript
-              icon: SiTypescript
-            - label: SQL
-            - label: Python
-              icon: SiPython
-            - label: Java
-              icon: SiJava
-            - label: C++
-              icon: SiCplusplus
-            - label: C#
-              icon: SiCsharp
-        - label: Frameworks
-          technologies:
-            - label: Vue.js
-              icon: SiVuedotjs
-            - label: Laravel
-              icon: SiLaravel
-            - label: React
-              icon: SiReact
-            - label: Next.js
-              icon: SiNextdotjs
-            - label: Express.js
-              icon: SiExpress
-        - label: Databases
-          technologies:
-            - label: MySQL
-              icon: GrMysql
-            - label: PostgreSQL
-              icon: SiPostgresql
-            - label: DynamoDB
-              icon: SiAmazondynamodb
-            - label: Firestore
-              icon: SiFirebase
-            - label: MongoDB
-              icon: SiMongodb
-        - label: DevOps
-          technologies:
-            - label: Docker
-              icon: SiDocker
-            - label: AWS
-              icon: SiAmazonaws
-            - label: Firebase
-              icon: SiFirebase
-            - label: Netlify
-              icon: SiNetlify
-            - label: Heroku
-              icon: SiHeroku
-        - label: Content Management Systems
-          technologies:
-            - label: WordPress
-              icon: SiWordpress
-            - label: Wix
-              icon: SiWix
   - discriminant: content
     value:
+      title: Experience
       body: |
-        If you are curious about the other stuff I use check out my [uses page](/about/uses).
-      title: Other stuff I use
+        - [Traackr](https://www.traackr.com/), 2022 to now
+          - Staff Engineer, 2026 to now
+          - Tech Lead, Design System, 2024 to 2026
+          - Senior Software Engineer, 2023 to 2024
+          - Software Engineer, 2022 to 2023
+        - [Troy Web Consulting](https://www.troyweb.com), 2017 to 2022
+          - Senior Developer, 2021 to 2022
+          - Developer, 2019 to 2021
+          - Part-Time Developer, 2017 to 2019 (while at RPI)
+        - [1st Playable Productions](https://1stplayable.com), 2016. Seasonal Programmer.
       aside_image: {}
+  - discriminant: technology
+    value:
+      title: What I work with
+      categories:
+        - label: Every day
+          technologies:
+            - label: 'TypeScript'
+              icon: SiTypescript
+            - label: 'JavaScript'
+              icon: SiJavascript
+            - label: 'Vue'
+              icon: SiVuedotjs
+            - label: 'Web Components'
+              icon: SiWebcomponentsdotorg
+            - label: 'Storybook'
+              icon: SiStorybook
+            - label: 'Sass'
+              icon: SiSass
+            - label: 'Node.js'
+              icon: SiNodedotjs
+            - label: 'Vite'
+              icon: SiVite
+            - label: 'GitHub Actions'
+              icon: SiGithubactions
+        - label: Regularly
+          technologies:
+            - label: 'React'
+              icon: SiReact
+            - label: 'Next.js'
+              icon: SiNextdotjs
+            - label: 'Tailwind CSS'
+              icon: SiTailwindcss
+            - label: 'PHP'
+              icon: SiPhp
+            - label: 'Figma'
+              icon: SiFigma
+            - label: 'Docker'
+              icon: SiDocker
+            - label: 'Playwright'
+              icon: SiPlaywright
+            - label: 'Vitest'
+              icon: SiVitest
+            - label: 'Cloudflare'
+              icon: SiCloudflare
+            - label: 'Turborepo'
+              icon: SiTurborepo
+            - label: 'Claude'
+            - label: 'MCP'
+        - label: Shipped with before
+          technologies:
+            - label: 'Laravel'
+              icon: SiLaravel
+            - label: 'Express'
+              icon: SiExpress
+            - label: 'PostgreSQL'
+              icon: SiPostgresql
+            - label: 'MySQL'
+              icon: GrMysql
+            - label: 'AWS'
+              icon: SiAmazonaws
+            - label: 'Go'
+              icon: SiGo
+            - label: 'Python'
+              icon: SiPython
+            - label: 'Java'
+              icon: SiOpenjdk
+            - label: 'Kotlin'
+              icon: SiKotlin
+            - label: 'C#'
+              icon: SiCsharp
+            - label: 'C++'
+              icon: SiCplusplus
+            - label: 'Flutter'
+              icon: SiFlutter
+            - label: 'Ionic'
+              icon: SiIonic
+            - label: 'WordPress'
+              icon: SiWordpress
+            - label: 'Firebase'
+              icon: SiFirebase
