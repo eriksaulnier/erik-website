@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Icon from '@/components/icon';
 import styles from './tag-list.module.scss';
+import { HOVER_SPRING } from '@/lib/motion-preference';
 
 export default function TagList({ tags, className, tagClassName }) {
   return (
@@ -21,10 +22,7 @@ export default function TagList({ tags, className, tagClassName }) {
             hover: { y: -2 },
           }}
           whileHover="hover"
-          transition={{
-            type: 'spring',
-            stiffness: 300,
-          }}
+          transition={HOVER_SPRING}
         >
           {tag.icon && <Icon name={tag.icon} />}
           {tag.label}

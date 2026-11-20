@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import TagList from '@/components/tag-list';
 import Icon from '@/components/icon';
-import { useHoverLift } from '@/lib/motion-preference';
+import { HOVER_SPRING, useHoverLift } from '@/lib/motion-preference';
 import styles from './project.module.scss';
 
 export default function Project({ data }) {
@@ -32,7 +32,7 @@ export default function Project({ data }) {
         <motion.div
           className={styles.image}
           {...hoverLift}
-          transition={{ type: 'spring', stiffness: 250 }}
+          transition={HOVER_SPRING}
         >
           <Image
             {...thumbnail}

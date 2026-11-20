@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaMountainSun } from 'react-icons/fa6';
 import { decodeEmail } from '../../../lib/email.mjs';
-import { useHoverLift } from '../../../lib/motion-preference';
+import { HOVER_SPRING, useHoverLift } from '../../../lib/motion-preference';
 import styles from './footer.module.scss';
 
 export default function Footer({ copyright, email }) {
@@ -30,7 +30,7 @@ export default function Footer({ copyright, email }) {
             className={styles.originIcon}
             aria-hidden="true"
             {...hoverLift}
-            transition={{ type: 'spring', stiffness: 300 }}
+            transition={HOVER_SPRING}
           >
             <FaMountainSun />
           </motion.span>
