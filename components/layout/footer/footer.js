@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaMountainSun } from 'react-icons/fa6';
 import { decodeEmail } from '../../../lib/email.mjs';
+import { useHoverLift } from '../../../lib/motion-preference';
 import styles from './footer.module.scss';
 
 export default function Footer({ copyright, email }) {
   const date = new Date();
   const [address, setAddress] = useState(null);
-  const reduceMotion = useReducedMotion();
+  const hoverLift = useHoverLift(2);
 
   useEffect(() => {
     setAddress(decodeEmail(email));
@@ -24,14 +25,11 @@ export default function Footer({ copyright, email }) {
           {address ? <a href={`mailto:${address}`}>{address}</a> : 'Email'}
         </p>
 
-        <motion.p
-          className={styles.origin}
-          whileHover={reduceMotion ? undefined : 'hover'}
-        >
+        <motion.p className={styles.origin} whileHover="hover">
           <motion.span
             className={styles.originIcon}
             aria-hidden="true"
-            variants={{ hover: { y: -2 } }}
+            {...hoverLift}
             transition={{ type: 'spring', stiffness: 300 }}
           >
             <FaMountainSun />
