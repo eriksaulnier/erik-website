@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { companyYears, formatYears } from '@/lib/experience.mjs';
 import styles from './experience-block.module.scss';
 
@@ -15,6 +15,8 @@ const role = {
 };
 
 export default function ExperienceBlock({ data: { title, companies } }) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.section
       className={styles.experienceBlock}
@@ -70,6 +72,25 @@ export default function ExperienceBlock({ data: { title, companies } }) {
                         key={roleIndex}
                         variants={role}
                       >
+                        {current && (
+                          <motion.span
+                            className={styles.rolePulse}
+                            aria-hidden="true"
+                            initial={{ opacity: 0, scale: 1 }}
+                            animate={
+                              reduceMotion
+                                ? undefined
+                                : { opacity: [0.5, 0], scale: [1, 2.6] }
+                            }
+                            transition={{
+                              duration: 1.6,
+                              ease: 'easeOut',
+                              delay: 1.2,
+                              repeat: Infinity,
+                              repeatDelay: 1.6,
+                            }}
+                          />
+                        )}
                         <span className={styles.roleDot} aria-hidden="true" />
                         <div className={styles.row}>
                           <span className={styles.title}>
