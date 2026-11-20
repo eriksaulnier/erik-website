@@ -34,9 +34,9 @@ test('getPage turns Markdoc bodies into plain JSON trees', async () => {
 test('listProjects with featuredOnly drops unfeatured projects and sorts newest first', async () => {
   const all = await listProjects();
   const featured = await listProjects({ featuredOnly: true });
-  assert.equal(all.length, 8);
-  assert.equal(featured.length, 7);
-  assert.ok(!featured.some((p) => p.name.toLowerCase().includes('rogue')));
+  assert.equal(all.length, 7);
+  assert.equal(featured.length, 2);
+  assert.ok(!all.some((p) => p.draft));
   const dates = featured.map((p) => p.publish_date);
   assert.deepEqual(dates, [...dates].sort().reverse());
 });
