@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { HiLightningBolt } from 'react-icons/hi';
+import { FaMountainSun } from 'react-icons/fa6';
 import { decodeEmail } from '../../../lib/email.mjs';
 import styles from './footer.module.scss';
 
@@ -22,17 +22,9 @@ export default function Footer({ copyright, email }) {
           {address ? <a href={`mailto:${address}`}>{address}</a> : 'Email'}
         </p>
 
-        <p className={styles.poweredBy}>
-          <HiLightningBolt title="Powered" />
-          <span className="sr-only">Powered</span>
-          {' by '}
-          <a
-            href="https://nextjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Next.js
-          </a>
+        <p className={styles.origin}>
+          <FaMountainSun aria-hidden="true" />
+          Made in Upstate NY
         </p>
       </div>
     </footer>
