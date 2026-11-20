@@ -5,13 +5,13 @@ blocks:
   - discriminant: content
     value:
       body: |
-        I'm a design engineer and full-stack developer in Upstate NY, and I've been building for the web since 2017. Lately I focus on frontend architecture and design systems. Outside of work I hike, cook, game, and build hobby projects like [Loupe](https://github.com/secondshift-labs/loupe).
+        I'm a full-stack developer in Upstate NY who leans toward the design side of things. I've been building for the web since 2017. These days I mostly build the stuff other engineers build on top of.
 
-        I build the stuff other engineers build on top of. Component libraries, developer tooling, and the conventions that keep a product consistent as a team grows.
+        I'm a Staff Engineer at [Traackr](https://www.traackr.com/). Most of my time still goes to leading the engineering side of our design system. I also built an MCP server so coding agents can use it, and I've been doing some work on our platform rebuild with micro-frontends.
 
-        I'm a Staff Engineer at [Traackr](https://www.traackr.com/), leading frontend development and the design system. I grew the system from 8 shared components to 50 used across the org, and built an MCP server that exposes it to coding agents.
+        Outside of work I like to hike, cook, and play games. I also tinker on side projects like [Loupe](https://github.com/secondshift-labs/loupe).
 
-        I have a Bachelor of Science Degree in Information Technology and Web Science with a Concentration in Entrepreneurship from [Rensselaer Polytechnic Institute](https://rpi.edu).
+        I have a B.S. in Information Technology and Web Science from [RPI](https://rpi.edu) with a concentration in Entrepreneurship.
       title: Hey, my name is Erik
       aside_image:
         src: /images/pages/about/blocks/0/value/aside_image/src.png
