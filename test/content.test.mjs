@@ -9,11 +9,7 @@ import {
 } from '../lib/content.mjs';
 
 test('listPageSlugs returns every published page, including nested slugs', async () => {
-  assert.deepEqual((await listPageSlugs()).sort(), [
-    'about',
-    'about/uses',
-    'contact',
-  ]);
+  assert.deepEqual((await listPageSlugs()).sort(), ['about', 'about/uses']);
 });
 
 test('getPage returns null for a page that does not exist', async () => {

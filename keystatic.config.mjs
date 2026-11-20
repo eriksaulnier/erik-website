@@ -85,6 +85,11 @@ export default config({
         ),
         footer: fields.object(
           {
+            email: fields.text({
+              label: 'Email (encoded)',
+              description:
+                'Reversed base64 of the address, so scrapers cannot read it. Build it with encodeEmail in lib/email.mjs',
+            }),
             copyright: fields.object(
               {
                 year: fields.text({ label: 'Year' }),
