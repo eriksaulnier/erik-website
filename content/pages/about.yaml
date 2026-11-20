@@ -11,14 +11,22 @@ blocks:
 
         I'm a Staff Engineer at [Traackr](https://www.traackr.com/), leading frontend development and the design system. I grew the system from 8 shared components to 50 used across the org, and built an MCP server that exposes it to coding agents.
 
-        I have a Bachelor of Science Degree in Information Technology and Web Science with a Concentration in Entrepreneurship from [Rensselaer Polytechnic Institute](https://rpi.edu). Before Traackr I worked at [Troy Web Consulting](https://www.troyweb.com) and [1st Playable Productions](https://1stplayable.com).
+        I have a Bachelor of Science Degree in Information Technology and Web Science with a Concentration in Entrepreneurship from [Rensselaer Polytechnic Institute](https://rpi.edu).
       title: Hey, my name is Erik
       aside_image:
         src: /images/pages/about/blocks/0/value/aside_image/src.png
         alt: A picture of me
+  - discriminant: content
+    value:
+      title: Experience
+      body: |
+        - **[Traackr](https://www.traackr.com/)**, 2022 to now. Staff Engineer, after roles as Tech Lead for the design system, Senior Software Engineer and Software Engineer.
+        - **[Troy Web Consulting](https://www.troyweb.com)**, 2017 to 2022. Senior Developer, building client apps for government, healthcare and nonprofit clients.
+        - **[1st Playable Productions](https://1stplayable.com)**, 2016. Seasonal Programmer, porting educational games from Flash to JavaScript.
+      aside_image: {}
   - discriminant: technology
     value:
-      title: Technologies I use
+      title: What I use now
       categories:
         - label: Frontend
           technologies:
@@ -42,8 +50,6 @@ blocks:
               icon: SiNodedotjs
             - label: PHP
               icon: SiPhp
-            - label: Laravel
-              icon: SiLaravel
             - label: Express
               icon: SiExpress
             - label: PostgreSQL
@@ -64,12 +70,32 @@ blocks:
               icon: SiGithubactions
             - label: Docker
               icon: SiDocker
-            - label: AWS
-              icon: SiAmazonaws
             - label: MCP
-  - discriminant: content
+  - discriminant: technology
     value:
-      body: |
-        If you are curious about the other stuff I use check out my [uses page](/about/uses).
-      title: Other stuff I use
-      aside_image: {}
+      title: Also worked with
+      categories:
+        - label: ''
+          technologies:
+            - label: 'AWS'
+              icon: SiAmazonaws
+            - label: 'Laravel'
+              icon: SiLaravel
+            - label: 'Python'
+              icon: SiPython
+            - label: 'Java'
+              icon: SiOpenjdk
+            - label: 'Kotlin'
+              icon: SiKotlin
+            - label: 'C#'
+              icon: SiCsharp
+            - label: 'C++'
+              icon: SiCplusplus
+            - label: 'Flutter'
+              icon: SiFlutter
+            - label: 'Ionic'
+              icon: SiIonic
+            - label: 'WordPress'
+              icon: SiWordpress
+            - label: 'Firebase'
+              icon: SiFirebase
