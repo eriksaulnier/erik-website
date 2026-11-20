@@ -4,8 +4,6 @@ import { Layout } from '@/components/layout';
 import dynamic from 'next/dynamic';
 import '@/styles/globals.scss';
 
-import appConfig from '../content/global.json';
-
 // The condition is a build-time constant, so production bundles drop the import entirely.
 const EditLink =
   process.env.NODE_ENV === 'development'
@@ -74,9 +72,15 @@ export const useNextCssRemovalPrevention = () => {
 
 export default function MyApp({ Component, pageProps, router }) {
   useNextCssRemovalPrevention();
+  // The client-side error fallback renders without getStaticProps, so it has no site config.
+  // scripts/build-sitemap.mjs fails the build if an exported page lost its layout this way.
+  if (!pageProps.site) return <Component {...pageProps} />;
   return (
     <LayoutGroup>
-      <Layout appConfig={appConfig} pageTitle={pageProps?.tab_title || null}>
+      <Layout
+        appConfig={pageProps.site}
+        pageTitle={pageProps?.tab_title || null}
+      >
         <AnimatePresence mode="wait">
           <Component layout {...pageProps} key={router.asPath} />
         </AnimatePresence>

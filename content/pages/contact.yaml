@@ -1,9 +1,0 @@
-title: Contact
-heading: Get in contact
-draft: false
-blocks:
-  - discriminant: content
-    value:
-      body: |
-        If you'd like to work together on a project, have a technical question, or just want to have a chat; feel free to get in touch by emailing me directly at [hello@eriksaulnier.com](mailto\:hello@eriksaulnier.com "").
-      aside_image: {}

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { getPage, listPageSlugs } from '@/lib/content.mjs';
+import { getGlobal, getPage, listPageSlugs } from '@/lib/content.mjs';
 import { resolveImages } from '@/lib/images.mjs';
 import { blockComponents } from '@/components/blocks';
 
@@ -51,6 +51,7 @@ export const getStaticProps = async ({ params }) => {
     props: {
       page: await resolveImages(page, `pages/${slug}`),
       slug,
+      site: await getGlobal(),
     },
   };
 };

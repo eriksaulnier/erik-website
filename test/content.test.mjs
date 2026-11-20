@@ -7,13 +7,10 @@ import {
   listPageSlugs,
   listProjects,
 } from '../lib/content.mjs';
+import { decodeEmail } from '../lib/email.mjs';
 
 test('listPageSlugs returns every published page, including nested slugs', async () => {
-  assert.deepEqual((await listPageSlugs()).sort(), [
-    'about',
-    'about/uses',
-    'contact',
-  ]);
+  assert.deepEqual((await listPageSlugs()).sort(), ['about', 'about/uses']);
 });
 
 test('getPage returns null for a page that does not exist', async () => {
@@ -47,4 +44,11 @@ test('home and global singletons load', async () => {
     (await getGlobal()).thumbnail.src,
     '/images/site/thumbnail/src.png',
   );
+});
+
+test('getGlobal exposes only the encoded footer email', async () => {
+  const { email } = (await getGlobal()).footer;
+  assert.notEqual(email, 'hello@eriksaulnier.com');
+  assert.ok(!email.includes('@'));
+  assert.equal(decodeEmail(email), 'hello@eriksaulnier.com');
 });

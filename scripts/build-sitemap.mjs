@@ -1,6 +1,7 @@
-// Postbuild: writes out/sitemap.xml and checks the one image that
-// resolveImages never sees (the global thumbnail, imported directly by _app.js).
-import { access, writeFile } from 'node:fs/promises';
+// Postbuild: writes out/sitemap.xml, checks the one image that resolveImages never sees (the
+// global thumbnail, which getGlobal returns unresolved), and checks that every exported page has
+// the layout, which _app.js skips for a page whose getStaticProps omits `site`.
+import { access, readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { getGlobal, listPageSlugs } from '../lib/content.mjs';
 
@@ -13,6 +14,18 @@ if (thumbnail?.src) {
       `Image not found: ${thumbnail.src} in content/global.json at thumbnail`,
     );
   });
+}
+
+const outDir = join(process.cwd(), 'out');
+const htmlFiles = (await readdir(outDir, { recursive: true })).filter(
+  (file) => file.endsWith('.html') && !file.startsWith('_next'),
+);
+for (const file of htmlFiles) {
+  if (!(await readFile(join(outDir, file), 'utf8')).includes('<footer')) {
+    throw new Error(
+      `Layout missing: out/${file} has no footer. Pass site: await getGlobal() from its getStaticProps`,
+    );
+  }
 }
 
 // Reachable only by direct link, on purpose.

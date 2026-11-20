@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { listProjects } from '@/lib/content.mjs';
+import { getGlobal, listProjects } from '@/lib/content.mjs';
 import { resolveImages } from '@/lib/images.mjs';
 import { ProjectsBlock } from '@/components/blocks';
 
@@ -46,6 +46,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
+      site: await getGlobal(),
       featured: projects.filter((project) => project.featured),
       earlier: projects.filter((project) => !project.featured),
     },

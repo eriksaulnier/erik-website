@@ -85,6 +85,16 @@ export default config({
         ),
         footer: fields.object(
           {
+            email: fields.text({
+              label: 'Email',
+              validation: {
+                isRequired: true,
+                pattern: {
+                  regex: /^[\w.+-]+@[\w-]+(\.[\w-]+)+$/,
+                  message: 'Must be an ASCII email address',
+                },
+              },
+            }),
             copyright: fields.object(
               {
                 year: fields.text({ label: 'Year' }),
