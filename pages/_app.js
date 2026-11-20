@@ -72,9 +72,9 @@ export const useNextCssRemovalPrevention = () => {
 
 export default function MyApp({ Component, pageProps, router }) {
   useNextCssRemovalPrevention();
-  // Only the client-side error fallback renders without getStaticProps. Any other page without
-  // `site` must fail the build in Layout rather than silently render with no layout.
-  if (router.pathname === '/_error') return <Component {...pageProps} />;
+  // The client-side error fallback renders without getStaticProps, so it has no site config.
+  // scripts/build-sitemap.mjs fails the build if an exported page lost its layout this way.
+  if (!pageProps.site) return <Component {...pageProps} />;
   return (
     <LayoutGroup>
       <Layout
