@@ -5,7 +5,7 @@ blocks:
   - discriminant: content
     value:
       body: |
-        I'm a full-stack engineer in Upstate NY, and I've been building for the web since 2017. Lately I focus on frontend architecture and design systems. Outside of work I game and cook.
+        I'm a design engineer and full-stack developer in Upstate NY, and I've been building for the web since 2017. Lately I focus on frontend architecture and design systems. Outside of work I hike, cook, game, and build hobby projects like [Loupe](https://github.com/secondshift-labs/loupe).
 
         I build the stuff other engineers build on top of. Component libraries, developer tooling, and the conventions that keep a product consistent as a team grows.
 
