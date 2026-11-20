@@ -25,7 +25,17 @@
     bottom: 0px;
   }
 
+  // Invisible hit areas: the targets are one small line of text, so hovering
+  // near them should count without shifting the layout.
+  .email a::before,
+  .origin::before {
+    content: '';
+    position: absolute;
+    inset: -0.6rem -0.9rem;
+  }
+
   .origin {
+    position: relative;
     display: inline-flex;
     align-items: center;
     gap: 0.4em;
