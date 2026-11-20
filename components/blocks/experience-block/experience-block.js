@@ -1,5 +1,6 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { companyYears, formatYears } from '@/lib/experience.mjs';
+import { useAllowsMotion } from '@/lib/motion-preference';
 import styles from './experience-block.module.scss';
 
 const item = {
@@ -15,7 +16,7 @@ const role = {
 };
 
 export default function ExperienceBlock({ data: { title, companies } }) {
-  const reduceMotion = useReducedMotion();
+  const allowsMotion = useAllowsMotion();
 
   return (
     <motion.section
@@ -72,16 +73,12 @@ export default function ExperienceBlock({ data: { title, companies } }) {
                         key={roleIndex}
                         variants={role}
                       >
-                        {current && (
+                        {current && allowsMotion && (
                           <motion.span
                             className={styles.rolePulse}
                             aria-hidden="true"
                             initial={{ opacity: 0, scale: 1 }}
-                            animate={
-                              reduceMotion
-                                ? undefined
-                                : { opacity: [0.5, 0], scale: [1, 2.6] }
-                            }
+                            animate={{ opacity: [0.5, 0], scale: [1, 2.6] }}
                             transition={{
                               duration: 1.6,
                               ease: 'easeOut',
