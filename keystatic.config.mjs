@@ -199,6 +199,7 @@ export default config({
                       {
                         label: 'Roles',
                         itemLabel: (props) => props.fields.title.value,
+                        validation: { length: { min: 1 } },
                       },
                     ),
                   }),

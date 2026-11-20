@@ -33,6 +33,10 @@ test('companyYears stays open when any role is current', () => {
   );
 });
 
+test('companyYears rejects a company with no roles', () => {
+  assert.throws(() => companyYears([]), /at least one role/);
+});
+
 test('the about page has its Experience as an experience block', async () => {
   const page = await getPage('about');
   const blocks = page.blocks.filter((b) => b.discriminant === 'experience');
