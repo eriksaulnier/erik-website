@@ -1,14 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import TagList from '@/components/tag-list';
 import Icon from '@/components/icon';
+import { useHoverLift } from '@/lib/motion-preference';
 import styles from './project.module.scss';
 
 export default function Project({ data }) {
   const project = data;
   const thumbnail = project.thumbnail;
-  const reduceMotion = useReducedMotion();
+  const hoverLift = useHoverLift(4);
 
   return (
     <motion.div
@@ -30,7 +31,7 @@ export default function Project({ data }) {
       {thumbnail?.src && (
         <motion.div
           className={styles.image}
-          variants={reduceMotion ? undefined : { hover: { y: -4 } }}
+          {...hoverLift}
           transition={{ type: 'spring', stiffness: 250 }}
         >
           <Image
