@@ -26,66 +26,54 @@ blocks:
       aside_image: {}
   - discriminant: technology
     value:
-      title: What I use now
+      title: What I work with
       categories:
-        - label: Frontend
+        - label: Every day
           technologies:
-            - label: TypeScript
+            - label: 'TypeScript'
               icon: SiTypescript
-            - label: JavaScript
+            - label: 'JavaScript'
               icon: SiJavascript
-            - label: Vue
+            - label: 'Vue'
               icon: SiVuedotjs
-            - label: Web Components
+            - label: 'Web Components'
               icon: SiWebcomponentsdotorg
-            - label: React
-              icon: SiReact
-            - label: Next.js
-              icon: SiNextdotjs
-            - label: Sass
-              icon: SiSass
-            - label: Tailwind CSS
-              icon: SiTailwindcss
-        - label: Backend
-          technologies:
-            - label: Node.js
-              icon: SiNodedotjs
-            - label: PHP
-              icon: SiPhp
-        - label: Design
-          technologies:
-            - label: Storybook
+            - label: 'Storybook'
               icon: SiStorybook
-            - label: Figma
-              icon: SiFigma
-        - label: Tooling
-          technologies:
-            - label: Vite
+            - label: 'Sass'
+              icon: SiSass
+            - label: 'Node.js'
+              icon: SiNodedotjs
+            - label: 'Vite'
               icon: SiVite
-            - label: GitHub Actions
+            - label: 'GitHub Actions'
               icon: SiGithubactions
-            - label: Docker
+        - label: Regularly
+          technologies:
+            - label: 'React'
+              icon: SiReact
+            - label: 'Next.js'
+              icon: SiNextdotjs
+            - label: 'Tailwind CSS'
+              icon: SiTailwindcss
+            - label: 'PHP'
+              icon: SiPhp
+            - label: 'Figma'
+              icon: SiFigma
+            - label: 'Docker'
               icon: SiDocker
-            - label: Cloudflare
-              icon: SiCloudflare
-            - label: Vitest
-              icon: SiVitest
-            - label: Playwright
+            - label: 'Playwright'
               icon: SiPlaywright
-            - label: Turborepo
+            - label: 'Vitest'
+              icon: SiVitest
+            - label: 'Cloudflare'
+              icon: SiCloudflare
+            - label: 'Turborepo'
               icon: SiTurborepo
-        - label: AI
+            - label: 'Claude'
+            - label: 'MCP'
+        - label: Shipped with before
           technologies:
-            - label: Claude
-            - label: MCP
-  - discriminant: technology
-    value:
-      title: Also worked with
-      categories:
-        - label: ''
-          technologies:
-            - label: 'AWS'
-              icon: SiAmazonaws
             - label: 'Laravel'
               icon: SiLaravel
             - label: 'Express'
@@ -94,6 +82,8 @@ blocks:
               icon: SiPostgresql
             - label: 'MySQL'
               icon: GrMysql
+            - label: 'AWS'
+              icon: SiAmazonaws
             - label: 'Go'
               icon: SiGo
             - label: 'Python'
