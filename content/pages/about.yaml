@@ -20,9 +20,16 @@ blocks:
     value:
       title: Experience
       body: |
-        - **[Traackr](https://www.traackr.com/)**, 2022 to now. Staff Engineer, after roles as Tech Lead for the design system, Senior Software Engineer and Software Engineer.
-        - **[Troy Web Consulting](https://www.troyweb.com)**, 2017 to 2022. Senior Developer, building client apps for government, healthcare and nonprofit clients.
-        - **[1st Playable Productions](https://1stplayable.com)**, 2016. Seasonal Programmer, porting educational games from Flash to JavaScript.
+        - [Traackr](https://www.traackr.com/), 2022 to now
+          - Staff Engineer, 2026 to now
+          - Tech Lead, Design System, 2024 to 2026
+          - Senior Software Engineer, 2023 to 2024
+          - Software Engineer, 2022 to 2023
+        - [Troy Web Consulting](https://www.troyweb.com), 2017 to 2022
+          - Senior Developer, 2021 to 2022
+          - Developer, 2019 to 2021
+          - Part-Time Developer, 2017 to 2019 (while at RPI)
+        - [1st Playable Productions](https://1stplayable.com), 2016. Seasonal Programmer.
       aside_image: {}
   - discriminant: technology
     value:
