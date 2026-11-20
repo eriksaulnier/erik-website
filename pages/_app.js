@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { LayoutGroup, AnimatePresence } from 'framer-motion';
+import { LayoutGroup, AnimatePresence, MotionConfig } from 'framer-motion';
 import { Layout } from '@/components/layout';
 import dynamic from 'next/dynamic';
 import '@/styles/globals.scss';
@@ -76,16 +76,18 @@ export default function MyApp({ Component, pageProps, router }) {
   // scripts/build-sitemap.mjs fails the build if an exported page lost its layout this way.
   if (!pageProps.site) return <Component {...pageProps} />;
   return (
-    <LayoutGroup>
-      <Layout
-        appConfig={pageProps.site}
-        pageTitle={pageProps?.tab_title || null}
-      >
-        <AnimatePresence mode="wait">
-          <Component layout {...pageProps} key={router.asPath} />
-        </AnimatePresence>
-      </Layout>
-      <EditLink />
-    </LayoutGroup>
+    <MotionConfig reducedMotion="user">
+      <LayoutGroup>
+        <Layout
+          appConfig={pageProps.site}
+          pageTitle={pageProps?.tab_title || null}
+        >
+          <AnimatePresence mode="wait">
+            <Component layout {...pageProps} key={router.asPath} />
+          </AnimatePresence>
+        </Layout>
+        <EditLink />
+      </LayoutGroup>
+    </MotionConfig>
   );
 }
