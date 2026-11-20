@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import TagList from '@/components/tag-list';
 import Icon from '@/components/icon';
 import styles from './project.module.scss';
@@ -8,6 +8,7 @@ import styles from './project.module.scss';
 export default function Project({ data }) {
   const project = data;
   const thumbnail = project.thumbnail;
+  const reduceMotion = useReducedMotion();
 
   return (
     <motion.div
@@ -27,7 +28,11 @@ export default function Project({ data }) {
         <motion.h4 className={styles.title}>{project.name}</motion.h4>
       </div>
       {thumbnail?.src && (
-        <div className={styles.image}>
+        <motion.div
+          className={styles.image}
+          variants={reduceMotion ? undefined : { hover: { y: -4 } }}
+          transition={{ type: 'spring', stiffness: 250 }}
+        >
           <Image
             {...thumbnail}
             alt={thumbnail.alt || project.name}
@@ -36,7 +41,7 @@ export default function Project({ data }) {
               height: 'auto',
             }}
           />
-        </div>
+        </motion.div>
       )}
       <div className={styles.content}>
         <p className={styles.description}>{project.description}</p>
