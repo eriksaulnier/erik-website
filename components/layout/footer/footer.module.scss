@@ -26,6 +26,9 @@
   }
 
   .origin {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
     color: rgba($light-2, 0.55);
     font-size: 0.8rem;
     font-weight: 500;
