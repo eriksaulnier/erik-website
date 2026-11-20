@@ -1,5 +1,5 @@
 // Postbuild: writes out/sitemap.xml and checks the one image that
-// resolveImages never sees (the global thumbnail, imported directly by _app.js).
+// resolveImages never sees (the global thumbnail, which getGlobal returns unresolved).
 import { access, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { getGlobal, listPageSlugs } from '../lib/content.mjs';
