@@ -14,3 +14,18 @@ test('encodeEmail output contains neither the at sign nor the domain', () => {
   assert.ok(!encoded.includes('@'));
   assert.ok(!encoded.includes('eriksaulnier'));
 });
+
+test('the Keystatic email field rejects a plain address and accepts an encoded one', async () => {
+  const { default: config } = await import('../keystatic.config.mjs');
+  const field = config.singletons.global.schema.footer.fields.email;
+  const parse = (value) => {
+    try {
+      field.validate(value);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+  assert.equal(parse('hello@eriksaulnier.com'), false);
+  assert.equal(parse(encodeEmail('hello@eriksaulnier.com')), true);
+});
