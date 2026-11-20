@@ -44,18 +44,14 @@ blocks:
               icon: SiNextdotjs
             - label: Sass
               icon: SiSass
+            - label: Tailwind CSS
+              icon: SiTailwindcss
         - label: Backend
           technologies:
             - label: Node.js
               icon: SiNodedotjs
             - label: PHP
               icon: SiPhp
-            - label: Express
-              icon: SiExpress
-            - label: PostgreSQL
-              icon: SiPostgresql
-            - label: MySQL
-              icon: GrMysql
         - label: Design
           technologies:
             - label: Storybook
@@ -70,6 +66,17 @@ blocks:
               icon: SiGithubactions
             - label: Docker
               icon: SiDocker
+            - label: Cloudflare
+              icon: SiCloudflare
+            - label: Vitest
+              icon: SiVitest
+            - label: Playwright
+              icon: SiPlaywright
+            - label: Turborepo
+              icon: SiTurborepo
+        - label: AI
+          technologies:
+            - label: Claude
             - label: MCP
   - discriminant: technology
     value:
@@ -81,6 +88,14 @@ blocks:
               icon: SiAmazonaws
             - label: 'Laravel'
               icon: SiLaravel
+            - label: 'Express'
+              icon: SiExpress
+            - label: 'PostgreSQL'
+              icon: SiPostgresql
+            - label: 'MySQL'
+              icon: GrMysql
+            - label: 'Go'
+              icon: SiGo
             - label: 'Python'
               icon: SiPython
             - label: 'Java'
