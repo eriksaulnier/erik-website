@@ -10,7 +10,7 @@ export default function Header({ siteTitle, navigation, social }) {
 
   const [open, setOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState(router.asPath);
-  
+
   const resetTimeout = useRef(null);
   const routerPath = useRef(router.asPath);
   routerPath.current = router.asPath;
@@ -22,7 +22,7 @@ export default function Header({ siteTitle, navigation, social }) {
 
     // Cleanup reset timeout
     return () => clearTimeout(resetTimeout.current);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.asPath]);
 
   // Prevent scrolling when the menu is open
@@ -52,7 +52,7 @@ export default function Header({ siteTitle, navigation, social }) {
     }, 600);
   }
 
-  const activeMenuItem = navigation?.find(page => page.path === currentPath);
+  const activeMenuItem = navigation?.find((page) => page.path === currentPath);
 
   const menuVariants = {
     open: {
@@ -60,19 +60,19 @@ export default function Header({ siteTitle, navigation, social }) {
       opacity: 1,
       transition: {
         type: 'linear',
-        duration: 0.3
-      }
+        duration: 0.3,
+      },
     },
     closed: {
       opacity: 0,
       transition: {
         type: 'linear',
-        duration: 0.3
+        duration: 0.3,
       },
       transitionEnd: {
-        display: 'none'
-      }
-    }
+        display: 'none',
+      },
+    },
   };
 
   return (
@@ -101,7 +101,7 @@ export default function Header({ siteTitle, navigation, social }) {
               <Path
                 variants={{
                   closed: { d: 'M 2 2.5 L 20 2.5' },
-                  open: { d: 'M 3 16.5 L 17 2.5' }
+                  open: { d: 'M 3 16.5 L 17 2.5' },
                 }}
               />
               <Path
@@ -112,13 +112,13 @@ export default function Header({ siteTitle, navigation, social }) {
               <Path
                 variants={{
                   closed: { d: 'M 2 16.346 L 20 16.346' },
-                  open: { d: 'M 3 2.5 L 17 16.346' }
+                  open: { d: 'M 3 2.5 L 17 16.346' },
                 }}
               />
             </svg>
           </motion.button>
-          
-          <motion.div 
+
+          <motion.div
             id="menu"
             initial={false}
             animate={open ? 'open' : 'closed'}
@@ -140,7 +140,7 @@ export default function Header({ siteTitle, navigation, social }) {
                 </div>
               ))}
             </div>
-            
+
             <div className={styles.social}>
               {social?.map(({ title, icon, link }, index) => (
                 <div key={index} className={styles.socialIcon}>
@@ -158,17 +158,18 @@ export default function Header({ siteTitle, navigation, social }) {
   );
 }
 
-const MenuHighlight = (condition)  => condition && (
-  <motion.span 
-    layoutId="header-highlight"
-    className={styles.highlight}
-    transition={{
-      type: 'spring',
-      stiffness: 250,
-      damping: 30
-    }}
-  />
-);
+const MenuHighlight = (condition) =>
+  condition && (
+    <motion.span
+      layoutId="header-highlight"
+      className={styles.highlight}
+      transition={{
+        type: 'spring',
+        stiffness: 250,
+        damping: 30,
+      }}
+    />
+  );
 
 const Path = (props) => (
   <motion.path

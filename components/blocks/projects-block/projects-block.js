@@ -8,7 +8,9 @@ export default function ProjectsBlock({ data: { title, projects } }) {
     <section>
       {title && <h2>{title}</h2>}
 
-      {projects && <ProjectList projects={projects} onClick={setSelectedProject} />}
+      {projects && (
+        <ProjectList projects={projects} onClick={setSelectedProject} />
+      )}
     </section>
   );
 }

@@ -1,0 +1,91 @@
+title: About
+heading: About me
+draft: false
+blocks:
+  - discriminant: content
+    value:
+      body: |
+        I'm a software engineer based in Troy, NY who has a strong passion for all things tech. Over the last 6 years, I have had experience working on a large variety of projects of varying sizes including software applications, mobile apps, websites, and even some video games. I am always excited when presented with opportunities to add new technologies to my toolbelt and am never afraid of a challenge.
+
+        I have a Bachelor of Science Degree in Information Technology and Web Science with a Concentration in Entrepreneurship from [Rensselaer Polytechnic Institute](https://rpi.edu).
+
+        I currently work full-time as a Software Engineer at [Traackr](https://www.traackr.com/).
+
+        Previously, I have worked at [Troy Web Consulting](https://www.troyweb.com) and [1st Playable Productions](https://1stplayable.com).
+      title: Hey, my name is Erik
+      aside_image:
+        src: /images/pages/about/blocks/0/value/aside_image/src.png
+        alt: A picture of me
+  - discriminant: technology
+    value:
+      title: Technologies I use
+      categories:
+        - label: Languages
+          technologies:
+            - label: JavaScript
+              icon: SiJavascript
+            - label: PHP
+              icon: SiPhp
+            - label: Sass
+              icon: SiSass
+            - label: Node.js
+              icon: SiNodedotjs
+            - label: Typescript
+              icon: SiTypescript
+            - label: SQL
+            - label: Python
+              icon: SiPython
+            - label: Java
+              icon: SiJava
+            - label: C++
+              icon: SiCplusplus
+            - label: C#
+              icon: SiCsharp
+        - label: Frameworks
+          technologies:
+            - label: Vue.js
+              icon: SiVuedotjs
+            - label: Laravel
+              icon: SiLaravel
+            - label: React
+              icon: SiReact
+            - label: Next.js
+              icon: SiNextdotjs
+            - label: Express.js
+              icon: SiExpress
+        - label: Databases
+          technologies:
+            - label: MySQL
+              icon: GrMysql
+            - label: PostgreSQL
+              icon: SiPostgresql
+            - label: DynamoDB
+              icon: SiAmazondynamodb
+            - label: Firestore
+              icon: SiFirebase
+            - label: MongoDB
+              icon: SiMongodb
+        - label: DevOps
+          technologies:
+            - label: Docker
+              icon: SiDocker
+            - label: AWS
+              icon: SiAmazonaws
+            - label: Firebase
+              icon: SiFirebase
+            - label: Netlify
+              icon: SiNetlify
+            - label: Heroku
+              icon: SiHeroku
+        - label: Content Management Systems
+          technologies:
+            - label: WordPress
+              icon: SiWordpress
+            - label: Wix
+              icon: SiWix
+  - discriminant: content
+    value:
+      body: |
+        If you are curious about the other stuff I use check out my [uses page](/about/uses).
+      title: Other stuff I use
+      aside_image: {}

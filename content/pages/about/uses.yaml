@@ -1,0 +1,56 @@
+title: Uses
+heading: Stuff that I use
+draft: false
+blocks:
+  - discriminant: content
+    value:
+      body: |
+        {% image src="/images/pages/about/uses/desk-2023.png" alt="My current desk setup" /%}
+      aside_image: {}
+  - discriminant: content
+    value:
+      body: |
+        ### Desktop
+
+        * Case: NZXT H710
+        * Processor: AMD Ryzen 9 5900X
+        * Cooler: NZXT Kraken X63 RGB
+        * Motherboard: NZXT N7 B550 AMD
+        * Memory: CORSAIR Vengeance RGB Pro 32GB (2 x 16GB)
+        * Storage: WD\_BLACK 2TB SN850X NVMe Gen4
+        * Video Card: MSI GeForce RTX 2070 SUPER DirectX 12
+        * Power Supply: NZXT C750 Bronze
+
+        ### Laptop
+
+        * 2021 16" MacBook Pro with M1 Pro chip, 32GB RAM, and 500GB SSD
+      title: Hardware
+      aside_image: {}
+  - discriminant: content
+    value:
+      body: |
+        ### Desk
+
+        * Desk: [Autonomous SmartDesk 2 Premium](https://www.autonomous.ai/standing-desks/smartdesk-2-business)
+        * Chair: [Herman Miller Embody Gaming Chair](https://store.hermanmiller.com/gaming-chairs/embody-gaming-chair/2517590.html)
+        * Standing Mat: [Ergodriven Topo](https://ergodriven.com/products/topo?variant=27365321411)
+
+        ### Peripherals
+
+        * Keyboard: [Keychron K3 Pro (Low Profile Gateron Brown)](https://www.keychron.com/products/keychron-k3-pro-qmk-via-wireless-custom-mechanical-keyboard?variant=40283619098713)
+          * w/ [Nuphy nSA Shine-through ABS Keycaps (Black)](https://nuphy.com/collections/keycaps/products/nsa-shine-through-abs-keycaps?variant=40286325768301)
+        * Mice:
+          * [Logitech MX Vertical](https://www.logitech.com/en-us/products/mice/mx-vertical-ergonomic-mouse.910-005447.html)
+          * [Logitech G Pro Wireless](https://www.logitechg.com/en-us/products/gaming-mice/pro-wireless-mouse.910-005270.html)
+        * Monitors:
+          * [ASUS TUF Gaming VG27BQ 27''](https://www.asus.com/us/Monitors/TUF-Gaming-VG27BQ/)
+          * [ASUS PB287Q 28''](https://www.asus.com/us/Commercial-Monitors/PB287Q/)
+        * Headphones:
+          * [Steelseries Arctis 7](https://steelseries.com/gaming-headsets/arctis-7)
+          * [Sony WH-1000XM3](https://www.sony.com/electronics/headband-headphones/wh-1000xm3)
+        * Mousepad: [Glorious Stitch Cloth Mousepad XXL Extended](https://www.pcgamingrace.com/products/glorious-xxl-extended-18x36-stealth-edition)
+        * Microphone: [RØDE PodMic](https://rode.com/en/microphones/broadcast/podmic)
+        * Mixer: [Elgato Wave XLR](https://www.elgato.com/en/wave-xlr)
+        * Webcam: [Logitech C922x](https://www.logitech.com/en-us/products/webcams/c922-pro-stream-webcam.html)
+      title: Accessories
+      aside_image: {}

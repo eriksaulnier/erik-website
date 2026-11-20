@@ -7,7 +7,7 @@ export default function ProjectList({ projects, onClick }) {
     <motion.div
       className={styles.projectList}
       variants={{
-        enter: { transition: { staggerChildren: 0.1 } }
+        enter: { transition: { staggerChildren: 0.1 } },
       }}
     >
       {projects?.map((project, index) => (

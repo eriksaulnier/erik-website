@@ -1,0 +1,14 @@
+name: Rogue eSports Website Concept
+draft: false
+featured: false
+publish_date: 2016-10-02
+description: "Designed a concept website for Rogue eSports as a web design exercise. "
+technologies:
+  - label: Adobe Photoshop
+    icon: SiAdobephotoshop
+links:
+  - title: Behance Post
+    href: https://www.behance.net/gallery/43700467/Rogue-eSports-Website-Concept
+    icon: BiLinkExternal
+thumbnail:
+  src: /images/projects/rogue-esports-website-concept/thumbnail/src.png

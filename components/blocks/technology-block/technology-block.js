@@ -4,7 +4,10 @@ import TagList from '@/components/tag-list';
 
 export default function TechnologyBlock({ data: { title, categories } }) {
   return (
-    <motion.section className={styles.technologyBlock} variants={{ enter: { transition: { staggerChildren: 0.01 } } }}>
+    <motion.section
+      className={styles.technologyBlock}
+      variants={{ enter: { transition: { staggerChildren: 0.01 } } }}
+    >
       {title && <h2>{title}</h2>}
 
       {categories?.map((category, index) => (

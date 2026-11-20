@@ -6,8 +6,7 @@ import Icon from '@/components/icon';
 import styles from './project.module.scss';
 
 export default function Project({ data }) {
-  const project = data.node || data;
-  const publishDate = new Date(project.publish_date);
+  const project = data;
   const thumbnail = project.thumbnail;
 
   return (
@@ -16,15 +15,15 @@ export default function Project({ data }) {
       whileHover="hover"
       variants={{
         initial: { opacity: 0, y: 10 },
-        enter: { opacity: 1, y: 0 }
+        enter: { opacity: 1, y: 0 },
       }}
       transition={{
         type: 'spring',
-        stiffness: 250
+        stiffness: 250,
       }}
     >
       <div className={styles.heading}>
-        <p className={styles.date}>{publishDate.getFullYear()}</p>
+        <p className={styles.date}>{project.publish_date.slice(0, 4)}</p>
         <motion.h4 className={styles.title}>{project.name}</motion.h4>
       </div>
       <div className={styles.image}>
@@ -33,7 +32,7 @@ export default function Project({ data }) {
           alt={thumbnail.alt || project.name}
           style={{
             width: '100%',
-            height: 'auto'
+            height: 'auto',
           }}
         />
       </div>
@@ -41,19 +40,28 @@ export default function Project({ data }) {
         <p className={styles.description}>{project.description}</p>
 
         {project.technologies && (
-          <TagList className={styles.stack} tagClassName={styles.tag} tags={project.technologies} />
+          <TagList
+            className={styles.stack}
+            tagClassName={styles.tag}
+            tags={project.technologies}
+          />
         )}
 
         {project.links && (
           <div className={styles.buttonList}>
             {project.links?.map((item, index) => (
-              <Link href={item.href} key={index} className={[styles.button, 'btn'].join(' ')} target="blank">
+              <Link
+                href={item.href}
+                key={index}
+                className={[styles.button, 'btn'].join(' ')}
+                target="blank"
+              >
                 {item.title}
                 {item.icon && <Icon name={item.icon} />}
               </Link>
             ))}
           </div>
-        )} 
+        )}
       </div>
     </motion.div>
   );
