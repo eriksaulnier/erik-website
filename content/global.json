@@ -13,10 +13,6 @@
       {
         "title": "Projects",
         "path": "/projects"
-      },
-      {
-        "title": "Contact",
-        "path": "/contact"
       }
     ],
     "social": [
@@ -38,6 +34,7 @@
     ]
   },
   "footer": {
+    "email": "hello@eriksaulnier.com",
     "copyright": {
       "year": "2015",
       "text": "Erik Saulnier"
