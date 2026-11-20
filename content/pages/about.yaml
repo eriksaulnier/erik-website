@@ -20,69 +20,53 @@ blocks:
     value:
       title: Technologies I use
       categories:
-        - label: Languages
+        - label: Frontend
           technologies:
+            - label: TypeScript
+              icon: SiTypescript
             - label: JavaScript
               icon: SiJavascript
-            - label: PHP
-              icon: SiPhp
-            - label: Sass
-              icon: SiSass
-            - label: Node.js
-              icon: SiNodedotjs
-            - label: Typescript
-              icon: SiTypescript
-            - label: SQL
-            - label: Python
-              icon: SiPython
-            - label: Java
-              icon: SiJava
-            - label: C++
-              icon: SiCplusplus
-            - label: C#
-              icon: SiCsharp
-        - label: Frameworks
-          technologies:
-            - label: Vue.js
+            - label: Vue
               icon: SiVuedotjs
-            - label: Laravel
-              icon: SiLaravel
+            - label: Web Components
+              icon: SiWebcomponentsdotorg
             - label: React
               icon: SiReact
             - label: Next.js
               icon: SiNextdotjs
-            - label: Express.js
-              icon: SiExpress
-        - label: Databases
+            - label: Sass
+              icon: SiSass
+        - label: Backend
           technologies:
-            - label: MySQL
-              icon: GrMysql
+            - label: Node.js
+              icon: SiNodedotjs
+            - label: PHP
+              icon: SiPhp
+            - label: Laravel
+              icon: SiLaravel
+            - label: Express
+              icon: SiExpress
             - label: PostgreSQL
               icon: SiPostgresql
-            - label: DynamoDB
-              icon: SiAmazondynamodb
-            - label: Firestore
-              icon: SiFirebase
-            - label: MongoDB
-              icon: SiMongodb
-        - label: DevOps
+            - label: MySQL
+              icon: GrMysql
+        - label: Design
           technologies:
+            - label: Storybook
+              icon: SiStorybook
+            - label: Figma
+              icon: SiFigma
+        - label: Tooling
+          technologies:
+            - label: Vite
+              icon: SiVite
+            - label: GitHub Actions
+              icon: SiGithubactions
             - label: Docker
               icon: SiDocker
             - label: AWS
               icon: SiAmazonaws
-            - label: Firebase
-              icon: SiFirebase
-            - label: Netlify
-              icon: SiNetlify
-            - label: Heroku
-              icon: SiHeroku
-        - label: Content Management Systems
-          technologies:
-            - label: WordPress
-              icon: SiWordpress
-            - label: Wix
-              icon: SiWix
+            - label: MCP
   - discriminant: content
     value:
       body: |
