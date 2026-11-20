@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { FaMountainSun } from 'react-icons/fa6';
 import { decodeEmail } from '../../../lib/email.mjs';
 import styles from './footer.module.scss';
@@ -6,6 +7,7 @@ import styles from './footer.module.scss';
 export default function Footer({ copyright, email }) {
   const date = new Date();
   const [address, setAddress] = useState(null);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     setAddress(decodeEmail(email));
@@ -22,10 +24,20 @@ export default function Footer({ copyright, email }) {
           {address ? <a href={`mailto:${address}`}>{address}</a> : 'Email'}
         </p>
 
-        <p className={styles.origin}>
-          <FaMountainSun aria-hidden="true" />
+        <motion.p
+          className={styles.origin}
+          whileHover={reduceMotion ? undefined : 'hover'}
+        >
+          <motion.span
+            className={styles.originIcon}
+            aria-hidden="true"
+            variants={{ hover: { y: -2 } }}
+            transition={{ type: 'spring', stiffness: 300 }}
+          >
+            <FaMountainSun />
+          </motion.span>
           Made in Upstate NY
-        </p>
+        </motion.p>
       </div>
     </footer>
   );

@@ -33,6 +33,10 @@
     font-size: 0.8rem;
     font-weight: 500;
   }
+
+  .originIcon {
+    display: inline-flex;
+  }
 }
 
 @include mobile-up {
