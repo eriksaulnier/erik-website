@@ -177,11 +177,13 @@ ul {
   white-space: normal;
 }
 
-@include tablet-up {
+@include mobile-up {
   body {
     overflow: auto !important; // override mobile animations
   }
+}
 
+@include tablet-up {
   h1 {
     font-size: 2.3em;
   }

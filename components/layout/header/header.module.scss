@@ -158,7 +158,7 @@ $highlight-color: $primary;
     }
   }
 
-  @include tablet-up {
+  @include mobile-up {
     .navigation {
       .brand {
         margin-right: 2rem;
