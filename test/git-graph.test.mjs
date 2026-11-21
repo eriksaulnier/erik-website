@@ -1,8 +1,11 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import {
+  BACK_SPEED_CAP,
+  commitGitGraph,
   createGitGraph,
   LIFE_MS,
+  MAX_LIVE,
   resizeGitGraph,
   stepGitGraph,
 } from '../components/splash/git-graph.mjs';
@@ -99,4 +102,67 @@ test('a zero-size card produces no NaN and recovers', () => {
     finite();
   }
   assert.ok(g.main.pts.length > 0, 'the graph did not resume after resize');
+});
+
+const live = (g) => g.branches.filter((b) => b.state !== 'merged');
+const atHead = (g, vx = 0) => ({
+  x: g.head.x,
+  y: g.head.y,
+  vx,
+  vy: 0,
+  active: true,
+});
+
+test('a fast flick forks a branch', () => {
+  const g = createGitGraph({ width: 800, height: 600, random: seeded(7) });
+  stepGitGraph(g, FRAME, atHead(g, 2500));
+  assert.equal(g.branches.length, 1);
+  assert.ok(Math.hypot(g.branches[0].vx, g.branches[0].vy) <= 600);
+});
+
+test('branches merge back and never exceed MAX_LIVE', () => {
+  const g = createGitGraph({ width: 800, height: 600, random: seeded(8) });
+  let merged = false;
+  for (let i = 0; i < 20 * 60; i++) {
+    stepGitGraph(g, FRAME, atHead(g, i % 30 === 0 ? 2500 : 0));
+    assert.ok(live(g).length <= MAX_LIVE, `${live(g).length} live branches`);
+    if (g.main.commits.some((c) => c.merge)) merged = true;
+  }
+  assert.ok(merged, 'no branch ever merged');
+});
+
+test('a huge hidden gap keeps branch speed under the cap', () => {
+  const g = createGitGraph({ width: 800, height: 600, random: seeded(9) });
+  stepGitGraph(g, FRAME, atHead(g, 2500));
+  stepGitGraph(g, 30, idle);
+  for (let i = 0; i < 300; i++) {
+    stepGitGraph(g, FRAME, idle);
+    for (const b of live(g)) {
+      assert.ok(Math.hypot(b.vx, b.vy) <= BACK_SPEED_CAP + 1e-9);
+    }
+  }
+});
+
+test('shrinking the card brings HEAD and branches back inside', () => {
+  const g = createGitGraph({ width: 1200, height: 800, random: seeded(10) });
+  run(g, 3, (i) => ({
+    x: 1100,
+    y: 700,
+    vx: i % 30 === 0 ? 2500 : 0,
+    vy: 0,
+    active: true,
+  }));
+  resizeGitGraph(g, 400, 300);
+  run(g, 6);
+  const inside = (p) => p.x >= 0 && p.x <= 400 && p.y >= 0 && p.y <= 300;
+  assert.ok(inside(g.head), `head at ${g.head.x}, ${g.head.y}`);
+  for (const b of live(g)) assert.ok(inside(b), `branch at ${b.x}, ${b.y}`);
+});
+
+test('a click commit adds a big commit and a message floater', () => {
+  const g = createGitGraph({ width: 800, height: 600, random: seeded(11) });
+  stepGitGraph(g, FRAME, idle);
+  commitGitGraph(g);
+  assert.equal(g.main.commits.at(-1).big, true);
+  assert.match(g.floaters[0].text, /^[0-9a-f]{7} {2}\S/);
 });
