@@ -95,7 +95,7 @@ export default function Header({ siteTitle, navigation, social }) {
             animate={open ? 'open' : 'closed'}
             className={styles.menuToggle}
             onClick={() => setOpen(!open)}
-            aria-label={`${open ? 'Open' : 'Close'} the menu`}
+            aria-label={`${open ? 'Close' : 'Open'} the menu`}
           >
             <svg viewBox="0 0 20 20" aria-hidden="true">
               <Path
