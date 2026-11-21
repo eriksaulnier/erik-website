@@ -29,11 +29,9 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
     "react-is": "^18.2.0",
-    "react-tsparticles": "2.9.3",
     "react-typed": "^1.2.0",
     "sass": "1.62.1",
-    "sharp": "^0.35.5",
-    "tsparticles-slim": "2.9.3"
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
     "@astrojs/react": "^7.1.9",

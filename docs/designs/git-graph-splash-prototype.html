@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Homepage effects v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Roboto:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; }
+  body { color: #fff; font-family: Roboto, sans-serif; line-height: 1.3; background: #181a1b; display: flex; flex-direction: column; }
+
+  /* Prototype controls: deliberately not part of the site design. */
+  .proto { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; padding: 6px 12px; font-size: 13px; background: #0d0e0f; border-bottom: 1px dashed #36363a; color: #aaa; }
+  .proto .label { font: 600 11px "JetBrains Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: #fcc419; margin-right: 6px; }
+  .proto button { all: unset; cursor: pointer; padding: 4px 10px; border-radius: 999px; color: #ddd; }
+  .proto button:hover { color: #fff; }
+  .proto button[aria-pressed="true"] { background: #36363a; color: #fff; }
+  .proto .sep { width: 1px; height: 16px; background: #36363a; margin: 0 4px; }
+  .proto #hint { color: #888; margin-left: 6px; }
+  .proto #stats { margin-left: auto; font: 11px "JetBrains Mono", monospace; color: #888; }
+  #pick { background: #fcc419 !important; color: #1a1a1a !important; font-weight: 700; }
+  #pick.done { background: #fff !important; }
+
+  /* Site frame, copied from components/layout. */
+  .layout { flex: 1; min-height: 0; display: flex; flex-direction: column; width: 100%; max-width: 1800px; margin: 0 auto; padding: 0 2rem; box-sizing: border-box; }
+  header { height: 40px; padding: .8rem 1rem; font-weight: 600; color: #e2e8f0; }
+  header .container { max-width: 1300px; height: 40px; margin: 0 auto; display: flex; align-items: center; }
+  header a { position: relative; color: inherit; text-decoration: none; }
+  .brand { color: #fff; font: 600 1.6rem Montserrat, sans-serif; margin-right: 3rem; }
+  .brand .hl, .nav a:hover .hl { position: absolute; left: 0; right: 0; bottom: 1px; height: 2px; border-radius: 1px; background: #1971c2; }
+  .nav { display: flex; gap: 1.6rem; flex: 1; }
+  .nav a { font: 600 1.1rem Montserrat, sans-serif; color: #e2e8f0; }
+  .social { display: flex; gap: 1.8rem; }
+  .social a { display: block; width: 1.4rem; height: 1.4rem; color: #e2e8f0; }
+  .social svg { width: 100%; height: 100%; fill: currentColor; }
+  .social a:hover { color: #1971c2; }
+  main.content { position: relative; flex: 1; min-height: 0; border-radius: .5rem; overflow: hidden; box-shadow: 2px 2px 10px 0 rgba(0,0,0,.2); background: var(--card); --card: #1e2021; }
+  footer { padding: 1rem; color: #e2e8f0; font: 600 .9rem Montserrat, sans-serif; }
+  footer .container { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; }
+  footer p { margin: .6rem 0; }
+  footer a { color: #4b91d6; text-decoration: none; }
+  footer .bolt { color: #fcc419; }
+
+  canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+  canvas[hidden] { display: none; }
+  .hero { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; text-align: center; padding: 1.5rem; transition: opacity .3s; font-size: 1.8rem; }
+  .hero.hidden { opacity: 0; }
+  .hero h1 { font: 600 2.5em Montserrat, sans-serif; margin: 0 0 .2em; }
+  .hero h1 span { display: inline-block; opacity: 0; transform: translateY(15px) scaleX(.8); animation: in .5s cubic-bezier(.2, 1.4, .4, 1) forwards; }
+  @keyframes in { to { opacity: 1; transform: none; } }
+  .hero h2 { font: 400 1.2em Montserrat, sans-serif; margin: 0; }
+  .hero b { font-weight: 700; }
+  .hero .caret { font-weight: 400; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (max-width: 75em) { .hero { font-size: 1.6rem; } }
+  @media (max-width: 53em) { .hero { font-size: 1.3rem; } .layout { padding: 0 1rem; } .nav, .social { display: none; } }
+</style>
+</head>
+<body>
+<div class="proto">
+  <span class="label">Prototype</span>
+  <button data-fx="git3">1 · Git v3</button>
+  <button data-fx="git">2 · Git v2 (polished)</button>
+  <button data-fx="lens">3 · Lens v2</button>
+  <span class="sep"></span>
+  <button id="tText" aria-pressed="true">Text</button>
+  <button id="tBlue" aria-pressed="false">Blue card</button>
+  <button id="pick">I like this one</button>
+  <span id="hint"></span>
+  <span id="stats"></span>
+</div>
+<div class="layout">
+  <header>
+    <div class="container">
+      <a class="brand" href="#">Erik Saulnier<span class="hl"></span></a>
+      <nav class="nav"><a href="#">About<span></span></a><a href="#">Projects<span></span></a><a href="#">Contact<span></span></a></nav>
+      <div class="social">
+        <a href="#" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a href="#" title="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></svg></a>
+        <a href="#" title="Behance"><svg viewBox="0 0 24 24"><path d="M16.97 8.35h5.06V7.07h-5.06v1.28zM7.9 11.06c.55-.27 1.23-.77 1.23-2.03 0-2.5-1.88-2.85-3.62-2.85H0v11.53h5.66s3.71.12 3.71-3.43c0-1.45-.6-2.68-1.47-3.22zM2.5 8.2h2.6s1.6 0 1.6 1.43c0 1.45-.94 1.61-1.97 1.61H2.5V8.2zm2.84 7.49H2.5V12.6h2.96c1.08 0 1.8.39 1.8 1.6 0 1.33-.95 1.49-1.92 1.49zM24 13.9c0-2.4-1.42-4.4-4.13-4.4-2.62 0-4.27 2.02-4.27 4.53 0 2.6 1.55 4.5 4.27 4.5 3.17 0 3.82-2.47 3.82-2.47h-2.13s-.35.93-1.57.93c-1.65 0-1.74-1.6-1.74-1.6H24v-1.5zm-5.75-.9s.15-1.47 1.6-1.47c1.44 0 1.56 1.47 1.56 1.47h-3.16z"/></svg></a>
+      </div>
+    </div>
+  </header>
+  <main class="content" id="stage">
+    <canvas id="c2d"></canvas>
+    <canvas id="cgl" hidden></canvas>
+    <div class="hero" id="hero">
+      <h1 id="h1">Hey, I'm Erik!</h1>
+      <h2>I'm a <b id="typed"></b><span class="caret">|</span> based in Troy, NY.</h2>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>&copy; 2015-2026 Erik Saulnier</p>
+      <p><span class="bolt">&#9889;&#xFE0E;</span> by <a href="#">Next.js</a></p>
+    </div>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const SOURCE = "// components/splash/splash.js\nimport { motion } from 'framer-motion';\nimport Typed from 'react-typed';\nimport Particles from 'react-tsparticles';\nimport { loadSlim } from 'tsparticles-slim';\nimport particleConfig from './particlesjs-config';\nimport styles from './splash.module.scss';\nimport { useCallback } from 'react';\n\nexport default function Splash({\n  data: { heading, subheading, typed_words, shuffle_words },\n}) {\n  const headingWords = heading.split(' ');\n  const headingParts = headingWords\n    .map((e, i) => (i \u003c headingWords.length - 1 ? [e, '\\xa0'] : [e]))\n    .reduce((a, b) => a.concat(b));\n  const subheadingDelay = 0.13 * heading.length;\n\n  const particlesInit = useCallback(async (engine) => {\n    // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets\n    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready\n    // starting from v2 you can add only the features you need reducing the bundle size\n    await loadSlim(engine);\n  }, []);\n\n  return (\n    \u003cdiv className={styles.splash}>\n      \u003cdiv className={styles.centered}>\n        \u003cmotion.h1\n          className={styles.heading}\n          variants={{\n            enter: { transition: { staggerChildren: 0.1 } },\n          }}\n        >\n          {headingParts.map((word, index) => (\n            \u003cspan key={index} className={styles.noBreak}>\n              {[...word].map((char, i) => (\n                \u003cmotion.span\n                  key={i}\n                  variants={{\n                    initial: { opacity: 0, y: 15, scaleX: 0.8 },\n                    enter: { opacity: 1, y: 0, scaleX: 1 },\n                    // hover: { y: -5, scaleX: 0.9 }\n                  }}\n                  // whileHover=\"hover\"\n                  transition={{\n                    type: 'spring',\n                    stiffness: 300,\n                  }}\n                >\n                  {char}\n                \u003c/motion.span>\n              ))}\n            \u003c/span>\n          ))}\n        \u003c/motion.h1>\n\n        \u003cmotion.h2\n          className={styles.subheading}\n          variants={{\n            initial: { opacity: 0, y: 15 },\n            enter: { opacity: 1, y: 0 },\n          }}\n          transition={{\n            delay: subheadingDelay,\n            type: 'spring',\n            stiffness: 300,\n          }}\n        >\n          {subheading.split('||')[0]}\n          \u003cTyped\n            strings={typed_words}\n            className={styles.typed}\n            startDelay={subheadingDelay * 1000 - 1000}\n            backDelay={4000}\n            typeSpeed={50}\n            backSpeed={60}\n            cursorChar={'|'}\n            contentType={'html'}\n            autoInsertCss={false}\n            shuffle={shuffle_words}\n            smartBackspace\n            loop\n          />\n          {subheading.split('||')[1]}\n        \u003c/motion.h2>\n      \u003c/div>\n\n      \u003cParticles\n        className={styles.background}\n        init={particlesInit}\n        options={particleConfig}\n      />\n    \u003c/div>\n  );\n}\n\n// pages/index.js\nimport { motion } from 'framer-motion';\nimport { getHome } from '@/lib/content.mjs';\nimport Splash from '@/components/splash';\n\nexport default function Home({ home }) {\n  return (\n    \u003cmotion.div\n      initial=\"initial\"\n      animate=\"enter\"\n      exit=\"exit\"\n      variants={{\n        initial: { opacity: 0 },\n        enter: { opacity: 1 },\n        exit: { opacity: 0 },\n      }}\n    >\n      \u003cSplash data={home} />\n    \u003c/motion.div>\n  );\n}\n\nexport const getStaticProps = async () => {\n  return {\n    props: {\n      home: await getHome(),\n    },\n  };\n};\n\n// components/splash/splash.module.scss\n@import './variables';\n@import './mixins';\n\n.splash {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100%;\n  width: 100%;\n  padding: 1.5rem;\n  box-sizing: border-box;\n  background-color: $primary-dark;\n\n  .heading {\n    margin: 0 0 0.2em;\n    font-size: 2.5em;\n    text-align: center;\n    cursor: default;\n    z-index: 1;\n\n    span {\n      display: inline-block;\n\n      &.noBreak {\n        white-space: nowrap;\n      }\n    }\n  }\n\n  .subheading {\n    margin: 0;\n    font-size: 1.2em;\n    text-align: center;\n    font-weight: normal;\n    cursor: default;\n    z-index: 1;\n\n    .typed {\n      font-weight: bold;\n    }\n  }\n\n  .centered {\n    display: flex;\n    min-height: 100%;\n    max-width: 53em;\n    margin: 0 auto;\n    justify-content: center;\n    flex-direction: column;\n  }\n\n  .background {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n  }\n\n  @include mobile-up {\n    font-size: 1.3rem;\n  }\n\n  @include tablet-up {\n    font-size: 1.6rem;\n  }\n\n  @include desktop-up {\n    font-size: 1.8rem;\n  }\n}\n// lib/content.mjs\nimport Markdoc from '@markdoc/markdoc';\nimport { createReader } from '@keystatic/core/reader';\nimport config from '../keystatic.config.mjs';\nimport { markdocConfig } from './markdoc-config.mjs';\n\nconst reader = createReader(process.cwd(), config);\n\n// The reader returns Markdoc bodies as class instances, which Next refuses as props, so round-trip through JSON.\n// Transform the children: transforming the document itself adds an \u003carticle> wrapper.\nfunction toTree(body) {\n  if (!body?.node) return null;\n  return JSON.parse(\n    JSON.stringify(Markdoc.transform(body.node.children, markdocConfig)),\n  );\n}\n\nfunction transformBlocks(blocks) {\n  return blocks.map((block) =>\n    block.discriminant === 'content'\n      ? { ...block, value: { ...block.value, body: toTree(block.value.body) } }\n      : block,\n  );\n}\n\nexport async function getHome() {\n  return reader.singletons.home.readOrThrow();\n}\n\nexport async function getGlobal() {\n  return reader.singletons.global.readOrThrow();\n}\n\nexport async function getPage(slug) {\n  const page = await reader.collections.pages.read(slug);\n  if (!page || page.draft) return null;\n  return { ...page, blocks: transformBlocks(page.blocks) };\n}\n\nexport async function listPageSlugs() {\n  const pages = await reader.collections.pages.all();\n  return pages.filter(({ entry }) => !entry.draft).map(({ slug }) => slug);\n}\n\nexport async function listProjects({ featuredOnly = false } = {}) {\n  const projects = await reader.collections.projects.all();\n  return projects\n    .map(({ slug, entry }) => ({ slug, ...entry }))\n    .filter((p) => !p.draft && (!featuredOnly || p.featured))\n    .sort((a, b) => (b.publish_date ?? '').localeCompare(a.publish_date ?? ''));\n}\n";
+  const c2d = document.getElementById('c2d');
+  const cgl = document.getElementById('cgl');
+  const ctx2d = c2d.getContext('2d');
+  const stage = document.getElementById('stage');
+  const BLUE = 'hsl(209, 77%, 33%)';
+  const DARK = '#1e2021';
+  let BG = DARK;
+  let W = 0, H = 0, DPR = 1;
+  const MONO = '"JetBrains Mono", ui-monospace, monospace';
+  const P = { x: -9999, y: -9999, vx: 0, vy: 0, inside: false, lastT: 0 };
+  let lastMove = -1e9;
+  // Effects age things on this clock. It only advances while frames draw, so a hidden tab cannot build up a time jump.
+  let simT = 0;
+
+  function attractor(now) {
+    if (P.inside && performance.now() - lastMove < 2500) return { x: P.x, y: P.y, real: true };
+    const t = now / 1000;
+    return { x: W / 2 + Math.sin(t * 0.55) * W * 0.32, y: H / 2 + Math.sin(t * 0.9 + 1) * H * 0.28, real: false };
+  }
+
+  function heroRect() {
+    const hero = document.getElementById('hero');
+    if (hero.classList.contains('hidden')) return null;
+    const s = stage.getBoundingClientRect();
+    const a = hero.querySelector('h1').getBoundingClientRect(), b = hero.querySelector('h2').getBoundingClientRect();
+    const x = Math.min(a.left, b.left), y = Math.min(a.top, b.top);
+    return { x: x - s.left, y: y - s.top, w: Math.max(a.right, b.right) - x, h: Math.max(a.bottom, b.bottom) - y };
+  }
+
+  // ---------------------------------------------------------------- 1. Lens v2 (WebGL2)
+  function tokenize(line) {
+    const cls = new Uint8Array(line.length);
+    let m;
+    const kw = /\b(const|let|function|return|if|else|for|of|await|async|export|import|from|default|new|while|true|false|null|typeof)\b/g;
+    while ((m = kw.exec(line))) cls.fill(1, m.index, m.index + m[0].length);
+    const st = /'[^']*'|"[^"]*"|`[^`]*`/g;
+    while ((m = st.exec(line))) cls.fill(2, m.index, m.index + m[0].length);
+    const ci = line.search(/\/\/|^\s*\*|\/\*/);
+    if (ci >= 0) cls.fill(3, ci);
+    return { text: line.replace(/\t/g, '  '), cls };
+  }
+
+  function makeLens() {
+    const FS = 13, CH = 18, AS_MAX = 2.3;
+    const SCR = '{}[]()<>/\\=+-*&|!?;:#$%01'.split('').map((c) => c.charCodeAt(0) - 32);
+    const LINES = SOURCE.split('\n').map(tokenize);
+    let gl, prog, loc, texCells, texInfl, texAtlas, CW, cols, rows, infl, inflBytes, glyphCount = 0;
+    const ripples = [];
+
+    const VS = `#version 300 es
+precision highp float;
+uniform vec2 uRes, uCell, uMouse, uAtlasGrid;
+uniform int uCols, uScrN;
+uniform int uScr[32];
+uniform float uTime;
+uniform sampler2D uCells, uInfl;
+out vec2 vUV; out float vInfl, vSpace; flat out int vClass;
+const vec2 Q[6] = vec2[6](vec2(0,0), vec2(1,0), vec2(0,1), vec2(0,1), vec2(1,0), vec2(1,1));
+float hash(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
+void main() {
+  ivec2 cr = ivec2(gl_InstanceID % uCols, gl_InstanceID / uCols);
+  vec4 cell = texelFetch(uCells, cr, 0);
+  float v = texelFetch(uInfl, cr, 0).r;
+  int g = int(cell.r * 255.0 + 0.5);
+  float space = g == 0 ? 1.0 : 0.0;
+  if (v > 0.4) {
+    float h = hash(vec2(cr));
+    float t = floor(uTime * (5.0 + h * 9.0) + h * 10.0);
+    g = uScr[min(int(hash(vec2(cr) + t) * float(uScrN)), uScrN - 1)];
+  }
+  if (g == 0) { gl_Position = vec4(2.0, 2.0, 2.0, 1.0); return; }
+  vec2 center = (vec2(cr) + 0.5) * uCell;
+  vec2 d = center - uMouse;
+  float s = 1.0 + v * 1.25;
+  vec2 c = center + d / max(length(d), 1.0) * v * 18.0;
+  vec2 q = Q[gl_VertexID];
+  vec2 p = c + (q - 0.5) * uCell * s;
+  gl_Position = vec4(p.x / uRes.x * 2.0 - 1.0, 1.0 - p.y / uRes.y * 2.0, 0.0, 1.0);
+  vUV = (vec2(float(g % 16), float(g / 16)) + q) / uAtlasGrid;
+  vInfl = v; vSpace = space; vClass = int(cell.g * 255.0 + 0.5);
+}`;
+    const FSH = `#version 300 es
+precision mediump float;
+uniform sampler2D uAtlas;
+uniform vec3 uCls[4];
+uniform float uClsA[4];
+in vec2 vUV; in float vInfl, vSpace; flat in int vClass;
+out vec4 o;
+void main() {
+  float a = texture(uAtlas, vUV).a;
+  float v = vInfl;
+  float hot = clamp((v - 0.55) / 0.45, 0.0, 1.0);
+  vec3 col = mix(mix(uCls[vClass], vec3(1.0), min(1.0, v * 1.6)), vec3(0.988, 0.769, 0.098), hot);
+  float al = (uClsA[vClass] + (1.0 - uClsA[vClass]) * v) * a * (vSpace > 0.5 ? 0.55 : 1.0);
+  o = vec4(col * al, al);
+}`;
+
+    function compile(type, src) {
+      const s = gl.createShader(type);
+      gl.shaderSource(s, src); gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error('shader: ' + gl.getShaderInfoLog(s));
+      return s;
+    }
+    function tex(filter) {
+      const t = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, t);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, filter);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      return t;
+    }
+
+    function init() {
+      gl = cgl.getContext('webgl2', { premultipliedAlpha: true, antialias: false, alpha: true });
+      if (!gl) throw new Error('WebGL2 is not available in this browser');
+      prog = gl.createProgram();
+      gl.attachShader(prog, compile(gl.VERTEX_SHADER, VS));
+      gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FSH));
+      gl.linkProgram(prog);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error('link: ' + gl.getProgramInfoLog(prog));
+      gl.useProgram(prog);
+      loc = {};
+      for (const n of ['uRes', 'uCell', 'uMouse', 'uAtlasGrid', 'uCols', 'uScrN', 'uScr', 'uTime', 'uCells', 'uInfl', 'uAtlas', 'uCls', 'uClsA']) loc[n] = gl.getUniformLocation(prog, n);
+      gl.bindVertexArray(gl.createVertexArray());
+      gl.uniform1iv(loc.uScr, new Int32Array(32).map((_, i) => SCR[i] || 0));
+      gl.uniform1i(loc.uScrN, SCR.length);
+      gl.uniform3fv(loc.uCls, [1, 1, 1, 0.988, 0.769, 0.098, 0.647, 0.902, 1, 1, 1, 1]);
+      gl.uniform1fv(loc.uClsA, [0.15, 0.34, 0.3, 0.09]);
+      gl.uniform1i(loc.uCells, 0); gl.uniform1i(loc.uInfl, 1); gl.uniform1i(loc.uAtlas, 2);
+      texCells = tex(gl.NEAREST); texInfl = tex(gl.NEAREST); texAtlas = tex(gl.LINEAR_MIPMAP_LINEAR);
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+      gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
+    }
+
+    function build() {
+      if (!gl) init();
+      cgl.width = Math.ceil(W * DPR); cgl.height = Math.ceil(H * DPR);
+      gl.viewport(0, 0, cgl.width, cgl.height);
+
+      const m = document.createElement('canvas').getContext('2d');
+      m.font = `${FS}px ${MONO}`;
+      CW = m.measureText('M').width;
+      cols = Math.ceil(W / CW); rows = Math.ceil(H / CH);
+      const N = cols * rows;
+      infl = new Float32Array(N); inflBytes = new Uint8Array(N);
+
+      // Lay the source out in newspaper columns, so the screen reads as one continuous file.
+      const BW = 74, cells = new Uint8Array(N * 4);
+      glyphCount = 0;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const block = Math.floor(c / BW), lc = (c % BW) - 3;
+          const line = LINES[(block * rows + r) % LINES.length];
+          const ch = lc >= 0 && lc < line.text.length ? line.text.charCodeAt(lc) : 32;
+          const g = ch >= 32 && ch < 127 ? ch - 32 : 31;
+          const i = (r * cols + c) * 4;
+          cells[i] = g; cells[i + 1] = lc >= 0 && lc < line.cls.length ? line.cls[lc] : 0;
+          if (g) glyphCount++;
+        }
+      }
+      gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, texCells);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, cols, rows, 0, gl.RGBA, gl.UNSIGNED_BYTE, cells);
+      gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, texInfl);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.R8, cols, rows, 0, gl.RED, gl.UNSIGNED_BYTE, inflBytes);
+
+      // One white glyph per atlas cell, drawn at the largest scale so the lens never blurs.
+      const AS = DPR * AS_MAX, aw = Math.ceil(CW * AS), ah = Math.ceil(CH * AS);
+      const atlas = document.createElement('canvas');
+      atlas.width = aw * 16; atlas.height = ah * 6;
+      const a = atlas.getContext('2d');
+      a.font = `${FS * AS}px ${MONO}`; a.fillStyle = '#fff'; a.textAlign = 'center'; a.textBaseline = 'middle';
+      for (let g = 1; g < 95; g++) a.fillText(String.fromCharCode(g + 32), (g % 16) * aw + aw / 2, Math.floor(g / 16) * ah + ah / 2);
+      gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, texAtlas);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, gl.RGBA, gl.UNSIGNED_BYTE, atlas);
+      gl.generateMipmap(gl.TEXTURE_2D);
+
+      gl.uniform2f(loc.uRes, W, H); gl.uniform2f(loc.uCell, CW, CH);
+      gl.uniform1i(loc.uCols, cols); gl.uniform2f(loc.uAtlasGrid, 16, 6);
+    }
+
+    function frame(dt, now) {
+      const a = attractor(now);
+      const R = Math.max(120, Math.min(180, W * 0.11)), R2 = R * R;
+      const maxR = Math.hypot(W, H);
+      for (const rp of ripples) { rp.r += dt * 700; rp.s = Math.max(0, 1 - rp.r / (maxR * 0.85)); }
+      while (ripples.length && ripples[0].s <= 0) ripples.shift();
+      const atk = 1 - Math.exp(-dt * 22), rel = 1 - Math.exp(-dt * 2.2);
+      const nr = ripples.length;
+      for (let r = 0; r < rows; r++) {
+        const cy = r * CH + CH / 2, dy = cy - a.y;
+        for (let c = 0; c < cols; c++) {
+          const i = r * cols + c;
+          const cx = c * CW + CW / 2, dx = cx - a.x;
+          const d2 = dx * dx + dy * dy;
+          let tg = 0;
+          if (d2 < R2) { const k = 1 - Math.sqrt(d2) / R; tg = k * k * (3 - 2 * k); }
+          for (let j = 0; j < nr; j++) {
+            const rp = ripples[j], ex = cx - rp.x, ey = cy - rp.y;
+            const q = Math.abs(Math.sqrt(ex * ex + ey * ey) - rp.r);
+            if (q < 50) { const k = (1 - q / 50) * rp.s * 0.85; if (k > tg) tg = k; }
+          }
+          const v = infl[i];
+          if (v === 0 && tg === 0) continue;
+          let nv = v + (tg - v) * (tg > v ? atk : rel);
+          if (nv < 0.004) nv = 0;
+          infl[i] = nv; inflBytes[i] = (nv * 255 + 0.5) | 0;
+        }
+      }
+      gl.activeTexture(gl.TEXTURE1);
+      gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, cols, rows, gl.RED, gl.UNSIGNED_BYTE, inflBytes);
+      gl.uniform2f(loc.uMouse, a.x, a.y);
+      gl.uniform1f(loc.uTime, now / 1000);
+      gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.drawArraysInstanced(gl.TRIANGLES, 0, 6, cols * rows);
+    }
+
+    return {
+      gl: true,
+      hint: 'this is the source of this page · move to look through it · click for a shockwave',
+      build, frame,
+      stats: () => `${glyphCount.toLocaleString()} glyphs`,
+      click(x, y) { ripples.push({ x, y, r: 0, s: 1 }); },
+    };
+  }
+
+  // ---------------------------------------------------------------- 2. Git v2 (calmer)
+  function makeGit() {
+    const COLORS = ['#fcc419', '#ff8787', '#63e6be', '#e599f7', '#ffa94d', '#a9e34b'];
+    const NAMES = ['feat/dark-mode', 'fix/typo', 'spike/webgl', 'chore/deps', 'feat/konami-code', 'refactor/all-of-it', 'hotfix/friday-deploy', 'feat/cat-gifs', 'fix/the-fix'];
+    const MSGS = ['fix typo', 'wip', 'it works on my machine', 'add tests (finally)', 'remove console.log', 'refactor everything', 'bump deps', 'please work', 'actually fix typo', 'ship it'];
+    const LIFE = 6;
+    const SPRING = 9;
+    let ctx, layer, head, main, branches, floaters, ci, lastFork, ghost, activity;
+    const hash = () => Math.random().toString(16).slice(2, 9);
+
+    function build() {
+      layer = document.createElement('canvas');
+      layer.width = Math.ceil(W * DPR); layer.height = Math.ceil(H * DPR);
+      ctx = layer.getContext('2d');
+      head = head || { x: W / 2, y: H / 2, vx: 0, vy: 0, dist: 0 };
+      main = main || { color: '#ffffff', pts: [], commits: [] };
+      branches = branches || []; floaters = floaters || []; ci = ci || 0; lastFork = lastFork || 0;
+      ghost = ghost || null; activity = activity || 0;
+    }
+    function addPt(b, x, y, now) {
+      const l = b.pts[b.pts.length - 1];
+      if (!l || Math.hypot(x - l.x, y - l.y) > 4) b.pts.push({ x, y, t: now });
+    }
+    function expire(arr, now) { while (arr.length && (now - arr[0].t) / 1000 > LIFE) arr.shift(); }
+    function fade(t, now) { return Math.max(0, 1 - (now - t) / 1000 / LIFE) ** 0.6; }
+
+    // When the mouse goes quiet, main keeps going from where it was, in the direction it was heading.
+    function wander(dt, now) {
+      if (!ghost) {
+        const sp = Math.hypot(head.vx, head.vy);
+        ghost = { x: head.x, y: head.y, ang: sp > 5 ? Math.atan2(head.vy, head.vx) : Math.random() * 6.28, seed: Math.random() * 100 };
+      }
+      ghost.ang += Math.sin(now / 1100 + ghost.seed) * 0.9 * dt;
+      const m = 90;
+      if (ghost.x < m || ghost.x > W - m || ghost.y < m || ghost.y > H - m) {
+        const to = Math.atan2(H / 2 - ghost.y, W / 2 - ghost.x);
+        let d = to - ghost.ang;
+        d = Math.atan2(Math.sin(d), Math.cos(d));
+        ghost.ang += d * Math.min(1, dt * 1.6);
+      }
+      ghost.x += Math.cos(ghost.ang) * 120 * dt;
+      ghost.y += Math.sin(ghost.ang) * 120 * dt;
+      return ghost;
+    }
+
+    function fork(now, vx, vy) {
+      lastFork = now;
+      const sp = Math.hypot(vx, vy), cap = 600;
+      if (sp > cap) { vx *= cap / sp; vy *= cap / sp; }
+      main.commits.push({ x: head.x, y: head.y, t: now, hash: hash() });
+      branches.push({
+        x: head.x, y: head.y, vx, vy, color: COLORS[ci++ % COLORS.length], name: NAMES[(Math.random() * NAMES.length) | 0],
+        born: now, outFor: 1 + Math.random() * 1.1, seed: Math.random() * 100, state: 'out', pts: [{ x: head.x, y: head.y, t: now }], commits: [], dist: 0,
+      });
+    }
+
+    // Quadratic curves through the midpoints, so the sampled trail reads as one smooth stroke.
+    function drawPath(pts, color, now, soft) {
+      if (pts.length < 3) return;
+      ctx.strokeStyle = color; ctx.lineJoin = 'round'; ctx.lineCap = 'butt';
+      for (const [w, a] of [[7, 0.07], [1.75, 0.8]]) {
+        ctx.lineWidth = w;
+        for (let i = 1; i < pts.length - 1; i += 6) {
+          const j = Math.min(i + 6, pts.length - 1);
+          ctx.globalAlpha = fade(pts[i].t, now) * a * soft;
+          ctx.beginPath();
+          ctx.moveTo((pts[i - 1].x + pts[i].x) / 2, (pts[i - 1].y + pts[i].y) / 2);
+          for (let m = i; m < j; m++) ctx.quadraticCurveTo(pts[m].x, pts[m].y, (pts[m].x + pts[m + 1].x) / 2, (pts[m].y + pts[m + 1].y) / 2);
+          ctx.stroke();
+        }
+      }
+      ctx.globalAlpha = 1;
+    }
+    function drawCommit(c, color, now, withHash, soft) {
+      const al = fade(c.t, now) * 0.85 * soft;
+      if (al <= 0) return;
+      ctx.globalAlpha = al;
+      ctx.beginPath(); ctx.arc(c.x, c.y, c.merge ? 5 : c.big ? 6.5 : 3.5, 0, 7);
+      ctx.fillStyle = c.merge ? c.color : BG; ctx.fill();
+      ctx.strokeStyle = c.merge ? '#fff' : color; ctx.lineWidth = 1.75; ctx.stroke();
+      const age = (now - c.t) / 1000;
+      if (withHash && c.hash && age < 2) {
+        ctx.globalAlpha = al * 0.5 * (1 - age / 2); ctx.fillStyle = '#fff'; ctx.font = `10px ${MONO}`;
+        ctx.fillText(c.hash, c.x + 9, c.y + 4);
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function frame(dt, now) {
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, layer.width, layer.height);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      const real = P.inside && performance.now() - lastMove < 2500;
+      let target;
+      if (real) { ghost = null; target = P; } else target = wander(dt, now);
+      activity += ((real ? 1 : 0) - activity) * (1 - Math.exp(-dt * (real ? 4 : 0.8)));
+      const soft = 0.5 + 0.5 * activity;
+
+      // Critically damped spring: the head eases in without overshoot or kinks.
+      head.vx += ((target.x - head.x) * SPRING * SPRING - head.vx * 2 * SPRING) * dt;
+      head.vy += ((target.y - head.y) * SPRING * SPRING - head.vy * 2 * SPRING) * dt;
+      const ox = head.x, oy = head.y;
+      head.x += head.vx * dt; head.y += head.vy * dt;
+      head.dist += Math.hypot(head.x - ox, head.y - oy);
+      addPt(main, head.x, head.y, now);
+      if (head.dist > 90) { head.dist = 0; main.commits.push({ x: head.x, y: head.y, t: now, hash: hash() }); }
+
+      const live = branches.filter((b) => b.state !== 'merged').length;
+      if (now - lastFork > 450 && live < 5) {
+        if (real && Math.hypot(P.vx, P.vy) > 1800) fork(now, P.vx * 0.4, P.vy * 0.4);
+        else if (!real && now - lastFork > 2600) {
+          const s = Math.random() < 0.5 ? 1 : -1;
+          fork(now, -head.vy * s * 0.8 + (Math.random() - 0.5) * 120, head.vx * s * 0.8 + (Math.random() - 0.5) * 120);
+        }
+      }
+
+      for (const b of branches) {
+        if (b.state === 'merged') continue;
+        const age = (now - b.born) / 1000;
+        if (b.state === 'out') {
+          const ang = Math.sin(now / 280 + b.seed) * 2 * dt;
+          const c = Math.cos(ang), s = Math.sin(ang);
+          [b.vx, b.vy] = [b.vx * c - b.vy * s, b.vx * s + b.vy * c];
+          const sp = Math.hypot(b.vx, b.vy) || 1, ns = sp + (220 - sp) * (1 - Math.exp(-dt * 1.4));
+          b.vx *= ns / sp; b.vy *= ns / sp;
+          if (age > b.outFor) b.state = 'back';
+        } else {
+          const dx = head.x - b.x, dy = head.y - b.y, d = Math.hypot(dx, dy) || 1;
+          const want = Math.min(1400, 340 + (age - b.outFor) * 500);
+          const kk = 1 - Math.exp(-dt * 3.5);
+          b.vx += (dx / d * want - b.vx) * kk; b.vy += (dy / d * want - b.vy) * kk;
+          if (d < 16) {
+            b.state = 'merged';
+            addPt(b, head.x, head.y, now);
+            main.commits.push({ x: head.x, y: head.y, t: now, merge: true, color: b.color });
+            floaters.push({ x: head.x + 12, y: head.y - 12, t: now, text: `Merge '${b.name}'`, color: b.color });
+            continue;
+          }
+        }
+        if (b.x < 30 && b.vx < 0) b.vx *= -1; if (b.x > W - 30 && b.vx > 0) b.vx *= -1;
+        if (b.y < 30 && b.vy < 0) b.vy *= -1; if (b.y > H - 30 && b.vy > 0) b.vy *= -1;
+        const bx = b.x, by = b.y;
+        b.x += b.vx * dt; b.y += b.vy * dt;
+        b.dist += Math.hypot(b.x - bx, b.y - by);
+        addPt(b, b.x, b.y, now);
+        if (b.dist > 80) { b.dist = 0; b.commits.push({ x: b.x, y: b.y, t: now }); }
+      }
+
+      expire(main.pts, now); expire(main.commits, now);
+      for (const b of branches) { expire(b.pts, now); expire(b.commits, now); }
+      branches = branches.filter((b) => b.state !== 'merged' || b.pts.length > 1);
+
+      for (const b of branches) drawPath(b.pts, b.color, now, soft);
+      drawPath(main.pts, main.color, now, soft);
+      for (const b of branches) for (const c of b.commits) drawCommit(c, b.color, now, false, soft);
+      for (const c of main.commits) drawCommit(c, main.color, now, true, soft);
+
+      ctx.font = `11px ${MONO}`;
+      for (const b of branches) {
+        if (b.state === 'merged') continue;
+        ctx.globalAlpha = soft;
+        ctx.beginPath(); ctx.arc(b.x, b.y, 3, 0, 7); ctx.fillStyle = b.color; ctx.fill();
+        ctx.globalAlpha = 0.7 * soft; ctx.fillText(b.name, b.x + 9, b.y - 9);
+      }
+      ctx.globalAlpha = soft;
+      ctx.beginPath(); ctx.arc(head.x, head.y, 5.5, 0, 7); ctx.fillStyle = '#fff'; ctx.fill();
+      ctx.beginPath(); ctx.arc(head.x, head.y, 2.5, 0, 7); ctx.fillStyle = BG; ctx.fill();
+      ctx.globalAlpha = 0.55 * soft; ctx.fillStyle = '#fff'; ctx.font = `11px ${MONO}`;
+      ctx.fillText('HEAD -> main', head.x + 12, head.y + 20);
+
+      ctx.font = `12px ${MONO}`;
+      floaters = floaters.filter((f) => {
+        const age = (now - f.t) / 1000;
+        if (age > 2.2) return false;
+        ctx.globalAlpha = Math.min(1, (2.2 - age) / 0.7) * Math.min(1, age * 6) * 0.85 * soft;
+        ctx.fillStyle = f.color;
+        ctx.fillText(f.text, f.x, f.y - age * 18);
+        return true;
+      });
+      ctx.globalAlpha = 1;
+
+      // Soft elliptical hole behind the heading, so the graph never fights the text.
+      const r = heroRect();
+      if (r) {
+        ctx.save();
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.translate(r.x + r.w / 2, r.y + r.h / 2);
+        ctx.scale(r.w / 2 + 70, r.h / 2 + 60);
+        const g = ctx.createRadialGradient(0, 0, 0, 0, 0, 1);
+        g.addColorStop(0, 'rgba(0,0,0,0.85)'); g.addColorStop(0.7, 'rgba(0,0,0,0.75)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = g; ctx.fillRect(-1, -1, 2, 2);
+        ctx.restore();
+      }
+      ctx2d.setTransform(1, 0, 0, 1, 0, 0);
+      ctx2d.drawImage(layer, 0, 0);
+    }
+
+    return {
+      hint: 'move to draw main · flick fast to fork · click to commit',
+      build, frame,
+      click(x, y, now) {
+        main.commits.push({ x: head.x, y: head.y, t: now, big: true, hash: hash() });
+        floaters.push({ x: head.x + 12, y: head.y - 12, t: now, text: `${hash()}  ${MSGS[(Math.random() * MSGS.length) | 0]}`, color: '#fff' });
+      },
+    };
+  }
+
+  // ---------------------------------------------------------------- 3. Git v3 (structured, ambient)
+  function makeGit3() {
+    const LANE = 48, CURVE = 44, SPEED = 14, GLOW_R = 210;
+    const ACC = '252,196,25';
+    const rand = (a, b) => a + Math.random() * (b - a);
+    let bright, gctx, lanes, top, off, tip, branches, nextSpawn, user, rings, glow, laneFree;
+    const ly = (l) => top + l * LANE;
+    const laneOf = (b) => b.nodes[b.nodes.length - 1].lane;
+    const isLive = (b) => b.end === null;
+    const endOf = (b) => (b.end !== null ? b.end : b.user ? b.tip : tip);
+
+    function laneAt(b, x) {
+      if (b.nodes[0].x > x || endOf(b) < x) return -1;
+      let l = b.nodes[0].lane;
+      for (const n of b.nodes) if (n.x - CURVE * 0.5 <= x) l = n.lane;
+      return l;
+    }
+    function nearestAt(x, lane, span = 0) {
+      let best = null, bl = -1, bd = 1e9;
+      for (const b of branches) {
+        if (b.user || endOf(b) < x + span) continue;
+        const l = laneAt(b, x);
+        if (l >= 0 && Math.abs(l - lane) < bd) { bd = Math.abs(l - lane); best = b; bl = l; }
+      }
+      return best && { b: best, lane: bl };
+    }
+    // Fork, merge and timed commits can land on the same spot; keep one dot, preferring the merge style.
+    function addCommit(b, c) {
+      for (let i = b.commits.length - 1; i >= Math.max(0, b.commits.length - 4); i--) {
+        const o = b.commits[i];
+        if (o.lane === c.lane && Math.abs(o.x - c.x) < 18) { if (c.merge) o.merge = true; return; }
+      }
+      b.commits.push(c);
+    }
+
+    function build() {
+      bright = document.createElement('canvas');
+      bright.width = Math.ceil(W * DPR); bright.height = Math.ceil(H * DPR);
+      gctx = bright.getContext('2d');
+      lanes = Math.max(5, Math.floor((H - 24) / LANE));
+      top = (H - (lanes - 1) * LANE) / 2;
+      off = 0; branches = []; rings = []; user = null; glow = 0;
+      laneFree = new Float64Array(lanes).fill(-1e9);
+      tip = -80;
+      const trunks = new Set([0.08, 0.5, 0.92].map((f) => Math.round((lanes - 1) * f)));
+      for (const l of trunks) branches.push({ nodes: [{ x: -400, lane: l }], end: null, commits: [], nextCommit: rand(-300, -100), trunk: true });
+      nextSpawn = tip + 20;
+      // Pre-run the generator so the card is already full on the first frame.
+      for (let t = -80; t < W + 60; t += 4) { tip = t; grow(); }
+    }
+
+    function free(l) {
+      if (l < 0 || l >= lanes || laneFree[l] > tip) return false;
+      return !branches.some((b) => isLive(b) && laneOf(b) === l);
+    }
+    // A curve from lane a to lane b must not cut through a live branch on a lane in between.
+    function clear(a, b, except) {
+      const lo = Math.min(a, b), hi = Math.max(a, b);
+      return !branches.some((o) => o !== except && isLive(o) && laneOf(o) > lo && laneOf(o) < hi);
+    }
+    // A merge target must not be mid-curve, and it must outlive the merge point.
+    function canTake(t, x) {
+      if (!isLive(t) || t.nodes[t.nodes.length - 1].x > tip) return false;
+      if (!t.trunk) t.endAt = Math.max(t.endAt, x + 60);
+      return true;
+    }
+
+    function grow() {
+      for (const b of branches) {
+        if (!isLive(b)) continue;
+        const last = b.nodes[b.nodes.length - 1];
+        if (tip >= b.nextCommit) {
+          if (tip >= last.x + 10) addCommit(b, { x: tip, lane: last.lane });
+          b.nextCommit = tip + rand(46, 120);
+        }
+        if (!b.trunk && tip >= b.endAt) merge(b);
+      }
+      if (tip >= nextSpawn) {
+        nextSpawn = tip + rand(40, 120);
+        const liveFeatures = branches.filter((b) => isLive(b) && !b.trunk).length;
+        if (liveFeatures < lanes * 0.45) spawn();
+      }
+    }
+
+    function spawn() {
+      const parents = branches.filter((b) => isLive(b) && tip >= b.nodes[b.nodes.length - 1].x + 30).sort(() => Math.random() - 0.5);
+      for (const p of parents) {
+        const pl = laneOf(p);
+        const opts = [1, 2, 3].flatMap((d) => (Math.random() < 0.5 ? [pl - d, pl + d] : [pl + d, pl - d])).filter((l) => free(l) && clear(pl, l));
+        if (!opts.length) continue;
+        const l = opts[(Math.random() * Math.min(opts.length, 3)) | 0];
+        addCommit(p, { x: tip, lane: pl });
+        branches.push({ nodes: [{ x: tip, lane: pl }, { x: tip + CURVE, lane: l }], end: null, commits: [], nextCommit: tip + CURVE + rand(12, 40), endAt: tip + CURVE + rand(140, 520), parent: p });
+        return;
+      }
+    }
+
+    function merge(b) {
+      const own = laneOf(b), x = tip + CURVE;
+      const ok = (o) => o !== b && !o.user && isLive(o) && laneOf(o) !== own && clear(own, laneOf(o), b);
+      let target = b.parent && ok(b.parent) ? b.parent : null;
+      if (!target) {
+        let bd = 1e9;
+        for (const o of branches) if (ok(o) && Math.abs(laneOf(o) - own) < bd) { bd = Math.abs(laneOf(o) - own); target = o; }
+      }
+      // No clean path right now: keep the branch alive a little longer and try again.
+      if (!target || !canTake(target, x)) { b.endAt = tip + 40; return; }
+      laneFree[own] = tip + 40;
+      b.nodes.push({ x, lane: laneOf(target) });
+      b.end = x;
+      addCommit(target, { x, lane: laneOf(target), merge: true });
+    }
+
+    function startUser(cx, cl) {
+      const hit = nearestAt(cx, cl);
+      const nodes = [{ x: cx, lane: hit ? hit.lane : cl }];
+      if (hit) addCommit(hit.b, { x: cx, lane: hit.lane });
+      if (nodes[0].lane !== cl) nodes.push({ x: cx + CURVE, lane: cl });
+      user = { nodes, tip: nodes[nodes.length - 1].x, end: null, commits: [], nextCommit: nodes[nodes.length - 1].x + 26, user: true };
+    }
+    function finishUser(now) {
+      const t = user.tip, own = laneOf(user);
+      const hit = nearestAt(t, own, CURVE);
+      if (hit && isLive(hit.b) && !hit.b.trunk) hit.b.endAt = Math.max(hit.b.endAt, t + CURVE + 60);
+      if (hit && hit.lane !== own) {
+        const x = t + CURVE;
+        user.nodes.push({ x, lane: hit.lane });
+        user.end = x;
+        addCommit(hit.b, { x, lane: hit.lane, merge: true });
+      } else {
+        user.end = t;
+        if (hit) addCommit(hit.b, { x: t, lane: own, merge: true });
+      }
+      user.mergedAt = now;
+      branches.push(user);
+      user = null;
+    }
+
+    function updateUser(real, now) {
+      const cx = off + P.x;
+      const cl = Math.max(0, Math.min(lanes - 1, Math.round((P.y - top) / LANE)));
+      if (!real) { if (user) finishUser(now); return; }
+      if (user && user.tip - cx > 120) finishUser(now);
+      if (!user) startUser(cx, cl);
+      const last = user.nodes[user.nodes.length - 1];
+      user.tip = Math.max(user.tip, cx);
+      if (cl !== last.lane && user.tip >= last.x) {
+        const x = user.tip + CURVE;
+        user.nodes.push({ x, lane: cl });
+        user.tip = x; user.nextCommit = x + 26;
+      }
+      const l = user.nodes[user.nodes.length - 1];
+      while (user.tip >= user.nextCommit) { addCommit(user, { x: user.nextCommit, lane: l.lane }); user.nextCommit += 52; }
+    }
+
+    function trace(g, b) {
+      const n = b.nodes;
+      g.moveTo(n[0].x - off, ly(n[0].lane));
+      for (let i = 1; i < n.length; i++) {
+        const a = n[i - 1], c = n[i], sx = c.x - CURVE - off, mx = sx + CURVE * 0.5;
+        g.lineTo(sx, ly(a.lane));
+        g.bezierCurveTo(mx, ly(a.lane), mx, ly(c.lane), c.x - off, ly(c.lane));
+      }
+      g.lineTo(endOf(b) - off, ly(n[n.length - 1].lane));
+    }
+    function drawGraph(g, line, ring, fill, list) {
+      g.lineWidth = 1.5; g.lineCap = 'round'; g.strokeStyle = line;
+      g.beginPath();
+      for (const b of list) if (endOf(b) - off > -20) trace(g, b);
+      g.stroke();
+      g.beginPath();
+      for (const b of list) for (const c of b.commits) {
+        const x = c.x - off;
+        if (x < -10 || x > W + 10 || c.merge) continue;
+        g.moveTo(x + 3.5, ly(c.lane)); g.arc(x, ly(c.lane), 3.5, 0, 7);
+      }
+      g.fillStyle = BG; g.fill(); g.strokeStyle = ring; g.stroke();
+      g.beginPath();
+      for (const b of list) for (const c of b.commits) {
+        const x = c.x - off;
+        if (x < -10 || x > W + 10 || !c.merge) continue;
+        g.moveTo(x + 4, ly(c.lane)); g.arc(x, ly(c.lane), 4, 0, 7);
+      }
+      g.fillStyle = fill; g.fill();
+    }
+
+    function frame(dt, now) {
+      off += SPEED * dt;
+      tip = off + W + 60;
+      grow();
+      branches = branches.filter((b) => endOf(b) - off > -40);
+      for (const b of branches) while (b.commits.length > 40 && b.commits[0].x - off < -20) b.commits.shift();
+
+      const real = P.inside && performance.now() - lastMove < 1200;
+      updateUser(real, now);
+      glow += ((P.inside ? 1 : 0) - glow) * (1 - Math.exp(-dt * 4));
+
+      const ctx = ctx2d;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      drawGraph(ctx, 'rgba(226,232,240,0.16)', 'rgba(226,232,240,0.32)', 'rgba(226,232,240,0.4)', branches);
+
+      // Flashlight: a brighter copy of the graph, masked to a soft circle around the cursor.
+      // Only the square around the cursor is redrawn, which keeps the cost flat at any card size.
+      if (glow > 0.01) {
+        const x0 = Math.max(0, Math.floor(P.x - GLOW_R)), y0 = Math.max(0, Math.floor(P.y - GLOW_R));
+        const x1 = Math.min(W, Math.ceil(P.x + GLOW_R)), y1 = Math.min(H, Math.ceil(P.y + GLOW_R));
+        if (x1 > x0 && y1 > y0) {
+          gctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+          gctx.clearRect(x0, y0, x1 - x0, y1 - y0);
+          gctx.save();
+          gctx.beginPath(); gctx.rect(x0, y0, x1 - x0, y1 - y0); gctx.clip();
+          drawGraph(gctx, 'rgba(226,232,240,0.7)', 'rgba(226,232,240,0.95)', 'rgba(226,232,240,1)', branches);
+          gctx.globalCompositeOperation = 'destination-in';
+          const m = gctx.createRadialGradient(P.x, P.y, 0, P.x, P.y, GLOW_R);
+          m.addColorStop(0, 'rgba(0,0,0,1)'); m.addColorStop(1, 'rgba(0,0,0,0)');
+          gctx.fillStyle = m; gctx.fillRect(x0, y0, x1 - x0, y1 - y0);
+          gctx.restore();
+          ctx.globalAlpha = glow;
+          ctx.drawImage(bright, x0 * DPR, y0 * DPR, (x1 - x0) * DPR, (y1 - y0) * DPR, x0, y0, x1 - x0, y1 - y0);
+          ctx.globalAlpha = 1;
+        }
+      }
+
+      // Merged user branches fade from yellow into the history.
+      const fading = branches.filter((b) => b.user && now - b.mergedAt < 2500);
+      const live = user ? [user] : [];
+      for (const b of [...fading, ...live]) {
+        const k = b.user && b.mergedAt ? 1 - (now - b.mergedAt) / 2500 : 1;
+        ctx.globalAlpha = k;
+        drawGraph(ctx, `rgba(${ACC},0.95)`, `rgba(${ACC},1)`, `rgba(${ACC},1)`, [b]);
+      }
+      ctx.globalAlpha = 1;
+      if (user) {
+        const hx = user.tip - off, hy = ly(laneOf(user));
+        const g = ctx.createRadialGradient(hx, hy, 0, hx, hy, 16);
+        g.addColorStop(0, `rgba(${ACC},0.55)`); g.addColorStop(1, `rgba(${ACC},0)`);
+        ctx.fillStyle = g; ctx.fillRect(hx - 16, hy - 16, 32, 32);
+        ctx.beginPath(); ctx.arc(hx, hy, 4.5, 0, 7); ctx.fillStyle = `rgb(${ACC})`; ctx.fill();
+      }
+      rings = rings.filter((r) => {
+        const age = (now - r.t) / 700;
+        if (age >= 1) return false;
+        ctx.beginPath(); ctx.arc(r.x - off, r.y, 5 + age * 30, 0, 7);
+        ctx.strokeStyle = `rgba(${ACC},${(1 - age) * 0.8})`; ctx.lineWidth = 1.5; ctx.stroke();
+        return true;
+      });
+
+      const r = heroRect();
+      if (r) {
+        ctx.save();
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.translate(r.x + r.w / 2, r.y + r.h / 2);
+        ctx.scale(r.w / 2 + 80, r.h / 2 + 70);
+        const g = ctx.createRadialGradient(0, 0, 0, 0, 0, 1);
+        g.addColorStop(0, 'rgba(0,0,0,0.8)'); g.addColorStop(0.65, 'rgba(0,0,0,0.65)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = g; ctx.fillRect(-1, -1, 2, 2);
+        ctx.restore();
+      }
+    }
+
+    return {
+      hint: 'move to check out a branch · pause to merge it · click to commit',
+      build, frame,
+      stats: () => `${branches.length} branches`,
+      click(x, y, now) {
+        if (!user) startUser(off + x, Math.max(0, Math.min(lanes - 1, Math.round((y - top) / LANE))));
+        const l = laneOf(user);
+        addCommit(user, { x: user.tip, lane: l });
+        rings.push({ x: user.tip, y: ly(l), t: now });
+      },
+    };
+  }
+
+  // ---------------------------------------------------------------- shell
+  const FX = { git3: makeGit3(), git: makeGit(), lens: makeLens() };
+  let curId = FX[location.hash.slice(1)] ? location.hash.slice(1) : 'git';
+  let cur = FX[curId];
+
+  function resize() {
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = stage.clientWidth; H = stage.clientHeight;
+    c2d.width = Math.ceil(W * DPR); c2d.height = Math.ceil(H * DPR);
+    cur.build();
+  }
+  function select(id) {
+    curId = id; cur = FX[id];
+    history.replaceState(null, '', '#' + id);
+    document.querySelectorAll('[data-fx]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.fx === id)));
+    document.getElementById('hint').textContent = cur.hint;
+    c2d.hidden = !!cur.gl; cgl.hidden = !cur.gl;
+    const pick = document.getElementById('pick');
+    pick.textContent = 'I like this one'; pick.classList.remove('done');
+    cur.build();
+  }
+
+  document.querySelectorAll('[data-fx]').forEach((b) => b.addEventListener('click', () => select(b.dataset.fx)));
+  window.addEventListener('keydown', (e) => { const ids = Object.keys(FX); const n = Number(e.key); if (n >= 1 && n <= ids.length) select(ids[n - 1]); });
+  function toggle(id, fn) {
+    document.getElementById(id).addEventListener('click', (e) => {
+      const on = e.currentTarget.getAttribute('aria-pressed') !== 'true';
+      e.currentTarget.setAttribute('aria-pressed', String(on));
+      fn(on);
+    });
+  }
+  toggle('tText', (on) => document.getElementById('hero').classList.toggle('hidden', !on));
+  toggle('tBlue', (on) => { BG = on ? BLUE : DARK; stage.style.setProperty('--card', BG); });
+
+  // Stand-ins for the real Framer Motion letter spring and react-typed subheading.
+  const h1 = document.getElementById('h1');
+  h1.innerHTML = [...h1.textContent].map((c, i) => `<span style="animation-delay:${0.1 * i}s">${c === ' ' ? '&nbsp;' : c}</span>`).join('');
+  const WORDS = ['web developer', 'front-end developer', 'software developer', 'tech enthusiast', 'designer', 'gamer', 'photographer'];
+  const typed = document.getElementById('typed');
+  (async function typeLoop() {
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    await wait(1400);
+    for (let w = 0; ; w = (w + 1) % WORDS.length) {
+      for (const ch of WORDS[w]) { typed.textContent += ch; await wait(50); }
+      await wait(4000);
+      while (typed.textContent) { typed.textContent = typed.textContent.slice(0, -1); await wait(60); }
+      await wait(300);
+    }
+  })();
+  document.getElementById('pick').addEventListener('click', (e) => {
+    if (window.brainstorm) window.brainstorm.choice(curId);
+    e.currentTarget.textContent = 'Picked'; e.currentTarget.classList.add('done');
+  });
+
+  let downAt = null;
+  const local = (e) => { const s = stage.getBoundingClientRect(); return [e.clientX - s.left, e.clientY - s.top]; };
+  window.addEventListener('pointermove', (e) => {
+    const now = performance.now();
+    const [x, y] = local(e);
+    const inside = x >= 0 && y >= 0 && x <= W && y <= H;
+    const dt = Math.max(1, now - (P.lastT || now - 16)) / 1000;
+    if (P.inside && inside) {
+      P.vx = P.vx * 0.65 + ((x - P.x) / dt) * 0.35;
+      P.vy = P.vy * 0.65 + ((y - P.y) / dt) * 0.35;
+    }
+    P.x = x; P.y = y; P.lastT = now; P.inside = inside;
+    if (inside) lastMove = now;
+  });
+  document.addEventListener('pointerleave', () => { P.inside = false; });
+  for (const cv of [c2d, cgl]) {
+    cv.addEventListener('pointerdown', (e) => { const [x, y] = local(e); downAt = { x, y }; P.x = x; P.y = y; P.inside = true; lastMove = performance.now(); });
+    cv.addEventListener('pointerup', (e) => {
+      const [x, y] = local(e);
+      if (downAt && Math.hypot(x - downAt.x, y - downAt.y) < 6 && cur.click) cur.click(x, y, simT);
+      downAt = null;
+    });
+  }
+
+  const statsEl = document.getElementById('stats');
+  let last = performance.now(), fps = 60, work = 0, statT = 0;
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) { last = performance.now(); fps = 60; } });
+  function loop(now) {
+    const dt = Math.min(0.05, (now - last) / 1000) || 0.016;
+    last = now;
+    P.vx *= Math.exp(-dt * 6); P.vy *= Math.exp(-dt * 6);
+    const t0 = performance.now();
+    if (!cur.gl) { ctx2d.setTransform(1, 0, 0, 1, 0, 0); ctx2d.clearRect(0, 0, c2d.width, c2d.height); }
+    simT += dt * 1000;
+    cur.frame(dt, simT);
+    work = work * 0.9 + (performance.now() - t0) * 0.1;
+    fps = fps * 0.9 + (1 / dt) * 0.1;
+    if (now - statT > 250) {
+      statT = now;
+      statsEl.textContent = [cur.stats && cur.stats(), `${Math.round(fps)} fps`, `${work.toFixed(2)} ms/frame on the CPU`].filter(Boolean).join(' · ');
+      window.__perf = { fps, work };
+    }
+    requestAnimationFrame(loop);
+  }
+
+  new ResizeObserver(() => resize()).observe(stage);
+  DPR = Math.min(window.devicePixelRatio || 1, 2); W = stage.clientWidth; H = stage.clientHeight;
+  c2d.width = Math.ceil(W * DPR); c2d.height = Math.ceil(H * DPR);
+  select(curId);
+  document.fonts && document.fonts.ready.then(() => cur.build());
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
