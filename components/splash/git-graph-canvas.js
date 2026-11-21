@@ -120,7 +120,12 @@ export default function GitGraph({ clearRefs }) {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className={styles.background} />;
+  // The wrapper carries aria-hidden: Biome treats a bare canvas as interactive and rejects it there.
+  return (
+    <div className={styles.background} aria-hidden="true">
+      <canvas ref={canvasRef} className={styles.canvas} />
+    </div>
+  );
 }
 
 function cardRects(card, refs) {

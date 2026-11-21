@@ -4,7 +4,7 @@
 
 **Goal:** Replace the homepage tsParticles background with the interactive git graph from the approved prototype, and damp the jittery heading entry spring.
 
-**Architecture:** A pure simulation module (`git-graph.mjs`) holds all state and the update step, with no DOM access, so `node --test` covers it. A React component (`git-graph.js`) owns the canvas, the frame loop, the pointer input and the drawing. `splash.js` renders the component in place of `Particles`.
+**Architecture:** A pure simulation module (`git-graph.mjs`) holds all state and the update step, with no DOM access, so `node --test` covers it. A React component (`git-graph-canvas.js`) owns the canvas, the frame loop, the pointer input and the drawing. `splash.js` renders the component in place of `Particles`.
 
 **Tech Stack:** Next.js 13.3.1 (Pages Router, static export), React 18, Framer Motion 10, canvas 2D, `node:test`, Biome.
 
@@ -175,20 +175,20 @@ git commit -m "feat: add branches, merges and click commits to the git graph"
 ### Task 3: Canvas component, drawing and splash wiring
 
 **Files:**
-- Create: `components/splash/git-graph.js`
+- Create: `components/splash/git-graph-canvas.js`
 - Modify: `components/splash/splash.js`, `components/splash/splash.module.scss`, `package.json`, `pnpm-lock.yaml`
 - Delete: `components/splash/particlesjs-config.json`
 
 **Interfaces:**
 - Consumes: `createGitGraph`, `resizeGitGraph`, `stepGitGraph`, `commitGitGraph`, `MAX_DT` and the state shape from Tasks 1–2.
-- Produces: `export default function GitGraph({ clearRefs }: { clearRefs: React.RefObject<HTMLElement>[] })`, which renders `<canvas aria-hidden="true">`.
+- Produces: `export default function GitGraph({ clearRefs }: { clearRefs: React.RefObject<HTMLElement>[] })`, which renders a `<div aria-hidden="true">` around the `<canvas>`.
 
 - [ ] **Step 1: Remove tsParticles**
 
 Run: `mise exec -- pnpm remove react-tsparticles tsparticles-slim && git rm components/splash/particlesjs-config.json`
 Expected: both packages are gone from `package.json`.
 
-- [ ] **Step 2: Write `components/splash/git-graph.js`**
+- [ ] **Step 2: Write `components/splash/git-graph-canvas.js`**
   - **Setup in `useEffect`.** Create the state from the canvas parent's size. Read reduced motion from `matchMedia('(prefers-reduced-motion: reduce)')` and follow its `change` event. A `ResizeObserver` on the parent calls `resizeGitGraph` and sets the backing size. Cleanup cancels the frame, disconnects the observer and removes every listener.
   - **Pointer input.**
     - A `pointermove` listener on `window` converts to card-local coordinates and keeps `inside`.

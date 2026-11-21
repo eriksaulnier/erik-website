@@ -58,15 +58,15 @@ Prototype rounds tried an ASCII code lens, circuit traces, an ASCII donut and a 
 
 ```mermaid
 flowchart LR
-  Splash["Splash (splash.js)"] --> GG["GitGraph component (git-graph.js)"]
+  Splash["Splash (splash.js)"] --> GG["GitGraph component (git-graph-canvas.js)"]
   GG -->|"creates, steps, resizes"| Sim["createGitGraph() (git-graph.mjs), pure state and update"]
-  GG -->|"draws state each frame"| Draw["drawGitGraph() (git-graph.js)"]
+  GG -->|"draws state each frame"| Draw["drawGitGraph() (git-graph-canvas.js)"]
   GG -->|"reads each frame"| Hero["heading and subheading rects (refs from Splash)"]
   Test["test/git-graph.test.mjs"] --> Sim
 ```
 
 - `components/splash/git-graph.mjs` holds the state and the update step. It has no DOM, React or canvas access. Its inputs are the frame delta, the pointer state, the card size and a random source, so tests can drive it deterministically.
-- `components/splash/git-graph.js` is the React component. It owns the `<canvas>`, the `requestAnimationFrame` loop, the pointer listeners, a `ResizeObserver` on the card and the drawing code.
+- `components/splash/git-graph-canvas.js` is the React component. Webpack resolves `./git-graph` to the `.mjs` file first, so the component cannot share its name. It owns the `<canvas>`, the `requestAnimationFrame` loop, the pointer listeners, a `ResizeObserver` on the card and the drawing code.
 - `components/splash/splash.js` drops `Particles`, renders `<GitGraph>` in its place, and passes refs to the heading and the subheading for the clear zone.
 - Removed: `react-tsparticles`, `tsparticles-slim` and `components/splash/particlesjs-config.json`.
 - `splash.module.scss` changes the splash background from `$primary-dark` to transparent, so the dark card shows through. The owner chose the dark card over the blue.
@@ -115,8 +115,8 @@ The heading letters and the subheading use `{ type: 'spring', stiffness: 300 }` 
 ### Calls the builder made
 
 - *(builder's call)* With `prefers-reduced-motion: reduce`, the idle wanderer and its automatic forks are off. The graph moves only while the visitor moves the pointer. The fade-outs stay.
-- *(builder's call)* Touch uses the same pointer events: dragging draws, and a tap commits. On a phone the idle wanderer runs, so the card is not empty.
-- *(builder's call)* The canvas is `aria-hidden="true"` and is decoration only. The heading stays the accessible content.
+- *(builder's call)* Touch uses the same pointer events. The splash sets `touch-action: pan-y pinch-zoom`: a horizontal drag draws, a vertical swipe scrolls the page so the footer stays reachable, and a tap commits. On a phone the idle wanderer runs, so the card is not empty.
+- *(builder's call)* The canvas sits in a wrapper `<div aria-hidden="true">` and is decoration only. Biome rejects `aria-hidden` on the canvas itself. The heading stays the accessible content.
 - *(builder's call)* Branch names, commit messages and colors are constants in `git-graph.mjs`. They do not go into Keystatic content.
 
 ## Testing
