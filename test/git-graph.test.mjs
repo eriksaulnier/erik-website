@@ -217,3 +217,15 @@ test('the idle wanderer stays clear of the heading', () => {
     `ghost spent ${inside} of ${frames} frames in the band`,
   );
 });
+
+test('a short card keeps HEAD on screen while avoiding the heading', () => {
+  const g = createGitGraph({ width: 700, height: 230, random: seeded(35) });
+  setAvoidRect(g, { x: 150, y: 60, w: 400, h: 110 });
+  let off = 0;
+  for (let i = 0; i < 60 * 60; i++) {
+    stepGitGraph(g, FRAME, idle);
+    const { x, y } = g.head;
+    if (x < 0 || x > 700 || y < 0 || y > 230) off++;
+  }
+  assert.equal(off, 0, `HEAD was off the card for ${off} frames`);
+});

@@ -10,8 +10,8 @@
   padding: 1.5rem;
   box-sizing: border-box;
   background-color: transparent;
-  // Any drag draws the graph. The homepage does not scroll, because the layout uses 100svh.
-  touch-action: none;
+  // Drags draw instead of panning, which the page does not need with the 100svh layout.
+  touch-action: pinch-zoom;
 
   .heading {
     margin: 0 0 0.2em;
