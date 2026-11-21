@@ -199,9 +199,12 @@ function moveBranch(state, b, dt) {
       return;
     }
   }
+  // Only outbound branches bounce. A returning branch heads for HEAD, which may sit at the edge.
   const { width: w, height: h } = state;
-  if ((b.x < EDGE && b.vx < 0) || (b.x > w - EDGE && b.vx > 0)) b.vx *= -1;
-  if ((b.y < EDGE && b.vy < 0) || (b.y > h - EDGE && b.vy > 0)) b.vy *= -1;
+  if (b.state === 'out') {
+    if ((b.x < EDGE && b.vx < 0) || (b.x > w - EDGE && b.vx > 0)) b.vx *= -1;
+    if ((b.y < EDGE && b.vy < 0) || (b.y > h - EDGE && b.vy > 0)) b.vy *= -1;
+  }
   const ox = b.x;
   const oy = b.y;
   b.x += b.vx * dt;
@@ -310,8 +313,10 @@ export function stepGitGraph(state, dt, pointer) {
       });
     }
     maybeFork(state, pointer);
+    // Under reduced motion the graph moves only while the visitor does.
+    const frozen = state.reducedMotion && !pointer.active;
     for (const b of state.branches) {
-      if (b.state !== 'merged') moveBranch(state, b, step);
+      if (b.state !== 'merged' && !frozen) moveBranch(state, b, step);
     }
   }
 

@@ -10,6 +10,8 @@
   padding: 1.5rem;
   box-sizing: border-box;
   background-color: transparent;
+  // A drag draws the graph, so the browser must not claim it for panning. Pinch zoom stays.
+  touch-action: pinch-zoom;
 
   .heading {
     margin: 0 0 0.2em;

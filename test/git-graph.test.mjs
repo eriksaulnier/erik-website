@@ -166,3 +166,32 @@ test('a click commit adds a big commit and a message floater', () => {
   assert.equal(g.main.commits.at(-1).big, true);
   assert.match(g.floaters[0].text, /^[0-9a-f]{7} {2}\S/);
 });
+
+test('reduced motion: branches hold still once the pointer stops', () => {
+  const g = createGitGraph({
+    width: 800,
+    height: 600,
+    random: seeded(12),
+    reducedMotion: true,
+  });
+  stepGitGraph(g, FRAME, atHead(g, 2500));
+  assert.equal(g.branches.length, 1);
+  const before = { x: g.branches[0].x, y: g.branches[0].y };
+  run(g, 1);
+  const b = g.branches[0];
+  assert.ok(Math.hypot(b.x - before.x, b.y - before.y) < 1, 'branch moved');
+});
+
+test('branches still merge when HEAD rests at an edge', () => {
+  const g = createGitGraph({ width: 800, height: 600, random: seeded(1) });
+  const edge = (vx = 0) => ({ x: 2, y: 300, vx, vy: 0, active: true });
+  run(g, 1, edge());
+  stepGitGraph(g, FRAME, edge(2500));
+  assert.equal(g.branches.length, 1);
+  let merged = false;
+  for (let i = 0; i < 6 * 60 && !merged; i++) {
+    stepGitGraph(g, FRAME, edge());
+    merged = g.branches[0].state === 'merged';
+  }
+  assert.ok(merged, 'the branch never merged into HEAD at the edge');
+});
