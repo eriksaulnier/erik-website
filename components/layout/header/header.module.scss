@@ -11,7 +11,7 @@ $highlight-color: $primary;
   color: $light-2;
 
   .container {
-    max-width: 1300px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
@@ -156,6 +156,11 @@ $highlight-color: $primary;
       background-color: $highlight-color;
       box-shadow: $box-shadow-1;
     }
+  }
+
+  @include tablet-up {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 
   @include mobile-up {
