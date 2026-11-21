@@ -177,7 +177,7 @@ ul {
   white-space: normal;
 }
 
-@include mobile-up {
+@media (min-width: 37.5em) {
   body {
     overflow: auto !important; // override mobile animations
   }

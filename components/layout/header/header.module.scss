@@ -163,7 +163,7 @@ $highlight-color: $primary;
     padding-right: 2.5rem;
   }
 
-  @include mobile-up {
+  @media (min-width: 37.5em) {
     .navigation {
       .brand {
         margin-right: 2rem;
