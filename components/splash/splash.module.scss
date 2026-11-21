@@ -9,7 +9,7 @@
   width: 100%;
   padding: 1.5rem;
   box-sizing: border-box;
-  background-color: $primary-dark;
+  background-color: transparent;
 
   .heading {
     margin: 0 0 0.2em;
@@ -47,6 +47,9 @@
     margin: 0 auto;
     justify-content: center;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
   }
 
   .background {
@@ -55,6 +58,9 @@
     bottom: 0;
     left: 0;
     right: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   @include mobile-up {
