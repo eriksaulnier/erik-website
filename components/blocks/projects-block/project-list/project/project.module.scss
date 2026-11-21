@@ -102,7 +102,7 @@
 
     .content {
       text-align: left;
-      grid-area: 2 / 1 / -1 / 9;
+      grid-area: 2 / 1 / -1 / 8;
     }
 
     &:nth-child(even) {
@@ -117,7 +117,7 @@
 
       .content {
         text-align: right;
-        grid-area: 2 / 5 / -1 / -1;
+        grid-area: 2 / 6 / -1 / -1;
 
         .stack {
           justify-content: flex-end;
