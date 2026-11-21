@@ -13,6 +13,7 @@ const MAIN_COMMIT_SPACING = 90;
 const FLOATER_MS = 2200;
 const GHOST_SPEED = 120;
 const GHOST_MARGIN = 90;
+const AVOID_PAD = 40;
 const FLICK_SPEED = 1800;
 const FORK_GAP_MS = 450;
 const IDLE_FORK_GAP_MS = 2600;
@@ -73,6 +74,7 @@ export function createGitGraph({
     branches: [],
     floaters: [],
     lastFork: Number.NEGATIVE_INFINITY,
+    avoid: null,
     colorIndex: 0,
   };
 }
@@ -89,6 +91,10 @@ export function resizeGitGraph(state, width, height) {
   clampInto(state.head, width, height);
   if (state.ghost) clampInto(state.ghost, width, height);
   for (const b of state.branches) clampInto(b, width, height);
+}
+
+export function setAvoidRect(state, rect) {
+  state.avoid = rect;
 }
 
 const pick = (random, list) => list[Math.floor(random() * list.length)];
@@ -248,19 +254,31 @@ function wander(state, dt) {
   }
   const g = state.ghost;
   g.ang += Math.sin(state.time / 1100 + g.seed) * 0.9 * dt;
-  const { width: w, height: h } = state;
+  const { width: w, height: h, avoid: a } = state;
+  const turnToward = (target, rate) => {
+    const diff = Math.atan2(Math.sin(target - g.ang), Math.cos(target - g.ang));
+    g.ang += diff * Math.min(1, dt * rate);
+  };
+  // With a heading to avoid, "home" is the middle of the free area on the ghost's side of it,
+  // so the edge rule never steers the ghost back into the heading.
+  const above = a && g.y < a.y + a.h / 2;
+  const homeY = !a ? h / 2 : above ? a.y / 2 : (a.y + a.h + h) / 2;
   if (
     g.x < GHOST_MARGIN ||
     g.x > w - GHOST_MARGIN ||
     g.y < GHOST_MARGIN ||
     g.y > h - GHOST_MARGIN
   ) {
-    const toCenter = Math.atan2(h / 2 - g.y, w / 2 - g.x);
-    const diff = Math.atan2(
-      Math.sin(toCenter - g.ang),
-      Math.cos(toCenter - g.ang),
-    );
-    g.ang += diff * Math.min(1, dt * 1.6);
+    turnToward(Math.atan2(homeY - g.y, w / 2 - g.x), 1.6);
+  }
+  if (
+    a &&
+    g.x > a.x - AVOID_PAD &&
+    g.x < a.x + a.w + AVOID_PAD &&
+    g.y > a.y - AVOID_PAD &&
+    g.y < a.y + a.h + AVOID_PAD
+  ) {
+    turnToward(above ? -Math.PI / 2 : Math.PI / 2, 4);
   }
   g.x += Math.cos(g.ang) * GHOST_SPEED * dt;
   g.y += Math.sin(g.ang) * GHOST_SPEED * dt;

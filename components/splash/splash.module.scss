@@ -10,8 +10,8 @@
   padding: 1.5rem;
   box-sizing: border-box;
   background-color: transparent;
-  // Horizontal drags draw the graph. A vertical swipe still scrolls, so the footer stays reachable.
-  touch-action: pan-y pinch-zoom;
+  // Any drag draws the graph. The homepage does not scroll, because the layout uses 100svh.
+  touch-action: none;
 
   .heading {
     margin: 0 0 0.2em;

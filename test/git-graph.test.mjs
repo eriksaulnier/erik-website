@@ -7,6 +7,7 @@ import {
   LIFE_MS,
   MAX_LIVE,
   resizeGitGraph,
+  setAvoidRect,
   stepGitGraph,
 } from '../components/splash/git-graph.mjs';
 
@@ -194,4 +195,25 @@ test('branches still merge when HEAD rests at an edge', () => {
     merged = g.branches[0].state === 'merged';
   }
   assert.ok(merged, 'the branch never merged into HEAD at the edge');
+});
+
+test('the idle wanderer stays clear of the heading', () => {
+  const g = createGitGraph({ width: 358, height: 709, random: seeded(14) });
+  const band = { x: 24, y: 311, w: 310, h: 100 };
+  setAvoidRect(g, band);
+  const inBand = (p) =>
+    p.x >= band.x &&
+    p.x <= band.x + band.w &&
+    p.y >= band.y &&
+    p.y <= band.y + band.h;
+  let inside = 0;
+  const frames = 30 * 60;
+  for (let i = 0; i < frames; i++) {
+    stepGitGraph(g, FRAME, idle);
+    if (inBand(g.ghost)) inside++;
+  }
+  assert.ok(
+    inside / frames < 0.1,
+    `ghost spent ${inside} of ${frames} frames in the band`,
+  );
 });

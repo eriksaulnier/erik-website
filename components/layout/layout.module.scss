@@ -3,6 +3,8 @@
 
 .layout {
   min-height: 100vh;
+  // 100vh is the large viewport on phones, which pushes the footer under the browser toolbar.
+  min-height: 100svh;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;

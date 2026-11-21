@@ -5,6 +5,7 @@ import {
   LIFE_MS,
   MAX_DT,
   resizeGitGraph,
+  setAvoidRect,
   stepGitGraph,
 } from './git-graph.mjs';
 import styles from './splash.module.scss';
@@ -13,6 +14,7 @@ const BG = '#1e2021';
 const MONO = 'ui-monospace, SFMono-Regular, Menlo, monospace';
 const ACTIVE_MS = 2500;
 const TAP_SLOP = 6;
+const NARROW = 600;
 
 export default function GitGraph({ clearRefs }) {
   const canvasRef = useRef(null);
@@ -25,6 +27,8 @@ export default function GitGraph({ clearRefs }) {
     const card = canvas.parentElement;
     const ctx = canvas.getContext('2d');
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    // Without hover the graph is idle most of the time, so it must not sit at half strength.
+    const touchQuery = window.matchMedia('(hover: none)');
     let dpr = 1;
     const state = createGitGraph({
       width: card.clientWidth,
@@ -68,8 +72,21 @@ export default function GitGraph({ clearRefs }) {
       inside = isInside;
       if (isInside) lastMove = now;
     };
+    // A touch has no hover moves, so the press itself moves the pointer. Starting from the last
+    // touch position would read as a huge flick and fork a branch on every new touch.
     const onDown = (e) => {
-      press = local(e);
+      const { x, y } = local(e);
+      press = { x, y };
+      pointer.x = x;
+      pointer.y = y;
+      pointer.vx = 0;
+      pointer.vy = 0;
+      lastEvent = performance.now();
+      lastMove = lastEvent;
+      inside = true;
+    };
+    const onCancel = () => {
+      press = null;
     };
     const onUp = (e) => {
       const { x, y } = local(e);
@@ -95,10 +112,13 @@ export default function GitGraph({ clearRefs }) {
       pointer.vx *= decay;
       pointer.vy *= decay;
       pointer.active = inside && performance.now() - lastMove < ACTIVE_MS;
+      const heading = unionRect(cardRects(card, clearRefsRef.current));
+      setAvoidRect(state, heading);
       stepGitGraph(state, dt, pointer);
       drawGitGraph(ctx, state, {
         dpr,
-        clearRects: cardRects(card, clearRefsRef.current),
+        heading,
+        idleFloor: touchQuery.matches ? 0.8 : 0.5,
       });
       frame = requestAnimationFrame(loop);
     };
@@ -107,6 +127,7 @@ export default function GitGraph({ clearRefs }) {
     window.addEventListener('pointermove', onMove);
     card.addEventListener('pointerdown', onDown);
     card.addEventListener('pointerup', onUp);
+    card.addEventListener('pointercancel', onCancel);
     motionQuery.addEventListener('change', onMotionChange);
     document.addEventListener('visibilitychange', onVisibility);
     return () => {
@@ -115,6 +136,7 @@ export default function GitGraph({ clearRefs }) {
       window.removeEventListener('pointermove', onMove);
       card.removeEventListener('pointerdown', onDown);
       card.removeEventListener('pointerup', onUp);
+      card.removeEventListener('pointercancel', onCancel);
       motionQuery.removeEventListener('change', onMotionChange);
       document.removeEventListener('visibilitychange', onVisibility);
     };
@@ -141,9 +163,24 @@ function cardRects(card, refs) {
     }));
 }
 
-function drawGitGraph(ctx, state, { dpr, clearRects }) {
-  const { time, main, branches, floaters } = state;
-  const soft = 0.5 + 0.5 * state.activity;
+function unionRect(rects) {
+  if (!rects.length) return null;
+  const x = Math.min(...rects.map((r) => r.x));
+  const y = Math.min(...rects.map((r) => r.y));
+  const w = Math.max(...rects.map((r) => r.x + r.w)) - x;
+  const h = Math.max(...rects.map((r) => r.y + r.h)) - y;
+  return { x, y, w, h };
+}
+
+// Keeps a label inside the card, so names near the right edge are not cut off.
+function fitText(ctx, text, x, y, width) {
+  const max = width - ctx.measureText(text).width - 4;
+  ctx.fillText(text, Math.max(4, Math.min(x, max)), y);
+}
+
+function drawGitGraph(ctx, state, { dpr, heading, idleFloor }) {
+  const { time, main, branches, floaters, width } = state;
+  const soft = idleFloor + (1 - idleFloor) * state.activity;
   const fade = (t) => Math.max(0, 1 - (time - t) / LIFE_MS) ** 0.6;
 
   ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -153,10 +190,12 @@ function drawGitGraph(ctx, state, { dpr, clearRects }) {
   for (const b of branches) drawPath(ctx, b.pts, b.color, fade, soft);
   drawPath(ctx, main.pts, main.color, fade, soft);
   for (const b of branches) {
-    for (const c of b.commits) drawCommit(ctx, c, b.color, fade, soft, time);
+    for (const c of b.commits) {
+      drawCommit(ctx, c, b.color, fade, soft, time, width);
+    }
   }
   for (const c of main.commits) {
-    drawCommit(ctx, c, main.color, fade, soft, time, true);
+    drawCommit(ctx, c, main.color, fade, soft, time, width, true);
   }
 
   ctx.font = `11px ${MONO}`;
@@ -168,7 +207,7 @@ function drawGitGraph(ctx, state, { dpr, clearRects }) {
     ctx.arc(b.x, b.y, 3, 0, Math.PI * 2);
     ctx.fill();
     ctx.globalAlpha = 0.7 * soft;
-    ctx.fillText(b.name, b.x + 9, b.y - 9);
+    fitText(ctx, b.name, b.x + 9, b.y - 9, width);
   }
   const { head } = state;
   ctx.globalAlpha = soft;
@@ -182,7 +221,7 @@ function drawGitGraph(ctx, state, { dpr, clearRects }) {
   ctx.fill();
   ctx.globalAlpha = 0.55 * soft;
   ctx.fillStyle = '#fff';
-  ctx.fillText('HEAD -> main', head.x + 12, head.y + 20);
+  fitText(ctx, 'HEAD -> main', head.x + 12, head.y + 20, width);
 
   ctx.font = `12px ${MONO}`;
   for (const f of floaters) {
@@ -190,11 +229,11 @@ function drawGitGraph(ctx, state, { dpr, clearRects }) {
     ctx.globalAlpha =
       Math.min(1, (2.2 - age) / 0.7) * Math.min(1, age * 6) * 0.85 * soft;
     ctx.fillStyle = f.color;
-    ctx.fillText(f.text, f.x, f.y - age * 18);
+    fitText(ctx, f.text, f.x, f.y - age * 18, width);
   }
   ctx.globalAlpha = 1;
 
-  if (clearRects.length) clearZone(ctx, clearRects);
+  if (heading) clearZone(ctx, heading, width < NARROW);
 }
 
 // Quadratic curves through the midpoints, so the sampled trail reads as one smooth stroke.
@@ -227,7 +266,7 @@ function drawPath(ctx, pts, color, fade, soft) {
   ctx.globalAlpha = 1;
 }
 
-function drawCommit(ctx, c, color, fade, soft, time, withHash = false) {
+function drawCommit(ctx, c, color, fade, soft, time, width, withHash = false) {
   const alpha = fade(c.t) * 0.85 * soft;
   if (alpha <= 0) return;
   ctx.globalAlpha = alpha;
@@ -243,24 +282,21 @@ function drawCommit(ctx, c, color, fade, soft, time, withHash = false) {
     ctx.globalAlpha = alpha * 0.5 * (1 - age / 2);
     ctx.fillStyle = '#fff';
     ctx.font = `10px ${MONO}`;
-    ctx.fillText(c.hash, c.x + 9, c.y + 4);
+    fitText(ctx, c.hash, c.x + 9, c.y + 4, width);
   }
   ctx.globalAlpha = 1;
 }
 
-// A soft elliptical hole behind the heading, so the graph never fights the text.
-function clearZone(ctx, rects) {
-  const x = Math.min(...rects.map((r) => r.x));
-  const y = Math.min(...rects.map((r) => r.y));
-  const w = Math.max(...rects.map((r) => r.x + r.w)) - x;
-  const h = Math.max(...rects.map((r) => r.y + r.h)) - y;
+// A soft elliptical hole behind the heading, so the graph never fights the text. On a narrow
+// card the heading spans the full width, so the hole is tighter and lighter or it erases the band.
+function clearZone(ctx, { x, y, w, h }, narrow) {
   ctx.save();
   ctx.globalCompositeOperation = 'destination-out';
   ctx.translate(x + w / 2, y + h / 2);
-  ctx.scale(w / 2 + 70, h / 2 + 60);
+  ctx.scale(w / 2 + (narrow ? 24 : 70), h / 2 + (narrow ? 36 : 60));
   const g = ctx.createRadialGradient(0, 0, 0, 0, 0, 1);
-  g.addColorStop(0, 'rgba(0,0,0,0.85)');
-  g.addColorStop(0.7, 'rgba(0,0,0,0.75)');
+  g.addColorStop(0, `rgba(0,0,0,${narrow ? 0.7 : 0.85})`);
+  g.addColorStop(0.7, `rgba(0,0,0,${narrow ? 0.6 : 0.75})`);
   g.addColorStop(1, 'rgba(0,0,0,0)');
   ctx.fillStyle = g;
   ctx.fillRect(-1, -1, 2, 2);
