@@ -1,7 +1,11 @@
 @import './variables';
 @import './mixins';
 
-.contentBlock {  
+.contentBlock {
+  .content p {
+    max-width: 65ch;
+  }
+
   .asideImage {
     display: block;
     max-width: 80%;
