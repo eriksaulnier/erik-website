@@ -11,7 +11,7 @@
 
     .title {
       margin: 0 0 0.8rem 0;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 600;
       color: $light-2;
     }
@@ -43,7 +43,7 @@
       margin: 0;
       padding: 0.8rem 1.1rem;
       color: $light-2;
-      border-radius: 3px;
+      border-radius: 0.5rem;
       background-color: $dark-3;
       overflow: hidden;
       box-shadow: $box-shadow-1;
@@ -102,7 +102,7 @@
 
     .content {
       text-align: left;
-      grid-area: 2 / 1 / -1 / 9;
+      grid-area: 2 / 1 / -1 / 8;
     }
 
     &:nth-child(even) {
@@ -117,7 +117,7 @@
 
       .content {
         text-align: right;
-        grid-area: 2 / 5 / -1 / -1;
+        grid-area: 2 / 6 / -1 / -1;
 
         .stack {
           justify-content: flex-end;

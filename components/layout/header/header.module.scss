@@ -11,7 +11,7 @@ $highlight-color: $primary;
   color: $light-2;
 
   .container {
-    max-width: 1300px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
@@ -51,7 +51,8 @@ $highlight-color: $primary;
     .menuToggle {
       display: block;
       z-index: 6;
-      margin-top: 4px;
+      padding: 10px;
+      margin: -6px -10px -10px 0;
       align-self: center;
 
       &:after {
@@ -158,6 +159,11 @@ $highlight-color: $primary;
   }
 
   @include tablet-up {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  @media (min-width: 37.5em) {
     .navigation {
       .brand {
         margin-right: 2rem;

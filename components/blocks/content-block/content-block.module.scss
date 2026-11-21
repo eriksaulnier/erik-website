@@ -1,7 +1,15 @@
 @import './variables';
 @import './mixins';
 
-.contentBlock {  
+.contentBlock {
+  .content p {
+    max-width: 62ch;
+  }
+
+  .content li {
+    line-height: 1.6;
+  }
+
   .asideImage {
     display: block;
     max-width: 80%;
@@ -18,7 +26,7 @@
 
   @include mobile-up {
     .asideImage {
-      max-width: 60%;
+      max-width: 40%;
     }
   }
 
@@ -34,6 +42,7 @@
       width: 30%;
       flex: 1;
       margin-left: 4rem;
+      margin-bottom: 0;
     }
   }
 }
