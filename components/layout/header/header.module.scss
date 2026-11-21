@@ -51,7 +51,8 @@ $highlight-color: $primary;
     .menuToggle {
       display: block;
       z-index: 6;
-      margin-top: 4px;
+      padding: 10px;
+      margin: -6px -10px -10px 0;
       align-self: center;
 
       &:after {
