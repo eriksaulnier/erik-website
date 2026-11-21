@@ -33,12 +33,11 @@ export default function Splash({
                   variants={{
                     initial: { opacity: 0, y: 15, scaleX: 0.8 },
                     enter: { opacity: 1, y: 0, scaleX: 1 },
-                    // hover: { y: -5, scaleX: 0.9 }
                   }}
-                  // whileHover="hover"
                   transition={{
                     type: 'spring',
                     stiffness: 300,
+                    damping: 26,
                   }}
                 >
                   {char}
@@ -59,6 +58,7 @@ export default function Splash({
             delay: subheadingDelay,
             type: 'spring',
             stiffness: 300,
+            damping: 26,
           }}
         >
           {subheading.split('||')[0]}
